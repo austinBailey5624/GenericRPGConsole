@@ -7,7 +7,13 @@ public class Actor
 	private int m_curHp;//current Hit Points
 	private int m_atk;
 	private int m_def;
-	
+	private Inventory m_inventory;
+	private Item m_equippedSword;
+	private Item m_equippedShield;
+	private Item m_equippedArmor;
+	private Item m_equippedHelmet;
+	private Item m_equippedBoots;
+	private Item m_equippedGauntlets;
 	
 	//Constructors
 	public Actor()//default constructor
@@ -52,7 +58,14 @@ public class Actor
 	{
 		m_def=Def;
 	}
-
+	public Inventory getInventory()
+	{
+		return m_inventory;
+	}
+	public void setInventory(Inventory inventory)
+	{
+		m_inventory=inventory;
+	}
 	
 	//Battle Methods
 	public boolean reduceHp(int damage)//returns bool if fatal
