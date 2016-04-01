@@ -25,7 +25,11 @@ public class Item extends Actor {
         m_name = "";
         m_used = false;
         m_limit = 0;
+<<<<<<< HEAD
 //        m_id = 0;
+=======
+        m_id = 0;
+>>>>>>> 78ada2843306dfc45ca30581a827787861055181
         if(typeOfItem == 0)
         {
             m_type = 0;
@@ -131,7 +135,11 @@ public class Item extends Actor {
      * @param pa - the player actor using the item
      * @param isUsed - if the item is equiped or not
      */
+<<<<<<< HEAD
     public void ability(Item i, Actor pa, boolean isUsed)
+=======
+    public void ability(Item i, PlayerActor pa, boolean isUsed)
+>>>>>>> 78ada2843306dfc45ca30581a827787861055181
     {
         if(i.getType() == 0)
         {
@@ -202,3 +210,4 @@ public class Item extends Actor {
 
 
 }
+

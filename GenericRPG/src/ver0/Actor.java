@@ -22,6 +22,11 @@ public class Actor
 		m_curHp=100;
 		m_atk=10;
 		m_def=10;
+		m_equippedSword=null;
+		m_equippedShield=null;
+		m_equippedHelmet=null;
+		m_equippedBoots=null;
+		m_equippedGauntlets=null;
 	}
 	
 	
@@ -83,5 +88,17 @@ public class Actor
 	public boolean basicAttack(Actor opponent)
 	{
 		return opponent.reduceHp(this.getAtk());
+	}
+	
+	//getters and setters for battle that have the alteration from the items in addition to the basics
+	public int getAttackFighter()
+	{
+//		return getAtk()+m_equippedSword.getBonusAttack()+m_equippedShield.getBonusAttack()+m_equippedHelmet.getBonusAttack()+m_equippedBoots.getBonusAttack() + m_equippedGauntlets.getBonusAttack();		
+	return 0;//used because getBonusAttack has yet to be written
+	}
+	public int getDefenseFighter()
+	{
+//		return getDef()+m_equippedSword.getBonusDefense()+m_equippedShield.getBonusDefense()+m_equippedHelmet.getBonusDefense()+m_equippedBoots.getBonusDefense()+m_equippedGauntlets.getBonusAttack();
+		return 0;//used because getBonusDefense has yet to be written
 	}
 }

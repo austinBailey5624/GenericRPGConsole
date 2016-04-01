@@ -1,5 +1,6 @@
 package ver0;
 
-public class World {
+public class World 
+{
 
 }
