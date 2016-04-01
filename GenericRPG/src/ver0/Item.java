@@ -6,12 +6,22 @@ package ver0;
  * @author Michael Wang
  * Created by Michael on 3/26/2016.
  */
-public class Item extends Actor {
+
+import java.Actor.java;
+
+public class Item{
+	import java.Actor.java;
     private int m_type;
     private int m_limit;
+    private int m_id;
+    private int m_bonusDef;
+    private int m_bonusAtk;
+    private int m_bonusHp;
+    
     private String m_name;
     private boolean m_used;
-
+    
+    private const m_numTypesOfItem = 0;
 
     /**
      * This function is the constructor for the different items
@@ -22,10 +32,17 @@ public class Item extends Actor {
      */
     public Item(int typeOfItem)
     {
-        m_name = "";
-        m_used = false;
         m_limit = 0;
         m_id = 0;
+        m_bonusDef = 0;
+        m_bonusAtk = 0;
+        m_bonusHp = 0;
+        
+        const m_numTypesOfItem = 0;
+        
+        m_name = "";
+        m_used = false;
+        
         if(typeOfItem == 0)
         {
             m_type = 0;
@@ -37,42 +54,63 @@ public class Item extends Actor {
             m_type = 1;
             m_name = "sword";
             m_limit = 1;
+            m_bonusDef = 0;
+            m_bonusAtk = 5;
+            m_bonusHp = 0;
         }
         else if(typeOfItem == 2)
         {
             m_type = 2;
             m_name = "shield";
             m_limit = 1;
+            m_bonusDef = 5;
+            m_bonusAtk = 0;
+            m_bonusHp = 0;
         }
         else if(typeOfItem == 3)
         {
             m_type = 3;
             m_name = "armor";
             m_limit = 1;
+            m_bonusDef = 10;
+            m_bonusAtk = 0;
+            m_bonusHp = 0;
         }
         else if(typeOfItem == 4)
         {
             m_type = 4;
             m_name = "helmet";
             m_limit = 1;
+            m_bonusDef = 7;
+            m_bonusAtk = 0;
+            m_bonusHp = 0;
         }
         else if(typeOfItem == 5)
         {
             m_type = 5;
             m_name = "gauntlet";
             m_limit = 1;
+            m_bonusDef = 3;
+            m_bonusAtk = 0;
+            m_bonusHp = 0;
         }
         else if(typeOfItem == 6)
         {
             m_type = 6;
             m_name = "boots";
             m_limit = 1;
+            m_bonusDef = 3;
+            m_bonusAtk = 0;
+            m_bonusHp = 0;
         }
         else if(typeOfItem == 7)
         {
             m_type = 7;
             m_name = "hPotion";
             m_limit = 5;
+            m_bonusDef = 0;
+            m_bonusAtk = 0;
+            m_bonusHp = 50;
         }
     }
 
@@ -87,6 +125,28 @@ public class Item extends Actor {
         return m_type;
     }
 
+    /**
+     * This function returns the value of m_type
+     * pre - none
+     * post - none
+     * @return m_limit
+     */
+    public int getLimit()
+    {
+        return m_limit;
+    }
+    
+    /**
+     * This function returns the value of m_type
+     * pre - none
+     * post - none
+     * @return m_id
+     */
+    public int getId()
+    {
+        return m_id;
+    }
+    
     /**
      *This function returns the value of m_name
      * pre - none
@@ -123,83 +183,59 @@ public class Item extends Actor {
     }
 
     /**
-     *This function gives stats based off the type of the weapon and if it is equipped or not
-     * pre - needs the parameters down below
-     * post - gives a stat boost if the conditions are met
-     * return - none
-     * @param i - the item being used
-     * @param pa - the player actor using the item
-     * @param isUsed - if the item is equiped or not
+     *This function returns the value of m_used
+     * pre - none
+     * post - none
+     * @return m_bonusDef
      */
-    public void ability(Item i, PlayerActor pa, boolean isUsed)
+    public int getBonusDef()
     {
-        if(i.getType() == 0)
-        {
-            i.setUsed(isUsed);
-            if(i.getUsed())
-            {
-
-            }
-        }
-        else if(i.getType() == 1)
-        {
-            i.setUsed(isUsed);
-            if(i.getUsed())
-            {
-                pa.setAtk(pa.getAtk() + 5);
-            }
-        }
-        else if(i.getType() == 2)
-        {
-            i.setUsed(isUsed);
-            if(i.getUsed())
-            {
-                pa.setDef(pa.getDef() + 5);
-            }
-        }
-        else if(i.getType() == 3)
-        {
-            i.setUsed(isUsed);
-            if(i.getUsed())
-            {
-                pa.setDef(pa.getDef() + 10);
-            }
-        }
-        else if(i.getType() == 4)
-        {
-            i.setUsed(isUsed);
-            if(i.getUsed())
-            {
-                pa.setDef(pa.getDef() + 7);
-            }
-        }
-        else if(i.getType() == 5)
-        {
-            i.setUsed(isUsed);
-            if(i.getUsed())
-            {
-                pa.setDef(pa.getDef() + 3);
-            }
-        }
-        else if(i.getType() == 6)
-        {
-            i.setUsed(isUsed);
-            if(i.getUsed())
-            {
-                pa.setDef(pa.getDef() + 3);
-            }
-        }
-        else if(i.getType() == 7)
-        {
-            i.setUsed(isUsed);
-            if(i.getUsed())
-            {
-                pa.setCurHp(pa.getCurHp() + 5);
-            }
-        }
+    	return m_bonusDef;
     }
 
+    /**
+     *This function returns the value of m_used
+     * pre - none
+     * post - none
+     * @return m_bonusAtk
+     */
+    public int getBonusAtk()
+    {
+    	return m_bonusDef;
+    }
+    
+    /**
+     *This function returns the value of m_used
+     * pre - none
+     * post - none
+     * @return m_bonusHp
+     */
+    public int getBonusHp()
+    {
+    	return m_bonusHp;
+    }
 
-
+    /**
+     *This function returns the value of m_used
+     * pre - none
+     * post - none
+     * @return m_bonusHp
+     */
+    public int getNumTypesOfItem()
+    {
+    	return m_numTypesOfItem;
+    }
+    
+    /**
+     *This function sets the valus of m_used with a given value
+     * pre - needs the parameters down below
+     * post - sets m_used to the isUsed boolean given
+     * return - none
+     * @param isUsed - boolean that tells if the item is used or not
+     */
+    public void setNumTypesOfItem(int numTypesItem)
+    {
+    	m_numTypesOfItem = numTypesItem;
+    }
 }
 
