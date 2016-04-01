@@ -7,10 +7,10 @@ package ver0;
  * Created by Michael on 3/26/2016.
  */
 
-import java.Actor.java;
+//import java.Actor.java;
 
 public class Item{
-	import java.Actor.java;
+	//import java.Actor.java;
     private int m_type;
     private int m_limit;
     private int m_id;
@@ -18,10 +18,30 @@ public class Item{
     private int m_bonusAtk;
     private int m_bonusHp;
     
+    private static int m_numTypesOfItem;
+    
     private String m_name;
     private boolean m_used;
     
-    private const m_numTypesOfItem = 0;
+    /**
+     * This function returns an array of all the items.
+     * pre - none
+     * post - creates an array of all the items
+     * @return itemArray
+     */
+    public static Item[] getAllItem()
+    {
+    	Item[] itemArray = new Item[7];
+    	itemArray[0]= new Item(0);
+    	itemArray[1]= new Item(1);
+    	itemArray[2]= new Item(2);
+    	itemArray[3]= new Item(3);
+    	itemArray[4]= new Item(4);
+    	itemArray[5]= new Item(5);
+    	itemArray[6]= new Item(6);
+    	itemArray[7]= new Item(7);
+    	return itemArray;
+    }
 
     /**
      * This function is the constructor for the different items
@@ -38,7 +58,7 @@ public class Item{
         m_bonusAtk = 0;
         m_bonusHp = 0;
         
-        const m_numTypesOfItem = 0;
+        m_numTypesOfItem = 0;
         
         m_name = "";
         m_used = false;
@@ -201,7 +221,7 @@ public class Item{
      */
     public int getBonusAtk()
     {
-    	return m_bonusDef;
+    	return m_bonusAtk;
     }
     
     /**
@@ -238,3 +258,4 @@ public class Item{
     	m_numTypesOfItem = numTypesItem;
     }
 }
+
