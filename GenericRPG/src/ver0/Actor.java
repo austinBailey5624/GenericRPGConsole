@@ -14,7 +14,7 @@ public class Actor
 	private Item m_equippedHelmet;
 	private Item m_equippedBoots;
 	private Item m_equippedGauntlets;
-	private boolean[] m_skillSet;
+	protected boolean[] m_skillSet;
 	//Constructors
 	public Actor()//default constructor
 	{
@@ -114,6 +114,21 @@ public class Actor
 		else
 		{
 			System.out.println("Cannot equip that in the Sheild slot!");
+		}
+	}
+	public Item getEquippedArmor()
+	{
+		return m_equippedArmor;
+	}
+	public void EquipArmor(Item armor)
+	{
+		if(armor.getType()==3)
+		{
+			m_equippedArmor=armor;
+		}
+		else
+		{
+			System.out.println("Cannot equip that in the Armor Slot!");
 		}
 	}
 	public Item getEquippedHelmet()
