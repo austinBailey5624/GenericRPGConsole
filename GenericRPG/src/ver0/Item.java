@@ -475,4 +475,3 @@ public class Item{
     	return m_value;
     }
 }
-
