@@ -291,7 +291,7 @@ public class Item{
      * post - none
      * @return m_bonusHp
      */
-    public int getNumTypesOfItem()
+    public static int getNumTypesOfItem()
     {
     	return m_numTypesOfItem;
     }
