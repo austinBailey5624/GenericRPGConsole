@@ -143,11 +143,11 @@ public class Actor
 			System.out.println("Cannot equip that in the sword slot!");
 		}
 	}
-	public Item getEquippedSheild()
+	public Item getEquippedShield()
 	{
 		return m_equippedShield;
 	}
-	public void EquipSheild(Item shield)
+	public void EquipShield(Item shield)
 	{
 		if(shield.getType()==2)
 		{
