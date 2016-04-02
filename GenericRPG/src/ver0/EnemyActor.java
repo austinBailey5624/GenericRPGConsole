@@ -4,12 +4,12 @@ public class EnemyActor extends Actor
 {
 	//member variables
 	private int m_defeatExp;//This is the experience provided to the player character upon defeat
-	
-	static int m_numOfEnemies;
+	private int m_defeatGold;//This is the gold provided to the player character upon defeat
+	static int m_numOfEnemies;//This is the total number of enemies
 	public static EnemyActor[] getEnemies()
 	{
-		EnemyActor[] enemies = new EnemyActor[m_numOfEnemies];
-		for(int i=0; i<m_numOfEnemies;i++)
+		EnemyActor[] enemies = new EnemyActor[4];
+		for(int i=0; i<4;i++)
 		{
 			enemies[i]= new EnemyActor(i);
 		}
@@ -41,6 +41,8 @@ public class EnemyActor extends Actor
 			setDef(8);
 
 			m_skillSet[0]=true;
+			
+			m_defeatGold=10;
 		}
 		else if(index==1)
 		{
@@ -53,6 +55,8 @@ public class EnemyActor extends Actor
 			
 			m_skillSet[0]=true;
 			m_skillSet[1]=true;
+			
+			m_defeatGold=15;
 		}
 		else if(index==2)
 		{
@@ -65,6 +69,8 @@ public class EnemyActor extends Actor
 			
 			m_skillSet[0]=true;
 			m_skillSet[3]=true;
+			
+			m_defeatGold=20;
 		}
 		else if(index==3)
 		{
@@ -77,6 +83,8 @@ public class EnemyActor extends Actor
 			 
 			m_skillSet[0]=true;
 			m_skillSet[3]=true;
+			
+			m_defeatGold=30;
 		}
 		else if(index==4)
 		{
@@ -89,6 +97,8 @@ public class EnemyActor extends Actor
 			
 			m_skillSet[0]=true;
 			m_skillSet[1]=true;
+			
+			m_defeatGold=40;
 		}
 		m_numOfEnemies++;
 	}
@@ -100,5 +110,13 @@ public class EnemyActor extends Actor
 	public void setDefeatExp(int defeatExp)
 	{
 		m_defeatExp=defeatExp;
+	}
+	public int getDefeatGold()
+	{
+		return m_defeatGold;
+	}
+	public void setDefeatGold(int defeatGold)
+	{
+		m_defeatGold=defeatGold;
 	}
 }
