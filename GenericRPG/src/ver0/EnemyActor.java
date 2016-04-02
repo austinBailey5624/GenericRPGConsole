@@ -5,7 +5,7 @@ public class EnemyActor extends Actor
 	//member variables
 	private int m_defeatExp;//This is the experience provided to the player character upon defeat
 	private int m_defeatGold;//This is the gold provided to the player character upon defeat
-	static int m_numOfEnemies;//This is the total number of enemies
+	static int m_numOfEnemies=4;//This is the total number of enemies
 	public static EnemyActor[] getEnemies()
 	{
 		EnemyActor[] enemies = new EnemyActor[4];
@@ -100,7 +100,6 @@ public class EnemyActor extends Actor
 			
 			m_defeatGold=40;
 		}
-		m_numOfEnemies++;
 	}
 	//getters-setters
 	public int getDefeatExp()
