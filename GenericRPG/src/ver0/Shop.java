@@ -47,7 +47,6 @@ public class Shop
 		Item[] itemSet = Item.getAllItems();
 		int choice=1;
 		int index=0;
-		Item selectedItem;
 		for(int i=0; i<Item.getNumTypesOfItem();i++)
 		{
 			if(m_inventory[i]>0)
