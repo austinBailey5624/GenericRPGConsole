@@ -16,15 +16,6 @@ public class Battle
 	private int choice;
 	private boolean ranAway;
 	
-<<<<<<< HEAD
-=======
-	/*public static void main (String[] args)
-	{
-		Actor a1=new Actor();
-		Actor a2=new Actor();
-		actorBattle(a1,a2);
-	}*/
->>>>>>> e9761fa3eba4d33bd7f2c684f0d96c5ff363e1dc
 	public Battle()
 	{
 		myScanner=new Scanner(System.in);

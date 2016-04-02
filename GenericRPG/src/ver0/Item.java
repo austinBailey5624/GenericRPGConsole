@@ -30,12 +30,12 @@ public class Item{
      */
     public static Item[] getAllItems()
     {
-<<<<<<< HEAD
-    	Item[] itemArray = new Item[m_numTypesOfItem];
-=======
+
+    	//Item[] itemArray = new Item[m_numTypesOfItem];
+
     	Item[] itemArray = new Item[27];
 
->>>>>>> e9761fa3eba4d33bd7f2c684f0d96c5ff363e1dc
+
     	for(int i=0; i<itemArray.length; i++)//Hey, I thought this would ease the process for adding new items, should do it automatically
     	{
     		itemArray[i]=new Item(i);
@@ -58,12 +58,7 @@ public class Item{
         m_bonusAtk = 0;
         m_bonusHp = 0;
         m_value = 0;
-        
-<<<<<<< HEAD
-//        m_numTypesOfItem++;
-=======
-        //m_numTypesOfItem++;
->>>>>>> e9761fa3eba4d33bd7f2c684f0d96c5ff363e1dc
+       
         
         m_name = "";
         m_used = false;
@@ -339,11 +334,8 @@ public class Item{
             m_bonusHp = 150;
             m_value = 100;
         }
-<<<<<<< HEAD
-        
-=======
         m_id = typeOfItem;
->>>>>>> e9761fa3eba4d33bd7f2c684f0d96c5ff363e1dc
+
     }
 
     /**

@@ -5,12 +5,12 @@ public class EnemyActor extends Actor
 	//member variables
 	private int m_defeatExp;//This is the experience provided to the player character upon defeat
 	private int m_defeatGold;//This is the gold provided to the player character upon defeat
-<<<<<<< HEAD
-	static int m_numOfEnemies;//This is the total number of enemies
+
+	//static int m_numOfEnemies;//This is the total number of enemies
 	
-=======
+
 	static int m_numOfEnemies=4;//This is the total number of enemies
->>>>>>> e9761fa3eba4d33bd7f2c684f0d96c5ff363e1dc
+
 	public static EnemyActor[] getEnemies()
 	{
 		EnemyActor[] enemies = new EnemyActor[4];
@@ -31,7 +31,7 @@ public class EnemyActor extends Actor
 			m_skillSet[i]=false;
 		}
 		EquipSword(itemArray[8]);
-		EquipSheild(itemArray[9]);
+		EquipShield(itemArray[9]);
 		EquipArmor(itemArray[10]);
 		EquipHelmet(itemArray[11]);
 		EquipGauntlets(itemArray[12]);
