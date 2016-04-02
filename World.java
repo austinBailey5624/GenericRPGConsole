@@ -8,63 +8,48 @@
 
 import java.util.Scanner;
 
-public class World
+public class World implements Place
 {
   //dimension and coordinate constants
-  private final int worldXDim = 7; //max x-axis length
-  private final int worldYDim = 7; //max y-axis length
-  private final int startLocX = 0; //x-coordinate start location
-  private final int startLocY = 3; //y-coordinate start location
+  private int startLocX; //x-coordinate start location
+  private int startLocY; //y-coordinate start location
 
   //constant variables for easier code reading
   private final char town = 'T'; //character for tree
   private final char mountain = 'M'; //character for mountain
   private final char river = 'R'; //character for river
-  private final char path = 'P'; //character for path
-  private final char player = '@'; //chacter for the player
 
-  //direction constants
-  private final char up = 'w';
-  private final char down = 's';
-  private final char left = 'a';
-  private final char right = 'd';
-
-  //current location variables
-  private int curPosX = startLocX;
-  private int curPosY = startLocY;
+  //current location variable set
+  private int curPosX = 0;
+  private int curPosY = 0;
   private int prevPosX = 0;
   private int prevPosY = 0;
-  private boolean stillInWorld = true;
+  private boolean stillInArea = true;
 
-  //default map without player token
-  private final char[][] worldArrBase =
-  {{'F', 'F', 'M', 'M', 'M', 'M', 'M'},
-   {'F', 'F', 'M', 'M', 'P', 'P', 'T'},
-   {'F', 'F', 'F', 'F', 'P', 'F', 'F'},
-   {'P', 'P', 'P', 'P', 'P', 'F', 'F'},
-   {'F', 'F', 'F', 'F', 'P', 'F', 'F'},
-   {'F', 'F', 'F', 'F', 'P', 'P', 'T'},
-   {'F', 'F', 'F', 'F', 'F', 'F', 'F'}};
-
-   //current map with player token
-  private char[][] curWorldArr = new char[worldYDim][worldXDim];
+  //current map with player token
+  private char[][] worldArrBase = new char[areaYDim][areaXDim];
+  private char[][] curAreaArr = new char[areaYDim][areaXDim];
 
   /**
    * @param : (pre) None
-   * @param : (post) Creates a new object of type World
+   * @param : (post) Creates a new object of type World with set parameters
    * @return : None
    */
-  public World()
+  public World(int x, int y, char[][] worldBase)
   {
-    resetWorld();
+    startLocX = x;
+    startLocY = y;
     curPosX = startLocX;
     curPosY = startLocY;
-    curWorldArr[startLocY][startLocX] = player;
+
+    setBaseArea(worldBase);
+    resetArea();
+    curAreaArr[curPosY][curPosX] = player;
   }
 
-  public boolean inWorld()
+  public boolean inArea()
   {
-    return stillInWorld;
+    return stillInArea;
   }
 
   /**
@@ -72,30 +57,42 @@ public class World
    * @param : (post) Displays the current world map with player token
    * @return : None
    */
-  public void displayWorld()
+  public void displayArea()
   {
-    for (int i = 0; i < worldYDim; i++)
+    for (int i = 0; i < areaYDim; i++)
     {
-      System.out.println("\n");
-      for (int j = 0; j < worldXDim; j++)
+      System.out.print("\n");
+      for (int j = 0; j < areaXDim; j++)
       {
-        System.out.print(curWorldArr[i][j] + " ");
+        System.out.print(curAreaArr[i][j] + " ");
+      }
+    }
+    System.out.print("\n");
+  }
+
+  public void setBaseArea(char[][] area)
+  {
+    for (int i = 0; i < areaYDim; i++)
+    {
+      for (int j = 0; j < areaXDim; j++)
+      {
+        worldArrBase[i][j] = area[i][j];
       }
     }
   }
 
-  public void resetWorld()
+  public void resetArea()
   {
-    for (int i = 0; i < worldYDim; i++)
+    for (int i = 0; i < areaYDim; i++)
     {
-      for (int j = 0; j < worldXDim; j++)
+      for (int j = 0; j < areaXDim; j++)
       {
-        curWorldArr[i][j] = worldArrBase[i][j];
+        curAreaArr[i][j] = worldArrBase[i][j];
       }
     }
   }
 
-  public static boolean isNumeric(String str) //assisted code from StackOverflow, ---->
+  public boolean isNumeric(String str) //assisted code from StackOverflow, ---->
   //url: http://stackoverflow.com/questions/1102891/how-to-check-if-a-string-is-numeric-in-java
   {
     return str.matches("-?\\d+(\\.\\d+)?");
@@ -147,17 +144,17 @@ public class World
         tempY = curPosY;
         break;
     }
-    if(tempY < 0 || tempY > (worldYDim - 1))
+    if(tempY < 0 || tempY > (areaYDim - 1))
     {
       return false;
     }
-    else if(tempX < 0 || tempX > (worldXDim - 1))
+    else if(tempX < 0 || tempX > (areaXDim - 1))
     {
       return false;
     }
     else
     {
-      if(curWorldArr[tempY][tempX] == path)
+      if(curAreaArr[tempY][tempX] == path)
       {
         return true;
       }
@@ -192,7 +189,7 @@ public class World
     selDouble = Double.parseDouble(input); //safe parse
     selection = (int) selDouble; //set selection
 
-    stillInWorld = characterMove(selection); //store if still in world
+    stillInArea = characterMove(selection); //store if still in world
   }
 
   public boolean characterMove(int sel)
@@ -223,8 +220,8 @@ public class World
     curPosX = tempX;
     curPosY = tempY;
 
-    resetWorld();
-    curWorldArr[tempY][tempX] = player;
+    resetArea();
+    curAreaArr[tempY][tempX] = player;
     if (worldArrBase[tempY][tempX] == town)
     {
       return false;

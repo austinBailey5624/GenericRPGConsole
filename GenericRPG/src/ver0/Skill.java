@@ -8,7 +8,11 @@ public class Skill
 	private boolean m_targetsEnemy;
 	private int m_id;
 	private double m_accuracy;
+<<<<<<< HEAD
 	static int m_numOfSkills=8;
+=======
+	static int m_numOfSkills=9;
+>>>>>>> e9761fa3eba4d33bd7f2c684f0d96c5ff363e1dc
 
 	
 	public static int getNumOfSkillsTotal()
@@ -18,8 +22,8 @@ public class Skill
 	//Item creator
 	public static Skill[] getSkills()
 	{
-		Skill[] skillSet = new Skill[m_numOfSkills];
-		for(int i=0; i<m_numOfSkills; i++)
+		Skill[] skillSet = new Skill[8];
+		for(int i=0; i<skillSet.length; i++)
 		{
 			skillSet[i]=new Skill(i);
 		}
