@@ -1,6 +1,6 @@
 /**
  * @author : Will Teeple
- * @version : 1
+ * @version : 0.2
  * @since 03/30/2016
  * Description : Driver file to test the World Class
  */
@@ -10,15 +10,41 @@ import java.io.*;
 public class WorldDriver
 {
   public static void main(String[] args) {
+    //file names
     String worldMapFile = "worldLayout.txt";
-    char[][] worldMap = populateArea(worldMapFile);
-    World world = new World(0, 3, worldMap);
+    String villagevilleFile = "villageville.txt";
 
-    do
+    //create area arrays
+    char[][] worldMap = populateArea(worldMapFile);
+    char[][] villageville = populateArea(villagevilleFile);
+
+    //create area objects
+    World world = new World(0, 3, worldMap);
+    Town villagevilleTown = new Town(0, 3, villageville);
+
+    //town array coordinates (x,y)
+    int[] vvCoor = {6, 1};
+
+    while(true)
     {
-      world.displayArea();
-      world.menuInteraction();
-    } while(world.inArea());
+      //run world
+      do
+      {
+        world.displayArea();
+        world.menuInteraction();
+      } while(world.inArea());
+
+      if (world.getCurrentLoc()[0] == vvCoor[0] && world.getCurrentLoc()[1] == vvCoor[1])
+      {
+        do
+        {
+          villagevilleTown.displayArea();
+          villagevilleTown.menuInteraction();
+        } while (villagevilleTown.inArea());
+      }
+
+      world.setCurrentToPrevious();
+    }
   }
 
   public static char[][] populateArea(String fileName)
@@ -63,5 +89,10 @@ public class WorldDriver
     }
 
     return tempWorld;
+  }
+
+  public static void transition()
+  {
+
   }
 }
