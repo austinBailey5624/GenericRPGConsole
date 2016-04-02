@@ -33,7 +33,7 @@ public class Item{
 
     	//Item[] itemArray = new Item[m_numTypesOfItem];
 
-    	Item[] itemArray = new Item[27];
+    	Item[] itemArray = new Item[m_numTypesOfItem];
 
 
     	for(int i=0; i<itemArray.length; i++)//Hey, I thought this would ease the process for adding new items, should do it automatically
