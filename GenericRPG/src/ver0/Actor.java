@@ -113,10 +113,54 @@ public class Actor
 		}
 		else
 		{
-			System.out.println("Cannon equip that in the Sheild slot!");
+			System.out.println("Cannot equip that in the Sheild slot!");
 		}
 	}
-	//TODO write getters and setters for equipped items
+	public Item getEquippedHelmet()
+	{
+		return m_equippedHelmet;
+	}
+	public void EquipHelmet(Item helmet)
+	{
+		if(helmet.getType()==4)
+		{
+			m_equippedHelmet=helmet;
+		}
+		else
+		{
+			System.out.println("Cannot equip that in the Helmet slot!");
+		}
+	}
+	public Item getEquippedGauntlets()
+	{
+		return m_equippedGauntlets;
+	}
+	public void EquipGauntlets(Item gauntlets)
+	{
+		if(gauntlets.getType()==5)
+		{
+			m_equippedGauntlets=gauntlets;
+		}
+		else
+		{
+			System.out.println("Cannot equip that in the Gauntlet slot!");
+		}
+	}
+	public Item getEquippedBoots()
+	{
+		return m_equippedBoots;
+	}
+	public void EquipBoots(Item boots)
+	{
+		if(boots.getType()==6)
+		{
+			m_equippedBoots=boots;
+		}
+		else
+		{
+			System.out.println("Cannot equip that in the Boots slot!");
+		}
+	}
 	
 	//Battle Methods
 	public boolean reduceHp(int damage)//returns bool if fatal
