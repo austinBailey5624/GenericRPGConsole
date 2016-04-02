@@ -8,7 +8,7 @@ public class Skill
 	private boolean m_targetsEnemy;
 	private int m_id;
 	private double m_accuracy;
-	static int m_numOfSkills=0;
+	static int m_numOfSkills=9;
 
 	
 	public static int getNumOfSkillsTotal()
