@@ -7,10 +7,8 @@ package ver0;
  * Created by Michael on 3/26/2016.
  */
 
-//import java.Actor.java;
 
 public class Item{
-	//import java.Actor.java;
     private int m_type;
     private int m_limit;
     private int m_id;
@@ -18,7 +16,7 @@ public class Item{
     private int m_bonusAtk;
     private int m_bonusHp;
     
-    private static int m_numTypesOfItem;
+    private static int m_numTypesOfItem=0;
     
     private String m_name;
     private boolean m_used;
@@ -29,17 +27,21 @@ public class Item{
      * post - creates an array of all the items
      * @return itemArray
      */
-    public static Item[] getAllItem()
+    public static Item[] getAllItems()
     {
-    	Item[] itemArray = new Item[7];
-    	itemArray[0]= new Item(0);
-    	itemArray[1]= new Item(1);
-    	itemArray[2]= new Item(2);
-    	itemArray[3]= new Item(3);
-    	itemArray[4]= new Item(4);
-    	itemArray[5]= new Item(5);
-    	itemArray[6]= new Item(6);
-    	itemArray[7]= new Item(7);
+    	Item[] itemArray = new Item[m_numTypesOfItem];
+//    	itemArray[0]= new Item(0);
+//    	itemArray[1]= new Item(1);
+//    	itemArray[2]= new Item(2);
+//    	itemArray[3]= new Item(3);
+//    	itemArray[4]= new Item(4);
+//    	itemArray[5]= new Item(5);
+//    	itemArray[6]= new Item(6);
+//    	itemArray[7]= new Item(7);
+    	for(int i=0; i<m_numTypesOfItem; i++)//Hey, I thought this would ease the process for adding new items, should do it automatically
+    	{
+    		itemArray[i]=new Item(i);
+    	}
     	return itemArray;
     }
 
@@ -58,7 +60,7 @@ public class Item{
         m_bonusAtk = 0;
         m_bonusHp = 0;
         
-        m_numTypesOfItem = 0;
+        m_numTypesOfItem++;
         
         m_name = "";
         m_used = false;
@@ -131,6 +133,54 @@ public class Item{
             m_bonusDef = 0;
             m_bonusAtk = 0;
             m_bonusHp = 50;
+        }
+        else if(typeOfItem == 8)
+        {
+        	m_type = 1;
+        	m_name = "No Sword";
+        	m_bonusDef=0;
+        	m_bonusAtk=0;
+        	m_bonusHp=0;
+        }
+        else if(typeOfItem ==9)
+        {
+        	m_type = 2;
+        	m_name = "No Shield";
+        	m_bonusDef=0;
+        	m_bonusAtk=0;
+        	m_bonusHp=0;
+        }
+        else if(typeOfItem == 10)
+        {
+        	m_type = 3;
+        	m_name = "No Armor";
+        	m_bonusDef=0;
+        	m_bonusAtk=0;
+        	m_bonusHp=0;
+        }
+        else if(typeOfItem == 11)
+        {
+        	m_type = 4;
+        	m_name = "No Helmet";
+        	m_bonusDef=0;
+        	m_bonusAtk=0;
+        	m_bonusHp=0;
+        }
+        else if(typeOfItem == 12)
+        {
+        	m_type = 5;
+        	m_name ="Bare Hands";
+        	m_bonusDef=0;
+        	m_bonusAtk=0;
+        	m_bonusHp=0;
+        }
+        else if(typeOfItem==13)
+        {
+        	m_type=6;
+        	m_name="Bare Feet";
+        	m_bonusDef=0;
+        	m_bonusAtk=0;
+        	m_bonusHp=0;
         }
     }
 
