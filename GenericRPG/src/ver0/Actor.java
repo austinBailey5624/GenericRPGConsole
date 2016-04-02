@@ -240,12 +240,10 @@ public class Actor
 	//getters and setters for battle that have the alteration from the items in addition to the basics
 	public int getAttackFighter()
 	{
-//		return getAtk()+m_equippedSword.getBonusAttack()+m_equippedShield.getBonusAttack()+m_equippedHelmet.getBonusAttack()+m_equippedBoots.getBonusAttack() + m_equippedGauntlets.getBonusAttack();		
-	return 0;//used because getBonusAttack has yet to be written
+		return ((int)((getAtk()+m_equippedSword.getBonusAtk()+m_equippedShield.getBonusAtk()+m_equippedHelmet.getBonusAtk()+m_equippedBoots.getBonusAtk() + m_equippedGauntlets.getBonusAtk())*getAtkModifier()));		
 	}
 	public int getDefenseFighter()
 	{
-//		return getDef()+m_equippedSword.getBonusDefense()+m_equippedShield.getBonusDefense()+m_equippedHelmet.getBonusDefense()+m_equippedBoots.getBonusDefense()+m_equippedGauntlets.getBonusAttack();
-		return 0;//used because getBonusDefense has yet to be written
+		return ((int)((getDef()+m_equippedSword.getBonusDef()+m_equippedShield.getBonusDef()+m_equippedHelmet.getBonusDef()+m_equippedBoots.getBonusDef()+m_equippedGauntlets.getBonusDef())*getDefModifier()));
 	}
 }
