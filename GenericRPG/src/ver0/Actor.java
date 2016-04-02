@@ -7,7 +7,9 @@ public class Actor
 	private int m_maxHp;//max Hit Points
 	private int m_curHp;//current Hit Points
 	private int m_atk;
+	private double m_atkModifier;
 	private int m_def;
+	private double m_defModifier;
 	private Item m_equippedSword;
 	private Item m_equippedShield;
 	private Item m_equippedArmor;
@@ -22,7 +24,9 @@ public class Actor
 		m_maxHp=100;
 		m_curHp=100;
 		m_atk=10;
+		m_atkModifier=1;
 		m_def=10;
+		m_defModifier=1;
 		m_equippedSword=null;
 		m_equippedShield=null;
 		m_equippedHelmet=null;
@@ -78,6 +82,25 @@ public class Actor
 	{
 		m_atk=Atk;
 	}
+	public double getAtkModifier()
+	{
+		return m_atkModifier;
+	}
+	public void setAttackModifier(double AttackModifier)
+	{
+		if(AttackModifier>=5)
+		{
+			m_atkModifier=5;
+		}
+		else if(AttackModifier<0)
+		{
+			m_atkModifier=0;
+		}
+		else
+		{
+			m_atkModifier=AttackModifier;
+		}
+	}
 	public int getDef()
 	{
 		return m_def;
@@ -85,6 +108,25 @@ public class Actor
 	public void setDef(int Def)
 	{
 		m_def=Def;
+	}
+	public double getDefModifier()
+	{
+		return m_defModifier;
+	}
+	public void setDefenseModifier(double DefenseModifier)
+	{
+		if(DefenseModifier>=5)
+		{
+			m_defModifier=5;
+		}
+		else if(DefenseModifier<0)
+		{
+			m_defModifier=0;
+		}
+		else
+		{
+			m_defModifier=DefenseModifier;
+		}
 	}
 	public Item getEquippedSword()
 	{
