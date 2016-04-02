@@ -6,6 +6,7 @@ public class EnemyActor extends Actor
 	private int m_defeatExp;//This is the experience provided to the player character upon defeat
 	private int m_defeatGold;//This is the gold provided to the player character upon defeat
 	static int m_numOfEnemies;//This is the total number of enemies
+	
 	public static EnemyActor[] getEnemies()
 	{
 		EnemyActor[] enemies = new EnemyActor[4];
@@ -17,7 +18,7 @@ public class EnemyActor extends Actor
 	}
 	
 	//Constructor
-	EnemyActor(int index)
+	public EnemyActor(int index)
 	{
 		Item[] itemArray=Item.getAllItems();
 		m_skillSet=new boolean[Skill.getNumOfSkillsTotal()];
