@@ -139,7 +139,7 @@ public class Item{
         }
         else if(typeOfItem == 8)
         {
-        	m_type = 1;
+        	m_type = 8;
         	m_name = "No Sword";
         	m_bonusDef=0;
         	m_bonusAtk=0;
@@ -148,7 +148,7 @@ public class Item{
         }
         else if(typeOfItem ==9)
         {
-        	m_type = 2;
+        	m_type = 9;
         	m_name = "No Shield";
         	m_bonusDef=0;
         	m_bonusAtk=0;
@@ -157,7 +157,7 @@ public class Item{
         }
         else if(typeOfItem == 10)
         {
-        	m_type = 3;
+        	m_type = 10;
         	m_name = "No Armor";
         	m_bonusDef=0;
         	m_bonusAtk=0;
@@ -166,7 +166,7 @@ public class Item{
         }
         else if(typeOfItem == 11)
         {
-        	m_type = 4;
+        	m_type = 11;
         	m_name = "No Helmet";
         	m_bonusDef=0;
         	m_bonusAtk=0;
@@ -175,7 +175,7 @@ public class Item{
         }
         else if(typeOfItem == 12)
         {
-        	m_type = 5;
+        	m_type = 12;
         	m_name ="Bare Hands";
         	m_bonusDef=0;
         	m_bonusAtk=0;
@@ -184,7 +184,7 @@ public class Item{
         }
         else if(typeOfItem==13)
         {
-        	m_type=6;
+        	m_type=13;
         	m_name="Bare Feet";
         	m_bonusDef=0;
         	m_bonusAtk=0;
@@ -193,7 +193,7 @@ public class Item{
         }
         else if(typeOfItem == 14)
         {
-            m_type = 14;
+            m_type = 1;
             m_name = "iron sword";
             m_limit = 1;
             m_bonusDef = 0;
@@ -203,7 +203,7 @@ public class Item{
         }
         else if(typeOfItem == 15)
         {
-            m_type = 15;
+            m_type = 2;
             m_name = "iron shield";
             m_limit = 1;
             m_bonusDef = 10;
@@ -213,7 +213,7 @@ public class Item{
         }
         else if(typeOfItem == 16)
         {
-            m_type = 16;
+            m_type = 3;
             m_name = "iron armor";
             m_limit = 1;
             m_bonusDef = 15;
@@ -223,7 +223,7 @@ public class Item{
         }
         else if(typeOfItem == 17)
         {
-            m_type = 17;
+            m_type = 4;
             m_name = "iron helmet";
             m_limit = 1;
             m_bonusDef = 10;
@@ -233,7 +233,7 @@ public class Item{
         }
         else if(typeOfItem == 18)
         {
-            m_type = 18;
+            m_type = 5;
             m_name = "iron gauntlet";
             m_limit = 1;
             m_bonusDef = 5;
@@ -243,7 +243,7 @@ public class Item{
         }
         else if(typeOfItem == 19)
         {
-            m_type = 19;
+            m_type = 6;
             m_name = "iron boots";
             m_limit = 1;
             m_bonusDef = 5;
@@ -253,7 +253,7 @@ public class Item{
         }
         else if(typeOfItem == 20)
         {
-            m_type = 20;
+            m_type = 7;
             m_name = "advanced hPotion";
             m_limit = 5;
             m_bonusDef = 0;
@@ -263,7 +263,7 @@ public class Item{
         }
         else if(typeOfItem == 21)
         {
-            m_type = 21;
+            m_type = 1;
             m_name = "steel sword";
             m_limit = 1;
             m_bonusDef = 0;
@@ -273,7 +273,7 @@ public class Item{
         }
         else if(typeOfItem == 22)
         {
-            m_type = 22;
+            m_type = 2;
             m_name = "steel shield";
             m_limit = 1;
             m_bonusDef = 20;
@@ -283,7 +283,7 @@ public class Item{
         }
         else if(typeOfItem == 23)
         {
-            m_type = 23;
+            m_type = 3;
             m_name = "steel armor";
             m_limit = 1;
             m_bonusDef = 20;
@@ -293,7 +293,7 @@ public class Item{
         }
         else if(typeOfItem == 24)
         {
-            m_type = 25;
+            m_type = 4;
             m_name = "steel helmet";
             m_limit = 1;
             m_bonusDef = 15;
@@ -303,7 +303,7 @@ public class Item{
         }
         else if(typeOfItem == 26)
         {
-            m_type = 26;
+            m_type = 5;
             m_name = "steel gauntlet";
             m_limit = 1;
             m_bonusDef = 10;
@@ -313,7 +313,7 @@ public class Item{
         }
         else if(typeOfItem == 27)
         {
-            m_type = 27;
+            m_type = 6;
             m_name = "steel boots";
             m_limit = 1;
             m_bonusDef = 10;
@@ -323,7 +323,7 @@ public class Item{
         }
         else if(typeOfItem == 28)
         {
-            m_type = 28;
+            m_type = 7;
             m_name = "expert hPotion";
             m_limit = 5;
             m_bonusDef = 0;
@@ -331,6 +331,7 @@ public class Item{
             m_bonusHp = 150;
             m_value = 100;
         }
+        m_id = typeOfItem;
     }
 
     /**
