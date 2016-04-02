@@ -1,8 +1,8 @@
 /**
  * @author : Will Teeple
- * @version : 0.2
+ * @version : 0.3
  * @since 03/30/2016
- * Description : World class. This class stores the current map and contains
+ * Description : World class. This class stores the current world map and contains
  * the methods for manipulating and displaying the players position
  */
 
@@ -24,7 +24,7 @@ public class World implements Place
   private int curPosY = 0;
   private int prevPosX = 0;
   private int prevPosY = 0;
-  private boolean stillInArea = true;
+  private boolean stillInArea;
 
   //current map with player token
   private char[][] worldArrBase = new char[areaYDim][areaXDim];
@@ -79,6 +79,18 @@ public class World implements Place
         worldArrBase[i][j] = area[i][j];
       }
     }
+  }
+
+  public int[] getCurrentLoc()
+  {
+    int temp[] = {curPosX, curPosY};
+    return temp;
+  }
+
+  public void setCurrentToPrevious()
+  {
+    curPosX = prevPosX;
+    curPosY = prevPosY;
   }
 
   public void resetArea()
@@ -154,7 +166,7 @@ public class World implements Place
     }
     else
     {
-      if(curAreaArr[tempY][tempX] == path)
+      if(worldArrBase[tempY][tempX] == path || worldArrBase[tempY][tempX] == town)
       {
         return true;
       }
@@ -220,14 +232,14 @@ public class World implements Place
     curPosX = tempX;
     curPosY = tempY;
 
-    resetArea();
-    curAreaArr[tempY][tempX] = player;
     if (worldArrBase[tempY][tempX] == town)
     {
       return false;
     }
     else
     {
+      resetArea();
+      curAreaArr[tempY][tempX] = player;
       return true;
     }
   }
