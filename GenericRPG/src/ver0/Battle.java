@@ -9,12 +9,12 @@ public class Battle
 	Scanner myScanner;
 	int order;
 	
-	public static void main (String[] args)
+	/*public static void main (String[] args)
 	{
 		Actor a1=new Actor();
 		Actor a2=new Actor();
 		actorBattle(a1,a2);
-	}
+	}*/
 	public Battle()
 	{
 		
