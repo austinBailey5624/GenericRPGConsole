@@ -13,33 +13,33 @@ public class Skill
 	private double m_defenseModifier;
 	private double m_accuracy;
 	static int m_numOfSkills=0;
-	static int m_numOfSkillsTotal=8;
+
 	
 	public static int getNumOfSkillsTotal()
 	{
-		return m_numOfSkillsTotal;
+		return m_numOfSkills;
 	}
 	//Item creator
 	public static Skill[] getSkills()
 	{
-		Skill[] skillSet = new Skill[m_numOfSkillsTotal];
-		for(int i=0; i<8; i++)
+		Skill[] skillSet = new Skill[m_numOfSkills];
+		for(int i=0; i<m_numOfSkills; i++)
 		{
-			skillSet[i]=new Skill();
+			skillSet[i]=new Skill(i);
 		}
 		return skillSet;
 	}
 
 	//Constructor
 //	public Skill(Actor User,Actor Target)
-	public Skill()
+	public Skill(int skillNum)
 	{
 		m_damage=0;
 		m_healthBonus=0;
 		m_attackModifier=0;
 		m_defenseModifier=0;
 		m_accuracy=.8;
-		if(m_numOfSkills==0)
+		if(skillNum==0)
 		{
 			m_name="Basic Attack";
 			m_description="A basic attack";
@@ -53,7 +53,7 @@ public class Skill
 //				m_damage=1;
 //			}
 		}
-		else if(m_numOfSkills==1)
+		else if(skillNum==1)
 		{
 			m_name="Power Attack";
 			m_description="A very strong attack that is not very accurate";
@@ -68,7 +68,7 @@ public class Skill
 //			}
 			m_accuracy=.7;
 		}
-		else if(m_numOfSkills==2)
+		else if(skillNum==2)
 		{
 			m_name="Threading Needle";
 			m_description="A very accurate attack whose attack power is reduced";
@@ -82,7 +82,7 @@ public class Skill
 //				m_damage=1;
 //			}
 		}
-		else if(m_numOfSkills==3)
+		else if(skillNum==3)
 		{
 			m_name="Shell";
 			m_description="Increase defense or the remainder of the battle";
@@ -91,28 +91,28 @@ public class Skill
 			m_defenseModifier=1.2;
 			m_accuracy=1;
 		}
-		else if(m_numOfSkills==4)
+		else if(skillNum==4)
 		{
 			m_name="Heal";
 			m_description="Heals the caster for half their attack value";
 			m_targetsEnemy=false;
 //			m_healthBonus=(int) .5*User.getAttackFighter();
 		}
-		else if(m_numOfSkills==5)
+		else if(skillNum==5)
 		{
 			m_name="Strengthen";
 			m_description="Increases the user's attack power for the duration of the battle";
 			m_targetsEnemy=false;
 			m_attackModifier=1.2;
 		}
-		else if(m_numOfSkills==6)
+		else if(skillNum==6)
 		{
 			m_name="Penetrating Strike";
 			m_description="Deals a reduced amount of damage but ignores a targets armor";
 			m_targetsEnemy=true;
 	//		m_damage=(int) .5*User.getAttackFighter();
 		}
-		else if(m_numOfSkills==7)
+		else if(skillNum==7)
 		{
 			m_name="Blood Ritual";
 			m_description="Attack yourself for an increase in attack damage";
@@ -120,7 +120,7 @@ public class Skill
 //			m_damage=(int) .5*User.getAttackFighter();
 			m_attackModifier=1.35;
 		}
-		else if(m_numOfSkills==8)
+		else if(skillNum==8)
 		{
 			m_name="Berserker Rage";
 			m_description="When you are below half health, increase your attack power. Does nothing if above half health";
