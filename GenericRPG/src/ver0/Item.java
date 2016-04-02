@@ -31,7 +31,7 @@ public class Item{
     public static Item[] getAllItems()
     {
 
-    	Item[] itemArray = new Item[m_numTypesOfItem];
+    	//Item[] itemArray = new Item[m_numTypesOfItem];
 
     	Item[] itemArray = new Item[27];
 
@@ -58,12 +58,7 @@ public class Item{
         m_bonusAtk = 0;
         m_bonusHp = 0;
         m_value = 0;
-        
-<<<<<<< HEAD
-//        m_numTypesOfItem++;
-=======
-        //m_numTypesOfItem++;
->>>>>>> e9761fa3eba4d33bd7f2c684f0d96c5ff363e1dc
+       
         
         m_name = "";
         m_used = false;
@@ -339,11 +334,8 @@ public class Item{
             m_bonusHp = 150;
             m_value = 100;
         }
-<<<<<<< HEAD
-        
-=======
         m_id = typeOfItem;
->>>>>>> e9761fa3eba4d33bd7f2c684f0d96c5ff363e1dc
+
     }
 
     /**

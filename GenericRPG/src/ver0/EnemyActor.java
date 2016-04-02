@@ -6,7 +6,7 @@ public class EnemyActor extends Actor
 	private int m_defeatExp;//This is the experience provided to the player character upon defeat
 	private int m_defeatGold;//This is the gold provided to the player character upon defeat
 
-	static int m_numOfEnemies;//This is the total number of enemies
+	//static int m_numOfEnemies;//This is the total number of enemies
 	
 
 	static int m_numOfEnemies=4;//This is the total number of enemies
@@ -31,7 +31,7 @@ public class EnemyActor extends Actor
 			m_skillSet[i]=false;
 		}
 		EquipSword(itemArray[8]);
-		EquipSheild(itemArray[9]);
+		EquipShield(itemArray[9]);
 		EquipArmor(itemArray[10]);
 		EquipHelmet(itemArray[11]);
 		EquipGauntlets(itemArray[12]);

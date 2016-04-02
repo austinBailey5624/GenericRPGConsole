@@ -11,7 +11,7 @@ public class Skill
 
 	static int m_numOfSkills=8;
 
-	static int m_numOfSkills=9;
+	//static int m_numOfSkills=9;
 
 
 	
