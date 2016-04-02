@@ -1,9 +1,8 @@
 /**
  * @author : Will Teeple
  * @version : 0.1
- * @since 03/30/2016
- * Description : World class. This class stores the current map and contains
- * the methods for manipulating and displaying the players position
+ * @since 04/02/2016
+ * Description : Place interface. Common elements between World and Town
  */
 
 import java.util.Scanner;
@@ -25,7 +24,7 @@ public interface Place
   public static final char right = 'd';
 
   public boolean inArea();
-  
+
   public void displayArea();
 
   public void resetArea();
