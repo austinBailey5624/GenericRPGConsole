@@ -110,7 +110,60 @@ public class PlayerActor extends Actor
 			{
 				System.out.println("You have " + m_inventory[i] + " " +items[i].getName());
 			}
-			System.out.println("1) Equip a Sword\n");//TODO working here
+			System.out.println("1) Equip a Sword\n");
+			System.out.println("2) Equip a Shield");
+			System.out.println("3) Equip Armor");
+			System.out.println("4) Equip Helmet");
+			System.out.println("5) Equip Gauntlets");
+			System.out.println("6) Equip Boots");
+			System.out.println("7) Return");
+			select=myScanner.nextInt();
+			if(select==0)
+			{
+				equipSwordMenu();
+			}
+			else if(select==1)
+			{
+				equipShieldMenu();
+			}
 		}
+	}
+	public void equipSwordMenu()
+	{
+		Item[] items = Item.getAllItems();
+		System.out.print("Which Sword do you want to equip?");
+		{
+			int choices=1;
+			for(int i=0; i<items.length;i++)
+			{
+				if(m_inventory[i]>0&&items[i].getType()==1)
+				{
+					System.out.println(choices + ") " + items[i].getName() + " Attack Bonus: "+ items[i].getBonusAtk() + " Defense bonus: " + items[i].getBonusDef());
+					choices++;
+				}
+			}
+			select=myScanner.nextInt();
+//			if(select=choices)
+		}
+	}
+	public void equipShieldMenu()
+	{
+		
+	}
+	public void equipArmorMenu()
+	{
+		
+	}
+	public void equipHelmetMenu()
+	{
+		
+	}
+	public void equipGauntletsMenu()
+	{
+		
+	}
+	public void equipBootsMenu()
+	{
+		
 	}
 }

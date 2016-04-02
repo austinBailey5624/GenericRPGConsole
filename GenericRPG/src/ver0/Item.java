@@ -30,7 +30,11 @@ public class Item{
      */
     public static Item[] getAllItems()
     {
-    	Item[] itemArray = new Item[28];
+
+    	//Item[] itemArray = new Item[m_numTypesOfItem];
+
+    	Item[] itemArray = new Item[m_numTypesOfItem];
+
 
     	for(int i=0; i<itemArray.length; i++)//Hey, I thought this would ease the process for adding new items, should do it automatically
     	{
@@ -54,8 +58,7 @@ public class Item{
         m_bonusAtk = 0;
         m_bonusHp = 0;
         m_value = 0;
-        
-        //m_numTypesOfItem++;
+       
         
         m_name = "";
         m_used = false;
@@ -301,7 +304,7 @@ public class Item{
             m_bonusHp = 0;
             m_value = 100;
         }
-        else if(typeOfItem == 26)
+        else if(typeOfItem == 25)
         {
             m_type = 5;
             m_name = "steel gauntlet";
@@ -311,7 +314,7 @@ public class Item{
             m_bonusHp = 0;
             m_value = 100;
         }
-        else if(typeOfItem == 27)
+        else if(typeOfItem == 26)
         {
             m_type = 6;
             m_name = "steel boots";
@@ -321,7 +324,7 @@ public class Item{
             m_bonusHp = 0;
             m_value = 100;
         }
-        else if(typeOfItem == 28)
+        else if(typeOfItem == 27)
         {
             m_type = 7;
             m_name = "expert hPotion";
@@ -332,6 +335,7 @@ public class Item{
             m_value = 100;
         }
         m_id = typeOfItem;
+
     }
 
     /**

@@ -47,7 +47,6 @@ public class Shop
 		Item[] itemSet = Item.getAllItems();
 		int choice=1;
 		int index=0;
-		Item selectedItem;
 		for(int i=0; i<Item.getNumTypesOfItem();i++)
 		{
 			if(m_inventory[i]>0)
@@ -56,7 +55,7 @@ public class Shop
 			}
 			if(select==choice)
 			{
-				selectedItem=itemSet[i];
+				//selectedItem=itemSet[i];//TODO variable cannot be resolved
 				index=i;
 			}
 		}
@@ -100,7 +99,7 @@ public class Shop
 		Item[] itemSet = Item.getAllItems();
 		if(character.buyItem(itemSet[index].getValue()))
 		{
-			character.getInventory()[index]++;
+			//character.getInventory()[index]++;//TODO must be array type
 			this.m_inventory[index]--;
 		}
 		else
@@ -113,7 +112,7 @@ public class Shop
 		Item[] itemSet = Item.getAllItems();
 		if(character.buyItems(index, quantity))
 		{
-			character.getInventory()[index]+=quantity;
+			//character.getInventory()[index]+=quantity;//TODO must be array type
 			this.m_inventory[index]-=quantity;
 		}
 		else
