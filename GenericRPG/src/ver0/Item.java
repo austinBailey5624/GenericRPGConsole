@@ -17,7 +17,7 @@ public class Item{
     private int m_bonusHp;
     private int m_value;
     
-    private static int m_numTypesOfItem=0;
+    private static int m_numTypesOfItem=28;
     
     private String m_name;
     private boolean m_used;
@@ -30,16 +30,9 @@ public class Item{
      */
     public static Item[] getAllItems()
     {
-    	Item[] itemArray = new Item[m_numTypesOfItem];
-//    	itemArray[0]= new Item(0);
-//    	itemArray[1]= new Item(1);
-//    	itemArray[2]= new Item(2);
-//    	itemArray[3]= new Item(3);
-//    	itemArray[4]= new Item(4);
-//    	itemArray[5]= new Item(5);
-//    	itemArray[6]= new Item(6);
-//    	itemArray[7]= new Item(7);
-    	for(int i=0; i<m_numTypesOfItem; i++)//Hey, I thought this would ease the process for adding new items, should do it automatically
+    	Item[] itemArray = new Item[28];
+
+    	for(int i=0; i<itemArray.length; i++)//Hey, I thought this would ease the process for adding new items, should do it automatically
     	{
     		itemArray[i]=new Item(i);
     	}
@@ -62,7 +55,7 @@ public class Item{
         m_bonusHp = 0;
         m_value = 0;
         
-        m_numTypesOfItem++;
+        //m_numTypesOfItem++;
         
         m_name = "";
         m_used = false;

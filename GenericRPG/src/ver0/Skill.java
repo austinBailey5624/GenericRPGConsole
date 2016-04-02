@@ -18,8 +18,8 @@ public class Skill
 	//Item creator
 	public static Skill[] getSkills()
 	{
-		Skill[] skillSet = new Skill[m_numOfSkills];
-		for(int i=0; i<m_numOfSkills; i++)
+		Skill[] skillSet = new Skill[8];
+		for(int i=0; i<8; i++)
 		{
 			skillSet[i]=new Skill(i);
 		}
