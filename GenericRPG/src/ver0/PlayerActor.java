@@ -4,7 +4,7 @@ public class PlayerActor extends Actor
 {
 	//private member variables
 	private int m_exp;
-	
+	private Inventory m_inventory;
 	
 	//getters and setters TODO write JavaDocs for methods
 	public int getExp()
@@ -15,7 +15,16 @@ public class PlayerActor extends Actor
 	{
 		m_exp=exp;
 	}
-	//Unique Methods
+	public Inventory getInventory()
+	{
+		return m_inventory;
+	}
+	public void setInventory(Inventory inventory)
+	{
+		m_inventory=inventory;
+	}
+	
+	//Methods
 	public void addExp(int addedExp)
 	{
 		m_exp+=addedExp;
