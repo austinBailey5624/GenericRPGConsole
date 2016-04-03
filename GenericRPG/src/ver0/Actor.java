@@ -20,6 +20,7 @@ public class Actor
 	//Constructors
 	public Actor()//default constructor
 	{
+		Item[] itemArray = Item.getAllItems();
 		m_level=1;
 		m_maxHp=100;
 		m_curHp=100;
@@ -27,15 +28,18 @@ public class Actor
 		m_atkModifier=1;
 		m_def=10;
 		m_defModifier=1;
-		m_equippedSword=null;
-		m_equippedShield=null;
-		m_equippedHelmet=null;
-		m_equippedBoots=null;
-		m_equippedGauntlets=null;
+		EquipSword(itemArray[8]);
+		EquipShield(itemArray[9]);
+		EquipArmor(itemArray[10]);
+		EquipHelmet(itemArray[11]);
+		EquipGauntlets(itemArray[12]);
+		EquipBoots(itemArray[13]);
+		setAttackModifier(1);
+		setDefenseModifier(1);
 		m_skillSet=new boolean[Skill.getNumOfSkillsTotal()];
 		for(int i=0; i<Skill.getNumOfSkillsTotal();i++)
 		{
-			m_skillSet[i]=false;
+			m_skillSet[i]=false; 
 		}
 		m_skillSet[0]=true;//sets the basic attack skill to true to ensure that it is avaliable to all
 	}

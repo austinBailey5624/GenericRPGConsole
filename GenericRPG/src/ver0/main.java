@@ -15,13 +15,13 @@ public class main
 		
 		
 		
-		System.out.println("Number of Items: " + Item.getNumTypesOfItem());
-		System.out.println("Number of Skills: " + Skill.getNumOfSkillsTotal());
-		System.out.println("Number of Enemies: " + EnemyActor.m_numOfEnemies);
+		//System.out.println("Number of Items: " + Item.getNumTypesOfItem());
+		//System.out.println("Number of Skills: " + Skill.getNumOfSkillsTotal());
+		//System.out.println("Number of Enemies: " + EnemyActor.m_numOfEnemies);
 		
 		
 		 
-		  
+		
 		Actor a1=new PlayerActor();
 		Actor a2=new EnemyActor(0);
 		Battle battle=new Battle();
@@ -31,7 +31,11 @@ public class main
 		
 		a1.setName("Jeff");
 		a2.setName("Bob");
+		System.out.println("Jeff:"+a1.getCurHp()+" Bob: "+a2.getCurHp());
+		System.out.println(a2.getDefenseFighter());
+				
 		battle.actorBattle(a1,a2);
+		System.out.println("Jeff:"+a1.getCurHp()+" Bob: "+a2.getCurHp());
 		//battle.printSkillsAvailable(a1);
 		
 	}

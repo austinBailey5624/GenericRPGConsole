@@ -29,7 +29,7 @@ public class Battle
 		m_skillSet=Skill.getSkills();
 	}
 	
-	public Actor actorBattle(Actor player, Actor npc)
+	public boolean actorBattle(Actor player, Actor npc)
 	{
 		int order=0; //randomNumber(0,1);
 		
@@ -59,13 +59,37 @@ public class Battle
 				{
 					printSkillsAvailable(player);
 					System.out.println("Input the corresponding number to use the skill");
-					skillChoice=myScanner.nextInt();
-					if (player.getSkillset()[skillChoice]==true)
+					try
 					{
-						//execute the skill;
+						skillChoice=myScanner.nextInt();
 					}
-					
-					
+					catch(Exception ex)
+					{
+						System.out.println("You didnt input a number");
+					}
+					if (skillChoice<9)
+					{
+						if (player.getSkillset()[skillChoice]==true)
+						{
+							try
+							{
+								m_skillSet[skillChoice].Execute(player, npc);
+							}
+							catch(Exception ex)
+							{
+								System.out.println(ex.getStackTrace());
+							}
+						}
+						else
+						{
+							System.out.println("You did not choose a skill you have!");
+						}
+					}
+					else
+					{
+						System.out.println("You entered a number too high!");
+					}
+				
 				}
 				else if (choice==3)
 				{
@@ -105,9 +129,17 @@ public class Battle
 		{
 			System.out.println("You successfully ran away!");
 		}
-		return victor;
+		return true;
 
 	}
+	
+	
+	public void npcTurn(Actor npc)
+	{
+		
+	}
+	
+	
 	public void groupBattle(Actor[] goodguys, Actor[] badguys)
 	{
 		//will be filled in later
@@ -155,6 +187,7 @@ public class Battle
 				System.out.println(i+") "+m_skillSet[i].getName()+"- "+m_skillSet[i].getDescription());
 			}
 		}
+		System.out.print("\n");
 	}
 	private void printPotionsAvailable(Actor a1)
 	{

@@ -36,6 +36,9 @@ public class EnemyActor extends Actor
 		EquipHelmet(itemArray[11]);
 		EquipGauntlets(itemArray[12]);
 		EquipBoots(itemArray[13]);
+		setAttackModifier(1);
+		setDefenseModifier(1);
+		
 		if(index==0)
 		{
 			setName("Generic Enemy");
