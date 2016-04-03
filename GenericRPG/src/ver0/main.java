@@ -15,21 +15,12 @@ public class main
 
 		//gets all enemies and prepares them for use in main
 		EnemyActor[] enemySet = EnemyActor.getEnemies();
-<<<<<<< HEAD
-		
-		
-		
+
 		//System.out.println("Number of Items: " + Item.getNumTypesOfItem());
 		//System.out.println("Number of Skills: " + Skill.getNumOfSkillsTotal());
 		//System.out.println("Number of Enemies: " + EnemyActor.m_numOfEnemies);
 		
-		
-		 
-		
-		Actor a1=new PlayerActor();
-		Actor a2=new EnemyActor(0);
-=======
-		boolean exit = false;
+		/*boolean exit = false;
 		while(!exit)
 		{
 			System.out.println("Welcome To GenericRPG! What would you like to do?\n1) developer options 2)exit");
@@ -55,25 +46,25 @@ public class main
 				System.out.println("Sorry, we didn't undersand your input");
 			}
 		}
-
+*/
 		/*
 		 * Battle Testing:
-		 * 
-		Actor a1=new Actor();
-		Actor a2=new Actor();
->>>>>>> 484fee9507f727031c8796aab824714397a4fe4c
+		 */
+		PlayerActor a1=new PlayerActor();
+		EnemyActor a2=new EnemyActor(1);
+
 		Battle battle=new Battle();
 		
 		Item basicsword=new Item(1);
-		a1.EquipSword(basicsword);
+		a1.equipSword(basicsword);
 		
 		a1.setName("Jeff");
-		a2.setName("Bob");
-		System.out.println("Jeff:"+a1.getCurHp()+" Bob: "+a2.getCurHp());
-		System.out.println(a2.getDefenseFighter());
+		//a2.setName("Bob");
+		//System.out.println("Jeff:"+a1.getCurHp()+" Bob: "+a2.getCurHp());
+		//System.out.println(a2.getDefenseFighter());
 				
 		battle.actorBattle(a1,a2);
-		System.out.println("Jeff:"+a1.getCurHp()+" Bob: "+a2.getCurHp());
+		//System.out.println("Jeff:"+a1.getCurHp()+" Bob: "+a2.getCurHp());
 		//battle.printSkillsAvailable(a1);
 		
 	}

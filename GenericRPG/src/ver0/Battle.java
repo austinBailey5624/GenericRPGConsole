@@ -17,6 +17,7 @@ public class Battle
 	private int choice;
 	private boolean ranAway;
 	private Skill[] m_skillSet;
+	private Item[] m_itemSet;
 	
 	public Battle()
 	{
@@ -27,20 +28,22 @@ public class Battle
 		skillChoice=0;
 		victor=new Actor();
 		m_skillSet=Skill.getSkills();
+		m_itemSet=Item.getAllItems();
 	}
 	
-	public boolean actorBattle(Actor player, Actor npc)
+	public boolean actorBattle(PlayerActor player, EnemyActor npc)
 	{
 		int order=0; //randomNumber(0,1);
-		
+		System.out.println("Starting battle between "+player.getName()+" and "+npc.getName());
 		//for testing purposes, the user will go first until method works correctly
 		
 		if (order==0)
 		{
-			System.out.println("By random selection, "+player.getName()+" will go first");
+			System.out.println("By random selection, "+player.getName()+" will go first\n");
 			
 			do
 			{
+				System.out.println("Current HP-> "+player.getName()+": "+player.getCurHp()+", "+npc.getName()+": "+npc.getCurHp());
 				printBattleMenu();
 				try
 				{
@@ -53,7 +56,11 @@ public class Battle
 				
 				if (choice==1)
 				{
-					attack(player,npc);
+					int temphp1=npc.getCurHp();
+					m_skillSet[0].Execute(player, npc);
+					int temphp2=npc.getCurHp();
+					int difference=temphp1-temphp2;
+					System.out.println(player.getName()+" attacks "+npc.getName()+" with a "+player.getEquippedSword().getName()+", dealing "+difference+" damage!\n");
 				}
 				else if (choice==2)
 				{
@@ -93,8 +100,11 @@ public class Battle
 				}
 				else if (choice==3)
 				{
+					//i need the inventory to see what is available to the player
 					printPotionsAvailable(player);
-					//use selected potion in battle
+					//if potions available, ask user for choice
+					//else continue keyword
+		
 				}
 				else if (choice==4)
 				{
@@ -108,10 +118,10 @@ public class Battle
 					{
 						System.out.println("You were unable to run away, coward!");
 					}
-
-					
 				}
-				break;
+				
+				npcTurn(npc);
+				
 			}while(!isBattleOver(player,npc));
 		}
 		
@@ -148,18 +158,12 @@ public class Battle
 	
 	private boolean isBattleOver(Actor a1, Actor a2)
 	{
-		if (a1.getCurHp()==0 || a2.getCurHp()==0)
+		if (a1.getCurHp()<=0 || a2.getCurHp()<=0)
 		{
 			return true;
 		}
 		return false;
 	}
-	private void attack(Actor attacker, Actor defender)
-	{
-		System.out.println(attacker.getName()+" attacks "+defender.getName()+" with a "+attacker.getEquippedSword().getName());
-	}
-	
-	
 	//returns number inclusively between min and max
 	private int randomNumber(int min, int max)
 	{
@@ -170,12 +174,12 @@ public class Battle
 	private void printBattleMenu()
 	{
 		System.out.println("It is your turn, input a number to choose one of the following to do:");
-		System.out.println("1) Attack");
+		System.out.println("1) Basic Attack (using sword)");
 		System.out.println("2) Use Skill");
 		System.out.println("3) Use Potion");
 		System.out.println("4) Run Run Run!");
 	}
-	public void printSkillsAvailable(Actor a1)
+	public void printSkillsAvailable(PlayerActor a1)
 	{
 		System.out.println("Skills available to you:\n");
 		boolean[] skills=a1.getSkillset();
@@ -189,8 +193,32 @@ public class Battle
 		}
 		System.out.print("\n");
 	}
-	private void printPotionsAvailable(Actor a1)
+	private void printPotionsAvailable(PlayerActor a1)
 	{
-		
+		System.out.println("Potions available to you:");
+		int[] playerInventory=a1.getInventory();
+		if (playerInventory[7]>0)
+		{
+			System.out.println("1) Name: Basic Health Potion, Effect: Restore 50 HP, Quantity: "+playerInventory[7]);
+		}
+		else if (playerInventory[20]>0)
+		{
+			System.out.println("2) Name: Advanced Health Potion, Effect: Restore 100 HP, Quantity: "+playerInventory[20]);
+		}
+		else if (playerInventory[27]>0)
+		{
+			System.out.println("3) Name: Expert Health Potion, Effect: Restore 150 HP, Quantity: "+playerInventory[27]);
+		}
+		else
+		{
+			System.out.println("You currently don't have any potions");
+			
+		}
+		System.out.println("\n");
+	}
+	private boolean potionsAvailable(PlayerActor a1)
+	{
+		//check inventory slots
+		return false;
 	}
 }
