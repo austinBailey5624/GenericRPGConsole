@@ -2,6 +2,7 @@ package ver0;
 
 public class Actor 
 {
+	Item[] itemSet = Item.getAllItems();
 	private String m_name;
 	private int m_level;
 	private int m_maxHp;//max Hit Points
@@ -20,6 +21,7 @@ public class Actor
 	//Constructors
 	public Actor()//default constructor
 	{
+		Item[] itemArray = Item.getAllItems();
 		m_level=1;
 		m_maxHp=100;
 		m_curHp=100;
@@ -27,21 +29,28 @@ public class Actor
 		m_atkModifier=1;
 		m_def=10;
 		m_defModifier=1;
-		m_equippedSword=null;
-		m_equippedShield=null;
-		m_equippedHelmet=null;
-		m_equippedBoots=null;
-		m_equippedGauntlets=null;
+		equipSword(itemSet[8]);
+		equipShield(itemSet[9]);
+		equipArmor(itemSet[10]);
+		equipHelmet(itemSet[11]);
+		equipBoots(itemSet[13]);
+		equipGauntlets(itemSet[12]);
 		m_skillSet=new boolean[Skill.getNumOfSkillsTotal()];
 		for(int i=0; i<Skill.getNumOfSkillsTotal();i++)
 		{
-			m_skillSet[i]=false;
+			m_skillSet[i]=false; 
 		}
 		m_skillSet[0]=true;//sets the basic attack skill to true to ensure that it is avaliable to all
 	}
 	
 	
 	//Setters and Getters
+	
+	public boolean[] getSkillset()
+	{
+		return m_skillSet;
+	}
+	
 	public String getName()
 	{
 		return m_name;
@@ -132,7 +141,7 @@ public class Actor
 	{
 		return m_equippedSword;
 	}
-	public void EquipSword(Item sword)
+	public void equipSword(Item sword)
 	{
 		if(sword.getType()==1)
 		{
@@ -147,7 +156,7 @@ public class Actor
 	{
 		return m_equippedShield;
 	}
-	public void EquipShield(Item shield)
+	public void equipShield(Item shield)
 	{
 		if(shield.getType()==2)
 		{
@@ -162,7 +171,7 @@ public class Actor
 	{
 		return m_equippedArmor;
 	}
-	public void EquipArmor(Item armor)
+	public void equipArmor(Item armor)
 	{
 		if(armor.getType()==3)
 		{
@@ -177,7 +186,7 @@ public class Actor
 	{
 		return m_equippedHelmet;
 	}
-	public void EquipHelmet(Item helmet)
+	public void equipHelmet(Item helmet)
 	{
 		if(helmet.getType()==4)
 		{
@@ -192,7 +201,7 @@ public class Actor
 	{
 		return m_equippedGauntlets;
 	}
-	public void EquipGauntlets(Item gauntlets)
+	public void equipGauntlets(Item gauntlets)
 	{
 		if(gauntlets.getType()==5)
 		{
@@ -207,7 +216,7 @@ public class Actor
 	{
 		return m_equippedBoots;
 	}
-	public void EquipBoots(Item boots)
+	public void equipBoots(Item boots)
 	{
 		if(boots.getType()==6)
 		{

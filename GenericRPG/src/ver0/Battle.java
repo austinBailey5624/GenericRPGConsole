@@ -8,13 +8,15 @@ import java.util.Random;
 import java.util.Scanner;
 public class Battle 
 {
-	
+	//member variables
 	private Random r;
 	private Scanner myScanner;
 	private int order;
+	private int skillChoice; 
 	private Actor victor;
 	private int choice;
 	private boolean ranAway;
+	private Skill[] m_skillSet;
 	
 	public Battle()
 	{
@@ -22,10 +24,12 @@ public class Battle
 		r=new Random();
 		ranAway=false;
 		order=0;
-		
+		skillChoice=0;
+		victor=new Actor();
+		m_skillSet=Skill.getSkills();
 	}
 	
-	public void actorBattle(Actor player, Actor npc)
+	public boolean actorBattle(Actor player, Actor npc)
 	{
 		int order=0; //randomNumber(0,1);
 		
@@ -54,7 +58,38 @@ public class Battle
 				else if (choice==2)
 				{
 					printSkillsAvailable(player);
-					//use selected skill in battle
+					System.out.println("Input the corresponding number to use the skill");
+					try
+					{
+						skillChoice=myScanner.nextInt();
+					}
+					catch(Exception ex)
+					{
+						System.out.println("You didnt input a number");
+					}
+					if (skillChoice<9)
+					{
+						if (player.getSkillset()[skillChoice]==true)
+						{
+							try
+							{
+								m_skillSet[skillChoice].Execute(player, npc);
+							}
+							catch(Exception ex)
+							{
+								System.out.println(ex.getStackTrace());
+							}
+						}
+						else
+						{
+							System.out.println("You did not choose a skill you have!");
+						}
+					}
+					else
+					{
+						System.out.println("You entered a number too high!");
+					}
+				
 				}
 				else if (choice==3)
 				{
@@ -66,6 +101,7 @@ public class Battle
 					int run=randomNumber(0,1);
 					if (run==0)
 					{
+						ranAway=true;
 						break;
 					}
 					else
@@ -93,9 +129,17 @@ public class Battle
 		{
 			System.out.println("You successfully ran away!");
 		}
-		
+		return true;
 
 	}
+	
+	
+	public void npcTurn(Actor npc)
+	{
+		
+	}
+	
+	
 	public void groupBattle(Actor[] goodguys, Actor[] badguys)
 	{
 		//will be filled in later
@@ -131,9 +175,19 @@ public class Battle
 		System.out.println("3) Use Potion");
 		System.out.println("4) Run Run Run!");
 	}
-	private void printSkillsAvailable(Actor a1)
+	public void printSkillsAvailable(Actor a1)
 	{
+		System.out.println("Skills available to you:\n");
+		boolean[] skills=a1.getSkillset();
 		
+		for (int i=0; i<skills.length; i++)
+		{
+			if (skills[i]==true)
+			{
+				System.out.println(i+") "+m_skillSet[i].getName()+"- "+m_skillSet[i].getDescription());
+			}
+		}
+		System.out.print("\n");
 	}
 	private void printPotionsAvailable(Actor a1)
 	{

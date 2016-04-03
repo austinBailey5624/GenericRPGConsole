@@ -39,6 +39,7 @@ public class Skill
 			m_name="Basic Attack";
 			m_description="A basic attack";
 			m_targetsEnemy=true;
+			m_id=0;
 
 		}
 		else if(skillNum==1)
@@ -94,8 +95,7 @@ public class Skill
 			m_targetsEnemy=false;
 
 		}
-		m_id=m_numOfSkills;
-//		m_numOfSkills++;
+		m_id=skillNum;
 	}
 	
 	public void Execute(Actor User, Actor Target)

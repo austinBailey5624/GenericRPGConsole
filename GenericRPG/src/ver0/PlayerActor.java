@@ -4,6 +4,7 @@ public class PlayerActor extends Actor
 {
 	static Scanner myScanner = new Scanner(System.in);
 	static int select;
+	Item[] itemSet = Item.getAllItems();
 	//private member variables
 	private int m_exp;
 	private int m_gold;
@@ -19,6 +20,12 @@ public class PlayerActor extends Actor
 		{
 			m_inventory[i]=0;
 		}
+		equipSword(itemSet[8]);
+		equipShield(itemSet[9]);
+		equipArmor(itemSet[10]);
+		equipHelmet(itemSet[11]);
+		equipBoots(itemSet[13]);
+		equipGauntlets(itemSet[12]);
 	}
 	
 	//getters and setters TODO write JavaDocs for methods
@@ -42,11 +49,12 @@ public class PlayerActor extends Actor
 	{
 		m_gold=m_gold+gold;
 	}
-	public boolean buyItem(int cost)//return true if buy is possible
+	public boolean buyItem(int index)//return true if buy is possible
 	{
-		if(m_gold>=cost)
+		if(m_gold>=itemSet[index].getValue())
 		{
-			m_gold=m_gold-cost;
+			m_gold=m_gold-itemSet[index].getValue();
+			m_inventory[index]++;
 			return true;
 		}
 		else
@@ -54,11 +62,34 @@ public class PlayerActor extends Actor
 			return false;
 		}
 	}
-	public boolean buyItems(int cost, int quantity)
+	public boolean canBuyItem(int cost)
+	{
+		if(m_gold>=cost)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	public boolean buyItems(int index, int quantity)
+	{
+		if(m_gold>=itemSet[index].getValue()*quantity)
+		{
+			m_gold=m_gold-(itemSet[index].getValue()*quantity);
+			m_inventory[index]+=quantity;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	public boolean canBuyItems(int cost, int quantity)
 	{
 		if(m_gold>=cost*quantity)
 		{
-			m_gold=m_gold-(cost*quantity);
 			return true;
 		}
 		else
@@ -97,73 +128,153 @@ public class PlayerActor extends Actor
 	{
 		System.out.println("1) Access Inventory\n2) Return");
 		select=myScanner.nextInt();
+		if(select==1)
+		{
+			accessInventory();
+		}
+		else if(select==2)
+		{
+			return;
+		}
+		else
+		{
+			System.out.println("Sorry, we didn't understand your input");
+		}
 	}
 	public void accessInventory()
 	{
 		Item[] items = Item.getAllItems();
 		System.out.println("Here's the stuff in your inventory");
-		for(int i=0; i<Item.getNumTypesOfItem();i++)
+		boolean quit=false;
+		while(!quit)
 		{
 			System.out.println("Equipped Sword:  " + this.getEquippedSword().getName());
 			System.out.println("Equipped Shield: " + this.getEquippedShield().getName());
-			if(m_inventory[i]>0)
-			{
-				System.out.println("You have " + m_inventory[i] + " " +items[i].getName());
-			}
-			System.out.println("1) Equip a Sword\n");
+			System.out.println("Equipped Armor: " + this.getEquippedArmor().getName());
+			System.out.println("Equipped Helmet: " +  this.getEquippedHelmet().getName());
+			System.out.println("Equipped Gauntlets: " + this.getEquippedGauntlets().getName());
+			System.out.println("Equipped Boots: "+ this.getEquippedBoots().getName());
+			System.out.println("1) Equip a Sword");
 			System.out.println("2) Equip a Shield");
 			System.out.println("3) Equip Armor");
 			System.out.println("4) Equip Helmet");
 			System.out.println("5) Equip Gauntlets");
 			System.out.println("6) Equip Boots");
-			System.out.println("7) Return");
+			System.out.println("7) Look at inventory");
+			System.out.println("8) Return");
 			select=myScanner.nextInt();
-			if(select==0)
+			if(select>=0&&select<7)
 			{
-				equipSwordMenu();
+				equipMenu(select);
 			}
-			else if(select==1)
+			else if(select==7)
 			{
-				equipShieldMenu();
+				displayInventory();
+			}
+			else if(select==8)
+			{
+				return;
 			}
 		}
 	}
-	public void equipSwordMenu()
+	public void displayInventory()
+	{
+		for(int i=0; i<itemSet.length;i++)
+		{
+			System.out.println("You have " + getInventory()[i] +" " + itemSet[i].getName() + " In your inventory");
+		}
+	}
+	public void equipMenu(int type)//TODO finish equip method
 	{
 		Item[] items = Item.getAllItems();
-		System.out.print("Which Sword do you want to equip?");
+		if(type==1)
 		{
-			int choices=1;
-			for(int i=0; i<items.length;i++)
+			System.out.println("Which Sword do you want to equip?");
+		}
+		else if(type==2)
+		{
+			System.out.println("Which Shield do you want to equip?");
+		}
+		else if(type==3)
+		{
+			System.out.println("Which Armor set do you want to equip?");
+		}
+		else if(type==4)
+		{
+			System.out.println("Which Helmet do you want to equip?");
+		}
+		else if(type==5)
+		{
+			System.out.println("Which Gauntlets do you want to equip?");
+		}
+		else if(type==6)
+		{
+			System.out.println("Which Boots do you want to equip?");
+		}
+		
+		//initializes array to hold choices
+		int[] indexRepresentedByChoice= new int[itemSet.length];
+		for(int i=0;i<itemSet.length;i++)
+		{
+			indexRepresentedByChoice[i]=-1;//the value -1 represents not having that as a possible choice
+		}
+		int choices=0;
+		for(int i=0; i<items.length;i++)
+		{
+			if(m_inventory[i]>0&&items[i].getType()==type)
 			{
-				if(m_inventory[i]>0&&items[i].getType()==1)
-				{
-					System.out.println(choices + ") " + items[i].getName() + " Attack Bonus: "+ items[i].getBonusAtk() + " Defense bonus: " + items[i].getBonusDef());
-					choices++;
-				}
+				System.out.println((choices+1) + ") " + items[i].getName() + " Attack Bonus: "+ items[i].getBonusAtk() + " Defense bonus: " + items[i].getBonusDef());
+				indexRepresentedByChoice[choices+1]=i;
+				choices++;
 			}
-			select=myScanner.nextInt();
-//			if(select=choices)
+		}
+		System.out.println((choices+1) + ") Leave");
+		
+		//get input from user
+		select=myScanner.nextInt();
+		System.out.println("choices = " + choices);//debugging
+		
+		//make decision based on input
+		if(select<1||select>choices)
+		{
+			System.out.println("Sorry, we didn't understand your input");
+		}
+		else if((select>1)&&(select<(choices+1)))
+		{
+			if(type==1)
+			{
+				this.equipSword(items[indexRepresentedByChoice[select]]);
+				System.out.println("Equipped Sword successfully"); //debugging
+			}
+			else if(type==2)
+			{
+				this.equipShield(items[indexRepresentedByChoice[select]]);
+			}
+			else if(type==3)
+			{
+				this.equipArmor(items[indexRepresentedByChoice[select]]);
+			}
+			else if(type==4)
+			{
+				this.equipHelmet(items[indexRepresentedByChoice[select]]);
+			}
+			else if(type==5)
+			{
+				this.equipGauntlets(items[indexRepresentedByChoice[select]]);
+			}
+			else if(type==6)
+			{
+				this.equipBoots(items[indexRepresentedByChoice[select]]);
+			}
+		}
+		else if(select==(choices+1))
+		{
+			return;
+		}
+		else
+		{
+			System.out.println("Sorry, we did not understand you input, please try again");
 		}
 	}
-	public void equipShieldMenu()
-	{
-		
-	}
-	public void equipArmorMenu()
-	{
-		
-	}
-	public void equipHelmetMenu()
-	{
-		
-	}
-	public void equipGauntletsMenu()
-	{
-		
-	}
-	public void equipBootsMenu()
-	{
-		
-	}
 }
+

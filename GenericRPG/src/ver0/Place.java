@@ -41,4 +41,3 @@ public interface Place
 
   public boolean characterMove(int sel);
 }
-
