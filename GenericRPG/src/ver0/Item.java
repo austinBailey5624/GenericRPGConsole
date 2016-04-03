@@ -142,7 +142,7 @@ public class Item{
         }
         else if(typeOfItem == 8)
         {
-        	m_type = 8;
+        	m_type = 1;
         	m_name = "No Sword";
         	m_bonusDef=0;
         	m_bonusAtk=0;
@@ -151,7 +151,7 @@ public class Item{
         }
         else if(typeOfItem ==9)
         {
-        	m_type = 9;
+        	m_type = 2;
         	m_name = "No Shield";
         	m_bonusDef=0;
         	m_bonusAtk=0;
@@ -160,7 +160,7 @@ public class Item{
         }
         else if(typeOfItem == 10)
         {
-        	m_type = 10;
+        	m_type = 3;
         	m_name = "No Armor";
         	m_bonusDef=0;
         	m_bonusAtk=0;
@@ -169,7 +169,7 @@ public class Item{
         }
         else if(typeOfItem == 11)
         {
-        	m_type = 11;
+        	m_type = 4;
         	m_name = "No Helmet";
         	m_bonusDef=0;
         	m_bonusAtk=0;
@@ -178,7 +178,7 @@ public class Item{
         }
         else if(typeOfItem == 12)
         {
-        	m_type = 12;
+        	m_type = 5;
         	m_name ="Bare Hands";
         	m_bonusDef=0;
         	m_bonusAtk=0;
@@ -187,7 +187,7 @@ public class Item{
         }
         else if(typeOfItem==13)
         {
-        	m_type=13;
+        	m_type=6;
         	m_name="Bare Feet";
         	m_bonusDef=0;
         	m_bonusAtk=0;

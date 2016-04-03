@@ -8,6 +8,7 @@ public class main
 		
 		//gets all items and prepares them for use in main
 		Item[] itemSet = Item.getAllItems();
+
 		//System.out.println(itemSet[8].getName());
 		//gets all enemies and prepares them for use in main
 		EnemyActor[] enemySet = EnemyActor.getEnemies();
