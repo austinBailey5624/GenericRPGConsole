@@ -22,13 +22,24 @@ public class main
 			select=myScanner.nextInt();
 			if(select==1)
 			{
-				System.out.println("1) determine number of items, skills and enemies");
+				System.out.println("1) determine number of items, skills and enemies\n2) Attempt Equip Item methods");
 				select=myScanner.nextInt();
 				if(select==1)
 				{
 					System.out.println("Number of Items: " + Item.getNumTypesOfItem());
 					System.out.println("Number of Skills: " + Skill.getNumOfSkillsTotal());
 					System.out.println("Number of Enemies: " + EnemyActor.m_numOfEnemies);
+				}
+				else if(select==2)
+				{
+					PlayerActor myPlayerActor = new PlayerActor();
+					int[] testInventory = new int[itemSet.length];
+					for(int i=0; i<itemSet.length; i++)
+					{
+						testInventory[i]=3;
+					}
+					myPlayerActor.setInventory(testInventory);
+					myPlayerActor.menu();
 				}
 			}
 			else if(select==2)

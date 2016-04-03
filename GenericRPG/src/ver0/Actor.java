@@ -2,6 +2,7 @@ package ver0;
 
 public class Actor 
 {
+	Item[] itemSet = Item.getAllItems();
 	private String m_name;
 	private int m_level;
 	private int m_maxHp;//max Hit Points
@@ -27,11 +28,12 @@ public class Actor
 		m_atkModifier=1;
 		m_def=10;
 		m_defModifier=1;
-		m_equippedSword=null;
-		m_equippedShield=null;
-		m_equippedHelmet=null;
-		m_equippedBoots=null;
-		m_equippedGauntlets=null;
+		equipSword(itemSet[8]);
+		equipShield(itemSet[9]);
+		equipArmor(itemSet[10]);
+		equipHelmet(itemSet[11]);
+		equipBoots(itemSet[13]);
+		equipGauntlets(itemSet[12]);
 		m_skillSet=new boolean[Skill.getNumOfSkillsTotal()];
 		for(int i=0; i<Skill.getNumOfSkillsTotal();i++)
 		{
