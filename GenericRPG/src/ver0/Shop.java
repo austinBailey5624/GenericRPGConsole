@@ -48,14 +48,6 @@ public class Shop
 				System.out.println("Sorry we didn't understand your input, please enter a 1 a 2 or a 3");
 			}
 		}	
-
-//			System.out.println((choice+1) + ") Leave");
-//			select=myScanner.nextInt();
-//			if(select>0&&select<(choice+1))
-//			{
-//			displayMenuItemOptions(select,character);
-//			}
-		
 	}
 	public void displayBuyMenu(PlayerActor character)
 	{
@@ -64,11 +56,9 @@ public class Shop
 		while(!exit)
 		{
 			System.out.println("Please select what you would like to buy");
-//			int[] choice= new int[itemSet.length];//these two arrays are going to hold the choices shown in relation to the possible items
 			int[] indexRepresentedByChoice= new int[itemSet.length];
 			for(int i=0;i<itemSet.length;i++)
 			{
-	//			choice[i]=-1;
 				indexRepresentedByChoice[i]=-1;//the value -1 represents not having that as a possible choice
 			}
 			int choice=1;//this is the choice incrementer, that gets incremented each time we show a new option to the customer
