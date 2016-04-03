@@ -42,6 +42,12 @@ public class Actor
 	
 	
 	//Setters and Getters
+	
+	public boolean[] getSkillset()
+	{
+		return m_skillSet;
+	}
+	
 	public String getName()
 	{
 		return m_name;

@@ -8,13 +8,15 @@ import java.util.Random;
 import java.util.Scanner;
 public class Battle 
 {
-	
+	//member variables
 	private Random r;
 	private Scanner myScanner;
 	private int order;
+	private int skillChoice; 
 	private Actor victor;
 	private int choice;
 	private boolean ranAway;
+	private Skill[] m_skillSet;
 	
 	public Battle()
 	{
@@ -22,10 +24,12 @@ public class Battle
 		r=new Random();
 		ranAway=false;
 		order=0;
-		
+		skillChoice=0;
+		victor=new Actor();
+		m_skillSet=Skill.getSkills();
 	}
 	
-	public void actorBattle(Actor player, Actor npc)
+	public Actor actorBattle(Actor player, Actor npc)
 	{
 		int order=0; //randomNumber(0,1);
 		
@@ -54,7 +58,14 @@ public class Battle
 				else if (choice==2)
 				{
 					printSkillsAvailable(player);
-					//use selected skill in battle
+					System.out.println("Input the corresponding number to use the skill");
+					skillChoice=myScanner.nextInt();
+					if (player.getSkillset()[skillChoice]==true)
+					{
+						//execute the skill;
+					}
+					
+					
 				}
 				else if (choice==3)
 				{
@@ -66,6 +77,7 @@ public class Battle
 					int run=randomNumber(0,1);
 					if (run==0)
 					{
+						ranAway=true;
 						break;
 					}
 					else
@@ -93,7 +105,7 @@ public class Battle
 		{
 			System.out.println("You successfully ran away!");
 		}
-		
+		return victor;
 
 	}
 	public void groupBattle(Actor[] goodguys, Actor[] badguys)
@@ -131,9 +143,18 @@ public class Battle
 		System.out.println("3) Use Potion");
 		System.out.println("4) Run Run Run!");
 	}
-	private void printSkillsAvailable(Actor a1)
+	public void printSkillsAvailable(Actor a1)
 	{
+		System.out.println("Skills available to you:\n");
+		boolean[] skills=a1.getSkillset();
 		
+		for (int i=0; i<skills.length; i++)
+		{
+			if (skills[i]==true)
+			{
+				System.out.println(i+") "+m_skillSet[i].getName()+"- "+m_skillSet[i].getDescription());
+			}
+		}
 	}
 	private void printPotionsAvailable(Actor a1)
 	{

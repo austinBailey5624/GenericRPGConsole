@@ -19,11 +19,11 @@ public class main
 		System.out.println("Number of Skills: " + Skill.getNumOfSkillsTotal());
 		System.out.println("Number of Enemies: " + EnemyActor.m_numOfEnemies);
 		
-		/*
-		 * Battle Testing:
-		 * 
-		Actor a1=new Actor();
-		Actor a2=new Actor();
+		
+		 
+		  
+		Actor a1=new PlayerActor();
+		Actor a2=new EnemyActor(0);
 		Battle battle=new Battle();
 		
 		Item basicsword=new Item(1);
@@ -32,7 +32,8 @@ public class main
 		a1.setName("Jeff");
 		a2.setName("Bob");
 		battle.actorBattle(a1,a2);
-		*/
+		//battle.printSkillsAvailable(a1);
+		
 	}
 	
 }
