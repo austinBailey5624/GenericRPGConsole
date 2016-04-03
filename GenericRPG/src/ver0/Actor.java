@@ -132,7 +132,7 @@ public class Actor
 	{
 		return m_equippedSword;
 	}
-	public void EquipSword(Item sword)
+	public void equipSword(Item sword)
 	{
 		if(sword.getType()==1)
 		{
@@ -147,7 +147,7 @@ public class Actor
 	{
 		return m_equippedShield;
 	}
-	public void EquipShield(Item shield)
+	public void equipShield(Item shield)
 	{
 		if(shield.getType()==2)
 		{
@@ -162,7 +162,7 @@ public class Actor
 	{
 		return m_equippedArmor;
 	}
-	public void EquipArmor(Item armor)
+	public void equipArmor(Item armor)
 	{
 		if(armor.getType()==3)
 		{
@@ -177,7 +177,7 @@ public class Actor
 	{
 		return m_equippedHelmet;
 	}
-	public void EquipHelmet(Item helmet)
+	public void equipHelmet(Item helmet)
 	{
 		if(helmet.getType()==4)
 		{
@@ -192,7 +192,7 @@ public class Actor
 	{
 		return m_equippedGauntlets;
 	}
-	public void EquipGauntlets(Item gauntlets)
+	public void equipGauntlets(Item gauntlets)
 	{
 		if(gauntlets.getType()==5)
 		{
@@ -207,7 +207,7 @@ public class Actor
 	{
 		return m_equippedBoots;
 	}
-	public void EquipBoots(Item boots)
+	public void equipBoots(Item boots)
 	{
 		if(boots.getType()==6)
 		{
