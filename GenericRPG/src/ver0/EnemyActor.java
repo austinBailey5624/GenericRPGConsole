@@ -30,6 +30,7 @@ public class EnemyActor extends Actor
 		{
 			m_skillSet[i]=false;
 		}
+<<<<<<< HEAD
 		EquipSword(itemArray[8]);
 		EquipShield(itemArray[9]);
 		EquipArmor(itemArray[10]);
@@ -39,6 +40,14 @@ public class EnemyActor extends Actor
 		setAttackModifier(1);
 		setDefenseModifier(1);
 		
+=======
+		equipSword(itemArray[8]);
+		equipShield(itemArray[9]);
+		equipArmor(itemArray[10]);
+		equipHelmet(itemArray[11]);
+		equipGauntlets(itemArray[12]);
+		equipBoots(itemArray[13]);
+>>>>>>> 484fee9507f727031c8796aab824714397a4fe4c
 		if(index==0)
 		{
 			setName("Generic Enemy");
