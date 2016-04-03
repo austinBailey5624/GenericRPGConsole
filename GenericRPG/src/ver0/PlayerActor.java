@@ -4,6 +4,7 @@ public class PlayerActor extends Actor
 {
 	static Scanner myScanner = new Scanner(System.in);
 	static int select;
+	Item[] itemSet = Item.getAllItems();
 	//private member variables
 	private int m_exp;
 	private int m_gold;
@@ -42,11 +43,12 @@ public class PlayerActor extends Actor
 	{
 		m_gold=m_gold+gold;
 	}
-	public boolean buyItem(int cost)//return true if buy is possible
+	public boolean buyItem(int index)//return true if buy is possible
 	{
-		if(m_gold>=cost)
+		if(m_gold>=itemSet[index].getValue())
 		{
-			m_gold=m_gold-cost;
+			m_gold=m_gold-itemSet[index].getValue();
+			m_inventory[index]++;
 			return true;
 		}
 		else
@@ -54,11 +56,34 @@ public class PlayerActor extends Actor
 			return false;
 		}
 	}
-	public boolean buyItems(int cost, int quantity)
+	public boolean canBuyItem(int cost)
+	{
+		if(m_gold>=cost)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	public boolean buyItems(int index, int quantity)
+	{
+		if(m_gold>=itemSet[index].getValue()*quantity)
+		{
+			m_gold=m_gold-(itemSet[index].getValue()*quantity);
+			m_inventory[index]+=quantity;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	public boolean canBuyItems(int cost, int quantity)
 	{
 		if(m_gold>=cost*quantity)
 		{
-			m_gold=m_gold-(cost*quantity);
 			return true;
 		}
 		else
