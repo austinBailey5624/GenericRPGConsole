@@ -30,6 +30,8 @@ public class EnemyActor extends Actor
 		{
 			m_skillSet[i]=false;
 		}
+		setAttackModifier(1);
+		setDefenseModifier(1);
 		equipSword(itemArray[8]);
 		equipShield(itemArray[9]);
 		equipArmor(itemArray[10]);

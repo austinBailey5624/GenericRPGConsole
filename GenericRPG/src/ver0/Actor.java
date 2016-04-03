@@ -21,6 +21,7 @@ public class Actor
 	//Constructors
 	public Actor()//default constructor
 	{
+		Item[] itemArray = Item.getAllItems();
 		m_level=1;
 		m_maxHp=100;
 		m_curHp=100;
@@ -37,13 +38,19 @@ public class Actor
 		m_skillSet=new boolean[Skill.getNumOfSkillsTotal()];
 		for(int i=0; i<Skill.getNumOfSkillsTotal();i++)
 		{
-			m_skillSet[i]=false;
+			m_skillSet[i]=false; 
 		}
 		m_skillSet[0]=true;//sets the basic attack skill to true to ensure that it is avaliable to all
 	}
 	
 	
 	//Setters and Getters
+	
+	public boolean[] getSkillset()
+	{
+		return m_skillSet;
+	}
+	
 	public String getName()
 	{
 		return m_name;

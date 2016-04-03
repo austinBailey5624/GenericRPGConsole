@@ -52,21 +52,5 @@ public class main
 				System.out.println("Sorry, we didn't undersand your input");
 			}
 		}
-
-		/*
-		 * Battle Testing:
-		 * 
-		Actor a1=new Actor();
-		Actor a2=new Actor();
-		Battle battle=new Battle();
-		
-		Item basicsword=new Item(1);
-		a1.EquipSword(basicsword);
-		
-		a1.setName("Jeff");
-		a2.setName("Bob");
-		battle.actorBattle(a1,a2);
-		*/
 	}
-	
 }
