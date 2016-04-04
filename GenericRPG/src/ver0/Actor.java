@@ -29,7 +29,7 @@ public class Actor
 		m_atkModifier=1;
 		m_def=10;
 		m_defModifier=1;
-<<<<<<< HEAD
+
 		equipSword(itemArray[8]);
 		equipShield(itemArray[9]);
 		equipArmor(itemArray[10]);
@@ -38,14 +38,14 @@ public class Actor
 		equipBoots(itemArray[13]);
 		setAttackModifier(1);
 		setDefenseModifier(1);
-=======
+
 		equipSword(itemSet[8]);
 		equipShield(itemSet[9]);
 		equipArmor(itemSet[10]);
 		equipHelmet(itemSet[11]);
 		equipBoots(itemSet[13]);
 		equipGauntlets(itemSet[12]);
->>>>>>> 88f776a07cb9e6ae96f974d3aeea398929d6ffeb
+
 		m_skillSet=new boolean[Skill.getNumOfSkillsTotal()];
 		for(int i=0; i<Skill.getNumOfSkillsTotal();i++)
 		{
