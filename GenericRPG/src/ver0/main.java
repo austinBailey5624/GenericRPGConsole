@@ -61,7 +61,7 @@ public class main
 		EnemyActor a2=new EnemyActor(1);
 
 
-		 * 
+		/* 
 		Actor a1=new Actor();
 		Actor a2=new Actor();
 
@@ -142,14 +142,8 @@ public class main
 				System.out.println("Sorry, we didn't undersand your input");
 			}
 		}
-
 	}
-
-	
 }
 
-	
-}
 
-}
 
