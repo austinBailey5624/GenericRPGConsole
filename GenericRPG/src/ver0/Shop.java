@@ -74,6 +74,7 @@ public class Shop
 		boolean exit=false;
 		while(!exit)
 		{
+			System.out.println("You currently have " + character.getGold() +" Gold avaliable to buy stuff with");
 			System.out.println("Please select what you would like to buy");
 			int[] indexRepresentedByChoice= new int[itemSet.length];
 			for(int i=0;i<itemSet.length;i++)
@@ -85,13 +86,18 @@ public class Shop
 			{
 				if(m_inventory[i]>0)
 				{
-					System.out.println(choice + ") " + itemSet[i].getName() + " costs: " + itemSet[i].getValue());
+					System.out.println(choice + ") " + itemSet[i].getName() + " costs: " + itemSet[i].getValue() + " quantity avaliable: " + this.m_inventory[i]);
 					indexRepresentedByChoice[choice]=i;
 					choice++;
 				}
 			}
+			System.out.println((choice)+ ") Leave");
 			select=myScanner.nextInt();
-			if(select<1||select>choice)
+			if(select==choice+1)
+			{
+				return;
+			}
+			else if(select<1||select>choice)
 			{
 				System.out.println("Sorry we cant understand you input, please enter one of the numbers provided");
 			}
@@ -133,10 +139,10 @@ public class Shop
 					}
 				}
 			}
-			else if(indexRepresentedByChoice[select]==-1)
-			{
-				
-			}
+//			else if(indexRepresentedByChoice[select]==-1)
+//			{
+//				
+//			}
 		}
 	}
 //	public void displayMenuItemOptions(int select,PlayerActor character)//its not useful anymore, but I still think I may need it someday
@@ -233,10 +239,10 @@ public class Shop
 			//character.getInventory()[index]+=quantity;//TODO must be array type
 			if(character.buyItems(index,quantity))
 			{
-				System.out.println("Purchase successful! You have bought" + quantity + " " +itemSet[index]);
+				System.out.println("Purchase successful! You have bought" + quantity + " " +itemSet[index].getName());
 				this.m_inventory[index]-=quantity;
 			}
-			this.m_inventory[index]-=quantity;
+//			this.m_inventory[index]-=quantity;
 		}
 		else
 		{
