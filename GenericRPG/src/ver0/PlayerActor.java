@@ -21,6 +21,7 @@ public class PlayerActor extends Actor
 	public PlayerActor()
 	{
 		this.setLevel(1);
+		m_gold=0;
 		m_exp=0;
 		m_inventory=new int[Item.getNumTypesOfItem()];
 		for(int i=0; i<Item.getNumTypesOfItem();i++)
@@ -35,8 +36,48 @@ public class PlayerActor extends Actor
 		equipGauntlets(itemSet[12]);
 	}
 	
-    /**
-     * This function returns the value of m_exp
+	/**
+	 * This function creates a special PlayerActor for testing purposes
+	 * @precondition - 	constructor
+	 * @post - 			creates an instance of PlayerActor
+	 * @return -		constructor
+	 */
+	public PlayerActor(int id)
+	{
+		this.setName("Juan");
+		this.setAtk(5);
+		this.setDef(5);
+		this.setLevel(0);
+		this.addGold(500);
+		for(int i=0; i<skillSet.length; i++)
+		{
+			if(i%2==0)
+			{
+				m_skillSet[i]=true;
+			}
+			else
+			{
+				m_skillSet[i]=false;
+			}
+		}
+		equipSword(itemSet[14]);
+		equipShield(itemSet[22]);
+		equipArmor(itemSet[3]);
+		equipHelmet(itemSet[11]);
+		equipBoots(itemSet[13]);
+		equipGauntlets(itemSet[12]);
+		m_inventory=new int[Item.getNumTypesOfItem()];
+		for(int i=0; i<Item.getNumTypesOfItem();i++)
+		{
+			m_inventory[i]=0;
+		}
+		m_inventory[3]=2;
+		m_inventory[16]=2;
+	}
+	
+	/**
+ 
+    * This function returns the value of m_exp
      * @precondition - 	PlayerActor Object exists
      * @post - 			none
      * @return 			m_ext
@@ -113,7 +154,7 @@ public class PlayerActor extends Actor
 	/**
 	 * This function checks to see if an actor can buy an item
 	 * @precondition - 	PlayerActor Object exists
-	 * @post - 			none //TODO make const on next implementation
+	 * @post - 			none 
 	 * @return - 		true if the item can be bought, false else
 	 */
 	public boolean canBuyItem(int cost)
@@ -151,7 +192,7 @@ public class PlayerActor extends Actor
 	/**
 	 * This function checks to see if an actor can buy multiple of an item
 	 * @precondition - 	PlayerActor Object exists
-	 * @post - 			none //TODO make const on next implementation
+	 * @post - 			none 
 	 * @return - 		true if the item can be bought, false else
 	 */
 	public boolean canBuyItems(int cost, int quantity)
@@ -169,7 +210,7 @@ public class PlayerActor extends Actor
 	/**
 	 * This function returns m_inventory
 	 * @precondition- 	PlayerActor Object exists
-	 * @post - 			none //TODO make const
+	 * @post - 			none 
 	 * @return - 		m_inventory
 	 */
 	public int[] getInventory()
@@ -228,7 +269,7 @@ public class PlayerActor extends Actor
 	 */
 	public void menu()
 	{
-		System.out.println("1) Access Inventory\n2) Character Status\n3) View Skills\n4) exit");//TODO add character screen so user can see current attributes
+		System.out.println("1) Access Inventory\n2) Character Status\n3) View Skills\n4) exit");
 		select=myScanner.nextInt();
 		if(select==1)
 		{
@@ -255,7 +296,7 @@ public class PlayerActor extends Actor
 	/**
 	 * This function handles the user accessing the playerCharacters inventory
 	 * @precondition - 	PlayerActor Object exists
-	 * @post - 			none //TODO make const
+	 * @post - 			none 
 	 * @return - 		void
 	 */
 	public void accessInventory()
@@ -298,7 +339,7 @@ public class PlayerActor extends Actor
 	/**
 	 * This function displays the inventory
 	 * @precondition - 	PlayerActor Object exists
-	 * @post -			none //TODO make const
+	 * @post -			none /
 	 * @return - 		void			
 	 */
 	public void displayInventory()
@@ -310,7 +351,7 @@ public class PlayerActor extends Actor
 	}
 	
 	/**
-	 * This function allows for the equipping of items in the invetory
+	 * This function allows for the equipping of items in the inventory
 	 * @precondition - 	PlayerActor Object exists
 	 * @post - 			equips items if appropriate
 	 * @return - 		void
@@ -320,26 +361,32 @@ public class PlayerActor extends Actor
 		Item[] items = Item.getAllItems();
 		if(type==1)
 		{
+			System.out.println("Currently have: " + this.getEquippedSword() +"Equipped, with Attack Bonus: " + this.getEquippedSword().getBonusAtk() + " And Defense Bous: " + this.getEquippedSword().getBonusDef());
 			System.out.println("Which Sword do you want to equip?");
 		}
 		else if(type==2)
 		{
+			System.out.println("Currently have: " + this.getEquippedShield() +"Equipped, with Attack Bonus: " + this.getEquippedShield().getBonusAtk() + " And Defense Bous: " + this.getEquippedShield().getBonusDef());
 			System.out.println("Which Shield do you want to equip?");
 		}
 		else if(type==3)
 		{
+			System.out.println("Currently have: " + this.getEquippedArmor() +"Equipped, with Attack Bonus: " + this.getEquippedArmor().getBonusAtk() + " And Defense Bous: " + this.getEquippedArmor().getBonusDef());
 			System.out.println("Which Armor set do you want to equip?");
 		}
 		else if(type==4)
 		{
+			System.out.println("Currently have: " + this.getEquippedHelmet() +"Equipped, with Attack Bonus: " + this.getEquippedHelmet().getBonusAtk() + " And Defense Bous: " + this.getEquippedHelmet().getBonusDef());
 			System.out.println("Which Helmet do you want to equip?");
 		}
 		else if(type==5)
 		{
+			System.out.println("Currently have: " + this.getEquippedGauntlets() +"Equipped, with Attack Bonus: " + this.getEquippedGauntlets().getBonusAtk() + " And Defense Bous: " + this.getEquippedGauntlets().getBonusDef());
 			System.out.println("Which Gauntlets do you want to equip?");
 		}
 		else if(type==6)
 		{
+			System.out.println("Currently have: " + this.getEquippedBoots() +"Equipped, with Attack Bonus: " + this.getEquippedBoots().getBonusAtk() + " And Defense Bous: " + this.getEquippedBoots().getBonusDef());
 			System.out.println("Which Boots do you want to equip?");
 		}
 		
@@ -363,7 +410,7 @@ public class PlayerActor extends Actor
 		
 		//get input from user
 		select=myScanner.nextInt();
-		System.out.println("choices = " + choices);//debugging
+//		System.out.println("choices = " + choices);//debugging
 		
 		//make decision based on input
 		if(select<1||select>choices)
@@ -411,11 +458,12 @@ public class PlayerActor extends Actor
 	/**
 	 * This function displays relevant information about the character
 	 * @precondition - 	PlayerActor Object exists
-	 * @post - 			Does not change member variables//TODO make const
+	 * @post - 			Does not change member variables
 	 * @return - 		void 
 	 */
 	public void viewCharacterStatus()
 	{
+		System.out.println("Name:               " + this.getName());
 		System.out.println("Current Level:      " + this.getLevel());
 		System.out.println("Current Experience: " + this.getExp());
 		System.out.println("Exp to next Level:  " + (this.getLevel()*100-this.getExp()));
@@ -424,7 +472,7 @@ public class PlayerActor extends Actor
 		System.out.println("Equipped Sword:     " + this.getEquippedSword().getName() + " bonus Attack: " + this.getEquippedSword().getBonusAtk() + " bonus Defense: " + this.getEquippedSword().getBonusDef());
 		System.out.println("Equipped Shield:    " + this.getEquippedShield().getName() + " bonus Atack: " + this.getEquippedShield().getBonusAtk() + " bonus Defense: " + this.getEquippedShield().getBonusDef());
 		System.out.println("Equipped Armor:     " + this.getEquippedArmor().getName() + " bonus Attack: " + this.getEquippedArmor().getBonusAtk() + " bonus Defense: " + this.getEquippedArmor().getBonusDef());
-		System.out.println("Equipped Helmet:    " +  this.getEquippedHelmet().getName() + " bonus Attack: " + this.getEquippedHelmet().getBonusAtk() + " bonus Defense: " +  this.getEquippedHelmet().getBonusDef());
+		System.out.println("Equipped Helmet:    " + this.getEquippedHelmet().getName() + " bonus Attack: " + this.getEquippedHelmet().getBonusAtk() + " bonus Defense: " +  this.getEquippedHelmet().getBonusDef());
 		System.out.println("Equipped Gauntlets: " + this.getEquippedGauntlets().getName() + " bonus Atack: " + this.getEquippedGauntlets().getBonusAtk()+ " bonus Defense: " +this.getEquippedGauntlets().getBonusDef());		
 		System.out.println("Equipped Boots:     " + this.getEquippedBoots().getName() + " bonus Attack " + this.getEquippedBoots().getBonusAtk() + " bonus Defense: " + this.getEquippedBoots().getBonusDef());
 		System.out.println("Natural Attack:     " + this.getAtk());
@@ -438,21 +486,26 @@ public class PlayerActor extends Actor
 	/**
 	 * This function displays what skills the user has learned
 	 * @precondition - 	PlayerActor Object Exists
-	 * @post - 			Does not change member variables//TODO make const
+	 * @post - 			Does not change member variables
 	 * @return - 		void
 	 */
 	public void viewCharacterSkills()
 	{
 		for(int i=0; i<Skill.getNumOfSkillsTotal(); i++)
 		{
+			
 			System.out.print(skillSet[i].getName());
+			for(int j=0; j<(20-skillSet[i].getName().length());j++)
+			{
+				System.out.print(" ");
+			}
 			if(m_skillSet[i])
 			{
-				System.out.print(" LEARNED ");
+				System.out.print(" LEARNED - ");
 			}
 			else
 			{
-				System.out.print(" UNKNOWN ");
+				System.out.print(" UNKNOWN - ");
 			}
 			System.out.println(skillSet[i].getDescription());
 		}
