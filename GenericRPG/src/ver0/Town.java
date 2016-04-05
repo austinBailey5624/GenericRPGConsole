@@ -2,7 +2,7 @@ package ver0;
 
 /**
  * @author : Will Teeple
- * @version : 0.1
+ * @version : 0.3
  * @since 04/02/2016
  * Description : Town class. This class stores the current town map and contains
  * the methods for manipulating and displaying the players position
@@ -33,8 +33,10 @@ package ver0;
    private boolean stillInArea = true;
 
    //current map with player token
-   private char[][] townArrBase = new char[areaYDim][areaXDim];
+   private char[][] areaArrBase = new char[areaYDim][areaXDim];
    private char[][] curAreaArr = new char[areaYDim][areaXDim];
+
+   //constructors
 
    /**
     * @param : (pre) None
@@ -48,68 +50,44 @@ package ver0;
      curPosX = startLocX;
      curPosY = startLocY;
 
-     setBaseArea(townBase);
-     resetArea();
+     areaArrBase = setBaseArea(townBase);
+     curAreaArr = resetArea(curAreaArr, areaArrBase);
      curAreaArr[curPosY][curPosX] = player;
    }
+
+   //get/set methods
+
+   public char[][] getArea()
+   {
+     return curAreaArr;
+   }
+
+   public void setCurrentToPrevious()
+   {
+     curPosX = prevPosX;
+     curPosY = prevPosY;
+   }
+
+   //checking methods
 
    public boolean inArea()
    {
      return stillInArea;
    }
 
-   /**
-    * @param : (pre) Existing Town Object
-    * @param : (post) Displays the current town map with player token
-    * @return : None
-    */
-   public void displayArea()
+   public boolean atExit(int x, int y)
    {
-     for (int i = 0; i < areaYDim; i++)
+     if(x == exitLocX && y == exitLocY)
      {
-       System.out.print("\n");
-       for (int j = 0; j < areaXDim; j++)
-       {
-         System.out.print(curAreaArr[i][j] + " ");
-       }
+       return true;
      }
-     System.out.print("\n");
-   }
-
-   public void setBaseArea(char[][] area)
-   {
-     for (int i = 0; i < areaYDim; i++)
+     else
      {
-       for (int j = 0; j < areaXDim; j++)
-       {
-         townArrBase[i][j] = area[i][j];
-         if (townArrBase[i][j] == townBorder)
-         {
-           exitLocX = j;
-           exitLocY = i;
-         }
-       }
+       return false;
      }
    }
 
-   public void resetArea()
-   {
-     for (int i = 0; i < areaYDim; i++)
-     {
-       for (int j = 0; j < areaXDim; j++)
-       {
-         curAreaArr[i][j] = townArrBase[i][j];
-       }
-     }
-   }
-
-   public boolean isNumeric(String str) //assisted code from StackOverflow, ---->
-   //url: http://stackoverflow.com/questions/1102891/how-to-check-if-a-string-is-numeric-in-java
-   {
-     return str.matches("-?\\d+(\\.\\d+)?");
-   }
-
-   public boolean menuInputCheck(String str)
+   public boolean menuInputCheck(String str, int min, int max, boolean moveFlag)
    {
      double selDouble; //convert input safely
      int sel; //convert double to int
@@ -117,13 +95,20 @@ package ver0;
      {
        selDouble = Double.parseDouble(str); //parse to double safely
        sel = (int) selDouble;
-       if(sel < 1 || sel > 4) //if outside the menu range, false
+       if(sel < min || sel > max) //if outside the menu range, false
        {
          return false;
        }
        else
        {
-         return validMoveCheck(sel);
+         if (moveFlag)
+         {
+           return validMoveCheck(sel);
+         }
+         else
+         {
+           return true;
+         }
        }
      }
      else
@@ -181,14 +166,16 @@ package ver0;
      }
    }
 
+   //interaction methods
+
    public void menuInteraction()
    {
      final String menu = "\n\nYou are currently at the coordinate (" + curPosX + ", " + curPosY + "). Which direction would you like to move?\n" +
-                            "1. Up\n" +
-                            "2. Down\n" +
-                            "3. Left\n" +
-                            "4. Right\n" +
-                            "Your Choice: ";
+                            "   1. Up\n" +
+                            "   2. Down\n" +
+                            "   3. Left\n" +
+                            "   4. Right\n" +
+                            "   Your Choice: ";
      String input; //input as string
      double selDouble; //menu selection as double
      int selection; //menu selection as integer
@@ -196,16 +183,21 @@ package ver0;
      System.out.print(menu); //display menu options
      input = in.next(); //get user input
 
-     while(!menuInputCheck(input)) //check if entry is valid, repeat input if not
+     while(!menuInputCheck(input, 1, 4, true)) //check if entry is valid, repeat input if not
      {
        System.out.print("Invalid menu selection, please choose an integer between 1 and 4 and a\ndestination along the path denoted by P.\nYour choice: ");
        input = in.next();
      }
+     
+     in.close();
 
      selDouble = Double.parseDouble(input); //safe parse
      selection = (int) selDouble; //set selection
 
      stillInArea = characterMove(selection); //store if still in town
+     clearScreen();
+
+     while(townInteraction(areaArrBase[curPosY][curPosX])){}
    }
 
    public boolean characterMove(int sel)
@@ -236,9 +228,9 @@ package ver0;
      curPosX = tempX;
      curPosY = tempY;
 
-     resetArea();
+     curAreaArr = resetArea(curAreaArr, areaArrBase);
      curAreaArr[tempY][tempX] = player;
-     if (townArrBase[tempY][tempX] == townBorder)
+     if (areaArrBase[tempY][tempX] == townBorder)
      {
        return false;
      }
@@ -248,15 +240,279 @@ package ver0;
      }
    }
 
-   public boolean atExit(int x, int y)
+   public boolean townInteraction(char spot)
    {
-     if(x == exitLocX && y == exitLocY)
+     boolean inBuilding = false;
+
+     switch(spot)
      {
-       return true;
+       case shop:
+          inBuilding = shopMenu();
+          break;
+       case arena:
+          inBuilding = arenaMenu();
+          break;
+       case inn:
+          inBuilding = innMenu();
+          break;
+       case library:
+          inBuilding = libraryMenu();
+          break;
+       default:
+          inBuilding = false;
      }
-     else
-     {
-       return false;
-     }
+
+     clearScreen();
+     return inBuilding;
    }
+
+   public boolean shopMenu()
+   {
+     final String menu = "\nWelcome to the Shop!\n" +
+                            "   1. Buy\n" +
+                            "   2. Sell\n" +
+                            "   3. Leave\n" +
+                            "   Your Choice: ";
+     String input; //input as string
+     double selDouble; //menu selection as double
+     int selection; //menu selection as integer
+     Scanner in = new Scanner(System.in); //input scanner
+     System.out.print(menu); //display menu options
+     input = in.next(); //get user input
+
+     boolean inStore = true;
+
+     while(!menuInputCheck(input, 1, 3, false)) //check if entry is valid, repeat input if not
+     {
+       System.out.print("Invalid menu selection, please choose an integer between 1 and 3.\nYour choice: ");
+       input = in.next();
+     }
+
+     in.close();
+     
+     selDouble = Double.parseDouble(input); //safe parse
+     selection = (int) selDouble; //set selection
+
+     switch(selection)
+     {
+       case 1:
+          System.out.println("\n\nInsert interaction here:\n\n");
+          break;
+       case 2:
+          System.out.println("\n\nInsert interaction here:\n\n");
+          break;
+       case 3:
+          inStore = false;
+          setCurrentToPrevious();
+          curAreaArr = resetArea(curAreaArr, areaArrBase);
+          curAreaArr[curPosY][curPosX] = player;
+          break;
+     }
+
+     return inStore;
+   }
+
+   public boolean arenaMenu()
+   {
+     final String menu = "\nWelcome to the Arena!\n" +
+                            "   1. Battle\n" +
+                            "   2. Leave\n" +
+                            "   Your Choice: ";
+     String input; //input as string
+     double selDouble; //menu selection as double
+     int selection; //menu selection as integer
+     Scanner in = new Scanner(System.in); //input scanner
+     System.out.print(menu); //display menu options
+     input = in.next(); //get user input
+
+     boolean inArena = true;
+
+     while(!menuInputCheck(input, 1, 2, false)) //check if entry is valid, repeat input if not
+     {
+       System.out.print("Invalid menu selection, please choose an integer between 1 and 2.\nYour choice: ");
+       input = in.next();
+     }
+     
+     in.close();
+
+     selDouble = Double.parseDouble(input); //safe parse
+     selection = (int) selDouble; //set selection
+
+     switch(selection)
+     {
+       case 1:
+          System.out.println("\n\nInsert interaction here:\n\n");
+          break;
+       case 2:
+          inArena = false;
+          setCurrentToPrevious();
+          curAreaArr = resetArea(curAreaArr, areaArrBase);
+          curAreaArr[curPosY][curPosX] = player;
+          break;
+     }
+
+     return inArena;
+   }
+
+   public boolean innMenu()
+   {
+     final String menu = "\nWelcome to the Inn!\n" +
+                            "   1. Rest\n" +
+                            "   2. Leave\n" +
+                            "   Your Choice: ";
+     String input; //input as string
+     double selDouble; //menu selection as double
+     int selection; //menu selection as integer
+     Scanner in = new Scanner(System.in); //input scanner
+     System.out.print(menu); //display menu options
+     input = in.next(); //get user input
+
+     boolean inInn = true;
+
+     while(!menuInputCheck(input, 1, 2, false)) //check if entry is valid, repeat input if not
+     {
+       System.out.print("Invalid menu selection, please choose an integer between 1 and 2.\nYour choice: ");
+       input = in.next();
+     }
+
+     in.close();
+     
+     selDouble = Double.parseDouble(input); //safe parse
+     selection = (int) selDouble; //set selection
+
+     switch(selection)
+     {
+       case 1:
+          System.out.println("\n\nInsert interaction here:\n\n");
+          break;
+       case 2:
+          inInn = false;
+          setCurrentToPrevious();
+          curAreaArr = resetArea(curAreaArr, areaArrBase);
+          curAreaArr[curPosY][curPosX] = player;
+          break;
+     }
+
+     return inInn;
+   }
+
+   public boolean libraryMenu()
+   {
+     final String menu = "\nWelcome to the Library!\n" +
+                            "   1. Learn Skill\n" +
+                            "   2. Leave\n" +
+                            "   Your Choice: ";
+     String input; //input as string
+     double selDouble; //menu selection as double
+     int selection; //menu selection as integer
+     Scanner in = new Scanner(System.in); //input scanner
+     System.out.print(menu); //display menu options
+     input = in.next(); //get user input
+
+     boolean inLibrary = true;
+
+     while(!menuInputCheck(input, 1, 2, false)) //check if entry is valid, repeat input if not
+     {
+       System.out.print("Invalid menu selection, please choose an integer between 1 and 2.\nYour choice: ");
+       input = in.next();
+     }
+
+     in.close();
+     
+     selDouble = Double.parseDouble(input); //safe parse
+     selection = (int) selDouble; //set selection
+
+     switch(selection)
+     {
+       case 1:
+          System.out.println("\n\nInsert interaction here:\n\n");
+          break;
+       case 2:
+          inLibrary = false;
+          setCurrentToPrevious();
+          curAreaArr = resetArea(curAreaArr, areaArrBase);
+          curAreaArr[curPosY][curPosX] = player;
+          break;
+     }
+
+     return inLibrary;
+   }
+   
+// shared static methods
+
+  /**
+   * @param : (pre) None
+   * @param : (post) Checks to see if the passed argument is numeric
+   * @return : Returns true if the string argument is numeric, false otherwise
+   */
+  public boolean isNumeric(String str) //assisted code from StackOverflow, ---->
+  //url: http://stackoverflow.com/questions/1102891/how-to-check-if-a-string-is-numeric-in-java
+  {
+    return str.matches("-?\\d+(\\.\\d+)?");
+  }
+
+  public void clearScreen() //assisted code from StackOverflow, ---->
+  //url: http://stackoverflow.com/questions/4888362/commands-in-java-to-clear-the-screen
+  {
+    final String ANSI_CLS = "\u001b[2J";
+    final String ANSI_HOME = "\u001b[H";
+    System.out.print(ANSI_CLS + ANSI_HOME);
+    System.out.flush();
+  }
+
+  /**
+   * @param : (pre) Existing class object that implements Place
+   * @param : (post) Displays the current area map with player token
+   * @return : None
+   */
+  public void displayArea(char[][] area)
+  {
+    for (int i = 0; i < areaYDim; i++)
+    {
+      System.out.print("\n");
+      for (int j = 0; j < areaXDim; j++)
+      {
+        System.out.print(area[i][j] + " ");
+      }
+    }
+    System.out.print("\n");
+  }
+
+  /**
+   * @param : (pre) Existing class object that implements Place
+   * @param : (post) Sets the base area map for the object
+   * @return : Returns the array containing the base area
+   */
+  public char[][] setBaseArea(char[][] area)
+  {
+    char[][] base = new char[area.length][area[0].length];
+
+    for (int i = 0; i < areaYDim; i++)
+    {
+      for (int j = 0; j < areaXDim; j++)
+      {
+        base[i][j] = area[i][j];
+      }
+    }
+
+    return base;
+  }
+
+  /**
+   * @param : (pre) Existing class object that implements Place
+   * @param : (post) Duplicates the passed base area array, effective reset of the area with no player token
+   * @return : Returns the duplicated array
+   */
+  public char[][] resetArea(char[][] currentArea, char[][] baseArea)
+  {
+    for (int i = 0; i < areaYDim; i++)
+    {
+      for (int j = 0; j < areaXDim; j++)
+      {
+        currentArea[i][j] = baseArea[i][j];
+      }
+    }
+
+    return currentArea;
+  }
  }

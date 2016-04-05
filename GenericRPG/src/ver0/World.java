@@ -2,7 +2,7 @@ package ver0;
 
 /**
  * @author : Will Teeple
- * @version : 0.3
+ * @version : 0.4
  * @since 03/30/2016
  * Description : World class. This class stores the current world map and contains
  * the methods for manipulating and displaying the players position
@@ -18,8 +18,8 @@ public class World implements Place
 
   //constant variables for easier code reading
   private final char town = 'T'; //character for tree
-  private final char mountain = 'M'; //character for mountain
-  private final char river = 'R'; //character for river
+  //private final char mountain = 'M'; //character for mountain
+  //private final char river = 'R'; //character for river
 
   //current location variable set
   private int curPosX = 0;
@@ -29,8 +29,13 @@ public class World implements Place
   private boolean stillInArea;
 
   //current map with player token
-  private char[][] worldArrBase = new char[areaYDim][areaXDim];
+  private char[][] areaArrBase = new char[areaYDim][areaXDim];
   private char[][] curAreaArr = new char[areaYDim][areaXDim];
+
+  //game exit variable
+  private boolean gameExit = false;
+
+  //constructors
 
   /**
    * @param : (pre) None
@@ -44,43 +49,16 @@ public class World implements Place
     curPosX = startLocX;
     curPosY = startLocY;
 
-    setBaseArea(worldBase);
-    resetArea();
+    areaArrBase = setBaseArea(worldBase);
+    curAreaArr = resetArea(curAreaArr, areaArrBase);
     curAreaArr[curPosY][curPosX] = player;
   }
 
-  public boolean inArea()
-  {
-    return stillInArea;
-  }
+  //get/set methods
 
-  /**
-   * @param : (pre) Existing World Object
-   * @param : (post) Displays the current world map with player token
-   * @return : None
-   */
-  public void displayArea()
+  public char[][] getArea()
   {
-    for (int i = 0; i < areaYDim; i++)
-    {
-      System.out.print("\n");
-      for (int j = 0; j < areaXDim; j++)
-      {
-        System.out.print(curAreaArr[i][j] + " ");
-      }
-    }
-    System.out.print("\n");
-  }
-
-  public void setBaseArea(char[][] area)
-  {
-    for (int i = 0; i < areaYDim; i++)
-    {
-      for (int j = 0; j < areaXDim; j++)
-      {
-        worldArrBase[i][j] = area[i][j];
-      }
-    }
+    return curAreaArr;
   }
 
   public int[] getCurrentLoc()
@@ -95,24 +73,19 @@ public class World implements Place
     curPosY = prevPosY;
   }
 
-  public void resetArea()
+  public boolean getGameExit()
   {
-    for (int i = 0; i < areaYDim; i++)
-    {
-      for (int j = 0; j < areaXDim; j++)
-      {
-        curAreaArr[i][j] = worldArrBase[i][j];
-      }
-    }
+    return gameExit;
   }
 
-  public boolean isNumeric(String str) //assisted code from StackOverflow, ---->
-  //url: http://stackoverflow.com/questions/1102891/how-to-check-if-a-string-is-numeric-in-java
+  //checking methods
+
+  public boolean inArea()
   {
-    return str.matches("-?\\d+(\\.\\d+)?");
+    return stillInArea;
   }
 
-  public boolean menuInputCheck(String str)
+  public boolean menuInputCheck(String str, int min, int max, boolean moveFlag)
   {
     double selDouble; //convert input safely
     int sel; //convert double to int
@@ -120,13 +93,27 @@ public class World implements Place
     {
       selDouble = Double.parseDouble(str); //parse to double safely
       sel = (int) selDouble;
-      if(sel < 1 || sel > 4) //if outside the menu range, false
+      if(sel < min || sel > max) //if outside the menu range, false
       {
         return false;
       }
       else
       {
-        return validMoveCheck(sel);
+        if (moveFlag)
+        {
+          if (sel == 5)
+          {
+            return true;
+          }
+          else
+          {
+            return validMoveCheck(sel);
+          }
+        }
+        else
+        {
+          return true;
+        }
       }
     }
     else
@@ -168,7 +155,7 @@ public class World implements Place
     }
     else
     {
-      if(worldArrBase[tempY][tempX] == path || worldArrBase[tempY][tempX] == town)
+      if(areaArrBase[tempY][tempX] == path || areaArrBase[tempY][tempX] == town)
       {
         return true;
       }
@@ -179,6 +166,8 @@ public class World implements Place
     }
   }
 
+  //interaction methods
+
   public void menuInteraction()
   {
     final String menu = "\n\nYou are currently at the coordinate (" + curPosX + ", " + curPosY + "). Which direction would you like to move?\n" +
@@ -186,6 +175,7 @@ public class World implements Place
                            "2. Down\n" +
                            "3. Left\n" +
                            "4. Right\n" +
+                           "5. Exit Game\n" +
                            "Your Choice: ";
     String input; //input as string
     double selDouble; //menu selection as double
@@ -194,16 +184,26 @@ public class World implements Place
     System.out.print(menu); //display menu options
     input = in.next(); //get user input
 
-    while(!menuInputCheck(input)) //check if entry is valid, repeat input if not
+    while(!menuInputCheck(input, 1, 5, true)) //check if entry is valid, repeat input if not
     {
       System.out.print("Invalid menu selection, please choose an integer between 1 and 4 and a\ndestination along the path denoted by P.\nYour choice: ");
       input = in.next();
     }
 
+    in.close();
+    
     selDouble = Double.parseDouble(input); //safe parse
     selection = (int) selDouble; //set selection
 
-    stillInArea = characterMove(selection); //store if still in world
+    if (selection != 5)
+    {
+      stillInArea = characterMove(selection); //store if still in world
+      clearScreen();
+    }
+    else
+    {
+      gameExit = true;
+    }
   }
 
   public boolean characterMove(int sel)
@@ -234,16 +234,95 @@ public class World implements Place
     curPosX = tempX;
     curPosY = tempY;
 
-    if (worldArrBase[tempY][tempX] == town)
+    if (areaArrBase[tempY][tempX] == town)
     {
       return false;
     }
     else
     {
-      resetArea();
+      curAreaArr = resetArea(curAreaArr, areaArrBase);
       curAreaArr[tempY][tempX] = player;
       return true;
     }
   }
+  
+  
+//shared static methods
+
+ /**
+  * @param : (pre) None
+  * @param : (post) Checks to see if the passed argument is numeric
+  * @return : Returns true if the string argument is numeric, false otherwise
+  */
+ public boolean isNumeric(String str) //assisted code from StackOverflow, ---->
+ //url: http://stackoverflow.com/questions/1102891/how-to-check-if-a-string-is-numeric-in-java
+ {
+   return str.matches("-?\\d+(\\.\\d+)?");
+ }
+
+ public void clearScreen() //assisted code from StackOverflow, ---->
+ //url: http://stackoverflow.com/questions/4888362/commands-in-java-to-clear-the-screen
+ {
+   final String ANSI_CLS = "\u001b[2J";
+   final String ANSI_HOME = "\u001b[H";
+   System.out.print(ANSI_CLS + ANSI_HOME);
+   System.out.flush();
+ }
+
+ /**
+  * @param : (pre) Existing class object that implements Place
+  * @param : (post) Displays the current area map with player token
+  * @return : None
+  */
+ public void displayArea(char[][] area)
+ {
+   for (int i = 0; i < areaYDim; i++)
+   {
+     System.out.print("\n");
+     for (int j = 0; j < areaXDim; j++)
+     {
+       System.out.print(area[i][j] + " ");
+     }
+   }
+   System.out.print("\n");
+ }
+
+ /**
+  * @param : (pre) Existing class object that implements Place
+  * @param : (post) Sets the base area map for the object
+  * @return : Returns the array containing the base area
+  */
+ public char[][] setBaseArea(char[][] area)
+ {
+   char[][] base = new char[area.length][area[0].length];
+
+   for (int i = 0; i < areaYDim; i++)
+   {
+     for (int j = 0; j < areaXDim; j++)
+     {
+       base[i][j] = area[i][j];
+     }
+   }
+
+   return base;
+ }
+
+ /**
+  * @param : (pre) Existing class object that implements Place
+  * @param : (post) Duplicates the passed base area array, effective reset of the area with no player token
+  * @return : Returns the duplicated array
+  */
+ public char[][] resetArea(char[][] currentArea, char[][] baseArea)
+ {
+   for (int i = 0; i < areaYDim; i++)
+   {
+     for (int j = 0; j < areaXDim; j++)
+     {
+       currentArea[i][j] = baseArea[i][j];
+     }
+   }
+
+   return currentArea;
+ }
 }
 

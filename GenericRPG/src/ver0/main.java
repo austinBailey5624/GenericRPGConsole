@@ -153,6 +153,11 @@ public class main
 			}
 			else if(select==2)
 			{
+				WorldDriver wd = new WorldDriver();
+				wd.runWorld();
+			}
+			else if(select==3)
+			{
 				System.out.println("Thank you for playing!");
 				return;
 			}
