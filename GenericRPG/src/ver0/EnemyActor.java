@@ -11,6 +11,12 @@ public class EnemyActor extends Actor
 
 	static int m_numOfEnemies=4;//This is the total number of enemies
 
+    /**
+     * This is a static method that returns all enemies for use in whatever file requires them
+     * @precondition - none
+     * @post - Loads EnemyActors
+     * @return an array containing all enemyActors
+     */
 	public static EnemyActor[] getEnemies()
 	{
 		EnemyActor[] enemies = new EnemyActor[4];
@@ -22,6 +28,12 @@ public class EnemyActor extends Actor
 	}
 	
 	//Constructor
+    /**
+     * This is a constructor that equips each enemy with their equipment and sets all necessary member variables 
+     * @precondition - none
+     * @post - creates an EnemyActor based on the index
+     * @return instance of EnemyActor
+     */
 	public EnemyActor(int index)
 	{
 		Item[] itemArray=Item.getAllItems();
@@ -123,18 +135,45 @@ public class EnemyActor extends Actor
 		}
 	}
 	//getters-setters
+    /**
+     * This function returns the value of m_defeatExp
+     * @precondition - EnemyActor Object exists
+     * @post - none
+     * @return m_defeatExp
+     */
 	public int getDefeatExp()
 	{
 		return m_defeatExp;
 	}
+	
+    /**
+     * This function sets the value of m_defeatExp
+     * @precondition - EnemyActor Object exists
+     * @post - sets m_defeatExp to the parameter int defeatExp
+     * @return m_defeatExp
+     */
 	public void setDefeatExp(int defeatExp)
 	{
 		m_defeatExp=defeatExp;
 	}
+	
+    /**
+     * This function returns the value of m_defeatGold
+     * @precondition - EnemyActor Object exists
+     * @post - none
+     * @return m_defeatGold
+     */
 	public int getDefeatGold()
 	{
 		return m_defeatGold;
 	}
+	
+    /**
+     * This function sets the value of m_defeatGold
+     * @precondition - EnemyActor Object exists
+     * @post - sets m_defeatGold to the parameter int defeatGold
+     * @return m_defeatExp
+     */
 	public void setDefeatGold(int defeatGold)
 	{
 		m_defeatGold=defeatGold;
