@@ -108,8 +108,11 @@ public class main
 		boolean exit = false;
 		while(!exit)
 		{
-			System.out.println("Welcome To GenericRPG! What would you like to do?\n1) developer options \n2)exit");
+			Scanner myScanner = new Scanner(System.in);
+			System.out.println("Welcome To GenericRPG! What would you like to do?\n1)developer options \n2)run world \n3)exit");
+
 			select=myScanner.nextInt();
+			
 			if(select==1)
 			{
 				while(!exit)

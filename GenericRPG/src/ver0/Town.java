@@ -188,14 +188,12 @@ package ver0;
        System.out.print("Invalid menu selection, please choose an integer between 1 and 4 and a\ndestination along the path denoted by P.\nYour choice: ");
        input = in.next();
      }
-     
-     in.close();
 
      selDouble = Double.parseDouble(input); //safe parse
      selection = (int) selDouble; //set selection
 
      stillInArea = characterMove(selection); //store if still in town
-     clearScreen();
+     //clearScreen();
 
      while(townInteraction(areaArrBase[curPosY][curPosX])){}
    }
@@ -262,7 +260,7 @@ package ver0;
           inBuilding = false;
      }
 
-     clearScreen();
+     //clearScreen();
      return inBuilding;
    }
 
@@ -287,8 +285,6 @@ package ver0;
        System.out.print("Invalid menu selection, please choose an integer between 1 and 3.\nYour choice: ");
        input = in.next();
      }
-
-     in.close();
      
      selDouble = Double.parseDouble(input); //safe parse
      selection = (int) selDouble; //set selection
@@ -332,8 +328,6 @@ package ver0;
        System.out.print("Invalid menu selection, please choose an integer between 1 and 2.\nYour choice: ");
        input = in.next();
      }
-     
-     in.close();
 
      selDouble = Double.parseDouble(input); //safe parse
      selection = (int) selDouble; //set selection
@@ -374,8 +368,6 @@ package ver0;
        System.out.print("Invalid menu selection, please choose an integer between 1 and 2.\nYour choice: ");
        input = in.next();
      }
-
-     in.close();
      
      selDouble = Double.parseDouble(input); //safe parse
      selection = (int) selDouble; //set selection
@@ -416,8 +408,6 @@ package ver0;
        System.out.print("Invalid menu selection, please choose an integer between 1 and 2.\nYour choice: ");
        input = in.next();
      }
-
-     in.close();
      
      selDouble = Double.parseDouble(input); //safe parse
      selection = (int) selDouble; //set selection

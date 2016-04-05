@@ -40,7 +40,7 @@ public class WorldDriver
     while(gameIsActive)
     {
       //begin game with clear terminal screen
-      clearScreen();
+      //clearScreen();
 
       //run world
       do

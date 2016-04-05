@@ -24,12 +24,12 @@ public interface Place
   public static final char right = 'd';
 
   // shared static methods
-
+/*
   /**
    * @param : (pre) None
    * @param : (post) Checks to see if the passed argument is numeric
    * @return : Returns true if the string argument is numeric, false otherwise
-   */
+   *
   public default boolean isNumeric(String str) //assisted code from StackOverflow, ---->
   //url: http://stackoverflow.com/questions/1102891/how-to-check-if-a-string-is-numeric-in-java
   {
@@ -49,7 +49,7 @@ public interface Place
    * @param : (pre) Existing class object that implements Place
    * @param : (post) Displays the current area map with player token
    * @return : None
-   */
+   *
   public default void displayArea(char[][] area)
   {
     for (int i = 0; i < areaYDim; i++)
@@ -67,7 +67,7 @@ public interface Place
    * @param : (pre) Existing class object that implements Place
    * @param : (post) Sets the base area map for the object
    * @return : Returns the array containing the base area
-   */
+   *
   public default char[][] setBaseArea(char[][] area)
   {
     char[][] base = new char[area.length][area[0].length];
@@ -87,7 +87,7 @@ public interface Place
    * @param : (pre) Existing class object that implements Place
    * @param : (post) Duplicates the passed base area array, effective reset of the area with no player token
    * @return : Returns the duplicated array
-   */
+   *
   public default char[][] resetArea(char[][] currentArea, char[][] baseArea)
   {
     for (int i = 0; i < areaYDim; i++)

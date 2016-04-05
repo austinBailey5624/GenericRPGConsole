@@ -9,7 +9,7 @@ import java.io.*;
 
 public class WorldDriver
 {
-  public static void main(String[] args) {
+  public void runWorld() {
     //file names
     String worldMapFile = "worldLayout.txt";
     String villagevilleFile = "villageville.txt";
@@ -71,7 +71,7 @@ public class WorldDriver
     System.out.println("\n\nYou have exited the game. Have a good day!");
   }
 
-  public static char[][] populateArea(String fileName)
+  public char[][] populateArea(String fileName)
   {
     //file i/o
     FileReader in;
@@ -116,7 +116,7 @@ public class WorldDriver
     return tempWorld;
   }
 
-  public static void clearScreen() //assisted code from StackOverflow, ---->
+  public void clearScreen() //assisted code from StackOverflow, ---->
   //url: http://stackoverflow.com/questions/4888362/commands-in-java-to-clear-the-screen
   {
     final String ANSI_CLS = "\u001b[2J";

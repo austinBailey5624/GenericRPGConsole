@@ -189,8 +189,6 @@ public class World implements Place
       System.out.print("Invalid menu selection, please choose an integer between 1 and 4 and a\ndestination along the path denoted by P.\nYour choice: ");
       input = in.next();
     }
-
-    in.close();
     
     selDouble = Double.parseDouble(input); //safe parse
     selection = (int) selDouble; //set selection
@@ -198,7 +196,7 @@ public class World implements Place
     if (selection != 5)
     {
       stillInArea = characterMove(selection); //store if still in world
-      clearScreen();
+      //clearScreen();
     }
     else
     {
@@ -264,7 +262,7 @@ public class World implements Place
  //url: http://stackoverflow.com/questions/4888362/commands-in-java-to-clear-the-screen
  {
    final String ANSI_CLS = "\u001b[2J";
-   final String ANSI_HOME = "\u001b[H";
+   String ANSI_HOME = "\u001b[H";
    System.out.print(ANSI_CLS + ANSI_HOME);
    System.out.flush();
  }
