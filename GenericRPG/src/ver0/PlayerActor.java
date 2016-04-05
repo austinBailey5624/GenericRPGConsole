@@ -227,13 +227,17 @@ public class PlayerActor extends Actor
 	 */
 	public void menu()
 	{
-		System.out.println("1) Access Inventory\n2) Return");//TODO add character screen so user can see current attributes
+		System.out.println("1) Access Inventory\n2) Character Status\n3) View Skills\n4) exit");//TODO add character screen so user can see current attributes
 		select=myScanner.nextInt();
 		if(select==1)
 		{
 			accessInventory();
 		}
 		else if(select==2)
+		{
+			viewCharacterStatus();
+		}
+		else if(select==4)
 		{
 			return;
 		}
@@ -305,9 +309,8 @@ public class PlayerActor extends Actor
 	 * @precondition - 	PlayerActor Object exists
 	 * @post - 			equips items if appropriate
 	 * @return - 		void
-	 * @param type
 	 */
-	public void equipMenu(int type)//TODO finish equip method
+	public void equipMenu(int type)//TODO finish/test equip method
 	{
 		Item[] items = Item.getAllItems();
 		if(type==1)
@@ -398,6 +401,33 @@ public class PlayerActor extends Actor
 		{
 			System.out.println("Sorry, we did not understand you input, please try again");
 		}
+	}
+	
+	/**
+	 * This function displays relevant information about the character
+	 * @precondition - 	PlayerActor Object exists
+	 * @post - 			Does not change member variables//TODO make const
+	 * @return - 		void 
+	 */
+	public void viewCharacterStatus()
+	{
+		System.out.println("Current Level:      " + this.getLevel());
+		System.out.println("Current Experience: " + this.getExp());
+		System.out.println("Exp to next Level:  " + (this.getLevel()*100-this.getExp()));
+		System.out.println("Maximum Health:     " + getMaxHp());
+		System.out.println("Current Health:     " + getCurHp());
+		System.out.println("Equipped Sword:     " + this.getEquippedSword().getName() + " bonus Attack: " + this.getEquippedSword().getBonusAtk() + " bonus Defense: " + this.getEquippedSword().getBonusDef());
+		System.out.println("Equipped Shield:    " + this.getEquippedShield().getName() + " bonus Atack: " + this.getEquippedShield().getBonusAtk() + " bonus Defense: " + this.getEquippedShield().getBonusDef());
+		System.out.println("Equipped Armor:     " + this.getEquippedArmor().getName() + " bonus Attack: " + this.getEquippedArmor().getBonusAtk() + " bonus Defense: " + this.getEquippedArmor().getBonusDef());
+		System.out.println("Equipped Helmet:    " +  this.getEquippedHelmet().getName() + " bonus Attack: " + this.getEquippedHelmet().getBonusAtk() + " bonus Defense: " +  this.getEquippedHelmet().getBonusDef());
+		System.out.println("Equipped Gauntlets: " + this.getEquippedGauntlets().getName() + " bonus Atack: " + this.getEquippedGauntlets().getBonusAtk()+ " bonus Defense: " +this.getEquippedGauntlets().getBonusDef());		
+		System.out.println("Equipped Boots:     " + this.getEquippedBoots().getName() + " bonus Attack " + this.getEquippedBoots().getBonusAtk() + " bonus Defense: " + this.getEquippedBoots().getBonusDef());
+		System.out.println("Natural Attack:     " + this.getAtk());
+		System.out.println("Bonus Attack:       " + (this.getEquippedSword().getBonusAtk()+this.getEquippedShield().getBonusAtk()+this.getEquippedArmor().getBonusAtk()+this.getEquippedHelmet().getBonusAtk()+this.getEquippedGauntlets().getBonusAtk()+this.getEquippedBoots().getBonusAtk()));
+		System.out.println("Effective Attack:   " + this.getAttackFighter());
+		System.out.println("Natural Defese:     " + this.getDef());
+		System.out.println("Bonus Defense:      " + (this.getEquippedSword().getBonusDef()+this.getEquippedShield().getBonusDef()+this.getEquippedArmor().getBonusDef()+this.getEquippedHelmet().getBonusDef()+this.getEquippedGauntlets().getBonusDef()+this.getEquippedBoots().getBonusDef()));
+		System.out.println("Effective Defense:  " + this.getDefenseFighter());
 	}
 }
 
