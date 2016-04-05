@@ -6,7 +6,12 @@ public class Shop
 	static int select;
 	int[] m_inventory=new int[Item.getNumTypesOfItem()];
 	
-	
+	/**
+	 * This constructor initializes a shop from one of the premade shops, based on its parameter int whichShop
+	 * @precondition - 	None
+	 * @post - 			Creates a shop based on the parameter given
+	 * @returns - 		a Shop object
+	 */
 	public Shop(int whichShop)//used in case we make more than one shop
 	{
 		for(int i=0;i<Item.getNumTypesOfItem();i++)
@@ -22,6 +27,13 @@ public class Shop
 			m_inventory[7]=10;
 		}
 	}
+	
+	/**
+	 * This function displays a menu for the character to select from
+	 * @precondition - 	an instance of the Shop class
+	 * @post - 			methods within the function may alter the PlayerActor object passed
+	 * @return - 		void
+	 */
 	public void displayMenu(PlayerActor character)
 	{
 		Item[] itemSet = Item.getAllItems();
@@ -49,6 +61,13 @@ public class Shop
 			}
 		}	
 	}
+	
+	/**
+	 * This function displays the menu that the character can buy from
+	 * @precondition - 	an instance of the Shop Class
+	 * @post - 			alters a PlayerActors member variables based on what he buys and how much it costs
+	 * @return - 		void
+	 */
 	public void displayBuyMenu(PlayerActor character)
 	{
 		Item[] itemSet = Item.getAllItems();
@@ -172,6 +191,12 @@ public class Shop
 //			}
 //		}
 //	}
+	/**
+	 * This function attempts the purchase of an item defined by the index and by the PlayerActor character
+	 * @precondition: 	instance of Shop Class
+	 * @post:			Alters member variables in character based on if it could buy an item and how much that item costs
+	 * @return:			void
+	 */
 	public void purchase(int index,PlayerActor character)
 	{
 		Item[] itemSet = Item.getAllItems();
@@ -193,6 +218,13 @@ public class Shop
 			System.out.println("Sorry, you don't have enough money!");
 		}
 	}
+	
+	/**
+	 * This function attempts the purchase of items defined by the index, the quantity and the PlayerActor character
+	 * @precondition: 	instance of Shop Class
+	 * @post:			Alters member variables in character based on if it could buy an item, how may it bought and how much the purchase was
+	 * @return:			void
+	 */
 	public void purchaseMultiple(int index, int quantity, PlayerActor character)
 	{
 		Item[] itemSet = Item.getAllItems();
