@@ -5,6 +5,7 @@ public class PlayerActor extends Actor
 	static Scanner myScanner = new Scanner(System.in);
 	static int select;
 	Item[] itemSet = Item.getAllItems();
+	Skill[] skillSet = Skill.getSkills();
 	//private member variables
 	private int m_exp;
 	private int m_gold;
@@ -237,6 +238,10 @@ public class PlayerActor extends Actor
 		{
 			viewCharacterStatus();
 		}
+		else if(select==3)
+		{
+			viewCharacterSkills();
+		}
 		else if(select==4)
 		{
 			return;
@@ -428,6 +433,29 @@ public class PlayerActor extends Actor
 		System.out.println("Natural Defese:     " + this.getDef());
 		System.out.println("Bonus Defense:      " + (this.getEquippedSword().getBonusDef()+this.getEquippedShield().getBonusDef()+this.getEquippedArmor().getBonusDef()+this.getEquippedHelmet().getBonusDef()+this.getEquippedGauntlets().getBonusDef()+this.getEquippedBoots().getBonusDef()));
 		System.out.println("Effective Defense:  " + this.getDefenseFighter());
+	}
+
+	/**
+	 * This function displays what skills the user has learned
+	 * @precondition - 	PlayerActor Object Exists
+	 * @post - 			Does not change member variables//TODO make const
+	 * @return - 		void
+	 */
+	public void viewCharacterSkills()
+	{
+		for(int i=0; i<Skill.getNumOfSkillsTotal(); i++)
+		{
+			System.out.print(skillSet[i].getName());
+			if(m_skillSet[i])
+			{
+				System.out.print(" LEARNED ");
+			}
+			else
+			{
+				System.out.print(" UNKNOWN ");
+			}
+			System.out.println(skillSet[i].getDescription());
+		}
 	}
 }
 
