@@ -364,32 +364,32 @@ public class PlayerActor extends Actor
 		Item[] items = Item.getAllItems();
 		if(type==1)
 		{
-			System.out.println("Currently have: " + this.getEquippedSword() +"Equipped, with Attack Bonus: " + this.getEquippedSword().getBonusAtk() + " And Defense Bous: " + this.getEquippedSword().getBonusDef());
+			System.out.println("Currently have: " + this.getEquippedSword().getName() +"Equipped, with Attack Bonus: " + this.getEquippedSword().getBonusAtk() + " And Defense Bous: " + this.getEquippedSword().getBonusDef());
 			System.out.println("Which Sword do you want to equip?");
 		}
 		else if(type==2)
 		{
-			System.out.println("Currently have: " + this.getEquippedShield() +"Equipped, with Attack Bonus: " + this.getEquippedShield().getBonusAtk() + " And Defense Bous: " + this.getEquippedShield().getBonusDef());
+			System.out.println("Currently have: " + this.getEquippedShield().getName() +"Equipped, with Attack Bonus: " + this.getEquippedShield().getBonusAtk() + " And Defense Bous: " + this.getEquippedShield().getBonusDef());
 			System.out.println("Which Shield do you want to equip?");
 		}
 		else if(type==3)
 		{
-			System.out.println("Currently have: " + this.getEquippedArmor() +"Equipped, with Attack Bonus: " + this.getEquippedArmor().getBonusAtk() + " And Defense Bous: " + this.getEquippedArmor().getBonusDef());
+			System.out.println("Currently have: " + this.getEquippedArmor().getName() +"Equipped, with Attack Bonus: " + this.getEquippedArmor().getBonusAtk() + " And Defense Bous: " + this.getEquippedArmor().getBonusDef());
 			System.out.println("Which Armor set do you want to equip?");
 		}
 		else if(type==4)
 		{
-			System.out.println("Currently have: " + this.getEquippedHelmet() +"Equipped, with Attack Bonus: " + this.getEquippedHelmet().getBonusAtk() + " And Defense Bous: " + this.getEquippedHelmet().getBonusDef());
+			System.out.println("Currently have: " + this.getEquippedHelmet().getName() +"Equipped, with Attack Bonus: " + this.getEquippedHelmet().getBonusAtk() + " And Defense Bous: " + this.getEquippedHelmet().getBonusDef());
 			System.out.println("Which Helmet do you want to equip?");
 		}
 		else if(type==5)
 		{
-			System.out.println("Currently have: " + this.getEquippedGauntlets() +"Equipped, with Attack Bonus: " + this.getEquippedGauntlets().getBonusAtk() + " And Defense Bous: " + this.getEquippedGauntlets().getBonusDef());
+			System.out.println("Currently have: " + this.getEquippedGauntlets().getName() +"Equipped, with Attack Bonus: " + this.getEquippedGauntlets().getBonusAtk() + " And Defense Bous: " + this.getEquippedGauntlets().getBonusDef());
 			System.out.println("Which Gauntlets do you want to equip?");
 		}
 		else if(type==6)
 		{
-			System.out.println("Currently have: " + this.getEquippedBoots() +"Equipped, with Attack Bonus: " + this.getEquippedBoots().getBonusAtk() + " And Defense Bous: " + this.getEquippedBoots().getBonusDef());
+			System.out.println("Currently have: " + this.getEquippedBoots().getName() +"Equipped, with Attack Bonus: " + this.getEquippedBoots().getBonusAtk() + " And Defense Bous: " + this.getEquippedBoots().getBonusDef());
 			System.out.println("Which Boots do you want to equip?");
 		}
 		
