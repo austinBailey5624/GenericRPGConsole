@@ -8,6 +8,12 @@ public class Arena
 	int currentFightCeiling;
 	int maxFight;
 	
+	/**
+	 * This funcion generates an arena based on the input
+	 * @precondition: 	none
+	 * @post: 			constructs Arena
+	 * @return:			instance of Arena
+	 */
 	public Arena(int whichArena)
 	{
 		if(whichArena==1)//in this arena you can only fight the first three enemies
@@ -21,6 +27,13 @@ public class Arena
 		currentFightCeiling=1;
 	}
 	
+	
+	/**
+	 * this function passes in character and handles battles in the arena
+	 * @precondition:	instance of Arena
+	 * @post:			can change member variables of character based on preformance, if they are successful allows them to fight harder enemies
+	 * @param character
+	 */
 	public void Menu(PlayerActor character)
 	{
 		System.out.println("Welcome to the Arena");

@@ -7,6 +7,13 @@ public class Library
 	Skill[] skillSet = Skill.getSkills();
 	boolean[] canTeach;
 	
+	
+	/**
+	 * This function generates a library based on the input whichLibrary
+	 * @precondition:	none
+	 * @post:			generates an instance of Library
+	 * @return:			instance of Library
+	 */
 	public Library(int whichLibrary)
 	{
 		canTeach=new boolean[Skill.getNumOfSkillsTotal()];
@@ -29,6 +36,13 @@ public class Library
 			}				
 		}
 	}
+	
+	/**
+	 * This function handles the characters interaction with the Library
+	 * @precondition:	none
+	 * @post:			may manipulate character's member variables by changing booleans to add skills
+	 * @return:			void 
+	 */
 	public void menu(PlayerActor character)
 	{
 		System.out.println("Welcome to the Library");
@@ -52,6 +66,14 @@ public class Library
 			}
 		}
 	}
+	
+	/**
+	 * This function handles the menu interface surrounding learning skills
+	 * @precondition:	instance of Library
+	 * @postcondition:	character may have parts of his skillset set to true
+	 * @return:			void
+	 * @param character represents the character learning the skill
+	 */
 	public void learnSkills(PlayerActor character)
 	{
 		boolean knowAll=true;//handles the case where the character already knows all of his skills
@@ -98,6 +120,13 @@ public class Library
 			}
 		}
 	}
+	/**
+	 * This function determines if the character can learn the skill
+	 * and if so teaches it
+	 * @precondition:	traversal through encapsulating method that determines which skill will be learned
+	 * @postconditon:	alters users member variables if they are successful in learning the skills
+	 * @return:			void
+	 */
 	public void learn(int skillIndex,PlayerActor character)
 	{
 		if(character.getGold()<skillSet[skillIndex].getValue())

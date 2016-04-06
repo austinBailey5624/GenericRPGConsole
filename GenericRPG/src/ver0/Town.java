@@ -386,40 +386,50 @@ package ver0;
 
    public boolean innMenu()
    {
-     final String menu = "\nWelcome to the Inn!\n" +
-                            "   1. Rest\n" +
-                            "   2. Leave\n" +
-                            "   Your Choice: ";
-     String input; //input as string
-     double selDouble; //menu selection as double
-     int selection; //menu selection as integer
-     Scanner in = new Scanner(System.in); //input scanner
-     System.out.print(menu); //display menu options
-     input = in.next(); //get user input
-
+	   Inn thisInn;
+	   if(m_name=="AwesomeTown")
+	   {
+		   thisInn=new Inn(2);
+	   }
+	   else
+	   {
+		   thisInn=new Inn(1);
+	   }
+	   thisInn.menu(m_user);
+//     final String menu = "\nWelcome to the Inn!\n" +
+//                            "   1. Rest\n" +
+//                            "   2. Leave\n" +
+//                            "   Your Choice: ";
+//     String input; //input as string
+//     double selDouble; //menu selection as double
+//     int selection; //menu selection as integer
+//     Scanner in = new Scanner(System.in); //input scanner
+//     System.out.print(menu); //display menu options
+//     input = in.next(); //get user input
+//
      boolean inInn = true;
-
-     while(!menuInputCheck(input, 1, 2, false)) //check if entry is valid, repeat input if not
-     {
-       System.out.print("Invalid menu selection, please choose an integer between 1 and 2.\nYour choice: ");
-       input = in.next();
-     }
-     
-     selDouble = Double.parseDouble(input); //safe parse
-     selection = (int) selDouble; //set selection
-
-     switch(selection)
-     {
-       case 1:
-          System.out.println("\n\nInsert interaction here:\n\n");
-          break;
-       case 2:
-          inInn = false;
-          setCurrentToPrevious();
-          curAreaArr = resetArea(curAreaArr, areaArrBase);
-          curAreaArr[curPosY][curPosX] = player;
-          break;
-     }
+//
+//     while(!menuInputCheck(input, 1, 2, false)) //check if entry is valid, repeat input if not
+//     {
+//       System.out.print("Invalid menu selection, please choose an integer between 1 and 2.\nYour choice: ");
+//       input = in.next();
+//     }
+//     
+//     selDouble = Double.parseDouble(input); //safe parse
+//     selection = (int) selDouble; //set selection
+//
+//     switch(selection)
+//     {
+//       case 1:
+//          System.out.println("\n\nInsert interaction here:\n\n");
+//          break;
+//       case 2:
+//          inInn = false;
+//          setCurrentToPrevious();
+//          curAreaArr = resetArea(curAreaArr, areaArrBase);
+//          curAreaArr[curPosY][curPosX] = player;
+//          break;
+//     }
 
      return inInn;
    }

@@ -15,12 +15,23 @@ public class Skill
 	//static int m_numOfSkills=9;
 
 
-	
+	/**
+	 * this function returns the total number of skills
+	 * @precondition: 	none
+	 * @postcondition:	does not change member variables
+	 * @return:			m_numOfSkills
+	 */
 	public static int getNumOfSkillsTotal()
 	{
 		return m_numOfSkills;
 	}
 	//Item creator
+	/**
+	 * this function passes all of the skills to whatever calls it
+	 * @precondition:	none
+	 * @postcondition:	does not change member variables
+	 * @return:			a set containing all skills
+	 */
 	public static Skill[] getSkills()
 	{
 		Skill[] skillSet = new Skill[8];
@@ -32,6 +43,13 @@ public class Skill
 	}
 
 	//Constructor
+	/**
+	 * This constructor generates a skill based on the number passed into it
+	 * @precondition:	none
+	 * @postcondition:	generates a skill
+	 * @return:			a skill based on the number passed into the constuctor
+	 * @param skillNum determines which skill is generated
+	 */
 	public Skill(int skillNum)
 	{
 		m_accuracy=.8;
@@ -176,50 +194,121 @@ public class Skill
 	
 	
 	//Getters and Setters
+	/**
+	 * @precondition: 	Skill exists
+	 * @postcondition:	values not changed
+	 * @return:			the value of the skill
+	 */
 	public int getValue()
 	{
 		return m_value;
 	}
+	
+	/**
+	 * @precondition: 	Skill exists
+	 * @postcondition:	sets the value of m_value to value
+	 * @return:			void
+	 */
 	public void setValue(int value)
 	{
 		m_value=value;
 	}
+	
+	/**
+	 * @precondition: 	Skill exists
+	 * @postcondition:	values not changed
+	 * @return:			the name of the skill
+	 */
 	public String getName()
 	{
 		return m_name;
 	}
+	
+	/**
+	 * @precondition: 	Skill exists
+	 * @postcondition:	sets the value of m_name to name
+	 * @return:			void
+	 */
 	public void setName(String name)
 	{
 		m_name=name;
 	}
+	
+	/**
+	 * @precondition: 	Skill exists
+	 * @postcondition:	values not changed
+	 * @return:			the Description of the skill
+	 */
 	public String getDescription()
 	{
 		return m_description;
 	}
+	
+	/**
+	 * @precondition: 	Skill exists
+	 * @postcondition:	sets the value of m_description to description
+	 * @return:			void
+	 */
 	public void setDescription(String description)
 	{
 		m_description=description;
 	}
+	
+	/**
+	 * @precondition: 	Skill exists
+	 * @postcondition:	values not changed
+	 * @return:			if the skill targets the enemy
+	 */
 	public boolean getTargetsEnemy()
 	{
 		return m_targetsEnemy;
 	}
+	
+	/**
+	 * @precondition: 	Skill exists
+	 * @postcondition:	sets the value of m_targetsEnemy to targetsEnemy
+	 * @return:			void
+	 */
 	public void setTargetsEnemy(boolean targetsEnemy)
 	{
 		m_targetsEnemy=targetsEnemy;
 	}
+
+	/**
+	 * @precondition: 	Skill exists
+	 * @postcondition:	values not changed
+	 * @return:			the id of the skill
+	 */
 	public int getId()
 	{
 		return m_id;
 	}
+	
+	/**
+	 * @precondition: 	Skill exists
+	 * @postcondition:	sets the value of m_id to id
+	 * @return:			void
+	 */
 	public void setId(int id)
 	{
 		m_id=id;
 	}
+	
+	/**
+	 * @precondition: 	Skill exists
+	 * @postcondition:	values not changed
+	 * @return:			the id of the skill
+	 */
 	public double getAccuracy()
 	{
 		return m_accuracy;
 	}
+	
+	/**
+	 * @precondition:	Skill exists
+	 * @postcondition:	value of m_accuracy set to accuracy, within limitations
+	 * @return:			void
+	 */
 	public void setAccuracy(double accuracy)
 	{
 		if(accuracy > 1)
