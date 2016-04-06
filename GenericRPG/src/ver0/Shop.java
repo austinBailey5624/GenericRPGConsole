@@ -26,6 +26,19 @@ public class Shop
 			}
 			m_inventory[7]=10;
 		}
+		else if(whichShop==2)
+		{
+			for(int i=1;i<=6;i++)
+			{
+				m_inventory[i]=3;
+			}
+			m_inventory[7]=10;
+			for(int i=14;i<=10;i++)
+			{
+				m_inventory[i]=1;
+			}
+			m_inventory[20]=5;
+		}
 	}
 	
 	/**

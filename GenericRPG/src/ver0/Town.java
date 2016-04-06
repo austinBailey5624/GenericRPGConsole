@@ -282,44 +282,54 @@ package ver0;
 
    public boolean shopMenu()
    {
-     final String menu = "\nWelcome to the Shop!\n" +
-                            "   1. Buy\n" +
-                            "   2. Sell\n" +
-                            "   3. Leave\n" +
-                            "   Your Choice: ";
-     String input; //input as string
-     double selDouble; //menu selection as double
-     int selection; //menu selection as integer
-     Scanner in = new Scanner(System.in); //input scanner
-     System.out.print(menu); //display menu options
-     input = in.next(); //get user input
-
+	   Shop thisShop;
+	   if(m_name=="AwesomeTown")
+	   {
+		   thisShop = new Shop(2);//TODO: fix this, shops need to be global and passed in, not constructed on-site
+	   }
+	   else
+	   {
+		   thisShop = new Shop(1);
+	   }
+	   thisShop.displayMenu(m_user);
+//     final String menu = "\nWelcome to the Shop!\n" +
+//                            "   1. Buy\n" +
+//                            "   2. Sell\n" +
+//                            "   3. Leave\n" +
+//                            "   Your Choice: ";
+//     String input; //input as string
+//     double selDouble; //menu selection as double
+//     int selection; //menu selection as integer
+//     Scanner in = new Scanner(System.in); //input scanner
+//     System.out.print(menu); //display menu options
+//     input = in.next(); //get user input
+//
      boolean inStore = true;
-
-     while(!menuInputCheck(input, 1, 3, false)) //check if entry is valid, repeat input if not
-     {
-       System.out.print("Invalid menu selection, please choose an integer between 1 and 3.\nYour choice: ");
-       input = in.next();
-     }
-     
-     selDouble = Double.parseDouble(input); //safe parse
-     selection = (int) selDouble; //set selection
-
-     switch(selection)
-     {
-       case 1:
-          System.out.println("\n\nInsert interaction here:\n\n");
-          break;
-       case 2:
-          System.out.println("\n\nInsert interaction here:\n\n");
-          break;
-       case 3:
-          inStore = false;
-          setCurrentToPrevious();
-          curAreaArr = resetArea(curAreaArr, areaArrBase);
-          curAreaArr[curPosY][curPosX] = player;
-          break;
-     }
+//
+//     while(!menuInputCheck(input, 1, 3, false)) //check if entry is valid, repeat input if not
+//     {
+//       System.out.print("Invalid menu selection, please choose an integer between 1 and 3.\nYour choice: ");
+//       input = in.next();
+//     }
+//     
+//     selDouble = Double.parseDouble(input); //safe parse
+//     selection = (int) selDouble; //set selection
+//
+//     switch(selection)
+//     {
+//       case 1:
+//          System.out.println("\n\nInsert interaction here:\n\n");
+//          break;
+//       case 2:
+//          System.out.println("\n\nInsert interaction here:\n\n");
+//          break;
+//       case 3:
+//          inStore = false;
+//          setCurrentToPrevious();
+//          curAreaArr = resetArea(curAreaArr, areaArrBase);
+//          curAreaArr[curPosY][curPosX] = player;
+//          break;
+//     }
 
      return inStore;
    }
