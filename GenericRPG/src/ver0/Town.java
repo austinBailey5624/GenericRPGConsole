@@ -191,7 +191,7 @@ package ver0;
                             "   2. Down\n" +
                             "   3. Left\n" +
                             "   4. Right\n" +
-                            "   Your Choice: ";
+                            "   Your Choice: ";//TODO implement looking at character menu
      String input; //input as string
      double selDouble; //menu selection as double
      int selection; //menu selection as integer
@@ -336,40 +336,50 @@ package ver0;
 
    public boolean arenaMenu()
    {
-     final String menu = "\nWelcome to the Arena!\n" +
-                            "   1. Battle\n" +
-                            "   2. Leave\n" +
-                            "   Your Choice: ";
-     String input; //input as string
-     double selDouble; //menu selection as double
-     int selection; //menu selection as integer
-     Scanner in = new Scanner(System.in); //input scanner
-     System.out.print(menu); //display menu options
-     input = in.next(); //get user input
-
+	   Arena thisArena;
+	   if(m_name=="AwesomeTown")
+	   {
+		   thisArena = new Arena(2);
+	   }
+	   else
+	   {
+		   thisArena = new Arena(1);
+	   }
+	   thisArena.Menu(m_user);
+	   //     final String menu = "\nWelcome to the Arena!\n" +
+//                            "   1. Battle\n" +
+//                            "   2. Leave\n" +
+//                            "   Your Choice: ";
+//     String input; //input as string
+//     double selDouble; //menu selection as double
+//     int selection; //menu selection as integer
+//     Scanner in = new Scanner(System.in); //input scanner
+//     System.out.print(menu); //display menu options
+//     input = in.next(); //get user input
+//
      boolean inArena = true;
-
-     while(!menuInputCheck(input, 1, 2, false)) //check if entry is valid, repeat input if not
-     {
-       System.out.print("Invalid menu selection, please choose an integer between 1 and 2.\nYour choice: ");
-       input = in.next();
-     }
-
-     selDouble = Double.parseDouble(input); //safe parse
-     selection = (int) selDouble; //set selection
-
-     switch(selection)
-     {
-       case 1:
-          System.out.println("\n\nInsert interaction here:\n\n");
-          break;
-       case 2:
-          inArena = false;
-          setCurrentToPrevious();
-          curAreaArr = resetArea(curAreaArr, areaArrBase);
-          curAreaArr[curPosY][curPosX] = player;
-          break;
-     }
+//
+//     while(!menuInputCheck(input, 1, 2, false)) //check if entry is valid, repeat input if not
+//     {
+//       System.out.print("Invalid menu selection, please choose an integer between 1 and 2.\nYour choice: ");
+//       input = in.next();
+//     }
+//
+//     selDouble = Double.parseDouble(input); //safe parse
+//     selection = (int) selDouble; //set selection
+//
+//     switch(selection)
+//     {
+//       case 1:
+//          System.out.println("\n\nInsert interaction here:\n\n");
+//          break;
+//       case 2:
+//          inArena = false;
+//          setCurrentToPrevious();
+//          curAreaArr = resetArea(curAreaArr, areaArrBase);
+//          curAreaArr[curPosY][curPosX] = player;
+//          break;
+//     }
 
      return inArena;
    }
