@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Shop 
 {
 	static Scanner myScanner = new Scanner(System.in);
+	//TODO figure out what to do if the shop is sold out
 	static int select;
 	int[] m_inventory=new int[Item.getNumTypesOfItem()];
 	
