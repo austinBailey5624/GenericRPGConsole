@@ -416,40 +416,50 @@ package ver0;
 
    public boolean libraryMenu()
    {
-     final String menu = "\nWelcome to the Library!\n" +
-                            "   1. Learn Skill\n" +
-                            "   2. Leave\n" +
-                            "   Your Choice: ";
-     String input; //input as string
-     double selDouble; //menu selection as double
-     int selection; //menu selection as integer
-     Scanner in = new Scanner(System.in); //input scanner
-     System.out.print(menu); //display menu options
-     input = in.next(); //get user input
-
+	   Library thisLibrary;
+	   if(m_name=="AwesomeTown")
+	   {
+		   thisLibrary=new Library(2);
+	   }
+	   else
+	   {
+		   thisLibrary=new Library(1);
+	   }
+	   thisLibrary.menu(m_user);
+//     final String menu = "\nWelcome to the Library!\n" +
+//                            "   1. Learn Skill\n" +
+//                            "   2. Leave\n" +
+//                            "   Your Choice: ";
+//     String input; //input as string
+//     double selDouble; //menu selection as double
+//     int selection; //menu selection as integer
+//     Scanner in = new Scanner(System.in); //input scanner
+//     System.out.print(menu); //display menu options
+//     input = in.next(); //get user input
+//
      boolean inLibrary = true;
-
-     while(!menuInputCheck(input, 1, 2, false)) //check if entry is valid, repeat input if not
-     {
-       System.out.print("Invalid menu selection, please choose an integer between 1 and 2.\nYour choice: ");
-       input = in.next();
-     }
-     
-     selDouble = Double.parseDouble(input); //safe parse
-     selection = (int) selDouble; //set selection
-
-     switch(selection)
-     {
-       case 1:
-          System.out.println("\n\nInsert interaction here:\n\n");//TODO implement libraryness
-          break;
-       case 2:
-          inLibrary = false;
-          setCurrentToPrevious();
-          curAreaArr = resetArea(curAreaArr, areaArrBase);
-          curAreaArr[curPosY][curPosX] = player;
-          break;
-     }
+//
+//     while(!menuInputCheck(input, 1, 2, false)) //check if entry is valid, repeat input if not
+//     {
+//       System.out.print("Invalid menu selection, please choose an integer between 1 and 2.\nYour choice: ");
+//       input = in.next();
+//     }
+//     
+//     selDouble = Double.parseDouble(input); //safe parse
+//     selection = (int) selDouble; //set selection
+//
+//     switch(selection)
+//     {
+//       case 1:
+//          System.out.println("\n\nInsert interaction here:\n\n");//TODO implement libraryness
+//          break;
+//       case 2:
+//          inLibrary = false;
+//          setCurrentToPrevious();
+//          curAreaArr = resetArea(curAreaArr, areaArrBase);
+//          curAreaArr[curPosY][curPosX] = player;
+//          break;
+//     }
 
      return inLibrary;
    }
@@ -560,10 +570,9 @@ package ver0;
   }
   if(isTown)
   {
-	   System.out.println("T: Town");
+	   System.out.println("T: Town");	  
   }
   }
-
   /**
    * @param : (pre) Existing class object that implements Place
    * @param : (post) Sets the base area map for the object
