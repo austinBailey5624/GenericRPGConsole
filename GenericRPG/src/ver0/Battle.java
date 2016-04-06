@@ -14,10 +14,12 @@ public class Battle
 	private int order;
 	private int skillChoice; 
 	private Actor victor;
+	private Actor curPlayer;
 	private int choice;
 	private boolean ranAway;
 	private Skill[] m_skillSet;
 	private Item[] m_itemSet;
+	int potionchoice;
 	
 	public Battle()
 	{
@@ -26,13 +28,14 @@ public class Battle
 		ranAway=false;
 		order=0;
 		skillChoice=0;
-		victor=new Actor();
+		
 		m_skillSet=Skill.getSkills();
 		m_itemSet=Item.getAllItems();
 	}
 	
 	public boolean actorBattle(PlayerActor player, EnemyActor npc)
 	{
+		curPlayer=player;
 		int order=0; //randomNumber(0,1);
 		System.out.println("Starting battle between "+player.getName()+" and "+npc.getName());
 		//for testing purposes, the user will go first until method works correctly
@@ -78,33 +81,69 @@ public class Battle
 					{
 						if (player.getSkillset()[skillChoice]==true)
 						{
-							try
-							{
 								m_skillSet[skillChoice].Execute(player, npc);
-							}
-							catch(Exception ex)
-							{
-								System.out.println(ex.getStackTrace());
-							}
 						}
 						else
 						{
 							System.out.println("You did not choose a skill you have!");
+							continue;
 						}
 					}
 					else
 					{
 						System.out.println("You entered a number too high!");
+						continue;
 					}
 				
 				}
 				else if (choice==3)
 				{
-					//i need the inventory to see what is available to the player
-					printPotionsAvailable(player);
-					//if potions available, ask user for choice
-					//else continue keyword
-		
+					int[] pinv=player.getInventory();
+					if (printPotionsAvailable(player))
+					{
+						System.out.println("Input the corresponding number to use the potion");
+						try
+						{
+							potionchoice=myScanner.nextInt();
+						}
+						catch(Exception e)
+						{
+							System.out.println("You did not enter a number!");
+						}
+						if (potionchoice==1)
+						{
+							if (pinv[7]>0)
+							{
+								usePotion(1);
+								pinv[7]--;
+							}
+						}
+						else if (potionchoice==2)
+						{
+							if (pinv[20]>0)
+							{
+								usePotion(2);
+								pinv[20]--;
+							}
+						}
+						else if (potionchoice==3)
+						{
+							if (pinv[27]>0)
+							{
+								usePotion(3);
+								pinv[27]--;
+							}
+						}
+						else
+						{
+							System.out.println("Invalid input given, please try again");
+							continue;
+						}
+					}
+					else
+					{
+						continue;
+					}
 				}
 				else if (choice==4)
 				{
@@ -119,7 +158,12 @@ public class Battle
 						System.out.println("You were unable to run away, coward!");
 					}
 				}
-				
+				else
+				{
+					System.out.println("Invalid input given, please try again");
+					continue;
+				}
+				System.out.println("It is now "+npc.getName()+"'s turn");
 				npcTurn(npc);
 				
 			}while(!isBattleOver(player,npc));
@@ -146,7 +190,11 @@ public class Battle
 	
 	public void npcTurn(Actor npc)
 	{
-		
+		int curHp=curPlayer.getCurHp();
+		m_skillSet[0].Execute(npc,curPlayer);
+		int newHp=curPlayer.getCurHp();
+		int damage=curHp-newHp;
+		System.out.println(npc.getName()+" attacks "+curPlayer.getName()+" with a "+npc.getEquippedSword().getName()+", dealing "+damage+" damage!\n");
 	}
 	
 	
@@ -193,32 +241,72 @@ public class Battle
 		}
 		System.out.print("\n");
 	}
-	private void printPotionsAvailable(PlayerActor a1)
+	private boolean printPotionsAvailable(PlayerActor a1)
 	{
 		System.out.println("Potions available to you:");
 		int[] playerInventory=a1.getInventory();
 		if (playerInventory[7]>0)
 		{
 			System.out.println("1) Name: Basic Health Potion, Effect: Restore 50 HP, Quantity: "+playerInventory[7]);
+			return true;
 		}
 		else if (playerInventory[20]>0)
 		{
 			System.out.println("2) Name: Advanced Health Potion, Effect: Restore 100 HP, Quantity: "+playerInventory[20]);
+			return true;
 		}
 		else if (playerInventory[27]>0)
 		{
 			System.out.println("3) Name: Expert Health Potion, Effect: Restore 150 HP, Quantity: "+playerInventory[27]);
+			return true;
 		}
 		else
 		{
-			System.out.println("You currently don't have any potions");
-			
+			System.out.println("You currently don't have any potions\n");
+			return false;
 		}
-		System.out.println("\n");
 	}
-	private boolean potionsAvailable(PlayerActor a1)
+	private void usePotion(int choice)
 	{
-		//check inventory slots
-		return false;
+		if (choice==1)
+		{
+			if (curPlayer.getCurHp()+50>curPlayer.getMaxHp())
+			{
+				curPlayer.setCurHp(curPlayer.getMaxHp());
+				
+			}
+			else
+			{
+				curPlayer.setCurHp(curPlayer.getCurHp()+50);
+			}
+			System.out.println("You used a basic health potion, recovering 50 HP!\n");
+		}
+		else if (choice==2)
+		{
+			if (curPlayer.getCurHp()+100>curPlayer.getMaxHp())
+			{
+				curPlayer.setCurHp(curPlayer.getMaxHp());
+				
+			}
+			else
+			{
+				curPlayer.setCurHp(curPlayer.getCurHp()+100);
+			}
+			System.out.println("You used an advanced health potion, recovering 100 HP!\n");
+		}
+		else if (choice==3)
+		{
+			if (curPlayer.getCurHp()+150>curPlayer.getMaxHp())
+			{
+				curPlayer.setCurHp(curPlayer.getMaxHp());
+				
+			}
+			else
+			{
+				curPlayer.setCurHp(curPlayer.getCurHp()+150);
+			}
+			System.out.println("You used an expert health potion, recovering 150 HP!\n");
+		}
 	}
+
 }
