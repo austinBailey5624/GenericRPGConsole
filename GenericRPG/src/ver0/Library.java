@@ -7,7 +7,7 @@ public class Library
 	Skill[] skillSet = Skill.getSkills();
 	boolean[] canTeach;
 	
-	Library(int whichLibrary)
+	public Library(int whichLibrary)
 	{
 		canTeach=new boolean[Skill.getNumOfSkillsTotal()];
 		for(int i=0; i<Skill.getNumOfSkillsTotal();i++)//initializes all of can teach to false
