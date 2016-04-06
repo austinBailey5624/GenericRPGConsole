@@ -483,15 +483,85 @@ package ver0;
    */
   public void displayArea(char[][] area)
   {
-    for (int i = 0; i < areaYDim; i++)
+	   boolean isArena=false;	//at the end of the method, the meaning behind each char will be printed
+	   boolean isForest=false;
+	   boolean isInn=false;
+	   boolean isLibrary=false;
+	   boolean isMountain=false;
+	   boolean isPath=false;
+	   boolean isShop=false;
+	   boolean isTown=false;
+	   
+  for (int i = 0; i < areaYDim; i++)
+  {
+    System.out.print("\n");
+    for (int j = 0; j < areaXDim; j++)//In this for loop the char is printed, and the types of terrain used are determined by setting the cooresponding booleans to true
     {
-      System.out.print("\n");
-      for (int j = 0; j < areaXDim; j++)
+      System.out.print(area[i][j] + " ");
+      if(area[i][j]=='A')
       {
-        System.out.print(area[i][j] + " ");
+    	  isArena=true;
+      }
+      else if(area[i][j]=='F')
+      {
+   	   isForest=true;
+      }
+      else if(area[i][j]=='I')
+      {
+    	  isInn=true;
+      }
+      else if(area[i][j]=='L')
+      {
+    	  isLibrary=true;
+      }
+      else if(area[i][j]=='M')
+      {
+   	   isMountain=true;
+      }
+      else if(area[i][j]=='P')
+      {
+   	   isPath=true;
+      }
+      else if(area[i][j]=='S')
+      {
+    	  isShop=true;
+      }
+      else if(area[i][j]=='T')
+      {
+   	   isTown=true;
       }
     }
-    System.out.print("\n");
+  }
+  System.out.print("\n");
+  
+  if(isArena)
+  {
+	  System.out.println("A: Arena");
+  }
+  if(isForest)
+  {
+	   System.out.println("F: Forest");
+  }
+  if(isInn)
+  {
+	  System.out.println("I: Inn");
+  }
+  if(isMountain)
+  {
+	   System.out.println("M: Mountain");
+  }
+  if(isPath)
+  {
+	   System.out.println("P: Path");
+  }
+  if(isShop)
+  {
+	  System.out.println("S: Shop");
+  }
+  if(isTown)
+  {
+	   System.out.println("T: Town");
+  }
   }
 
   /**
