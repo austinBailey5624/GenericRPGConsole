@@ -109,7 +109,7 @@ public class main
 		while(!exit)
 		{
 			Scanner myScanner = new Scanner(System.in);
-			System.out.println("Welcome To GenericRPG! What would you like to do?\n1)developer options \n2)run world \n3)exit");
+			System.out.println("Welcome To GenericRPG! What would you like to do?\n1)developer options \n2)run world\n3)New Game[extraAlpha] \n4)exit");
 
 			select=myScanner.nextInt();
 			
@@ -127,7 +127,7 @@ public class main
 					}
 					else if(select==2)
 					{
-						PlayerActor myPlayerActor = new PlayerActor();
+						PlayerActor myPlayerActor = new PlayerActor(1);
 						int[] testInventory = new int[itemSet.length];
 						for(int i=0; i<itemSet.length; i++)
 						{
@@ -160,6 +160,12 @@ public class main
 				wd.runWorld();
 			}
 			else if(select==3)
+			{
+				PlayerActor user = new PlayerActor();
+				WorldDriver wd = new WorldDriver(user);
+				wd.runWorld();
+			}
+			else if(select==4)
 			{
 				System.out.println("Thank you for playing!");
 				return;

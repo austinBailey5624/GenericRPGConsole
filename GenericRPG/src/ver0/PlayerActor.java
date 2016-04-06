@@ -34,6 +34,9 @@ public class PlayerActor extends Actor
 		equipHelmet(itemSet[11]);
 		equipBoots(itemSet[13]);
 		equipGauntlets(itemSet[12]);
+		System.out.println("Welcome to Generic RPG!\n What is your name?");
+		setName(myScanner.next());
+		System.out.println("You awake in the middle of a dark forest, bruised and alone\n");
 	}
 	
 	/**
