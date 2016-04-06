@@ -34,7 +34,7 @@ public class EnemyActor extends Actor
      * @post - creates an EnemyActor based on the index
      * @return instance of EnemyActor
      */
-	public EnemyActor(int index)
+	public EnemyActor(int index) //TODO add defeat experience to all enemy types
 	{
 		Item[] itemArray=Item.getAllItems();
 		m_skillSet=new boolean[Skill.getNumOfSkillsTotal()];
