@@ -7,6 +7,12 @@ public class Inn
 	int select;
 	Scanner myScanner = new Scanner(System.in);
 	
+	/**
+	 * Generates an inn based on the input provided in parameter whichInn
+	 * @precondition: 	none
+	 * @post:			generates an Inn	
+	 * @return:			instance of Inn
+	 */
 	public Inn(int whichInn)
 	{
 		if(whichInn==1)
@@ -21,6 +27,12 @@ public class Inn
 		}
 	}
 	
+	/**
+	 * Handles the player's interaction with the inn
+	 * @precondition: 	instance of Inn, instance of PlayerActor to pass to inn
+	 * @post:			can heal user and decrement gold
+	 * @return:			void
+	 */
 	public void menu(PlayerActor character)
 	{
 		System.out.println("Welcome to " + this.m_name + " How can we help you?");
