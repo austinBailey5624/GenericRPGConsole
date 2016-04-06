@@ -2,7 +2,6 @@
  *@date: 4/2/16
  *@author Tim Elvart
  *@brief: Contains methods for battle events throughout the game
- * 
  */
 package ver0;
 import java.util.Random;
@@ -18,7 +17,6 @@ public class Battle
 	private boolean ranAway;
 	private boolean playerMistake;
 	private Skill[] m_skillSet;
-	private Item[] m_itemSet;
 	int potionchoice;
 	
 	public Battle()
@@ -29,11 +27,11 @@ public class Battle
 		order=0;
 		skillChoice=0;
 		m_skillSet=Skill.getSkills();
-		m_itemSet=Item.getAllItems();
 	}
 	
-	public boolean actorBattle(PlayerActor player, EnemyActor npc) //TODO fix bad input exception handling 
+	public boolean actorBattle(PlayerActor player, EnemyActor npc)//TODO add more output to user when using skills
 	{
+		String in;
 		int choice=0;
 		ranAway=false;
 		curPlayer=player;
@@ -48,15 +46,16 @@ public class Battle
 			{
 				System.out.println("Current HP-> "+player.getName()+": "+player.getCurHp()+", "+npc.getName()+": "+npc.getCurHp());
 				printBattleMenu();
-				try
+				in=myScanner.next();
+				if(verifyInt(in))
 				{
-					choice=myScanner.nextInt();
+					choice=Integer.parseInt(in);
 				}
-				catch(Exception ex)
-				{	
-					System.out.println("You gave invalid input! please try again");
+				else
+				{
+					System.out.println("You gave invalid input! please try again\n");
+					continue;
 				}
-				
 				if (choice==1)
 				{
 					int temphp1=npc.getCurHp();
@@ -69,14 +68,15 @@ public class Battle
 				{
 					printSkillsAvailable(player);
 					System.out.println("Input the corresponding number to use the skill");
-					try
+					in=myScanner.next();
+					if (verifyInt(in))
 					{
-						skillChoice=myScanner.nextInt();
+						skillChoice=Integer.parseInt(in);
 					}
-					catch(Exception ex)
+					else
 					{
-						System.out.println("You didnt input a number");
-						
+						System.out.println("You didnt input a number, please try again \n");
+						continue;
 					}
 					if (skillChoice<8)
 					{
@@ -95,7 +95,6 @@ public class Battle
 						System.out.println("You entered a number too high!\n");
 						continue;
 					}
-				
 				}
 				else if (choice==3)
 				{
@@ -104,14 +103,15 @@ public class Battle
 					if (potionsAvailable())
 					{
 						System.out.println("Input the corresponding number to use the potion");
-		
-						try
+						
+						in=myScanner.next();
+						if (verifyInt(in))
 						{
-							potionchoice=myScanner.nextInt();
+							potionchoice=Integer.parseInt(in);
 						}
-						catch(Exception e)
+						else
 						{
-							System.out.println("You did not enter a number!");
+							System.out.println("You did not enter a number!\n");
 							continue;
 						}
 						if (potionchoice==1)
@@ -148,7 +148,6 @@ public class Battle
 					{
 						continue;
 					}
-					
 				}
 				else if (choice==4)
 				{
@@ -182,21 +181,22 @@ public class Battle
 				if (!playerMistake)
 				{
 					System.out.println("\nIt is now "+npc.getName()+"'s turn");
-					playerMistake=false;
 					npcTurn(npc);
 				}
 				
 				System.out.println("Current HP-> "+player.getName()+": "+player.getCurHp()+", "+npc.getName()+": "+npc.getCurHp());
 				printBattleMenu();
-				try
+				in=myScanner.next();
+				if (verifyInt(in))
 				{
-					choice=myScanner.nextInt();
+					choice=Integer.parseInt(in);
 				}
-				catch (Exception e)
+				else
 				{
 					System.out.println("You did not input a number!\n");
 					playerMistake=true;
 				}
+					
 				if (choice==1)
 				{
 					int temphp1=npc.getCurHp();
@@ -204,25 +204,29 @@ public class Battle
 					int temphp2=npc.getCurHp();
 					int difference=temphp1-temphp2;
 					System.out.println(player.getName()+" attacks "+npc.getName()+" with a "+player.getEquippedSword().getName()+", dealing "+difference+" damage!\n");
+					playerMistake=false;
 				}
 				else if (choice==2)
 				{
 					printSkillsAvailable(player);
 					System.out.println("Input the corresponding number to use the skill");
-					try
+					in=myScanner.next();
+					if (verifyInt(in))
 					{
-						skillChoice=myScanner.nextInt();
+						skillChoice=Integer.parseInt(in);
 					}
-					catch(Exception ex)
+					else
 					{
 						System.out.println("You didnt input a number");
 						playerMistake=true;
 					}
+					
 					if (skillChoice<8)
 					{
 						if (player.getSkillset()[skillChoice]==true)
 						{
 								m_skillSet[skillChoice].Execute(player, npc);
+								playerMistake=false;
 						}
 						else
 						{
@@ -244,24 +248,27 @@ public class Battle
 					printPotionsAvailable(player);
 					if (potionsAvailable())
 					{
-						System.out.println("Input the corresponding number to use the potion");
-		
-						try
-						{
-							potionchoice=myScanner.nextInt();
-						}
-						catch(Exception e)
-						{
-							System.out.println("You did not enter a number!");
-							playerMistake=true;
-							continue;
-						}
+						System.out.println("Input the corresponding number to use the potion");			
+						
+							in=myScanner.next();
+							if (verifyInt(in))
+							{
+								potionchoice=Integer.parseInt(in);
+							}
+							else
+							{
+								System.out.println("You did not enter a number!");
+								playerMistake=true;
+								continue;
+							}
+							
 						if (potionchoice==1)
 						{
 							if (pinv[7]>0)
 							{
 								usePotion(1);
 								pinv[7]--;
+								playerMistake=false;
 							}
 						}
 						else if (potionchoice==2)
@@ -270,6 +277,7 @@ public class Battle
 							{
 								usePotion(2);
 								pinv[20]--;
+								playerMistake=false;
 							}
 						}
 						else if (potionchoice==3)
@@ -278,6 +286,7 @@ public class Battle
 							{
 								usePotion(3);
 								pinv[27]--;
+								playerMistake=false;
 							}
 						}
 						else
@@ -306,12 +315,6 @@ public class Battle
 						System.out.println("You were unable to run away, coward!\n");
 					}
 				}
-				else
-				{
-					System.out.println("Invalid input given, please try again\n");
-					playerMistake=true;
-					continue;
-				}
 			}while(!isBattleOver(player,npc));
 		}
 		
@@ -324,18 +327,16 @@ public class Battle
 		{
 			player.addGold(npc.getDefeatGold());
 			player.addExp(npc.getDefeatExp());
+			System.out.println("\nCongrats on the victory! You recieved "+npc.getDefeatGold()+"gold, and "+npc.getDefeatExp()+" experience");
 			return true;
 		}
 		else
 		{
 			return false;
 		}
-
-
 	}
 	
-	
-	public void npcTurn(Actor npc)
+	public void npcTurn(Actor npc)//TODO implement randomness into the npc turn
 	{
 		int curHp=curPlayer.getCurHp();
 		m_skillSet[0].Execute(npc,curPlayer);
@@ -345,14 +346,21 @@ public class Battle
 	}
 	private boolean verifyInt(String s)
 	{
-		return true;
+		try
+		{
+			int x=Integer.parseInt(s);
+			return true;
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
 	}
 	
-	public void groupBattle(Actor[] goodguys, Actor[] badguys)
+	public void groupBattle(Actor[] goodguys, Actor[] badguys)//TODO complete group battle method
 	{
 		//will be filled in later
 	}
-	
 	
 	private boolean isBattleOver(Actor a1, Actor a2)
 	{
@@ -367,7 +375,6 @@ public class Battle
 	{
 		return r.nextInt(max-min+1)+min;
 	}
-	
 	
 	private void printBattleMenu()
 	{
@@ -478,5 +485,4 @@ public class Battle
 			return a1;
 		}
 	}
-
 }
