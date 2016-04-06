@@ -54,10 +54,12 @@ public class Library
 			select=myScanner.nextInt();
 			if(select==1)//Structured in an else if block to improve modularity-adding additional functionality later
 			{
-				
+				learnSkills(character);
 			}
-			else if(select==2)//TODO implement functiaty where you can look at the enemies youv'e defeated, their information, etc
+			else if(select==2)//TODO implement functionality where you can look at the enemies youv'e defeated, their information, etc
 			{
+				System.out.println("got here");				
+				exit=true;
 				return;
 			}
 			else
@@ -65,6 +67,7 @@ public class Library
 				System.out.println("Sorry we didn't understand your input, please enter a number");
 			}
 		}
+		return;
 	}
 	
 	/**
@@ -102,14 +105,24 @@ public class Library
 				{
 					if(canTeach[i]&&!(character.m_skillSet[i]))
 					{
-						System.out.println(choice + ") Learn skill " + skillSet[i].getName() + " for " + skillSet[i].getValue());
+						System.out.print(choice + ") Learn skill " + skillSet[i].getName());
+						for(int j=0; j<20-skillSet[i].getName().length();j++)
+						{
+							System.out.print(" ");
+						}
+						System.out.println(" costs: " + skillSet[i].getValue() + " gold");
 						choice++;
 						indexRepresentedByChoice[choice]=i;
 					}
 				}
 				System.out.println((choice+1) + ") Exit");
 				select=myScanner.nextInt();
-				if(select<1||select>(choice+1))
+				if(select==choice+1)
+				{
+					exit=true;
+					return;
+				}
+				else if(select<1||select>(choice+1))
 				{
 					System.out.println("Sorry, we didn't understand your input, please try again");
 				}

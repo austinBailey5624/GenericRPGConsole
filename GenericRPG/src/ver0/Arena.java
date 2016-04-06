@@ -50,8 +50,9 @@ public class Arena
 				choice++;
 				indexRepresentedByChoice[choice]=i;
 			}
+			System.out.println(choice + ") Exit");
 			select=myScanner.nextInt();
-			if(select<1||select>currentFightCeiling)
+			if(select>=1&&select<=currentFightCeiling)
 			{
 				if(myBattle.actorBattle(character, enemySet[indexRepresentedByChoice[select]]))
 				{
@@ -63,6 +64,10 @@ public class Arena
 					//TODO: need to move to inn somehow?
 					System.out.println("The guy who beats you took all your gold!\n But he used it to pay the inkeep to nurse you back to health");
 				}
+			}
+			else if(select==choice)
+			{
+				return;
 			}
 		}
 	}
