@@ -23,12 +23,13 @@ public class main
 		
 
 		/*
-		 * Battle Testing:
-
+		 * Battle Testing
 		 */
 		PlayerActor a1=new PlayerActor(1);
 		EnemyActor a2=new EnemyActor(1);
-	//	a1.m_inventory[7]=1;
+		//a1.m_inventory[7]=5;
+		//a1.m_inventory[20]=1;
+		//a1.m_inventory[27]=1;
 		//Actor a1=new Actor();
 		//Actor a2=new Actor();
 
@@ -43,7 +44,10 @@ public class main
 		//System.out.println("Jeff:"+a1.getCurHp()+" Bob: "+a2.getCurHp());
 		//System.out.println(a2.getDefenseFighter());
 		//System.out.println(a2.getDefenseFighter());
-		battle.actorBattle(a1,a2);
+		if(battle.actorBattle(a1,a2))
+		{
+			System.out.println("Player won the match");
+		}
 
 		
 
