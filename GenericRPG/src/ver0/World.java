@@ -12,6 +12,8 @@ import java.util.Scanner;
 
 public class World implements Place
 {
+	//A user for the world to work with
+	PlayerActor m_user;
   //dimension and coordinate constants
   private int startLocX; //x-coordinate start location
   private int startLocY; //y-coordinate start location
@@ -42,8 +44,9 @@ public class World implements Place
    * @param : (post) Creates a new object of type World with set parameters
    * @return : None
    */
-  public World(int x, int y, char[][] worldBase)
+  public World(int x, int y, char[][] worldBase,PlayerActor user)
   {
+	m_user = user;
     startLocX = x;
     startLocY = y;
     curPosX = startLocX;
@@ -85,6 +88,19 @@ public class World implements Place
     return stillInArea;
   }
 
+  
+  public void displayArea()//Dummy method to satisfy interface
+  {
+	  
+  }
+  public void resetArea()//Dummy method to satisfy interface
+  {
+	  
+  }
+  public boolean menuInputCheck(String dummy)//Dummy method to satisfy interface
+  {
+	  return false;
+  }
   public boolean menuInputCheck(String str, int min, int max, boolean moveFlag)
   {
     double selDouble; //convert input safely
@@ -175,6 +191,7 @@ public class World implements Place
                            "2. Down\n" +
                            "3. Left\n" +
                            "4. Right\n" +
+                           "5. menu\n" +
                            "5. Exit Game\n" +
                            "Your Choice: ";
     String input; //input as string
@@ -184,7 +201,7 @@ public class World implements Place
     System.out.print(menu); //display menu options
     input = in.next(); //get user input
 
-    while(!menuInputCheck(input, 1, 5, true)) //check if entry is valid, repeat input if not
+    while(!menuInputCheck(input, 1, 6, true)) //check if entry is valid, repeat input if not
     {
       System.out.print("Invalid menu selection, please choose an integer between 1 and 4 and a\ndestination along the path denoted by P.\nYour choice: ");
       input = in.next();
@@ -193,10 +210,14 @@ public class World implements Place
     selDouble = Double.parseDouble(input); //safe parse
     selection = (int) selDouble; //set selection
 
-    if (selection != 5)
+    if (selection < 5)
     {
       stillInArea = characterMove(selection); //store if still in world
       //clearScreen();
+    }
+    else if(selection==5)
+    {
+    	m_user.menu();
     }
     else
     {
@@ -274,15 +295,52 @@ public class World implements Place
   */
  public void displayArea(char[][] area)
  {
+	   boolean isForest=false;
+	   boolean isMountain=false;
+	   boolean isPath=false;
+	   boolean isTown=false;
    for (int i = 0; i < areaYDim; i++)
    {
      System.out.print("\n");
      for (int j = 0; j < areaXDim; j++)
      {
        System.out.print(area[i][j] + " ");
+       if(area[i][j]=='F')
+       {
+    	   isForest=true;
+       }
+       else if(area[i][j]=='M')
+       {
+    	   isMountain=true;
+       }
+       else if(area[i][j]=='P')
+       {
+    	   isPath=true;
+       }
+       else if(area[i][j]=='T')
+       {
+    	   isTown=true;
+       }
      }
    }
    System.out.print("\n");
+   
+   if(isForest)
+   {
+	   System.out.println("F: Forest");
+   }
+   if(isMountain)
+   {
+	   System.out.println("M: Mountain");
+   }
+   if(isPath)
+   {
+	   System.out.println("P: Path");
+   }
+   if(isTown)
+   {
+	   System.out.println("T: Town");
+   }
  }
 
  /**

@@ -12,6 +12,8 @@ package ver0;
 
  public class Town implements Place
  {
+	 String m_name;
+	 PlayerActor m_user;
    //dimension and coordinate constants
    private int startLocX; //x-coordinate start location
    private int startLocY; //y-coordinate start location
@@ -43,8 +45,10 @@ package ver0;
     * @param : (post) Creates a new object of type Town with set parameters
     * @return : None
     */
-   public Town(int x, int y, char[][] townBase)
+   public Town(int x, int y, char[][] townBase,PlayerActor user, String name)
    {
+	   m_user=user;
+	   m_name = name;
      startLocX = x;
      startLocY = y;
      curPosX = startLocX;
@@ -87,6 +91,18 @@ package ver0;
      }
    }
 
+   public void displayArea()//Dummy method to satisfy interface
+   {
+	   
+   }
+   public void resetArea()//Duummy method to satisfy interface
+   {
+	   
+   }
+   public boolean menuInputCheck(String str)//Dummy method to satisfy interface
+   {
+	   return false;
+   }
    public boolean menuInputCheck(String str, int min, int max, boolean moveFlag)
    {
      double selDouble; //convert input safely
@@ -415,7 +431,7 @@ package ver0;
      switch(selection)
      {
        case 1:
-          System.out.println("\n\nInsert interaction here:\n\n");
+          System.out.println("\n\nInsert interaction here:\n\n");//TODO implement libraryness
           break;
        case 2:
           inLibrary = false;

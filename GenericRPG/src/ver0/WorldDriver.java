@@ -12,6 +12,15 @@ import java.io.*;
 
 public class WorldDriver
 {
+	PlayerActor m_user;
+	public WorldDriver()
+	{
+		
+	}
+	public WorldDriver(PlayerActor user)
+	{
+		m_user=user;
+	}
   public void runWorld() {
     //file names
     String worldMapFile = "worldLayout.txt";
@@ -24,9 +33,9 @@ public class WorldDriver
     char[][] awesometown = populateArea(awesometownFile);
 
     //create area objects
-    World world = new World(0, 3, worldMap);
-    Town villagevilleTown = new Town(0, 3, villageville);
-    Town awesometownTown = new Town(0, 3, awesometown);
+    World world = new World(0, 3, worldMap,m_user);
+    Town villagevilleTown = new Town(0, 3, villageville,m_user, "VillageVille");
+    Town awesometownTown = new Town(0, 3, awesometown, m_user, "AwesomeTown");
 
     //town array coordinates (x,y)
     int[] vvCoor = {6, 1};
@@ -35,7 +44,7 @@ public class WorldDriver
     boolean gameIsActive = true;
 
     //begin game Welcome
-    System.out.println("Welcome to Generic RPG!\n");
+//    System.out.println("Welcome to Generic RPG!\n");//took care of earlier, now duplicate
 
     while(gameIsActive)
     {

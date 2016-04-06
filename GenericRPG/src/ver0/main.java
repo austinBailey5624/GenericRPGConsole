@@ -57,7 +57,7 @@ public class main
 		 * Battle Testing:
 
 		 */
-		PlayerActor a1=new PlayerActor();
+		PlayerActor a1=new PlayerActor(1);
 		EnemyActor a2=new EnemyActor(1);
 
 
