@@ -8,6 +8,7 @@ public class Skill
 	private boolean m_targetsEnemy;
 	private int m_id;
 	private double m_accuracy;
+	private int m_value;
 
 	static int m_numOfSkills=8;
 
@@ -96,6 +97,7 @@ public class Skill
 
 		}
 		m_id=skillNum;
+		m_value=m_id*10;
 	}
 	
 	public void Execute(Actor User, Actor Target)
@@ -174,6 +176,14 @@ public class Skill
 	
 	
 	//Getters and Setters
+	public int getValue()
+	{
+		return m_value;
+	}
+	public void setValue(int value)
+	{
+		m_value=value;
+	}
 	public String getName()
 	{
 		return m_name;
