@@ -17,18 +17,6 @@ public class main
 
 		EnemyActor[] enemySet = EnemyActor.getEnemies();
 
-<<<<<<< HEAD
-=======
-		//System.out.println("Number of Items: " + Item.getNumTypesOfItem());
-		//System.out.println("Number of Skills: " + Skill.getNumOfSkillsTotal());
-		//System.out.println("Number of Enemies: " + EnemyActor.m_numOfEnemies);
-		
-		System.out.println("Number of Items: " + Item.getNumTypesOfItem());
-		System.out.println("Number of Skills: " + Skill.getNumOfSkillsTotal());
-		System.out.println("Number of Enemies: " + EnemyActor.m_numOfEnemies);
->>>>>>> 51ade4422d341879eba60b07613bf7bca458b3ce
-		
-
 		boolean exit = false;
 		while(!exit)
 		{

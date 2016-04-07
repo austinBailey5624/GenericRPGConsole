@@ -262,6 +262,7 @@ package ver0;
      {
        case shop:
           inBuilding = shopMenu();
+          
           break;
        case arena:
           inBuilding = arenaMenu();
@@ -324,11 +325,11 @@ package ver0;
 //          System.out.println("\n\nInsert interaction here:\n\n");
 //          break;
 //       case 3:
-//          inStore = false;
-//          setCurrentToPrevious();
-//          curAreaArr = resetArea(curAreaArr, areaArrBase);
-//          curAreaArr[curPosY][curPosX] = player;
-//          break;
+          inStore = false;
+          setCurrentToPrevious();
+          curAreaArr = resetArea(curAreaArr, areaArrBase);
+          curAreaArr[curPosY][curPosX] = player;
+//         break;
 //     }
 
      return inStore;
@@ -374,10 +375,10 @@ package ver0;
 //          System.out.println("\n\nInsert interaction here:\n\n");
 //          break;
 //       case 2:
-//          inArena = false;
-//          setCurrentToPrevious();
-//          curAreaArr = resetArea(curAreaArr, areaArrBase);
-//          curAreaArr[curPosY][curPosX] = player;
+          inArena = false;
+          setCurrentToPrevious();
+          curAreaArr = resetArea(curAreaArr, areaArrBase);
+          curAreaArr[curPosY][curPosX] = player;
 //          break;
 //     }
 
@@ -424,10 +425,10 @@ package ver0;
 //          System.out.println("\n\nInsert interaction here:\n\n");
 //          break;
 //       case 2:
-//          inInn = false;
-//          setCurrentToPrevious();
-//          curAreaArr = resetArea(curAreaArr, areaArrBase);
-//          curAreaArr[curPosY][curPosX] = player;
+          inInn = false;
+          setCurrentToPrevious();
+          curAreaArr = resetArea(curAreaArr, areaArrBase);
+          curAreaArr[curPosY][curPosX] = player;
 //          break;
 //     }
 
@@ -474,10 +475,10 @@ package ver0;
 //          System.out.println("\n\nInsert interaction here:\n\n");//TODO implement libraryness
 //          break;
 //       case 2:
-//          inLibrary = false;
-//          setCurrentToPrevious();
-//          curAreaArr = resetArea(curAreaArr, areaArrBase);
-//          curAreaArr[curPosY][curPosX] = player;
+          inLibrary = false;
+          setCurrentToPrevious();
+          curAreaArr = resetArea(curAreaArr, areaArrBase);
+          curAreaArr[curPosY][curPosX] = player;
 //          break;
 //     }
 
@@ -575,6 +576,10 @@ package ver0;
   if(isInn)
   {
 	  System.out.println("I: Inn");
+  }
+  if(isLibrary)
+  {
+	  System.out.println("L: Library");
   }
   if(isMountain)
   {
