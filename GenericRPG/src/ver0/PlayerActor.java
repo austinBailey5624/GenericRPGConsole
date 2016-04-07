@@ -350,9 +350,22 @@ public class PlayerActor extends Actor
 	 */
 	public void displayInventory()
 	{
+		boolean isEmpty=true;
 		for(int i=0; i<itemSet.length;i++)
 		{
-			System.out.println("You have " + getInventory()[i] +" " + itemSet[i].getName() + " In your inventory");
+			if(this.getInventory()[i]>0)
+			{
+				System.out.println("You have " + getInventory()[i] +" " + itemSet[i].getName() + " In your inventory");
+				isEmpty=false;
+			}
+			if(i==8)//skips empty items
+			{
+				i=13;
+			}
+		}
+		if(isEmpty)
+		{
+			System.out.println("You don't have anything in your inventory!");
 		}
 	}
 	
