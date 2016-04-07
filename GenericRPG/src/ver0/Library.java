@@ -99,6 +99,7 @@ public class Library
 			else
 			{
 				int[] indexRepresentedByChoice= new int[skillSet.length];
+				System.out.println("You currently have: " + character.getGold());
 				System.out.println("These are the skills we can teach you");
 				int choice=1;
 				for(int i=0; i<Skill.getNumOfSkillsTotal();i++)
