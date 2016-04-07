@@ -472,7 +472,7 @@ package ver0;
 //     switch(selection)
 //     {
 //       case 1:
-//          System.out.println("\n\nInsert interaction here:\n\n");//TODO implement libraryness
+//          System.out.println("\n\nInsert interaction here:\n\n");
 //          break;
 //       case 2:
           inLibrary = false;

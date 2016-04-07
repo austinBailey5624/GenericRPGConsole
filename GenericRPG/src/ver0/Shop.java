@@ -62,7 +62,7 @@ public class Shop
 			}
 			else if(select==2)
 			{
-				System.out.println("Due to developer laziness, it has been decided that you won't be able to buy anyting until the next Iteration!");//TODO make sell methods
+				displaySellMenu(character);
 			}
 			else if(select==3)
 			{
@@ -100,9 +100,30 @@ public class Shop
 			{
 				if(m_inventory[i]>0)
 				{
-					System.out.println(choice + ") " + itemSet[i].getName() + " costs: " + itemSet[i].getValue() + " quantity avaliable: " + this.m_inventory[i]);
+					System.out.print(choice + ") " + itemSet[i].getName());
+					for(int j=0; j< 20-itemSet[i].getName().length();j++)//this loop makes the display uniform
+					{
+						System.out.print(" ");// + " costs: " + itemSet[i].getValue() + " quantity avaliable: " + this.m_inventory[i]);
+					}
+					System.out.print(" costs: " + itemSet[i].getValue());
+					if(itemSet[i].getValue()<1000)//this if block makes the display uniform
+					{
+						System.out.print(" ");
+					}
+					if(itemSet[i].getValue()<100)
+					{
+						System.out.print(" ");
+					}
+					if(itemSet[i].getValue()<10)
+					{
+						System.out.print(" ");
+					}
 					indexRepresentedByChoice[choice]=i;
 					choice++;
+				}
+				if(i==7)//Skips empty items
+				{
+					i=13;
 				}
 			}
 			System.out.println((choice)+ ") Leave");
@@ -153,64 +174,9 @@ public class Shop
 					}
 				}
 			}
-//			else if(indexRepresentedByChoice[select]==-1)
-//			{
-//				
-//			}
+
 		}
 	}
-//	public void displayMenuItemOptions(int select,PlayerActor character)//its not useful anymore, but I still think I may need it someday
-//	{
-//		Item[] itemSet = Item.getAllItems();
-//		int choice=1;
-//		int index=0;
-//		for(int i=0; i<Item.getNumTypesOfItem();i++)
-//		{
-//			if(m_inventory[i]>0)
-//			{
-//				choice++;
-//			}
-//			if(select==choice)
-//			{
-//				//selectedItem=itemSet[i];//TODO variable cannot be resolved
-//				index=i;
-//			}
-//		}
-//		if(m_inventory[index]==1)
-//		{
-//			System.out.println("Would you like to buy one " + itemSet[index].getName() + "?\n1) Yes\n2)No");
-//			select=myScanner.nextInt();
-//			if(select==1)
-//			{
-//				purchase(index,character);
-//			}
-//			else
-//			{
-//				return;
-//			}
-//		}
-//		else if(m_inventory[index]>1)
-//		{
-//			System.out.println("You can buy up to " + m_inventory[index] + "Of these, how many do you want?");
-//			int select2=myScanner.nextInt();
-//			if(select2>m_inventory[index])
-//			{
-//				System.out.println("Sorry, we don't have that many " + itemSet[index].getName() + "s");
-//			}
-//			else if(select2<0)
-//			{
-//				System.out.println("Sorry, we cant give you a negative number of something, but you can sell it to us!");
-//			}
-//			else if(select2==0)
-//			{
-//				System.out.println("Sorry, would you like to buy something else?");
-//			}
-//			else
-//			{
-//				purchaseMultiple(index,select2,character);
-//			}
-//		}
-//	}
 	/**
 	 * This function attempts the purchase of an item defined by the index and by the PlayerActor character
 	 * @precondition: 	instance of Shop Class
@@ -222,7 +188,6 @@ public class Shop
 		Item[] itemSet = Item.getAllItems();
 		if(character.canBuyItem(itemSet[index].getValue()))//puchase is successful
 		{
-			//character.getInventory()[index]++;//TODO must be array type
 			if(character.buyItem(index))
 			{
 				System.out.println("Puchase successful! You have bought one " + itemSet[index].getName());
@@ -250,7 +215,6 @@ public class Shop
 		Item[] itemSet = Item.getAllItems();
 		if(character.canBuyItems(index, quantity))//purchase is successful
 		{
-			//character.getInventory()[index]+=quantity;//TODO must be array type
 			if(character.buyItems(index,quantity))
 			{
 				System.out.println("Purchase successful! You have bought" + quantity + " " +itemSet[index].getName());
@@ -262,6 +226,100 @@ public class Shop
 		{
 			System.out.println("Sorry, you don't have enough money!");
 			
+		}
+	}
+	
+	public void displaySellMenu(PlayerActor character)
+	{
+		Item[] itemSet = Item.getAllItems();//so we can access items information
+		boolean exit=false;
+		while(!exit)
+		{
+			System.out.println("You currently have: " + character.getGold() + " gold");
+			System.out.println("What would you like to sell?");
+			int choice=1;
+			int[] indexRepresentedByChoice= new int[itemSet.length];
+			for(int i=0;i<=27; i++)//displays possible sell options
+			{
+				if(character.getInventory()[i]>0)
+				{
+					System.out.println(choice + ") sell " + itemSet[i].getName() + " for " + ((int)itemSet[i].getValue()*.8));
+					indexRepresentedByChoice[choice]=i;
+					choice++;
+				}
+				if(i==7)//skips empty items
+				{
+					i=13;
+				}
+			}
+			System.out.println((choice) + ") Leave");
+			select = myScanner.nextInt();
+			if(select<1||select>choice)
+			{
+				System.out.println("Sorry, we didn't understand your input");
+			}
+			else if(select>1&&select<choice)
+			{
+				if(character.getInventory()[indexRepresentedByChoice[select]]==1)
+				{
+					sell(indexRepresentedByChoice[select],character);
+				}
+				if(character.getInventory()[indexRepresentedByChoice[select]]>1)
+				{
+					sellMultiple(indexRepresentedByChoice[select],character);
+				}
+			}
+			else if(select==choice)
+			{
+				System.out.println("Thank you for shopping with us");
+				return;
+			}
+			else
+			{
+				System.out.println("Sorry, we didn't understand your input");
+			}
+		}
+	}
+	
+	public void sell(int index, PlayerActor character)
+	{
+		Item[] itemSet = Item.getAllItems();//so we can access items information
+		int[] tempInventory = character.getInventory();
+		character.addGold((int)(itemSet[index].getValue()*.8));
+		tempInventory[index]--;	//removes one from the inventory
+		this.m_inventory[index]++;//adds one to the inventory of the shop
+		character.setInventory(tempInventory);
+		System.out.println("Successfully sold one " + itemSet[index].getName() + " for " + (int)(itemSet[index].getValue()*.8) + " gold.");
+	}
+	public void sellMultiple(int index, PlayerActor character)
+	{
+		Item[] itemSet = Item.getAllItems();//so we can access items information
+		int[] tempInventory = character.getInventory();
+		boolean exit=false;
+		while(!exit)
+		{
+			System.out.println("How many " + itemSet[index].getName() + "Would you like to sell?\n(if you would like to go back, sell 0)");
+			select = myScanner.nextInt();
+			if(select==0)
+			{
+				return;
+			}
+			else if(select<1)
+			{
+				System.out.println("Sorry you have to sell at least one item");
+			}
+			else if(select>tempInventory[index])
+			{
+				System.out.println("Sorry you dont have that many");
+			}
+			else if(select<=tempInventory[index])
+			{
+				tempInventory[index]-=select;
+				this.m_inventory[index]+=select;
+				character.setInventory(tempInventory);
+				character.addGold((int)(itemSet[index].getValue()*.8*select));
+				System.out.println("Successfully sold " + select + " " + itemSet[index].getName() + " for " + ((int)(itemSet[index].getValue()*.8*select)) + " gold");
+			} 
 		}
 	}
 }

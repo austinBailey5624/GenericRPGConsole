@@ -37,6 +37,9 @@ public class PlayerActor extends Actor
 		System.out.println("Welcome to Generic RPG!\n What is your name?");
 		setName(myScanner.next());
 		System.out.println("You awake in the middle of a dark forest, bruised and alone\n");
+		System.out.println("A bag of gold, covered in blood, sits not far away");
+		System.out.println("You pick it up +100 gold");
+		addGold(100);
 	}
 	
 	/**
@@ -224,7 +227,7 @@ public class PlayerActor extends Actor
 	/**
 	 * This function checks to see if an actor can buy an item
 	 * @precondition - 	PlayerActor Object exists
-	 * @post - 			none //TODO make const on next implementation
+	 * @post - 			none 
 	 * @return - 		true if the item can be bought, false else
 	 */
 	public void setInventory(int[] inventory)
@@ -267,7 +270,7 @@ public class PlayerActor extends Actor
 	/**
 	 * This function handles the menu the user interacts with when the option is selected while the person is in world
 	 * @precondition - 	PlayerActor Object exists
-	 * @post - 			none //TODO make const
+	 * @post - 			none 
 	 * @return - 		void
 	 */
 	public void menu()
@@ -321,7 +324,7 @@ public class PlayerActor extends Actor
 			System.out.println("4) Equip Helmet");
 			System.out.println("5) Equip Gauntlets");
 			System.out.println("6) Equip Boots");
-			System.out.println("7) Look at inventory");
+			System.out.println("7) Look at inventory");//TODO fix it so it only shows items that you have more than zero of-if you do have zero of everything, display :You have zero of everything
 			System.out.println("8) Return");
 			select=myScanner.nextInt();
 			if(select>=0&&select<7)
@@ -359,7 +362,7 @@ public class PlayerActor extends Actor
 	 * @post - 			equips items if appropriate
 	 * @return - 		void
 	 */
-	public void equipMenu(int type)//TODO finish/test equip method
+	public void equipMenu(int type)
 	{
 		Item[] items = Item.getAllItems();
 		if(type==1)
