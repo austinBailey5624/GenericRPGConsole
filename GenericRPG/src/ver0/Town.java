@@ -184,13 +184,15 @@ package ver0;
 
    //interaction methods
 
-   public void menuInteraction()
+   public void menuInteraction()//TODO implement wasd functionality
    {
      final String menu = "\n\nYou are currently at the coordinate (" + curPosX + ", " + curPosY + "). Which direction would you like to move?\n" +
                             "   1. Up\n" +
                             "   2. Down\n" +
                             "   3. Left\n" +
                             "   4. Right\n" +
+                            "   5. Menu\n" +
+ //                           "   6. Exit\n" +
                             "   Your Choice: ";//TODO implement looking at character menu
      String input; //input as string
      double selDouble; //menu selection as double
@@ -199,17 +201,64 @@ package ver0;
      System.out.print(menu); //display menu options
      input = in.next(); //get user input
 
-     while(!menuInputCheck(input, 1, 4, true)) //check if entry is valid, repeat input if not
+     if(!((input.equals("w"))||(input.equals("a"))||(input.equals("s"))||(input.equals("d"))))
      {
-       System.out.print("Invalid menu selection, please choose an integer between 1 and 4 and a\ndestination along the path denoted by P.\nYour choice: ");
-       input = in.next();
+         while(!menuInputCheck(input, 1, 6, true)) //check if entry is valid, repeat input if not
+         {
+           System.out.print("Invalid menu selection, please choose an integer between 1 and 4 and a\ndestination along the path denoted by P.\nYour choice: ");
+           input = in.next();
+         }
+         
+         selDouble = Double.parseDouble(input); //safe parse
+         selection = (int) selDouble; //set selection
+     }
+     else
+     {
+     	selection=7;//dummy value outside of range
      }
 
-     selDouble = Double.parseDouble(input); //safe parse
-     selection = (int) selDouble; //set selection
+     if(input.equals("d"))
+     {
+     	System.out.println("true");
+     }
+     else
+     {
+     	System.out.println("false");
+     }
 
-     stillInArea = characterMove(selection); //store if still in town
-     //clearScreen();
+     if (selection < 5)
+     {
+       stillInArea = characterMove(selection); //store if still in world
+       //clearScreen();
+     }
+     else if(selection==5)
+     {
+     	m_user.menu();
+     }
+     else if(input.equals("w"))
+     {
+     	stillInArea=characterMove(1);
+     }
+     else if(input.equals("a"))
+     {
+     	stillInArea=characterMove(3);
+     }
+     else if(input.equals("s"))
+     {
+     	stillInArea=characterMove(2);
+     }
+     else if(input.equals("d"))
+     {
+     	stillInArea=characterMove(4);
+     }
+//     else if(selection==6)
+//     {
+//       gameExit = true;
+//     }
+     else
+     {
+     	System.out.println("Sorry, we didn't understand your input");
+     }
 
      while(townInteraction(areaArrBase[curPosY][curPosX])){}
    }
@@ -522,46 +571,45 @@ package ver0;
 	   boolean isPath=false;
 	   boolean isShop=false;
 	   boolean isTown=false;
-	   
   for (int i = 0; i < areaYDim; i++)
   {
-    System.out.print("\n");
-    for (int j = 0; j < areaXDim; j++)//In this for loop the char is printed, and the types of terrain used are determined by setting the cooresponding booleans to true
-    {
-      System.out.print(area[i][j] + " ");
-      if(area[i][j]=='A')
-      {
-    	  isArena=true;
-      }
-      else if(area[i][j]=='F')
-      {
-   	   isForest=true;
-      }
-      else if(area[i][j]=='I')
-      {
-    	  isInn=true;
-      }
-      else if(area[i][j]=='L')
-      {
-    	  isLibrary=true;
-      }
-      else if(area[i][j]=='M')
-      {
-   	   isMountain=true;
-      }
-      else if(area[i][j]=='P')
-      {
-   	   isPath=true;
-      }
-      else if(area[i][j]=='S')
-      {
-    	  isShop=true;
-      }
-      else if(area[i][j]=='T')
-      {
-   	   isTown=true;
-      }
-    }
+	  System.out.print("\n");
+	  for (int j = 0; j < areaXDim; j++)//In this for loop the char is printed, and the types of terrain used are determined by setting the cooresponding booleans to true
+	  {	
+		  System.out.print(area[i][j] + " ");
+		  if(area[i][j]=='A')
+		  {
+			  isArena=true;
+		  }
+		  else if(area[i][j]=='F')
+		  {
+			  isForest=true;
+		  }
+		  else if(area[i][j]=='I')
+		  {
+			  isInn=true;
+		  }
+		  else if(area[i][j]=='L')
+		  {
+			  isLibrary=true;
+		  }
+		  else if(area[i][j]=='M')
+		  {
+			  isMountain=true;
+		  }
+		  else if(area[i][j]=='P')
+		  {
+			  isPath=true;
+		  }
+		  else if(area[i][j]=='S')
+		  {
+			  isShop=true;
+		  }
+		  else if(area[i][j]=='T')
+		  {
+			  isTown=true;
+		  }
+	  }
   }
   System.out.print("\n");
   

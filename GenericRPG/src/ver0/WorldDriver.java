@@ -30,7 +30,7 @@ public class WorldDriver
     //create area arrays
     char[][] worldMap = populateArea(worldMapFile);
     char[][] villageville = populateArea(villagevilleFile);
-    char[][] awesometown = populateArea(awesometownFile);
+    char[][] awesometown = populateArea2(awesometownFile);
 
     //create area objects
     World world = new World(0, 3, worldMap,m_user);
@@ -70,11 +70,13 @@ public class WorldDriver
       }
       //visit AwesomeTown
       else if (world.getCurrentLoc()[0] == atCoor[0] && world.getCurrentLoc()[1] == atCoor[1])
-      do
       {
-        awesometownTown.displayArea(awesometownTown.getArea());
-        awesometownTown.menuInteraction();
-      } while (awesometownTown.inArea());
+    	  do
+    	  {
+    		  awesometownTown.displayArea(awesometownTown.getArea());
+    		  awesometownTown.menuInteraction();
+    	  } while (awesometownTown.inArea());
+      }
 
       //return to world, return to previous coordinates
       world.setCurrentToPrevious();
@@ -110,6 +112,51 @@ public class WorldDriver
             else
             {
               b = (char) inbr.read(); //skip '\r'
+              b = (char) inbr.read(); //skip '\n'
+              tempWorld[i][j] = b; //grab first character on new line
+            }
+          }
+        }
+      }
+
+      //close reader
+      in.close();
+    }
+    catch(Exception e)
+    {
+      e.printStackTrace();
+    }
+
+    return tempWorld;
+  }
+  
+  //temporary fix
+  public char[][] populateArea2(String fileName)
+  {
+    //file i/o
+    FileReader in;
+    BufferedReader inbr;
+    char[][] tempWorld = new char[7][7];
+
+    try
+    {
+      in = new FileReader(fileName);
+      inbr = new BufferedReader(in);
+      int a = 0;
+
+      for (int i = 0; i < 7; i++)
+      {
+        for (int j = 0; j < 7; j++)
+        {
+          if ((a = inbr.read()) != -1)
+          {
+            char b = (char) a;
+            if (b != '\n') // '\r' will be followed by '\n'
+            {
+              tempWorld[i][j] = b;
+            }
+            else
+            {
               b = (char) inbr.read(); //skip '\n'
               tempWorld[i][j] = b; //grab first character on new line
             }

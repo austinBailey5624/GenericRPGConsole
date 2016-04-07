@@ -200,28 +200,90 @@ public class World implements Place
     Scanner in = new Scanner(System.in); //input scanner
     System.out.print(menu); //display menu options
     input = in.next(); //get user input
-
-    while(!menuInputCheck(input, 1, 6, true)) //check if entry is valid, repeat input if not
+    if(!((input.equals("w"))||(input.equals("a"))||(input.equals("s"))||(input.equals("d"))))
     {
-      System.out.print("Invalid menu selection, please choose an integer between 1 and 4 and a\ndestination along the path denoted by P.\nYour choice: ");
-      input = in.next();
-    }
-    
-    selDouble = Double.parseDouble(input); //safe parse
-    selection = (int) selDouble; //set selection
-
-    if (selection < 5)
-    {
-      stillInArea = characterMove(selection); //store if still in world
-      //clearScreen();
-    }
-    else if(selection==5)
-    {
-    	m_user.menu();
+        while(!menuInputCheck(input, 1, 6, true)) //check if entry is valid, repeat input if not//TODO rewrite for wasd implementation
+        {
+          System.out.print("Invalid menu selection, please choose an integer between 1 and 4 and a\ndestination along the path denoted by P.\nYour choice: ");
+          input = in.next();
+        }
+        
+        selDouble = Double.parseDouble(input); //safe parse
+        selection = (int) selDouble; //set selection
     }
     else
     {
-      gameExit = true;
+    	selection=7;//dummy value outside of range
+    }
+//    System.out.println("input = \""+ input + "\"" );		//debugging
+//    System.out.println("selection = \""+ selection+"\"");	//debugging
+//    if(input.equals("d"))
+//    {
+//    	System.out.println("true");
+//    }
+//    else
+//    {
+//    	System.out.println("false");
+//    }
+
+    if(input.equals("w"))
+    {
+    	selection = 1;
+    }
+    else if (input.equals("a"))
+    {
+    	selection = 3;
+    }
+    else if (input.equals("s")) 
+    {
+    	selection = 2;
+    }
+    else if (input.equals("d"))
+	{
+		selection = 4;
+	}
+    
+    if(validMoveCheck(selection))
+    {
+	    if (selection < 5)
+	    {
+	      stillInArea = characterMove(selection); //store if still in world
+	      //clearScreen();
+	    }
+	    else if(selection==5)
+	    {
+	    	m_user.menu();
+	    }
+	    else if(input.equals("w"))
+	    {
+	    	stillInArea=characterMove(1);
+	    }
+	    else if(input.equals("a"))
+	    {
+	    	stillInArea=characterMove(3);
+	    }
+	    else if(input.equals("s"))
+	    {
+	    	stillInArea=characterMove(2);
+	    }
+	    else if(input.equals("d"))
+	    {
+	    	stillInArea=characterMove(4);
+	    }
+	    else if(selection==6)
+	    {
+	      gameExit = true;
+	    }
+	    else
+	    {
+	    	System.out.println("Sorry, we didn't understand your input");
+	    }
+    }
+    else
+    {
+    	System.out.println("Invalid move.");
+    	displayArea(curAreaArr);
+    	menuInteraction();
     }
   }
 
