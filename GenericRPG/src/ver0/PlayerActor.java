@@ -245,7 +245,7 @@ public class PlayerActor extends Actor
 	public void addExp(int addedExp)
 	{
 		m_exp+=addedExp;
-		while(m_exp>100*this.getLevel())
+		while(m_exp>=100*this.getLevel())
 		{
 			levelUp(m_exp-100*this.getLevel());
 		}
@@ -305,7 +305,7 @@ public class PlayerActor extends Actor
 	 * @post - 			none 
 	 * @return - 		void
 	 */
-	public void accessInventory()
+	public void accessInventory()//TODO implement unequip methods
 	{
 		Item[] items = Item.getAllItems();
 		System.out.println("Here's the stuff in your inventory");
@@ -326,7 +326,7 @@ public class PlayerActor extends Actor
 			System.out.println("6) Equip Boots");
 			System.out.println("7) Look at inventory");//TODO fix it so it only shows items that you have more than zero of-if you do have zero of everything, display :You have zero of everything
 			System.out.println("8) Return");
-			select=myScanner.nextInt();
+			select=myScanner.nextInt();//TODO handle bad input from user 
 			if(select>=0&&select<7)
 			{
 				equipMenu(select);
@@ -444,29 +444,100 @@ public class PlayerActor extends Actor
 			if(type==1)
 			{
 //				System.out.println("Got here");
-				this.equipSword(items[indexRepresentedByChoice[select]]);//TODO: mark here
+				if(m_inventory[indexRepresentedByChoice[select]]<1)
+				{
+					System.out.println("You dont have a " + items[indexRepresentedByChoice[select]]+ " to equip!");
+				}
+				else
+				{
+					if(this.getEquippedSword().getId()!=8)//the case there is no sword
+					{
+						m_inventory[this.getEquippedSword().getId()]++;
+					}
+					this.equipSword(items[indexRepresentedByChoice[select]]);//TODO: mark here
+					m_inventory[indexRepresentedByChoice[select]]--;
+				}
 //				System.out.println("Equipped" + items[indexRepresentedByChoice[select]] + " successfully"); //debugging
 			}
 			else if(type==2)
 			{
-				this.equipShield(items[indexRepresentedByChoice[select]]);
-//				System.out.println("Equipped" + items[indexRepresentedByChoice[select]] + " successfully");
+				if(m_inventory[indexRepresentedByChoice[select]]<1)
+				{
+					System.out.println("You dont have a " + items[indexRepresentedByChoice[select]]+ " to equip!");
+				}
+				else
+				{
+					if(this.getEquippedShield().getId()!=9)//the case there is no sword
+					{
+						m_inventory[this.getEquippedShield().getId()]++;
+					}
+					this.equipShield(items[indexRepresentedByChoice[select]]);//TODO: mark here
+					m_inventory[indexRepresentedByChoice[select]]--;
+				}
 			}
 			else if(type==3)
 			{
-				this.equipArmor(items[indexRepresentedByChoice[select]]);
+				if(m_inventory[indexRepresentedByChoice[select]]<1)
+				{
+					System.out.println("You dont have a " + items[indexRepresentedByChoice[select]]+ " to equip!");
+				}
+				else
+				{
+					if(this.getEquippedArmor().getId()!=10)//the case there is no sword
+					{
+						m_inventory[this.getEquippedArmor().getId()]++;
+					}
+					this.equipArmor(items[indexRepresentedByChoice[select]]);//TODO: mark here
+					m_inventory[indexRepresentedByChoice[select]]--;
+				}
 			}
 			else if(type==4)
 			{
-				this.equipHelmet(items[indexRepresentedByChoice[select]]);
+				if(m_inventory[indexRepresentedByChoice[select]]<1)
+				{
+					System.out.println("You dont have a " + items[indexRepresentedByChoice[select]]+ " to equip!");
+				}
+				else
+				{
+					if(this.getEquippedHelmet().getId()!=11)//the case there is no sword
+					{
+						m_inventory[this.getEquippedHelmet().getId()]++;
+					}
+					this.equipHelmet(items[indexRepresentedByChoice[select]]);//TODO: mark here
+					m_inventory[indexRepresentedByChoice[select]]--;
+				}
 			}
 			else if(type==5)
 			{
-				this.equipGauntlets(items[indexRepresentedByChoice[select]]);
+				if(m_inventory[indexRepresentedByChoice[select]]<1)
+				{
+					System.out.println("You dont have a " + items[indexRepresentedByChoice[select]]+ " to equip!");
+				}
+				else
+				{
+					if(this.getEquippedGauntlets().getId()!=12)//the case there is no sword
+					{
+						m_inventory[this.getEquippedGauntlets().getId()]++;
+					}
+					this.equipGauntlets(items[indexRepresentedByChoice[select]]);//TODO: mark here
+					m_inventory[indexRepresentedByChoice[select]]--;
+				}
 			}
 			else if(type==6)
 			{
-				this.equipBoots(items[indexRepresentedByChoice[select]]);
+				if(m_inventory[indexRepresentedByChoice[select]]<1)
+				{
+					System.out.println("You dont have a " + items[indexRepresentedByChoice[select]]+ " to equip!");
+				}
+				else
+				{
+					if(this.getEquippedBoots().getId()!=13)//the case there is no sword
+					{
+						m_inventory[this.getEquippedBoots().getId()]++;
+					}
+					this.equipBoots(items[indexRepresentedByChoice[select]]);//TODO: mark here
+					m_inventory[indexRepresentedByChoice[select]]--;
+				}
 			}
 		}
 		else if(select==(choices))

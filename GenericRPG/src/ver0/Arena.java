@@ -50,7 +50,7 @@ public class Arena
 	 * @post:			can change member variables of character based on preformance, if they are successful allows them to fight harder enemies
 	 * @param character
 	 */
-	public void Menu(PlayerActor character)//make this return a boolean that controls whether the actor won the battle, if lost, return false
+	public void Menu(PlayerActor character)//TODO make this return a boolean that controls whether the actor won the battle, if lost, return false
 	{
 		System.out.println("Welcome to the Arena");
 		boolean exit=false;
@@ -72,7 +72,7 @@ public class Arena
 			select=myScanner.nextInt();
 			if(select>=1 && select<=currentFightCeiling)
 			{
-				if(myBattle.actorBattle(character, enemySet[indexRepresentedByChoice[select]]))
+				if(myBattle.actorBattle(character, enemySet[indexRepresentedByChoice[select]])) //TODO check if player ran or defeated enemy, adjust response accordingly
 				{
 					System.out.println("Congratulations, you won! More difficult enemies come to the arena!");
 					if(currentFightCeiling<4)
