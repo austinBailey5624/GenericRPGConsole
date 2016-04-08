@@ -21,7 +21,7 @@ public class PlayerActor extends Actor
 	public PlayerActor()
 	{
 		this.setLevel(1);
-		m_gold=1000000;
+		m_gold=0;
 		m_exp=0;
 		m_inventory=new int[Item.getNumTypesOfItem()];
 		for(int i=0; i<Item.getNumTypesOfItem();i++)
