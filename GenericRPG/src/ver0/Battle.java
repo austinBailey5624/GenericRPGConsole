@@ -9,6 +9,8 @@ import java.util.Random;
 import java.util.Scanner;
 public class Battle 
 {
+
+	
 	//member variables
 	private Random r;
 	private Scanner myScanner;
@@ -42,6 +44,7 @@ public class Battle
 	 * @return True if player survives the battle, false if the player dies
 	 */
 	public boolean actorBattle(PlayerActor player, EnemyActor npc)//TODO add more output to user when using skills
+	//TODO make return int depending on ending of battle conditions 0--player won, 1--player dies --2 player ran away 
 	{
 		String in;
 		int choice=0;
@@ -76,7 +79,7 @@ public class Battle
 					int difference=temphp1-temphp2;
 					System.out.println(player.getName()+" attacks "+npc.getName()+" with a "+player.getEquippedSword().getName()+", dealing "+difference+" damage!\n");
 				}
-				else if (choice==2)
+				else if (choice==2) //TODO handle when skill does not target enemy, adjust effects for single battle
 				{
 					printSkillsAvailable(player);
 					System.out.println("Input the corresponding number to use the skill");
@@ -345,6 +348,8 @@ public class Battle
 		}
 		else
 		{
+			player.setCurHp(player.getMaxHp());
+			npc.setCurHp(npc.getMaxHp());
 			return false;
 		}
 	}
@@ -379,6 +384,7 @@ public class Battle
 		}
 		catch(Exception e)
 		{
+			
 			return false;
 		}
 	}
