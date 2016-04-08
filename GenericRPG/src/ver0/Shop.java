@@ -278,7 +278,7 @@ public class Shop
 			{
 				System.out.println("Sorry, we didn't understand your input");
 			}
-			else if(select>1&&select<choice)
+			else if(select>0&&select<choice)
 			{
 				if(character.getInventory()[indexRepresentedByChoice[select]]==1)
 				{
