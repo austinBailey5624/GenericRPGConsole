@@ -145,7 +145,7 @@ public class Library
 	 */
 	public void learn(int skillIndex,PlayerActor character)
 	{
-		System.out.println("Skill index:\""+skillIndex+"\"");
+//		System.out.println("Skill index:\""+skillIndex+"\"");
 		if(!canTeach[skillIndex])
 		{
 			System.out.println("Sorry, we don't teach that skill");
