@@ -98,7 +98,7 @@ public class Library
 			else
 			{
 				int[] indexRepresentedByChoice= new int[skillSet.length];
-				System.out.println("You currently have: " + character.getGold());
+				System.out.println("You currently have: " + character.getGold() + " gold to spend on skills.");
 				System.out.println("These are the skills we can teach you");
 				int choice=1;
 				for(int i=0; i<Skill.getNumOfSkillsTotal();i++)
@@ -111,8 +111,8 @@ public class Library
 							System.out.print(" ");
 						}
 						System.out.println(" costs: " + skillSet[i].getValue() + " gold");
-						choice++;
 						indexRepresentedByChoice[choice]=i;
+						choice++;
 					}
 				}
 				System.out.println((choice+1) + ") Exit");
@@ -155,7 +155,7 @@ public class Library
 		{
 			character.setGold(character.getGold()-skillSet[skillIndex].getValue());
 			character.m_skillSet[skillIndex]=true;
-			System.out.println("You have successfully learned the skill " + skillSet[skillIndex].getValue());
+			System.out.println("You have successfully learned the skill " + skillSet[skillIndex].getName());
 		}
 	}
 }

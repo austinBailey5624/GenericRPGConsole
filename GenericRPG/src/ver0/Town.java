@@ -184,7 +184,7 @@ package ver0;
 
    //interaction methods
 
-   public void menuInteraction()//TODO implement wasd functionality
+   public void menuInteraction()
    {
      final String menu = "\n\nYou are currently at the coordinate (" + curPosX + ", " + curPosY + "). Which direction would you like to move?\n" +
                             "   1. Up\n" +
@@ -217,15 +217,6 @@ package ver0;
      	selection=7;//dummy value outside of range
      }
 
-     if(input.equals("d"))
-     {
-     	System.out.println("true");
-     }
-     else
-     {
-     	System.out.println("false");
-     }
-
      if (selection < 5)
      {
        stillInArea = characterMove(selection); //store if still in world
@@ -251,10 +242,6 @@ package ver0;
      {
      	stillInArea=characterMove(4);
      }
-//     else if(selection==6)
-//     {
-//       gameExit = true;
-//     }
      else
      {
      	System.out.println("Sorry, we didn't understand your input");
