@@ -47,8 +47,9 @@ public class Arena
 			for(int i=0; i< currentFightCeiling; i++)
 			{
 				System.out.println(choice + ") "  + enemySet[i].getName());
+				indexRepresentedByChoice[choice]=i;	
 				choice++;
-				indexRepresentedByChoice[choice]=i;
+//				indexRepresentedByChoice[choice]=i;
 			}
 			System.out.println(choice + ") Exit");
 			select=myScanner.nextInt();
@@ -57,7 +58,10 @@ public class Arena
 				if(myBattle.actorBattle(character, enemySet[indexRepresentedByChoice[select]]))
 				{
 					System.out.println("Congratulations, you won! More difficult enemies come to the arena!");
-					currentFightCeiling++;
+					if(currentFightCeiling<4)
+					{
+						currentFightCeiling++;
+					}
 				}
 				else
 				{
