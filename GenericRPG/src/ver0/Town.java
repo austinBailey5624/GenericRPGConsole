@@ -471,10 +471,33 @@ package ver0;
 //          System.out.println("\n\nInsert interaction here:\n\n");
 //          break;
 //       case 2:
+     
+     if (thisArena.getLostBattle())
+     {
+    	 if (m_name == "AwesomeTown")
+    	 {
+    		 curPosX = 5;
+    		 curPosY = 0;
+    		 prevPosX = 4;
+    		 prevPosY = 1;
+    	 }
+    	 else
+    	 {
+    		 curPosX = 5;
+    		 curPosY = 5;
+    		 prevPosX = 5;
+    		 prevPosY = 4;
+    	 }
+    	 m_user.setCurHp(m_user.getMaxHp());
+     }
+     resetArea(curAreaArr, areaArrBase);
+     setCurrentToPrevious();
+     curAreaArr[curPosY][curPosX] = player;
+     
           inArena = false;
-          setCurrentToPrevious();
-          curAreaArr = resetArea(curAreaArr, areaArrBase);
-          curAreaArr[curPosY][curPosX] = player;
+          //setCurrentToPrevious();
+          //curAreaArr = resetArea(curAreaArr, areaArrBase);
+          //curAreaArr[curPosY][curPosX] = player;
 //          break;
 //     }
 

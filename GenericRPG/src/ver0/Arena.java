@@ -2,6 +2,8 @@ package ver0;
 import java.util.Scanner;
 public class Arena 
 {
+	boolean lost = false;
+	
     public static Arena[] getAllArenas()
     {
 
@@ -52,6 +54,7 @@ public class Arena
 	{
 		System.out.println("Welcome to the Arena");
 		boolean exit=false;
+		lost = false;
 		Battle myBattle = new Battle();
 		while(!exit)
 		{
@@ -81,6 +84,8 @@ public class Arena
 				{
 					//TODO: need to move to inn somehow?
 					System.out.println("The guy who beats you took all your gold!\n But he used it to pay the inkeep to nurse you back to health");
+					exit = true;
+					lost = true;
 				}
 			}
 			else if(select==choice)
@@ -88,5 +93,10 @@ public class Arena
 				return;
 			}
 		}
+	}
+	
+	public boolean getLostBattle()	
+	{
+		return lost;
 	}
 }
