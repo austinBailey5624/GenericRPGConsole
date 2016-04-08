@@ -49,7 +49,7 @@ public class Shop
 				m_inventory[i]=3;
 			}
 			m_inventory[7]=10;
-			for(int i=14;i<=10;i++)//skipps 'empty' items
+			for(int i=14;i<=20;i++)//skipps 'empty' items
 			{
 				m_inventory[i]=1;
 			}
