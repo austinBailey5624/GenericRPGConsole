@@ -326,7 +326,7 @@ public class PlayerActor extends Actor
 			System.out.println("6) Equip Boots");
 			System.out.println("7) Look at inventory");//TODO fix it so it only shows items that you have more than zero of-if you do have zero of everything, display :You have zero of everything
 			System.out.println("8) Return");
-			select=myScanner.nextInt();
+			select=myScanner.nextInt();//TODO handle bad input from user 
 			if(select>=0&&select<7)
 			{
 				equipMenu(select);

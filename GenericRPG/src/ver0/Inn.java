@@ -52,7 +52,7 @@ public class Inn
 				}
 				else
 				{
-					System.out.println("Have a nice nap boy");
+					System.out.println("Have a nice nap boy"); //TODO make inn take gold from player
 					character.setCurHp(character.getMaxHp());
 					System.out.println("You wake up feeling refreshed!");
 				}
