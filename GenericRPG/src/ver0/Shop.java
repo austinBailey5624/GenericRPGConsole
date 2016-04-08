@@ -233,8 +233,27 @@ public class Shop
 	{
 		Item[] itemSet = Item.getAllItems();//so we can access items information
 		boolean exit=false;
+		boolean isEmpty=true;
+		int[] tempInventory=character.getInventory();
 		while(!exit)
 		{
+			for(int i=0;i<itemSet.length;i++)//loop checks to see if the characters inventory is empty
+			{
+				if(tempInventory[i]>0)
+				{
+					isEmpty=false;
+				}
+				if(i==6)//skips empty items
+				{
+					i=13;
+				}
+			}
+			
+			if(isEmpty)//handles the case where the user has nothing to sell
+			{
+				System.out.println("Sorry, you don't have anything to sell...");
+				return;
+			}
 			System.out.println("You currently have: " + character.getGold() + " gold");
 			System.out.println("What would you like to sell?");
 			int choice=1;
