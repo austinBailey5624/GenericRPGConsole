@@ -76,20 +76,18 @@ public class main
 				PlayerActor user = new PlayerActor();
 				WorldDriver wd = new WorldDriver(user);
 				wd.runWorld();
-<<<<<<< HEAD
 			}
-			else if(select==4)
-			{
-				System.out.println("Thank you for playing!");
-				myScanner.close();
-				return;
-			}
-			else
-			{
-				System.out.println("Sorry, we didn't undersand your input");
-			}
-		}
-=======
+//			if(select==4)
+//			{
+//				System.out.println("Thank you for playing!");
+//				myScanner.close();
+//				return;
+//			}
+//			else
+//			{
+//				System.out.println("Sorry, we didn't undersand your input");
+//			}
+//		}
 //			}
 //			else if(select==4)
 //			{
@@ -101,8 +99,8 @@ public class main
 //				System.out.println("Sorry, we didn't undersand your input");
 //			}
 //		}
->>>>>>> d4755118c605cb13485022e4961641578a11b2d9
-	}
+//
+//	}
 }
 
 
