@@ -120,6 +120,7 @@ public class Shop
 					}
 					indexRepresentedByChoice[choice]=i;
 					choice++;
+					System.out.println();
 				}
 				if(i==7)//Skips empty items
 				{
@@ -128,7 +129,7 @@ public class Shop
 			}
 			System.out.println((choice)+ ") Leave");
 			select=myScanner.nextInt();
-			if(select==choice+1)
+			if(select==choice)
 			{
 				return;
 			}
