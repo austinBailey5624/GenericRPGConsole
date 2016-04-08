@@ -19,7 +19,7 @@ public class EnemyActor extends Actor
      */
 	public static EnemyActor[] getEnemies()
 	{
-		EnemyActor[] enemies = new EnemyActor[4];
+		EnemyActor[] enemies = new EnemyActor[5];
 		for(int i=0; i<4;i++)
 		{
 			enemies[i]= new EnemyActor(i);
