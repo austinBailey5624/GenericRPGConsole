@@ -34,7 +34,7 @@ public class Arena
 	 * @post:			can change member variables of character based on preformance, if they are successful allows them to fight harder enemies
 	 * @param character
 	 */
-	public void Menu(PlayerActor character)
+	public void Menu(PlayerActor character)//make this return a boolean that controls whether the actor won the battle, if lost, return false
 	{
 		System.out.println("Welcome to the Arena");
 		boolean exit=false;

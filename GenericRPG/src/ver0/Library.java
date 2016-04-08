@@ -58,7 +58,6 @@ public class Library
 			}
 			else if(select==2)//TODO implement functionality where you can look at the enemies youv'e defeated, their information, etc
 			{
-				System.out.println("got here");				
 				exit=true;
 				return;
 			}
