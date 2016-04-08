@@ -1,0 +1,111 @@
+Actor: 	1) implement member variables and methods so actor can be used in battle
+		a) current/maximum hp
+		b) skillset-what skills can be used
+		c) attack/defense multiplier	//ensure its kept within appropriate bounds
+		d) functions that return the attack and defense after it is altered by bonuses from equipped items
+		
+
+Arena:
+	1) handle iteraction with player character so the user can select a battle
+	TODO:	a) make exception handling in menu graceful
+	2) Allow the user to unlock more difficult battles by completing easier ones
+	3) Create two different possible arenas, one for villageVille, one for awesomeTown
+	4) Handle case where character wins battle, prize money, exp etc.
+TODO:	5) Handle case where character loses battle, gets moved to inn loses all money, etc
+
+AwesomeTown/Villageville
+	1) Fix display
+
+Battle:
+	1)Handle battle between PlayerActor and EnemyActor
+		a) randomly determine who goes first
+		b) handle the enemies move automatically
+		c) let user determine how the users turn goes through menu
+			i) handle basic attack method
+			ii) handle skill usage method
+			iii) handle potion usage method
+			iv) handle run away method
+		d) on win handle giving of exp and gold
+	2) handle exceptions gracefully
+
+EnemyActor:
+	1) generate enemies
+		a) health, cur/max
+		b) skillset
+		c) equipped items 
+	2) determine gold/exp reward for defeating enemies
+
+Inn:
+	1) generate inns based on location
+		a) set the name of the inn
+		b) set the charge of resting at the inn
+	2) Build menu to interact with player character
+		a) handle option to rest
+			i) check the users gold and make sure they can afford a night
+			ii) if so heal them and charge them, if not tell them they cant afford a bed
+	TODO:	b) handle option talk to bartender for quests 
+	TODO:	c) make exception handling in menu graceful
+
+Item:
+	1) generate items
+		a) assign each item a value, name, type, id, bonus Atk, bonus def etc
+	TODO:	b) remove useless member variable m_limit
+	2) getters and setters for member variables/ static value for total number of items
+
+Library:
+	1) generate Libraries
+		a) assign the set of booleans that determines which skills can be taught
+	2) handle interaction with user
+	TODO:	a) make exception handling in menu graceful
+		b)teach skills
+			i) check if already learned/ can afford
+			ii) if so, teach skill
+			iii) handle the case where the user already knows all the skills
+
+Main:
+	1) greet user
+	2) display development (testing) options
+	3) play the alpha
+TODO:	4) make a menu with new game, load game and exit
+	TODO:	a) use file io to load progress from file
+TODO:	5) handle exceptions gracefully
+
+Place:
+	1) make interface to be implemented by World and Town classes
+
+PlayerActor: extends actor
+	1) make varaibles/methods specific to the player character 
+		a) gold
+		b) exp
+		c) inventory
+	2) make a menu so the user can look at the main characters stats, skills, inventory etc
+		a) in menu allow user to equip items
+TODO:			i)fix equipping so previously equipped item isn't written over, move to inventory instead
+TODO:		b) in menu allow user to unequip items
+
+Shop:
+	1) handle buying items
+		a)check how many are in shop
+		b)check if they can afford it
+		c)dynamically only show items that are in the shop
+		d) if there is more than one item in the shop, allow them to buy multiple
+		e) if sucessful remove gold from inventory of user, transfer item to users inventory
+			i)subtract from shops inventory
+			ii) add to users inventory
+TODO:			iii) implement functionality allowing them to equip the item automatically after selling it
+	2) handle selling items
+		a) check how many are in the players inventory
+		b) add .8*the value of the item [truncated] to the player
+		c) transfer the item from the player to the shop
+		
+
+
+General:
+TODO:	1) Make an array of PlayerCharacters called party so we can implement companions
+TODO:	2) Make class called companions that extends PlayerActor
+		a)generate Companions, make it possible to obtain them through quests etc
+		b)change Arena function so you can fight one on one or with companions
+		c)change Battle function to allow battle between arrays of Actors
+		d) change menu from playerActor so it can look at a specific player actor from the array
+
+		
