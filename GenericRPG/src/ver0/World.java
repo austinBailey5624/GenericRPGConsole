@@ -160,8 +160,16 @@ public class World implements Place
         tempX = curPosX + 1;
         tempY = curPosY;
         break;
+      case 5: //menu, stay in same spot
+    	tempX = curPosX;
+    	tempY = curPosY;
+    	break;
     }
-    if(tempY < 0 || tempY > (areaYDim - 1))
+    if (sel == 5)
+    {
+    	return true;
+    }
+    else if(tempY < 0 || tempY > (areaYDim - 1))
     {
       return false;
     }
