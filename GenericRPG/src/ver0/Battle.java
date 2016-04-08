@@ -1,4 +1,5 @@
-/*@name: Battle.java
+/**
+ *@name: Battle.java
  *@date: 4/2/16
  *@author Tim Elvart
  *@brief: Contains methods for battle events throughout the game
@@ -19,6 +20,11 @@ public class Battle
 	private Skill[] m_skillSet;
 	int potionchoice;
 	
+	/**
+	 * @pre none--constructor
+	 * @post a new instance of Battle is created and initialized
+	 * @return none
+	 */
 	public Battle()
 	{
 		myScanner=new Scanner(System.in);
@@ -29,6 +35,12 @@ public class Battle
 		m_skillSet=Skill.getSkills();
 	}
 	
+	/**
+	 * @param
+	 * @pre Battle instance exists
+	 * @post players hitpoints, gold, current exp, and potion quantity might be changed. Many, many messages will be printed to the console
+	 * @return True if player survives the battle, false if the player dies
+	 */
 	public boolean actorBattle(PlayerActor player, EnemyActor npc)//TODO add more output to user when using skills
 	{
 		String in;
@@ -100,7 +112,7 @@ public class Battle
 				{
 					int[] pinv=player.getInventory();
 					printPotionsAvailable(player);
-					if (potionsAvailable())
+					if (potionsAvailable(curPlayer))
 					{
 						System.out.println("Input the corresponding number to use the potion");
 						
@@ -151,8 +163,7 @@ public class Battle
 				}
 				else if (choice==4)
 				{
-					int run=randomNumber(0,1);
-					if (run==0)
+					if (randomNumber(0,1)==0)
 					{
 						ranAway=true;
 						break;
@@ -246,7 +257,7 @@ public class Battle
 				{
 					int[] pinv=player.getInventory();
 					printPotionsAvailable(player);
-					if (potionsAvailable())
+					if (potionsAvailable(curPlayer))
 					{
 						System.out.println("Input the corresponding number to use the potion");			
 						
@@ -304,8 +315,7 @@ public class Battle
 				}
 				else if (choice==4)
 				{
-					int run=randomNumber(0,1);
-					if (run==0)
+					if (randomNumber(0,1)==0)
 					{
 						ranAway=true;
 						break;
@@ -336,6 +346,12 @@ public class Battle
 		}
 	}
 	
+	/**
+	 * @param npc
+	 * @pre an instance of Battle exists 
+	 * @post Player's hit points will be altered, message printed to console
+	 * @return None
+	 */
 	public void npcTurn(Actor npc)//TODO implement randomness into the npc turn
 	{
 		int curHp=curPlayer.getCurHp();
@@ -344,6 +360,13 @@ public class Battle
 		int damage=curHp-newHp;
 		System.out.println(npc.getName()+" attacks "+curPlayer.getName()+" with a "+npc.getEquippedSword().getName()+", dealing "+damage+" damage!\n");
 	}
+	
+	/**
+	 * @param s
+	 * @pre instance of Battle exists
+	 * @post none
+	 * @return True if s is an int, otherwise false
+	 */
 	private boolean verifyInt(String s)
 	{
 		try
@@ -357,11 +380,25 @@ public class Battle
 		}
 	}
 	
+	/**
+	 * @param goodguys
+	 * @param badguys
+	 * @pre instance of Battle exists
+	 * @post to be determined
+	 * @return none
+	 */
 	public void groupBattle(Actor[] goodguys, Actor[] badguys)//TODO complete group battle method
 	{
 		//will be filled in later
 	}
 	
+	/**
+	 * @param a1
+	 * @param a2
+	 * @pre instance of Battle exists
+	 * @post none
+	 * @return true if either actor passed in have 0 hitpoints left. otherwise false
+	 */
 	private boolean isBattleOver(Actor a1, Actor a2)
 	{
 		if (a1.getCurHp()<=0 || a2.getCurHp()<=0)
@@ -370,12 +407,24 @@ public class Battle
 		}
 		return false;
 	}
-	//returns number inclusively between min and max
+	
+	/**
+	 * @param min
+	 * @param max
+	 * @pre instance of Battle exists
+	 * @post none
+	 * @return Int that has value inclusively between min and max
+	 */
 	private int randomNumber(int min, int max)
 	{
 		return r.nextInt(max-min+1)+min;
 	}
 	
+	/**
+	 * @pre instance of Battle exists
+	 * @post menu will be printed to the console containing options
+	 * @return none 
+	 */
 	private void printBattleMenu()
 	{
 		System.out.println("It is your turn, input a number to choose one of the following to do:");
@@ -384,6 +433,13 @@ public class Battle
 		System.out.println("3) Use Potion");
 		System.out.println("4) Run Run Run!");
 	}
+	
+	/**
+	 * @param a1
+	 * @pre instance of Battle exists
+	 * @post the names and descriptions of all skills a1 has unlocked will be printed to the console
+	 * @return none
+	 */
 	public void printSkillsAvailable(PlayerActor a1)
 	{
 		System.out.println("Skills available to you:\n");
@@ -398,9 +454,16 @@ public class Battle
 		}
 		System.out.print("\n");
 	}
-	private boolean potionsAvailable()
+	
+	/**
+	 * @param
+	 * @pre instance of Battle exists
+	 * @post none
+	 * @return True if player has 1 single potion in either of their three inventory slots, otherwise false
+	 */
+	private boolean potionsAvailable(PlayerActor a1)
 	{
-		int[] playerInventory=curPlayer.getInventory();
+		int[] playerInventory=a1.getInventory();
 		if (playerInventory[7]>0 || playerInventory[20]>0 || playerInventory[27]>0)
 		{
 			return true;
@@ -410,6 +473,13 @@ public class Battle
 			return false;
 		}
 	}
+	
+	/**
+	 * @param a1
+	 * @pre instance of Battle exists
+	 * @post all potions available, as well as descriptions and quantity in players inventory will be printed to console
+	 * @return none
+	 */
 	private void printPotionsAvailable(PlayerActor a1)
 	{
 		System.out.println("Potions available to you:");
@@ -427,11 +497,19 @@ public class Battle
 		{
 			System.out.println("3) Name: Expert Health Potion, Effect: Restore 150 HP, Quantity: "+playerInventory[27]);
 		}
-		if (!(playerInventory[7]>0 || playerInventory[20]>0 || playerInventory[27]>0))
+		if (!(potionsAvailable(a1)))
 		{
 			System.out.println("You currently don't have any potions\n");
 		}
 	}
+	
+	/**
+	 * @param
+	 * @pre instance of Battle exists
+	 * @post players HP will be increased depending on choice, current potion quantititys in player inventory
+	 * 		 will be decremented accordingly. Messages printed to console
+	 * @return none
+	 */
 	private void usePotion(int choice)
 	{
 		if (choice==1)
@@ -439,7 +517,6 @@ public class Battle
 			if (curPlayer.getCurHp()+50>curPlayer.getMaxHp())
 			{
 				curPlayer.setCurHp(curPlayer.getMaxHp());
-				
 			}
 			else
 			{
@@ -452,7 +529,6 @@ public class Battle
 			if (curPlayer.getCurHp()+100>curPlayer.getMaxHp())
 			{
 				curPlayer.setCurHp(curPlayer.getMaxHp());
-				
 			}
 			else
 			{
@@ -465,7 +541,6 @@ public class Battle
 			if (curPlayer.getCurHp()+150>curPlayer.getMaxHp())
 			{
 				curPlayer.setCurHp(curPlayer.getMaxHp());
-				
 			}
 			else
 			{
@@ -474,6 +549,14 @@ public class Battle
 			System.out.println("You used an expert health potion, recovering 150 HP!\n");
 		}
 	}
+	
+	/**
+	 * @param a1
+	 * @param a2
+	 * @pre instance of Battle exists
+	 * @post none
+	 * @return Actor who's HP is not currently 0
+	 */
 	private Actor determineVictor(Actor a1, Actor a2)
 	{
 		if (a1.getCurHp()==0)
@@ -485,4 +568,5 @@ public class Battle
 			return a1;
 		}
 	}
-}
+	
+}//end of class
