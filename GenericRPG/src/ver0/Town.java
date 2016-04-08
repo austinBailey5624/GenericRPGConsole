@@ -14,6 +14,8 @@ package ver0;
  {
 	 String m_name;
 	 PlayerActor m_user;
+	 Shop[] shops=Shop.getAllShops();
+	 Arena[] arenas=Arena.getAllArenas();
    //dimension and coordinate constants
    private int startLocX; //x-coordinate start location
    private int startLocY; //y-coordinate start location
@@ -375,11 +377,11 @@ package ver0;
 	   Shop thisShop;
 	   if(m_name=="AwesomeTown")
 	   {
-		   thisShop = new Shop(2);//TODO: fix this, shops need to be global and passed in, not constructed on-site
+		   thisShop = shops[1];
 	   }
 	   else
 	   {
-		   thisShop = new Shop(1);
+		   thisShop = shops[0];
 	   }
 	   thisShop.displayMenu(m_user);
 //     final String menu = "\nWelcome to the Shop!\n" +
@@ -434,11 +436,11 @@ package ver0;
 	   Arena thisArena;
 	   if(m_name=="AwesomeTown")
 	   {
-		   thisArena = new Arena(2);
+		   thisArena = arenas[1];
 	   }
 	   else
 	   {
-		   thisArena = new Arena(1);
+		   thisArena = arenas[0];
 	   }
 	   thisArena.Menu(m_user);
 	   //     final String menu = "\nWelcome to the Arena!\n" +
@@ -479,6 +481,13 @@ package ver0;
      return inArena;
    }
 
+
+   private Arena[] getAllArenas() {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+
    /**
     * @param : (pre) None
     * @param : (post) Displays and handles menu interaction for the inn
@@ -489,11 +498,11 @@ package ver0;
 	   Inn thisInn;
 	   if(m_name=="AwesomeTown")
 	   {
-		   thisInn=new Inn(2);
+		   thisInn=new Inn(1);
 	   }
 	   else
 	   {
-		   thisInn=new Inn(1);
+		   thisInn=new Inn(0);
 	   }
 	   thisInn.menu(m_user);
 //     final String menu = "\nWelcome to the Inn!\n" +

@@ -95,6 +95,7 @@ public class Library
 			if(knowAll)
 			{
 				System.out.println("Sorry, you already know all that we can teach you!");
+				return;
 			}
 			else
 			{

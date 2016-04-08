@@ -2,6 +2,21 @@ package ver0;
 import java.util.Scanner;
 public class Shop 
 {
+	
+    public static Shop[] getAllShops()
+    {
+
+    	//Item[] itemArray = new Item[m_numTypesOfItem];
+
+    	Shop[] ShopArray = new Shop[2];
+
+
+    	for(int i=0; i<ShopArray.length; i++)//Hey, I thought this would ease the process for adding new items, should do it automatically
+    	{
+    		ShopArray[i]=new Shop(i+1);
+    	}
+    	return ShopArray;
+    }
 	static Scanner myScanner = new Scanner(System.in);
 	//TODO figure out what to do if the shop is sold out
 	static int select;
@@ -34,7 +49,7 @@ public class Shop
 				m_inventory[i]=3;
 			}
 			m_inventory[7]=10;
-			for(int i=14;i<=10;i++)//skipps 'empty' items
+			for(int i=14;i<=20;i++)//skipps 'empty' items
 			{
 				m_inventory[i]=1;
 			}
