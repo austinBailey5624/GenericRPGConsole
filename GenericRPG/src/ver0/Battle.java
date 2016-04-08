@@ -44,6 +44,7 @@ public class Battle
 	 * @return True if player survives the battle, false if the player dies
 	 */
 	public boolean actorBattle(PlayerActor player, EnemyActor npc)//TODO add more output to user when using skills
+	//TODO make return int depending on ending of battle conditions 0--player won, 1--player dies --2 player ran away 
 	{
 		String in;
 		int choice=0;

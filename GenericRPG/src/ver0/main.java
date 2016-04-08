@@ -80,6 +80,7 @@ public class main
 			else if(select==4)
 			{
 				System.out.println("Thank you for playing!");
+				myScanner.close();
 				return;
 			}
 			else
