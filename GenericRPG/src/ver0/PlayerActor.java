@@ -378,34 +378,35 @@ public class PlayerActor extends Actor
 	public void equipMenu(int type)
 	{
 		Item[] items = Item.getAllItems();
+		
 		if(type==1)
 		{
-			System.out.println("Currently have: " + this.getEquippedSword().getName() +"Equipped, with Attack Bonus: " + this.getEquippedSword().getBonusAtk() + " And Defense Bous: " + this.getEquippedSword().getBonusDef());
+			System.out.println("Currently have: " + this.getEquippedSword().getName() +" Equipped, with Attack Bonus: " + this.getEquippedSword().getBonusAtk() + " And Defense Bonus: " + this.getEquippedSword().getBonusDef());
 			System.out.println("Which Sword do you want to equip?");
 		}
 		else if(type==2)
 		{
-			System.out.println("Currently have: " + this.getEquippedShield().getName() +"Equipped, with Attack Bonus: " + this.getEquippedShield().getBonusAtk() + " And Defense Bous: " + this.getEquippedShield().getBonusDef());
+			System.out.println("Currently have: " + this.getEquippedShield().getName() +" Equipped, with Attack Bonus: " + this.getEquippedShield().getBonusAtk() + " And Defense Bonus: " + this.getEquippedShield().getBonusDef());
 			System.out.println("Which Shield do you want to equip?");
 		}
 		else if(type==3)
 		{
-			System.out.println("Currently have: " + this.getEquippedArmor().getName() +"Equipped, with Attack Bonus: " + this.getEquippedArmor().getBonusAtk() + " And Defense Bous: " + this.getEquippedArmor().getBonusDef());
+			System.out.println("Currently have: " + this.getEquippedArmor().getName() + " Equipped, with Attack Bonus: " + this.getEquippedArmor().getBonusAtk() + " And Defense Bonus: " + this.getEquippedArmor().getBonusDef());
 			System.out.println("Which Armor set do you want to equip?");
 		}
 		else if(type==4)
 		{
-			System.out.println("Currently have: " + this.getEquippedHelmet().getName() +"Equipped, with Attack Bonus: " + this.getEquippedHelmet().getBonusAtk() + " And Defense Bous: " + this.getEquippedHelmet().getBonusDef());
+			System.out.println("Currently have: " + this.getEquippedHelmet().getName() + " Equipped, with Attack Bonus: " + this.getEquippedHelmet().getBonusAtk() + " And Defense Bonus: " + this.getEquippedHelmet().getBonusDef());
 			System.out.println("Which Helmet do you want to equip?");
 		}
 		else if(type==5)
 		{
-			System.out.println("Currently have: " + this.getEquippedGauntlets().getName() +"Equipped, with Attack Bonus: " + this.getEquippedGauntlets().getBonusAtk() + " And Defense Bous: " + this.getEquippedGauntlets().getBonusDef());
+			System.out.println("Currently have: " + this.getEquippedGauntlets().getName() + " Equipped, with Attack Bonus: " + this.getEquippedGauntlets().getBonusAtk() + " And Defense Bonus: " + this.getEquippedGauntlets().getBonusDef());
 			System.out.println("Which Gauntlets do you want to equip?");
 		}
 		else if(type==6)
 		{
-			System.out.println("Currently have: " + this.getEquippedBoots().getName() +"Equipped, with Attack Bonus: " + this.getEquippedBoots().getBonusAtk() + " And Defense Bous: " + this.getEquippedBoots().getBonusDef());
+			System.out.println("Currently have: " + this.getEquippedBoots().getName() + " Equipped, with Attack Bonus: " + this.getEquippedBoots().getBonusAtk() + " And Defense Bonus: " + this.getEquippedBoots().getBonusDef());
 			System.out.println("Which Boots do you want to equip?");
 		}
 		
@@ -415,37 +416,41 @@ public class PlayerActor extends Actor
 		{
 			indexRepresentedByChoice[i]=-1;//the value -1 represents not having that as a possible choice
 		}
-		int choices=0;
-		for(int i=0; i<items.length;i++)
+		
+		
+		int choices=1;//starts choices at 1
+		for(int i=1; i<items.length;i++)
 		{
 			if(m_inventory[i]>0&&items[i].getType()==type)
 			{
-				System.out.println((choices+1) + ") " + items[i].getName() + " Attack Bonus: "+ items[i].getBonusAtk() + " Defense bonus: " + items[i].getBonusDef());
-				indexRepresentedByChoice[choices+1]=i;
+				System.out.println((choices) + ") " + items[i].getName() + " Attack Bonus: "+ items[i].getBonusAtk() + " Defense bonus: " + items[i].getBonusDef());
+				indexRepresentedByChoice[choices]=i;
 				choices++;
 			}
 		}
-		System.out.println((choices+1) + ") Leave");
+		System.out.println((choices) + ") Leave");
 		
 		//get input from user
 		select=myScanner.nextInt();
-//		System.out.println("choices = " + choices);//debugging
+		System.out.println("type = " + type);//debugging
 		
 		//make decision based on input
 		if(select<1||select>choices)
 		{
 			System.out.println("Sorry, we didn't understand your input");
 		}
-		else if((select>1)&&(select<(choices+1)))
+		else if((select>=1)&&(select<(choices)))
 		{
 			if(type==1)
 			{
-				this.equipSword(items[indexRepresentedByChoice[select]]);
-				System.out.println("Equipped Sword successfully"); //debugging
+				System.out.println("Got here");
+				this.equipSword(items[indexRepresentedByChoice[select]]);//TODO: mark here
+//				System.out.println("Equipped" + items[indexRepresentedByChoice[select]] + " successfully"); //debugging
 			}
 			else if(type==2)
 			{
 				this.equipShield(items[indexRepresentedByChoice[select]]);
+//				System.out.println("Equipped" + items[indexRepresentedByChoice[select]] + " successfully");
 			}
 			else if(type==3)
 			{
@@ -464,7 +469,7 @@ public class PlayerActor extends Actor
 				this.equipBoots(items[indexRepresentedByChoice[select]]);
 			}
 		}
-		else if(select==(choices+1))
+		else if(select==(choices))
 		{
 			return;
 		}
