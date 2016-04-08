@@ -14,6 +14,8 @@ package ver0;
  {
 	 String m_name;
 	 PlayerActor m_user;
+	 Shop[] shops=Shop.getAllShops();
+	 Arena[] arenas=Arena.getAllArenas();
    //dimension and coordinate constants
    private int startLocX; //x-coordinate start location
    private int startLocY; //y-coordinate start location
@@ -322,11 +324,11 @@ package ver0;
 	   Shop thisShop;
 	   if(m_name=="AwesomeTown")
 	   {
-		   thisShop = new Shop(2);//TODO: fix this, shops need to be global and passed in, not constructed on-site
+		   thisShop = shops[2];//TODO: fix this, shops need to be global and passed in, not constructed on-site
 	   }
 	   else
 	   {
-		   thisShop = new Shop(1);
+		   thisShop = shops[1];
 	   }
 	   thisShop.displayMenu(m_user);
 //     final String menu = "\nWelcome to the Shop!\n" +
@@ -376,11 +378,11 @@ package ver0;
 	   Arena thisArena;
 	   if(m_name=="AwesomeTown")
 	   {
-		   thisArena = new Arena(2);
+		   thisArena = arenas[2];
 	   }
 	   else
 	   {
-		   thisArena = new Arena(1);
+		   thisArena = arenas[1];
 	   }
 	   thisArena.Menu(m_user);
 	   //     final String menu = "\nWelcome to the Arena!\n" +
@@ -421,7 +423,12 @@ package ver0;
      return inArena;
    }
 
-   public boolean innMenu()
+   private Arena[] getAllArenas() {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+public boolean innMenu()
    {
 	   Inn thisInn;
 	   if(m_name=="AwesomeTown")
