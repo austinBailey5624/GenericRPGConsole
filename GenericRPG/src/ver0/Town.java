@@ -14,6 +14,8 @@ package ver0;
  {
 	 String m_name;
 	 PlayerActor m_user;
+	 Shop[] shops=Shop.getAllShops();
+	 Arena[] arenas=Arena.getAllArenas();
    //dimension and coordinate constants
    private int startLocX; //x-coordinate start location
    private int startLocY; //y-coordinate start location
@@ -61,11 +63,21 @@ package ver0;
 
    //get/set methods
 
+   /**
+    * @param : (pre) curAreaArr is initialized
+    * @param : (post) None
+    * @return : Returns the 2d array containing the current area
+    */
    public char[][] getArea()
    {
      return curAreaArr;
    }
 
+   /**
+    * @param : (pre) curPosX and curPosY declared
+    * @param : (post) Sets the previous coordinates to our current coordinates
+    * @return : None
+    */
    public void setCurrentToPrevious()
    {
      curPosX = prevPosX;
@@ -74,11 +86,21 @@ package ver0;
 
    //checking methods
 
+   /**
+    * @param : (pre) None
+    * @param : (post) None
+    * @return : Returns true if player is still in the area, false otherwise
+    */
    public boolean inArea()
    {
      return stillInArea;
    }
 
+   /**
+    * @param : (pre) Exit coordinates set
+    * @param : (post) Checks to see if player is at the exit coordinates
+    * @return : Returns if player is at the exit coordinates, false otherwise
+    */
    public boolean atExit(int x, int y)
    {
      if(x == exitLocX && y == exitLocY)
@@ -91,18 +113,26 @@ package ver0;
      }
    }
 
+   /*
    public void displayArea()//Dummy method to satisfy interface
    {
 	   
    }
-   public void resetArea()//Duummy method to satisfy interface
+   public void resetArea()//Dummy method to satisfy interface
    {
 	   
-   }
+   }   
    public boolean menuInputCheck(String str)//Dummy method to satisfy interface
    {
 	   return false;
    }
+   */
+   
+   /**
+    * @param : (pre) Move flag set for extra valid move check
+    * @param : (post) Checks to see if the parameter str is valid
+    * @return : Returns true if the input and move are valid, false otherwise
+    */
    public boolean menuInputCheck(String str, int min, int max, boolean moveFlag)
    {
      double selDouble; //convert input safely
@@ -133,6 +163,11 @@ package ver0;
      }
    }
 
+   /**
+    * @param : (pre) Movement direction chosen (sel)
+    * @param : (post) Checks to see if the spot moved to is valid spot
+    * @return : Returns true if the move is valid, false otherwise
+    */
    public boolean validMoveCheck(int sel)
    {
      int tempX = 0, tempY = 0;
@@ -184,6 +219,11 @@ package ver0;
 
    //interaction methods
 
+   /**
+    * @param : (pre) Existing Twon object
+    * @param : (post) Handles all menu interaction and display for traversing through the town
+    * @return : None
+    */
    public void menuInteraction()
    {
      final String menu = "\n\nYou are currently at the coordinate (" + curPosX + ", " + curPosY + "). Which direction would you like to move?\n" +
@@ -250,6 +290,11 @@ package ver0;
      while(townInteraction(areaArrBase[curPosY][curPosX])){}
    }
 
+   /**
+    * @param : (pre) Movement selection has been made
+    * @param : (post) Checks to see if player has reached a town border
+    * @return : Returns true if player is still in the town, false otherwise
+    */
    public boolean characterMove(int sel)
    {
      int tempX = 0, tempY = 0;
@@ -290,6 +335,11 @@ package ver0;
      }
    }
 
+   /**
+    * @param : (pre) Known building at coordinate
+    * @param : (post) Pulls up different building interaction menus
+    * @return : Returns true of the player is still in a building, false otherwise
+    */
    public boolean townInteraction(char spot)
    {
      boolean inBuilding = false;
@@ -317,16 +367,21 @@ package ver0;
      return inBuilding;
    }
 
+   /**
+    * @param : (pre) None
+    * @param : (post) Displays and handles menu interaction for the shop
+    * @return : Returns true if still in the store, false otherwise
+    */
    public boolean shopMenu()
    {
 	   Shop thisShop;
 	   if(m_name=="AwesomeTown")
 	   {
-		   thisShop = new Shop(2);//TODO: fix this, shops need to be global and passed in, not constructed on-site
+		   thisShop = shops[2];//TODO: fix this, shops need to be global and passed in, not constructed on-site
 	   }
 	   else
 	   {
-		   thisShop = new Shop(1);
+		   thisShop = shops[1];
 	   }
 	   thisShop.displayMenu(m_user);
 //     final String menu = "\nWelcome to the Shop!\n" +
@@ -371,16 +426,21 @@ package ver0;
      return inStore;
    }
 
+   /**
+    * @param : (pre) None
+    * @param : (post) Displays and handles menu interaction for the arena
+    * @return : Returns true if still in the arena, false otherwise
+    */
    public boolean arenaMenu()
    {
 	   Arena thisArena;
 	   if(m_name=="AwesomeTown")
 	   {
-		   thisArena = new Arena(2);
+		   thisArena = arenas[2];
 	   }
 	   else
 	   {
-		   thisArena = new Arena(1);
+		   thisArena = arenas[1];
 	   }
 	   thisArena.Menu(m_user);
 	   //     final String menu = "\nWelcome to the Arena!\n" +
@@ -421,6 +481,18 @@ package ver0;
      return inArena;
    }
 
+
+   private Arena[] getAllArenas() {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+
+   /**
+    * @param : (pre) None
+    * @param : (post) Displays and handles menu interaction for the inn
+    * @return : Returns true if still in the inn, false otherwise
+    */
    public boolean innMenu()
    {
 	   Inn thisInn;
@@ -471,6 +543,11 @@ package ver0;
      return inInn;
    }
 
+   /**
+    * @param : (pre) None
+    * @param : (post) Displays and handles menu interaction for the library
+    * @return : Returns true if still in the library, false otherwise
+    */
    public boolean libraryMenu()
    {
 	   Library thisLibrary;
@@ -534,6 +611,11 @@ package ver0;
     return str.matches("-?\\d+(\\.\\d+)?");
   }
 
+  /**
+   * @param : (pre) None
+   * @param : (post) Clears the screen and resets to top position
+   * @return : None
+   */
   public void clearScreen() //assisted code from StackOverflow, ---->
   //url: http://stackoverflow.com/questions/4888362/commands-in-java-to-clear-the-screen
   {

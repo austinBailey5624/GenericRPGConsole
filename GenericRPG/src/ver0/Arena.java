@@ -2,6 +2,20 @@ package ver0;
 import java.util.Scanner;
 public class Arena 
 {
+    public static Arena[] getAllArenas()
+    {
+
+    	//Item[] itemArray = new Item[m_numTypesOfItem];
+
+    	Arena[] ArenaArray = new Arena[2];
+
+
+    	for(int i=0; i<ArenaArray.length; i++)//Hey, I thought this would ease the process for adding new items, should do it automatically
+    	{
+    		ArenaArray[i]=new Arena(i);
+    	}
+    	return ArenaArray;
+    }
 	EnemyActor[] enemySet = EnemyActor.getEnemies();
 	int select;
 	Scanner myScanner = new Scanner(System.in);
@@ -53,7 +67,7 @@ public class Arena
 			}
 			System.out.println(choice + ") Exit");
 			select=myScanner.nextInt();
-			if(select>=1&&select<=currentFightCeiling)
+			if(select>=1 && select<=currentFightCeiling)
 			{
 				if(myBattle.actorBattle(character, enemySet[indexRepresentedByChoice[select]]))
 				{
