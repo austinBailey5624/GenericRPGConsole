@@ -82,6 +82,7 @@ public class Library
 		
 		//System.out.println("These are the skills you don't already");
 		boolean exit=false;
+		int[] indexRepresentedByChoice= new int[skillSet.length];
 		while(!exit)
 		{
 			for(int i=0; i<canTeach.length;i++)
@@ -97,13 +98,13 @@ public class Library
 			}
 			else
 			{
-				int[] indexRepresentedByChoice= new int[skillSet.length];
+
 				System.out.println("You currently have: " + character.getGold() + " gold to spend on skills.");
 				System.out.println("These are the skills we can teach you");
 				int choice=1;
-				for(int i=0; i<Skill.getNumOfSkillsTotal();i++)
+				for(int i=1; i<Skill.getNumOfSkillsTotal();i++)//TODO: change i's starting value back to 0 and fix this mess
 				{
-					if(canTeach[i]&&!(character.m_skillSet[i]))
+					if(canTeach[i])//&&!(character.m_skillSet[i]))//TODO: fix this hotfix that displays all possible skills to be taught
 					{
 						System.out.print(choice + ") Learn skill " + skillSet[i].getName());
 						for(int j=0; j<20-skillSet[i].getName().length();j++)
@@ -111,24 +112,26 @@ public class Library
 							System.out.print(" ");
 						}
 						System.out.println(" costs: " + skillSet[i].getValue() + " gold");
-						indexRepresentedByChoice[choice]=i;
+	//					indexRepresentedByChoice[choice]=i;
+	//					System.out.println(indexRepresentedByChoice[choice]);
 						choice++;
 					}
 				}
-				System.out.println((choice+1) + ") Exit");
+				System.out.println((choice) + ") Exit");
 				select=myScanner.nextInt();
-				if(select==choice+1)
+				if(select==choice)
 				{
 					exit=true;
 					return;
 				}
-				else if(select<1||select>(choice+1))
+				else if(select<1||select>(choice-1))
 				{
 					System.out.println("Sorry, we didn't understand your input, please try again");
 				}
 				else if(select<=choice)
 				{
-					learn(indexRepresentedByChoice[choice],character);
+//					System.out.println(indexRepresentedByChoice[choice]);
+					learn(select,character);
 				}
 			}
 		}
@@ -142,7 +145,12 @@ public class Library
 	 */
 	public void learn(int skillIndex,PlayerActor character)
 	{
-		if(character.getGold()<skillSet[skillIndex].getValue())
+		System.out.println("Skill index:\""+skillIndex+"\"");
+		if(!canTeach[skillIndex])
+		{
+			System.out.println("Sorry, we don't teach that skill");
+		}
+		else if(character.getGold()<skillSet[skillIndex].getValue())
 		{
 			System.out.println("You can't afford to learn that Skill!");
 			return;
