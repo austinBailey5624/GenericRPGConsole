@@ -432,7 +432,7 @@ public class PlayerActor extends Actor
 		
 		//get input from user
 		select=myScanner.nextInt();
-		System.out.println("type = " + type);//debugging
+//		System.out.println("type = " + type);//debugging
 		
 		//make decision based on input
 		if(select<1||select>choices)
@@ -443,7 +443,7 @@ public class PlayerActor extends Actor
 		{
 			if(type==1)
 			{
-				System.out.println("Got here");
+//				System.out.println("Got here");
 				this.equipSword(items[indexRepresentedByChoice[select]]);//TODO: mark here
 //				System.out.println("Equipped" + items[indexRepresentedByChoice[select]] + " successfully"); //debugging
 			}
