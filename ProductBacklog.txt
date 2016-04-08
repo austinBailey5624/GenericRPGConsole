@@ -72,6 +72,9 @@ TODO:	5) handle exceptions gracefully
 
 Place:
 	1) make interface to be implemented by World and Town classes
+		a) declare constants common to both Towns and Worlds
+		b) declare and implement static variables to be shared by all implementing classes
+			Note: static/default methods only for java 1.8 and beyond
 
 PlayerActor: extends actor
 	1) make varaibles/methods specific to the player character 
@@ -97,6 +100,53 @@ TODO:			iii) implement functionality allowing them to equip the item automatical
 		a) check how many are in the players inventory
 		b) add .8*the value of the item [truncated] to the player
 		c) transfer the item from the player to the shop
+
+Town:	
+	1) declare variables for location and world layout
+	2) create world constructor to handle world creation with given layout and start position
+		a) takes an (x, y) coordinate for start position
+		b) takes a 2d char array for the world
+	3) create get/set/checking methods necessary for other classes
+		a) get area (map)
+		b) get current location coordinates
+		c) set previous coordinates to current coordinates
+		d) check to see if user wants to exit game
+		e) check to see if player is still in the current area
+		f) check to see if input is valid
+		g) check to see if move is valid
+	4) create world manipulation methods
+		a) print current world 
+		b) reset current world
+	5) create interaction/play methods
+		a) general menu interaction
+		b) character movement
+		c) handlers for area transition 
+		d) building interaction
+			i) shop menu and interaction
+			ii) arena menu and interaction
+			iii) inn menu and interaction
+			iiii) library menu and interaction	
+
+World:
+	1) declare variables for location and world layout
+	2) create world constructor to handle world creation with given layout and start position
+		a) takes an (x, y) coordinate for start position
+		b) takes a 2d char array for the world
+	3) create get/set/checking methods necessary for other classes
+		a) get area (map)
+		b) get current location coordinates
+		c) set previous coordinates to current coordinates
+		d) check to see if user wants to exit game
+		e) check to see if player is still in the current area
+		f) check to see if input is valid
+		g) check to see if move is valid
+	4) create world manipulation methods
+		a) print current world 
+		b) reset current world
+	5) create interaction/play methods
+		a) general menu interaction
+		b) character movement
+		c) handlers for area transition
 		
 
 
