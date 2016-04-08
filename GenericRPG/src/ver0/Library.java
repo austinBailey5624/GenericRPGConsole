@@ -51,7 +51,7 @@ public class Library
 		{
 			System.out.println("1)Learn Skills");
 			System.out.println("2)Leave");
-			select=myScanner.nextInt();
+			select=myScanner.nextInt(); //TODO format input like done in will and tim's classes, handles bad input better
 			if(select==1)//Structured in an else if block to improve modularity-adding additional functionality later
 			{
 				learnSkills(character);

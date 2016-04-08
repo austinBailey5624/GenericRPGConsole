@@ -13,14 +13,32 @@ import java.io.*;
 public class WorldDriver
 {
 	PlayerActor m_user;
+	
+    /**
+    * @param : (pre) None
+    * @param : (post) Default WorldDriver constructor
+    * @return : None
+    */
 	public WorldDriver()
 	{
 		
 	}
+	
+	/**
+     * @param : (pre) None
+     * @param : (post) Instantiates a WorldDriver object with the indicated PlayerActor
+     * @return : None
+     */
 	public WorldDriver(PlayerActor user)
 	{
 		m_user=user;
 	}
+	
+  /**
+   * @param : (pre) Existing WorldDriver and appropriate .txt files
+   * @param : (post) Runs the game by running methods within the world
+   * @return : None
+   */
   public void runWorld() {
     //file names
     String worldMapFile = "worldLayout.txt";
@@ -85,6 +103,11 @@ public class WorldDriver
     System.out.println("\n\nYou have exited the game. Have a good day!");
   }
 
+  /**
+   * @param : (pre) .txt file for indicated area and filename associated with file
+   * @param : (post) Populates the area using a 2d array 
+   * @return : Returns a 2d array containing the populated area
+   */
   public char[][] populateArea(String fileName)
   {
     //file i/o
@@ -131,6 +154,11 @@ public class WorldDriver
   }
   
   //temporary fix
+  /**
+   * @param : (pre) .txt file for indicated area and filename associated with file
+   * @param : (post) Populates the area using a 2d array 
+   * @return : Returns a 2d array containing the populated area
+   */
   public char[][] populateArea2(String fileName)
   {
     //file i/o
@@ -175,6 +203,11 @@ public class WorldDriver
     return tempWorld;
   }
 
+  /**
+   * @param : (pre) None
+   * @param : (post) Clears the screen and resets the position (terminal run only)
+   * @return : None
+   */
   public void clearScreen() //assisted code from StackOverflow, ---->
   //url: http://stackoverflow.com/questions/4888362/commands-in-java-to-clear-the-screen
   {
