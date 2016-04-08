@@ -13,7 +13,7 @@ public class Shop
 
     	for(int i=0; i<ShopArray.length; i++)//Hey, I thought this would ease the process for adding new items, should do it automatically
     	{
-    		ShopArray[i]=new Shop(i);
+    		ShopArray[i]=new Shop(i+1);
     	}
     	return ShopArray;
     }

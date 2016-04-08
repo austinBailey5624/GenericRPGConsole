@@ -377,11 +377,11 @@ package ver0;
 	   Shop thisShop;
 	   if(m_name=="AwesomeTown")
 	   {
-		   thisShop = shops[2];//TODO: fix this, shops need to be global and passed in, not constructed on-site
+		   thisShop = shops[1];
 	   }
 	   else
 	   {
-		   thisShop = shops[1];
+		   thisShop = shops[0];
 	   }
 	   thisShop.displayMenu(m_user);
 //     final String menu = "\nWelcome to the Shop!\n" +
@@ -436,11 +436,11 @@ package ver0;
 	   Arena thisArena;
 	   if(m_name=="AwesomeTown")
 	   {
-		   thisArena = arenas[2];
+		   thisArena = arenas[1];
 	   }
 	   else
 	   {
-		   thisArena = arenas[1];
+		   thisArena = arenas[0];
 	   }
 	   thisArena.Menu(m_user);
 	   //     final String menu = "\nWelcome to the Arena!\n" +
@@ -498,11 +498,11 @@ package ver0;
 	   Inn thisInn;
 	   if(m_name=="AwesomeTown")
 	   {
-		   thisInn=new Inn(2);
+		   thisInn=new Inn(1);
 	   }
 	   else
 	   {
-		   thisInn=new Inn(1);
+		   thisInn=new Inn(0);
 	   }
 	   thisInn.menu(m_user);
 //     final String menu = "\nWelcome to the Inn!\n" +
