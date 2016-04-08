@@ -242,7 +242,7 @@ public class World implements Place
                            "3. Left\n" +
                            "4. Right\n" +
                            "5. Menu\n" +
-                           "6. Exit Game\n" +
+                           //"6. Exit Game\n" +
                            "Your Choice: ";
     String input; //input as string
     double selDouble; //menu selection as double
