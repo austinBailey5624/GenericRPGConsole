@@ -59,23 +59,43 @@ public class World implements Place
 
   //get/set methods
 
+  /**
+   * @param : (pre) curAreaArr initialized
+   * @param : (post) None
+   * @return : Return the 2d array for the current area
+   */
   public char[][] getArea()
   {
     return curAreaArr;
   }
 
+  /**
+   * @param : (pre) curPosX and curPosY initialized
+   * @param : (post) None
+   * @return : Returns a 2-element array containing (x, y) coordinates
+   */
   public int[] getCurrentLoc()
   {
     int temp[] = {curPosX, curPosY};
     return temp;
   }
 
+  /**
+   * @param : (pre) None
+   * @param : (post) Sets the current position to the previous position
+   * @return : None
+   */
   public void setCurrentToPrevious()
   {
     curPosX = prevPosX;
     curPosY = prevPosY;
   }
 
+  /**
+   * @param : (pre) Initialized gameExit variable
+   * @param : (post) None
+   * @return : Returns the value of gameExit
+   */
   public boolean getGameExit()
   {
     return gameExit;
@@ -83,12 +103,17 @@ public class World implements Place
 
   //checking methods
 
+  /**
+   * @param : (pre) Initialized variable, stillInArea
+   * @param : (post) None
+   * @return : Returns true if still in the area, false otherwise
+   */
   public boolean inArea()
   {
     return stillInArea;
   }
 
-  
+  /*
   public void displayArea()//Dummy method to satisfy interface
   {
 	  
@@ -101,6 +126,13 @@ public class World implements Place
   {
 	  return false;
   }
+  */
+  
+  /**
+   * @param : (pre) Move flag set for extra valid move check
+   * @param : (post) Checks to see if the parameter str is valid
+   * @return : Returns true if the input and move are valid, false otherwise
+   */
   public boolean menuInputCheck(String str, int min, int max, boolean moveFlag)
   {
     double selDouble; //convert input safely
@@ -138,6 +170,11 @@ public class World implements Place
     }
   }
 
+  /**
+   * @param : (pre) Movement direction chosen (sel)
+   * @param : (post) Checks to see if the spot moved to is valid spot
+   * @return : Returns true if the move is valid, false otherwise
+   */
   public boolean validMoveCheck(int sel)
   {
     int tempX = 0, tempY = 0;
@@ -192,6 +229,11 @@ public class World implements Place
 
   //interaction methods
 
+  /**
+   * @param : (pre) Existing Twon object
+   * @param : (post) Handles all menu interaction and display for traversing through the town
+   * @return : None
+   */
   public void menuInteraction()
   {
     final String menu = "\n\nYou are currently at the coordinate (" + curPosX + ", " + curPosY + "). Which direction would you like to move?\n" +
@@ -295,6 +337,11 @@ public class World implements Place
     }
   }
 
+  /**
+   * @param : (pre) Movement selection has been made
+   * @param : (post) Checks to see if player has reached a town border
+   * @return : Returns true if player is still in the town, false otherwise
+   */
   public boolean characterMove(int sel)
   {
     int tempX = 0, tempY = 0;
