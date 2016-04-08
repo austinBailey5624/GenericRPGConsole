@@ -230,6 +230,7 @@ public class Battle
 					{
 						System.out.println("You didnt input a number");
 						playerMistake=true;
+						continue;
 					}
 					
 					if (skillChoice<8)
@@ -337,6 +338,8 @@ public class Battle
 		{
 			player.addGold(npc.getDefeatGold());
 			player.addExp(npc.getDefeatExp());
+			player.setCurHp(player.getMaxHp());
+			npc.setCurHp(npc.getMaxHp());
 			System.out.println("\nCongrats on the victory! You recieved "+npc.getDefeatGold()+"gold, and "+npc.getDefeatExp()+" experience");
 			return true;
 		}
@@ -559,7 +562,7 @@ public class Battle
 	 */
 	private Actor determineVictor(Actor a1, Actor a2)
 	{
-		if (a1.getCurHp()==0)
+		if (a1.getCurHp()<0)
 		{
 			return a2;
 		}

@@ -52,7 +52,7 @@ public class Arena
 			}
 			System.out.println(choice + ") Exit");
 			select=myScanner.nextInt();
-			if(select>=1&&select<=currentFightCeiling)
+			if(select>=1 && select<=currentFightCeiling)
 			{
 				if(myBattle.actorBattle(character, enemySet[indexRepresentedByChoice[select]]))
 				{
