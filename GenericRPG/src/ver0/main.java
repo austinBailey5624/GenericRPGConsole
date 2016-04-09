@@ -73,8 +73,8 @@ public class main
 //			}
 //			else if(select==3)
 //			{
-				PlayerActor user = new PlayerActor();
-				WorldDriver wd = new WorldDriver(user);
+				Party party = new Party();
+				WorldDriver wd = new WorldDriver(party);
 				wd.runWorld();
 			}
 //			if(select==4)

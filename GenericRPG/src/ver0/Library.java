@@ -43,7 +43,7 @@ public class Library
 	 * @post:			may manipulate character's member variables by changing booleans to add skills
 	 * @return:			void 
 	 */
-	public void menu(PlayerActor character)
+	public void menu(Party party)
 	{
 		System.out.println("Welcome to the Library");
 		boolean exit=false;
@@ -54,7 +54,30 @@ public class Library
 			select=myScanner.nextInt(); //TODO format input like done in will and tim's classes, handles bad input better
 			if(select==1)//Structured in an else if block to improve modularity-adding additional functionality later
 			{
-				learnSkills(character);
+				if(party.onlyOne())
+				{
+					learnSkills(party.getContent()[1]);
+				}
+				else
+				{
+					System.out.println("Which character would you like to teach?");
+					int[] indexFromChoice=new int[4];
+					int choice=1;
+					for(int i=0; i<4;i++)
+					{
+						if(party.getContent()[i]!=null)
+						{
+							System.out.println(choice+ ") " +party.getContent()[i].getName());
+							indexFromChoice[choice]=i;
+							choice++;
+						}
+					}
+					select=myScanner.nextInt();
+					if(select>0&&select<choice)
+					{
+						learnSkills(party.getContent()[indexFromChoice[select]]);
+					}
+				}
 			}
 			else if(select==2)//TODO implement functionality where you can look at the enemies youv'e defeated, their information, etc
 			{

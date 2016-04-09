@@ -63,7 +63,7 @@ public class Shop
 	 * @post - 			methods within the function may alter the PlayerActor object passed
 	 * @return - 		void
 	 */
-	public void displayMenu(PlayerActor character)
+	public void displayMenu(Party party)
 	{
 		Item[] itemSet = Item.getAllItems();
 		boolean exit=false;
@@ -73,11 +73,11 @@ public class Shop
 			select=myScanner.nextInt();
 			if(select==1)
 			{
-				displayBuyMenu(character);
+				displayBuyMenu(party);
 			}
 			else if(select==2)
 			{
-				displaySellMenu(character);
+				displaySellMenu(party);
 			}
 			else if(select==3)
 			{
@@ -97,13 +97,13 @@ public class Shop
 	 * @post - 			alters a PlayerActors member variables based on what he buys and how much it costs
 	 * @return - 		void
 	 */
-	public void displayBuyMenu(PlayerActor character)
+	public void displayBuyMenu(Party party)
 	{
 		Item[] itemSet = Item.getAllItems();
 		boolean exit=false;
 		while(!exit)
 		{
-			System.out.println("You currently have " + character.getGold() +" Gold avaliable to buy stuff with");
+			System.out.println("You currently have " + party.getGold() +" Gold avaliable to buy stuff with");
 			System.out.println("Please select what you would like to buy");
 			int[] indexRepresentedByChoice= new int[itemSet.length];
 			for(int i=0;i<itemSet.length;i++)
@@ -160,7 +160,7 @@ public class Shop
 				}
 				else if(m_inventory[indexRepresentedByChoice[select]]==1)
 				{
-					purchase(indexRepresentedByChoice[select],character);
+					purchase(indexRepresentedByChoice[select],party);
 				}
 				else if(m_inventory[indexRepresentedByChoice[select]]>1)
 				{
@@ -173,7 +173,7 @@ public class Shop
 						}
 						else if(quantity==1)
 						{
-							purchase(indexRepresentedByChoice[select],character);
+							purchase(indexRepresentedByChoice[select],party);
 						}
 						else if(quantity>m_inventory[indexRepresentedByChoice[select]])
 						{
@@ -181,7 +181,7 @@ public class Shop
 						}
 						else if(quantity<=m_inventory[indexRepresentedByChoice[select]])
 						{
-							purchaseMultiple(indexRepresentedByChoice[select],quantity,character);
+							purchaseMultiple(indexRepresentedByChoice[select],quantity,party);
 						}
 						else
 						{
@@ -199,7 +199,7 @@ public class Shop
 	 * @post:			Alters member variables in character based on if it could buy an item and how much that item costs
 	 * @return:			void
 	 */
-	public void purchase(int index,PlayerActor character)
+	public void purchase(int index,Party character)
 	{
 		Item[] itemSet = Item.getAllItems();
 		if(character.canBuyItem(itemSet[index].getValue()))//puchase is successful
@@ -226,7 +226,7 @@ public class Shop
 	 * @post:			Alters member variables in character based on if it could buy an item, how may it bought and how much the purchase was
 	 * @return:			void
 	 */
-	public void purchaseMultiple(int index, int quantity, PlayerActor character)
+	public void purchaseMultiple(int index, int quantity, Party character)
 	{
 		Item[] itemSet = Item.getAllItems();
 		if(character.canBuyItems(index, quantity))//purchase is successful
@@ -245,12 +245,12 @@ public class Shop
 		}
 	}
 	
-	public void displaySellMenu(PlayerActor character)
+	public void displaySellMenu(Party party)
 	{
 		Item[] itemSet = Item.getAllItems();//so we can access items information
 		boolean exit=false;
 		boolean isEmpty=true;
-		int[] tempInventory=character.getInventory();
+		int[] tempInventory=party.getInventory();
 		while(!exit)
 		{
 			for(int i=0;i<itemSet.length;i++)//loop checks to see if the characters inventory is empty
@@ -270,13 +270,13 @@ public class Shop
 				System.out.println("Sorry, you don't have anything to sell...");
 				return;
 			}
-			System.out.println("You currently have: " + character.getGold() + " gold");
+			System.out.println("You currently have: " + party.getGold() + " gold");
 			System.out.println("What would you like to sell?");
 			int choice=1;
 			int[] indexRepresentedByChoice= new int[itemSet.length];
 			for(int i=0;i<=27; i++)//displays possible sell options
 			{
-				if(character.getInventory()[i]>0)
+				if(party.getInventory()[i]>0)
 				{
 					System.out.println(choice + ") sell " + itemSet[i].getName() + " for " + ((int)itemSet[i].getValue()*.8));
 					indexRepresentedByChoice[choice]=i;
@@ -295,13 +295,13 @@ public class Shop
 			}
 			else if(select>0&&select<choice)
 			{
-				if(character.getInventory()[indexRepresentedByChoice[select]]==1)
+				if(party.getInventory()[indexRepresentedByChoice[select]]==1)
 				{
-					sell(indexRepresentedByChoice[select],character);
+					sell(indexRepresentedByChoice[select],party);
 				}
-				if(character.getInventory()[indexRepresentedByChoice[select]]>1)
+				if(party.getInventory()[indexRepresentedByChoice[select]]>1)
 				{
-					sellMultiple(indexRepresentedByChoice[select],character);
+					sellMultiple(indexRepresentedByChoice[select],party);
 				}
 			}
 			else if(select==choice)
@@ -316,7 +316,7 @@ public class Shop
 		}
 	}
 	
-	public void sell(int index, PlayerActor character)
+	public void sell(int index, Party character)
 	{
 		Item[] itemSet = Item.getAllItems();//so we can access items information
 		int[] tempInventory = character.getInventory();
@@ -326,7 +326,7 @@ public class Shop
 		character.setInventory(tempInventory);
 		System.out.println("Successfully sold one " + itemSet[index].getName() + " for " + (int)(itemSet[index].getValue()*.8) + " gold.");
 	}
-	public void sellMultiple(int index, PlayerActor character)
+	public void sellMultiple(int index, Party character)
 	{
 		Item[] itemSet = Item.getAllItems();//so we can access items information
 		int[] tempInventory = character.getInventory();

@@ -43,7 +43,7 @@ public class Battle
 	 * @post players hitpoints, gold, current exp, and potion quantity might be changed. Many, many messages will be printed to the console
 	 * @return True if player survives the battle, false if the player dies
 	 */
-	public boolean actorBattle(PlayerActor player, EnemyActor npc)//TODO add more output to user when using skills
+	public boolean actorBattle(Party party, PlayerActor player, EnemyActor npc)//TODO add more output to user when using skills
 	//TODO make return int depending on ending of battle conditions 0--player won, 1--player dies --2 player ran away 
 	{
 		String in;
@@ -113,9 +113,9 @@ public class Battle
 				}
 				else if (choice==3)
 				{
-					int[] pinv=player.getInventory();
-					printPotionsAvailable(player);
-					if (potionsAvailable(curPlayer))
+					int[] pinv=party.getInventory();
+					printPotionsAvailable(party);
+					if (potionsAvailable(party))
 					{
 						System.out.println("Input the corresponding number to use the potion");
 						
@@ -259,9 +259,9 @@ public class Battle
 				}
 				else if (choice==3)
 				{
-					int[] pinv=player.getInventory();
-					printPotionsAvailable(player);
-					if (potionsAvailable(curPlayer))
+					int[] pinv=party.getInventory();
+					printPotionsAvailable(party);
+					if (potionsAvailable(party))
 					{
 						System.out.println("Input the corresponding number to use the potion");			
 						
@@ -470,9 +470,9 @@ public class Battle
 	 * @post none
 	 * @return True if player has 1 single potion in either of their three inventory slots, otherwise false
 	 */
-	private boolean potionsAvailable(PlayerActor a1)
+	private boolean potionsAvailable(Party p1)
 	{
-		int[] playerInventory=a1.getInventory();
+		int[] playerInventory=p1.getInventory();
 		if (playerInventory[7]>0 || playerInventory[20]>0 || playerInventory[27]>0)
 		{
 			return true;
@@ -489,7 +489,7 @@ public class Battle
 	 * @post all potions available, as well as descriptions and quantity in players inventory will be printed to console
 	 * @return none
 	 */
-	private void printPotionsAvailable(PlayerActor a1)
+	private void printPotionsAvailable(Party a1)
 	{
 		System.out.println("Potions available to you:");
 		int[] playerInventory=a1.getInventory();

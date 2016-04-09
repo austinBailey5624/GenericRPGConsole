@@ -33,7 +33,7 @@ public class Inn
 	 * @post:			can heal user and decrement gold
 	 * @return:			void
 	 */
-	public void menu(PlayerActor character)
+	public void menu(Party party)
 	{
 		System.out.println("Welcome to " + this.m_name + " How can we help you?");
 		boolean exit=false;
@@ -46,14 +46,20 @@ public class Inn
 			select=myScanner.nextInt();
 			if(select==1)
 			{
-				if(character.getGold()<m_charge)
+				if(party.getGold()<m_charge)
 				{
 					System.out.println("Sorry laddie, you can't afford a bed");
 				}
 				else
 				{
-					System.out.println("Have a nice nap boy"); //TODO make inn take gold from player
-					character.setCurHp(character.getMaxHp());
+					System.out.println("Have a nice nap boy"); //TODO make inn take gold from the party based on number of people sleeping
+					for(int i=0; i<4;i++)
+					{
+						if(party.getContent()[i]!=null)
+						{						
+							party.getContent()[i].setCurHp(party.getContent()[i].getMaxHp());
+						}	
+					}
 					System.out.println("You wake up feeling refreshed!");
 				}
 			}

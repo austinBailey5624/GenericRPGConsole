@@ -13,7 +13,8 @@ package ver0;
  public class Town implements Place
  {
 	 String m_name;
-	 PlayerActor m_user;
+	 Party m_party;
+//	 PlayerActor m_user;
 	 Shop[] shops=Shop.getAllShops();
 	 Arena[] arenas=Arena.getAllArenas();
    //dimension and coordinate constants
@@ -47,9 +48,10 @@ package ver0;
     * @param : (post) Creates a new object of type Town with set parameters
     * @return : None
     */
-   public Town(int x, int y, char[][] townBase,PlayerActor user, String name)
+   public Town(int x, int y, char[][] townBase,Party party, String name)
    {
-	   m_user=user;
+//	   m_user=user;
+	   m_party=party;
 	   m_name = name;
      startLocX = x;
      startLocY = y;
@@ -264,7 +266,7 @@ package ver0;
      }
      else if(selection==5)
      {
-     	m_user.menu();
+     	m_party.menu();
      }
      else if(input.equals("w"))
      {
@@ -383,7 +385,7 @@ package ver0;
 	   {
 		   thisShop = shops[0];
 	   }
-	   thisShop.displayMenu(m_user);
+	   thisShop.displayMenu(m_party);
 //     final String menu = "\nWelcome to the Shop!\n" +
 //                            "   1. Buy\n" +
 //                            "   2. Sell\n" +
@@ -442,7 +444,7 @@ package ver0;
 	   {
 		   thisArena = arenas[0];
 	   }
-	   thisArena.Menu(m_user);
+	   thisArena.menu(m_party);
 	   //     final String menu = "\nWelcome to the Arena!\n" +
 //                            "   1. Battle\n" +
 //                            "   2. Leave\n" +
@@ -488,7 +490,15 @@ package ver0;
     		 prevPosX = 5;
     		 prevPosY = 4;
     	 }
-    	 m_user.setCurHp(m_user.getMaxHp());
+    	 //TODO handle loss
+    	 for(int i=0; i<4;i++)
+    	 {
+    		 if(m_party.getContent()[i]!=null)
+    		 {
+    			 m_party.getContent()[i].setCurHp(1);
+    		 }
+    	 }
+    	 //m_party.setCurHp(m_user.getMaxHp());
      }
      resetArea(curAreaArr, areaArrBase);
      setCurrentToPrevious();
@@ -527,7 +537,7 @@ package ver0;
 	   {
 		   thisInn=new Inn(0);
 	   }
-	   thisInn.menu(m_user);
+	   thisInn.menu(m_party);
 //     final String menu = "\nWelcome to the Inn!\n" +
 //                            "   1. Rest\n" +
 //                            "   2. Leave\n" +
@@ -582,7 +592,7 @@ package ver0;
 	   {
 		   thisLibrary=new Library(1);
 	   }
-	   thisLibrary.menu(m_user);
+	   thisLibrary.menu(m_party);
 //     final String menu = "\nWelcome to the Library!\n" +
 //                            "   1. Learn Skill\n" +
 //                            "   2. Leave\n" +
