@@ -103,9 +103,9 @@ public class Library
 				System.out.println("You currently have: " + character.getGold() + " gold to spend on skills.");
 				System.out.println("These are the skills we can teach you");
 				int choice=1;
-				for(int i=1; i<Skill.getNumOfSkillsTotal();i++)//TODO: change i's starting value back to 0 and fix this mess
+				for(int i=1; i<Skill.getNumOfSkillsTotal();i++)
 				{
-					if(canTeach[i])//&&!(character.m_skillSet[i]))//TODO: fix this hotfix that displays all possible skills to be taught
+					if((canTeach[i])&&!(character.m_skillSet[i]))
 					{
 						System.out.print(choice + ") Learn skill " + skillSet[i].getName());
 						for(int j=0; j<20-skillSet[i].getName().length();j++)
@@ -113,8 +113,7 @@ public class Library
 							System.out.print(" ");
 						}
 						System.out.println(" costs: " + skillSet[i].getValue() + " gold");
-	//					indexRepresentedByChoice[choice]=i;
-	//					System.out.println(indexRepresentedByChoice[choice]);
+						indexRepresentedByChoice[choice]=i;
 						choice++;
 					}
 				}
@@ -131,8 +130,7 @@ public class Library
 				}
 				else if(select<=choice)
 				{
-//					System.out.println(indexRepresentedByChoice[choice]);
-					learn(select,character);
+					learn(indexRepresentedByChoice[select],character);
 				}
 			}
 		}
