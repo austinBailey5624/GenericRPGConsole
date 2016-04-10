@@ -60,7 +60,7 @@ public class Battle
 			do
 			{
 				System.out.println("Current HP-> "+player.getName()+": "+player.getCurHp()+", "+npc.getName()+": "+npc.getCurHp());
-				printBattleMenu();
+				printBattleMenu();//TODO mark for reuse
 				in=myScanner.next();
 				if(verifyInt(in))
 				{
