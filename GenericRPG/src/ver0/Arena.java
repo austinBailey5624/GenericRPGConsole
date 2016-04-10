@@ -69,7 +69,16 @@ public class Arena
 //				indexRepresentedByChoice[choice]=i;
 			}
 			System.out.println(choice + ") Exit");
-			select=myScanner.nextInt();
+			String in=myScanner.next();
+			if(verifyInt(in))
+			{
+				select=Integer.parseInt(in);
+			}
+			else
+			{
+				System.out.println("You gave invalid input! please try again\n");
+				continue;
+			}
 			if(select>=1 && select<=currentFightCeiling)
 			{
 				if(myBattle.actorBattle(party,party.getContent()[0], enemySet[indexRepresentedByChoice[select]])) //TODO check if player ran or defeated enemy, adjust response accordingly
@@ -98,5 +107,18 @@ public class Arena
 	public boolean getLostBattle()	
 	{
 		return lost;
+	}
+	private boolean verifyInt(String s)
+	{
+		try
+		{
+			int x=Integer.parseInt(s);
+			return true;
+		}
+		catch(Exception e)
+		{
+			
+			return false;
+		}
 	}
 }

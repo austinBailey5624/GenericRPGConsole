@@ -67,10 +67,19 @@ public class Shop
 	{
 		Item[] itemSet = Item.getAllItems();
 		boolean exit=false;
+		String in;
 		while(!exit)
 		{
 			System.out.println("Welcome to our shop! feel free to buy stuff! We'd like that!\n1) Buy\n2) Sell\n3) Leave");
-			select=myScanner.nextInt();
+			in=myScanner.next();
+			if(verifyInt(in))
+			{
+				select=Integer.parseInt(in);
+			}
+			else
+			{
+				select=-1;//kicks out of else if loop
+			}
 			if(select==1)
 			{
 				displayBuyMenu(party);
@@ -101,6 +110,8 @@ public class Shop
 	{
 		Item[] itemSet = Item.getAllItems();
 		boolean exit=false;
+		int quantity;
+		String in;
 		while(!exit)
 		{
 			System.out.println("You currently have " + party.getGold() +" Gold avaliable to buy stuff with");
@@ -143,7 +154,15 @@ public class Shop
 				}
 			}
 			System.out.println((choice)+ ") Leave");
-			select=myScanner.nextInt();
+			in=myScanner.next();
+			if(verifyInt(in))
+			{
+				select=Integer.parseInt(in);
+			}
+			else
+			{
+				select=-1;
+			}
 			if(select==choice)
 			{
 				return;
@@ -165,7 +184,15 @@ public class Shop
 				else if(m_inventory[indexRepresentedByChoice[select]]>1)
 				{
 					System.out.println("How many " + itemSet[indexRepresentedByChoice[select]].getName() +" would you like to buy?");
-					int quantity=myScanner.nextInt();
+					in=myScanner.next();
+					if(verifyInt(in))
+					{
+						quantity=Integer.parseInt(in);
+					}
+					else
+					{
+						quantity=-1;
+					}
 					{
 						if(quantity<0)
 						{
@@ -249,6 +276,7 @@ public class Shop
 	{
 		Item[] itemSet = Item.getAllItems();//so we can access items information
 		boolean exit=false;
+		String in;
 		boolean isEmpty=true;
 		int[] tempInventory=party.getInventory();
 		while(!exit)
@@ -288,7 +316,15 @@ public class Shop
 				}
 			}
 			System.out.println((choice) + ") Leave");
-			select = myScanner.nextInt();
+			in=myScanner.next();
+			if(verifyInt(in))
+			{
+				select=Integer.parseInt(in);
+			}
+			else
+			{
+				select=-1;
+			}
 			if(select<1||select>choice)
 			{
 				System.out.println("Sorry, we didn't understand your input");
@@ -331,10 +367,19 @@ public class Shop
 		Item[] itemSet = Item.getAllItems();//so we can access items information
 		int[] tempInventory = character.getInventory();
 		boolean exit=false;
+		String in;
 		while(!exit)
 		{
 			System.out.println("How many " + itemSet[index].getName() + "Would you like to sell?\n(if you would like to go back, sell 0)");
-			select = myScanner.nextInt();
+			in=myScanner.next();
+			if(verifyInt(in))
+			{
+				select=Integer.parseInt(in);
+			}
+			else
+			{
+				select=-1;
+			}
 			if(select==0)
 			{
 				return;
@@ -354,7 +399,30 @@ public class Shop
 				character.setInventory(tempInventory);
 				character.addGold((int)(itemSet[index].getValue()*.8*select));
 				System.out.println("Successfully sold " + select + " " + itemSet[index].getName() + " for " + ((int)(itemSet[index].getValue()*.8*select)) + " gold");
-			} 
+			}
+			else
+			{
+				System.out.println("Sorry, we don't understand your input");
+			}
+		}
+	}
+	/**
+	 * @param s
+	 * @pre instance of Battle exists
+	 * @post none
+	 * @return True if s is an int, otherwise false
+	 */
+	private boolean verifyInt(String s)
+	{
+		try
+		{
+			int x=Integer.parseInt(s);
+			return true;
+		}
+		catch(Exception e)
+		{
+			
+			return false;
 		}
 	}
 }

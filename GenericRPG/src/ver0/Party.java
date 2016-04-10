@@ -14,14 +14,14 @@ public class Party
 	{
 		m_content = new PlayerActor[4];
 		m_content[0]=new PlayerActor();
-		m_content[1]=null;//new PlayerActor(0);
-		m_content[2]=null;//new PlayerActor(0);
-		m_content[3]=null;//new PlayerActor(0);
+		m_content[1]=null;
+		m_content[2]=null;
+		m_content[3]=null;
 		m_gold=100;
-		m_inventory = new int[Item.getNumTypesOfItem()];//makes an inventory of length the number of items
+		m_inventory = new int[Item.getNumTypesOfItem()];
 		for(int i=0; i<m_inventory.length;i++)
 		{
-			m_inventory[i]=0;//for each part of the inventory, sets the number owned to zero
+			m_inventory[i]=0;
 		}
 	}
 
@@ -29,7 +29,6 @@ public class Party
 	{
 		return((m_content[1]==null)&&(m_content[2]==null)&&(m_content[3]==null));
 	}
-	//getters and setters
 	public PlayerActor chooseActor()
 	{
 		if(onlyOne())
@@ -42,7 +41,7 @@ public class Party
 		{
 			choice=1;
 			indexRepresentingChoice=new int[4];
-			for(int i=0; i<4;i++)//display choices
+			for(int i=0; i<4;i++)
 			{
 				if(m_content[i]!=null)
 				{
@@ -132,15 +131,14 @@ public class Party
 			System.out.println("Which Boots do you want to equip?");
 		}
 		
-		//initializes array to hold choices
 		int[] indexRepresentedByChoice= new int[items.length];
 		for(int i=0;i<items.length;i++)
 		{
-			indexRepresentedByChoice[i]=-1;//the value -1 represents not having that as a possible choice
+			indexRepresentedByChoice[i]=-1;
 		}
 		
 		
-		int choices=1;//starts choices at 1
+		int choices=1;
 		for(int i=1; i<items.length;i++)
 		{
 			if(m_inventory[i]>0&&items[i].getType()==type)
@@ -152,11 +150,22 @@ public class Party
 		}
 		System.out.println((choices) + ") Leave");
 		
-		//get input from user
-		select=myScanner.nextInt();
-//		System.out.println("type = " + type);//debugging
+		boolean inputVerified=false;
+		while(!inputVerified)
+		{
+			String in=myScanner.next();
 		
-		//make decision based on input
+		
+			if(verifyInt(in))
+			{
+				select=Integer.parseInt(in);
+				inputVerified=true;
+			}
+			else
+			{
+				System.out.println("You gave invalid input! please try again\n");
+			}
+		}
 		if(select<1||select>choices)
 		{
 			System.out.println("Sorry, we didn't understand your input");
@@ -165,21 +174,19 @@ public class Party
 		{
 			if(type==1)
 			{
-//				System.out.println("Got here");
 				if(m_inventory[indexRepresentedByChoice[select]]<1)
 				{
 					System.out.println("You dont have a " + items[indexRepresentedByChoice[select]]+ " to equip!");
 				}
 				else
 				{
-					if(selected.getEquippedSword().getId()!=8)//the case there is no sword
+					if(selected.getEquippedSword().getId()!=8)
 					{
 						m_inventory[selected.getEquippedSword().getId()]++;
 					}
-					selected.equipSword(items[indexRepresentedByChoice[select]]);//TODO: mark here
+					selected.equipSword(items[indexRepresentedByChoice[select]]);
 					m_inventory[indexRepresentedByChoice[select]]--;
 				}
-//				System.out.println("Equipped" + items[indexRepresentedByChoice[select]] + " successfully"); //debugging
 			}
 			else if(type==2)
 			{
@@ -189,11 +196,11 @@ public class Party
 				}
 				else
 				{
-					if(selected.getEquippedShield().getId()!=9)//the case there is no sword
+					if(selected.getEquippedShield().getId()!=9)
 					{
 						m_inventory[selected.getEquippedShield().getId()]++;
 					}
-					selected.equipShield(items[indexRepresentedByChoice[select]]);//TODO: mark here
+					selected.equipShield(items[indexRepresentedByChoice[select]]);
 					m_inventory[indexRepresentedByChoice[select]]--;
 				}
 			}
@@ -205,11 +212,11 @@ public class Party
 				}
 				else
 				{
-					if(selected.getEquippedArmor().getId()!=10)//the case there is no sword
+					if(selected.getEquippedArmor().getId()!=10)
 					{
 						m_inventory[selected.getEquippedArmor().getId()]++;
 					}
-					selected.equipArmor(items[indexRepresentedByChoice[select]]);//TODO: mark here
+					selected.equipArmor(items[indexRepresentedByChoice[select]]);
 					m_inventory[indexRepresentedByChoice[select]]--;
 				}
 			}
@@ -221,11 +228,11 @@ public class Party
 				}
 				else
 				{
-					if(selected.getEquippedHelmet().getId()!=11)//the case there is no sword
+					if(selected.getEquippedHelmet().getId()!=11)
 					{
 						m_inventory[selected.getEquippedHelmet().getId()]++;
 					}
-					selected.equipHelmet(items[indexRepresentedByChoice[select]]);//TODO: mark here
+					selected.equipHelmet(items[indexRepresentedByChoice[select]]);
 					m_inventory[indexRepresentedByChoice[select]]--;
 				}
 			}
@@ -237,11 +244,11 @@ public class Party
 				}
 				else
 				{
-					if(selected.getEquippedGauntlets().getId()!=12)//the case there is no sword
+					if(selected.getEquippedGauntlets().getId()!=12)
 					{
 						m_inventory[selected.getEquippedGauntlets().getId()]++;
 					}
-					selected.equipGauntlets(items[indexRepresentedByChoice[select]]);//TODO: mark here
+					selected.equipGauntlets(items[indexRepresentedByChoice[select]]);
 					m_inventory[indexRepresentedByChoice[select]]--;
 				}
 			}
@@ -253,11 +260,11 @@ public class Party
 				}
 				else
 				{
-					if(selected.getEquippedBoots().getId()!=13)//the case there is no sword
+					if(selected.getEquippedBoots().getId()!=13)
 					{
 						m_inventory[selected.getEquippedBoots().getId()]++;
 					}
-					selected.equipBoots(items[indexRepresentedByChoice[select]]);//TODO: mark here
+					selected.equipBoots(items[indexRepresentedByChoice[select]]);
 					m_inventory[indexRepresentedByChoice[select]]--;
 				}
 			}
@@ -336,29 +343,37 @@ public class Party
 	 */
 	public void menu()
 	{
-		System.out.println("1) Access Inventory\n2) Character Status\n3) View Skills\n4) exit");
-		select=myScanner.nextInt();
-		if(select==1)
+		boolean exit=false;
+		while(!exit)
 		{
-			System.out.println("Which Character's inventory would you like to view?");
-			accessInventory(chooseActor());
-		}
-		else if(select==2)
-		{
-			System.out.println("Which Character's status do you want to view?");
-			viewCharacterStatus(chooseActor());
-		}
-		else if(select==3)
-		{
-			viewCharacterSkills(chooseActor());
-		}
-		else if(select==4)
-		{
-			return;
-		}
-		else
-		{
-			System.out.println("Sorry, we didn't understand your input");
+			System.out.println("1) Access Inventory\n2) Character Status\n3) View Skills\n4) exit");
+			String in=myScanner.next();
+			if(verifyInt(in))
+			{
+				select=Integer.parseInt(in);
+			}
+			if(select==1)
+			{
+				System.out.println("Which Character's inventory would you like to view?");
+				accessInventory(chooseActor());
+			}
+			else if(select==2)
+			{
+				System.out.println("Which Character's status do you want to view?");
+				viewCharacterStatus(chooseActor());
+			}
+			else if(select==3)
+			{
+				viewCharacterSkills(chooseActor());
+			}
+			else if(select==4)
+			{
+				return;
+			}
+			else
+			{
+				System.out.println("Sorry, we didn't understand your input");
+			}
 		}
 	}
 	
@@ -387,9 +402,18 @@ public class Party
 			System.out.println("4) Equip Helmet");
 			System.out.println("5) Equip Gauntlets");
 			System.out.println("6) Equip Boots");
-			System.out.println("7) Look at inventory");//TODO fix it so it only shows items that you have more than zero of-if you do have zero of everything, display :You have zero of everything
+			System.out.println("7) Look at inventory");
 			System.out.println("8) Return");
-			select=myScanner.nextInt();//TODO handle bad input from user 
+			String in=myScanner.next();
+			if(verifyInt(in))
+			{
+				select=Integer.parseInt(in);
+			}
+			else
+			{
+				//System.out.println("You gave invalid input! please try again\n");
+				select=9;
+			}
 			if(select>=0&&select<7)
 			{
 				equipMenu(select,selected);
@@ -401,6 +425,10 @@ public class Party
 			else if(select==8)
 			{
 				return;
+			}
+			else
+			{
+				System.out.println("Sorry, we didn't understand your input");
 			}
 		}
 	}
@@ -507,6 +535,19 @@ public class Party
 		if(isEmpty)
 		{
 			System.out.println("You don't have anything in your inventory!");
+		}
+	}
+	private boolean verifyInt(String s)
+	{
+		try
+		{
+			int x=Integer.parseInt(s);
+			return true;
+		}
+		catch(Exception e)
+		{
+			
+			return false;
 		}
 	}
 }

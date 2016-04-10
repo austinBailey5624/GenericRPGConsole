@@ -557,12 +557,6 @@ package ver0;
 //     selDouble = Double.parseDouble(input); //safe parse
 //     selection = (int) selDouble; //set selection
 //
-//     switch(selection)
-//     {
-//       case 1:
-//          System.out.println("\n\nInsert interaction here:\n\n");
-//          break;
-//       case 2:
 		 inLibrary = false;
 		 setCurrentToPrevious();
 		 curAreaArr = resetArea(curAreaArr, areaArrBase);

@@ -47,11 +47,20 @@ public class Library
 	{
 		System.out.println("Welcome to the Library");
 		boolean exit=false;
+		String in;
 		while(!exit)
 		{
 			System.out.println("1)Learn Skills");
 			System.out.println("2)Leave");
-			select=myScanner.nextInt(); //TODO format input like done in will and tim's classes, handles bad input better
+			in=myScanner.next();
+			if(verifyInt(in))
+			{
+				select=Integer.parseInt(in);
+			}
+			else
+			{
+				select=-1;//sets it to an invalid value to push it out of the else if block later
+			}
 			if(select==1)//Structured in an else if block to improve modularity-adding additional functionality later
 			{
 				if(party.onlyOne())
@@ -60,22 +69,43 @@ public class Library
 				}
 				else
 				{
-					System.out.println("Which character would you like to teach?");
 					int[] indexFromChoice=new int[4];
-					int choice=1;
-					for(int i=0; i<4;i++)
-					{
-						if(party.getContent()[i]!=null)
+					int choice=1;					
+					exit=false;
+					while(!exit)
+					{	
+						System.out.println("Which character would you like to teach?");
+						for(int i=0; i<4;i++)
 						{
-							System.out.println(choice+ ") " +party.getContent()[i].getName());
-							indexFromChoice[choice]=i;
-							choice++;
+							if(party.getContent()[i]!=null)
+							{
+								System.out.println(choice+ ") " +party.getContent()[i].getName());
+								indexFromChoice[choice]=i;
+								choice++;
+							}
 						}
-					}
-					select=myScanner.nextInt();
-					if(select>0&&select<choice)
-					{
-						learnSkills(party.getContent()[indexFromChoice[select]]);
+						System.out.println(choice+ ") exit");
+						in=myScanner.next();
+						if(verifyInt(in))
+						{
+							select=Integer.parseInt(in);
+						}
+						else
+						{
+							select=-1;//dummy value to kick out of else if block
+						}
+						if(select>0&&select<choice)
+						{
+							learnSkills(party.getContent()[indexFromChoice[select]]);
+						}
+						else if(select==choice)
+						{
+							exit=true;
+						}
+						else
+						{
+							System.out.println("Sorry, we didn't understand your input, try again");
+						}
 					}
 				}
 			}
@@ -141,7 +171,15 @@ public class Library
 					}
 				}
 				System.out.println((choice) + ") Exit");
-				select=myScanner.nextInt();
+				String in=myScanner.next();
+				if(verifyInt(in))
+				{
+					select=Integer.parseInt(in);
+				}
+				else
+				{
+					select=-1;//dummy value that kicks out of else if block
+				}
 				if(select==choice)
 				{
 					exit=true;
@@ -186,6 +224,19 @@ public class Library
 			character.setGold(character.getGold()-skillSet[skillIndex].getValue());
 			character.m_skillSet[skillIndex]=true;
 			System.out.println("You have successfully learned the skill " + skillSet[skillIndex].getName());
+		}
+	}
+	private boolean verifyInt(String s)
+	{
+		try
+		{
+			int x=Integer.parseInt(s);
+			return true;
+		}
+		catch(Exception e)
+		{
+			
+			return false;
 		}
 	}
 }

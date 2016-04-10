@@ -37,13 +37,23 @@ public class Inn
 	{
 		System.out.println("Welcome to " + this.m_name + " How can we help you?");
 		boolean exit=false;
+		String in;
 		while(!exit)
 		{
 			System.out.println("What would you like to do?");
 			System.out.println("1) rest and heal hp, cost:" + m_charge);
 			System.out.println("2) Talk to bartender (to get quests)");
 			System.out.println("3) Leave");
-			select=myScanner.nextInt();
+			
+			in=myScanner.next();
+			if(verifyInt(in))
+			{
+				select=Integer.parseInt(in);
+			}
+			else
+			{
+				select=0;
+			}
 			if(select==1)
 			{
 				if(party.getGold()<m_charge)
@@ -72,6 +82,23 @@ public class Inn
 				System.out.println("Thanks for dropping in Laddie!");
 				return;
 			}
+			else
+			{
+				System.out.println("Sorry, we didn't understand your input, please try again");
+			}
+		}
+	}
+	private boolean verifyInt(String s)
+	{
+		try
+		{
+			int x=Integer.parseInt(s);
+			return true;
+		}
+		catch(Exception e)
+		{
+			
+			return false;
 		}
 	}
 }
