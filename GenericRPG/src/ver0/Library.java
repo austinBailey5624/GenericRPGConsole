@@ -56,7 +56,7 @@ public class Library
 			{
 				if(party.onlyOne())
 				{
-					learnSkills(party.getContent()[1]);
+					learnSkills(party.getContent()[0]);
 				}
 				else
 				{

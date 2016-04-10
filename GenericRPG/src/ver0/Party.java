@@ -17,7 +17,7 @@ public class Party
 		m_content[1]=null;//new PlayerActor(0);
 		m_content[2]=null;//new PlayerActor(0);
 		m_content[3]=null;//new PlayerActor(0);
-		m_gold=0;
+		m_gold=100;
 		m_inventory = new int[Item.getNumTypesOfItem()];//makes an inventory of length the number of items
 		for(int i=0; i<m_inventory.length;i++)
 		{
@@ -32,15 +32,21 @@ public class Party
 	//getters and setters
 	public PlayerActor chooseActor()
 	{
-		int choice=1;
-		int[] indexRepresentingChoice = new int[4];
+		if(onlyOne())
+		{
+			return m_content[0];
+		}
+		int choice;
+		int[] indexRepresentingChoice;
 		while(true)
 		{
+			choice=1;
+			indexRepresentingChoice=new int[4];
 			for(int i=0; i<4;i++)//display choices
 			{
 				if(m_content[i]!=null)
 				{
-					System.out.print(choice + ") " + m_content[i].getName());
+					System.out.println(choice + ") " + m_content[i].getName());
 					indexRepresentingChoice[choice]=i;
 					choice++;
 				}
@@ -52,7 +58,7 @@ public class Party
 			}
 			else
 			{
-				System.out.println("Sorry, wrong input, try again");
+				System.out.println("Sorry, incorrect input");
 			}
 		}
 	}
