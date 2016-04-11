@@ -4,6 +4,7 @@ public class Actor
 {
 	Item[] itemSet = Item.getAllItems();
 	private String m_name;
+	private String m_description;
 	private int m_level;
 	private int m_maxHp;//max Hit Points
 	private int m_curHp;//current Hit Points
@@ -408,6 +409,28 @@ public class Actor
 		{
 			System.out.println("Cannot equip that in the Gauntlet slot!");
 		}
+	}
+	
+	/**
+	 * This function returns the value of m_description
+	 * @precondition -	Actor Object Exists
+	 * @post - 			does not change member variables
+	 * @return-			returns the value of m_description
+	 */
+	public String getDescription()
+	{
+		return m_description;
+	}
+	
+	/**
+	 * This function sets the value of m_description to String given
+	 * @precondition - 	Actor Object Exists
+	 * @post - 			changes m_description to the string given in the parameter
+	 * @return -		void
+	 */
+	public void setDescription(String given)
+	{
+		m_description=given;
 	}
 	
     /**

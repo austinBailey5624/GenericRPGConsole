@@ -50,8 +50,9 @@ public class Library
 		String in;
 		while(!exit)
 		{
-			System.out.println("1)Learn Skills");
-			System.out.println("2)Leave");
+			System.out.println("1) Learn Skills");
+			System.out.println("2) Read Bestiary");
+			System.out.println("3) Leave");
 			in=myScanner.next();
 			if(verifyInt(in))
 			{
@@ -109,7 +110,11 @@ public class Library
 					}
 				}
 			}
-			else if(select==2)//TODO implement functionality where you can look at the enemies youv'e defeated, their information, etc
+			else if(select==2)
+			{
+				bestiary();
+			}
+			else if(select==3)
 			{
 				exit=true;
 				return;
@@ -226,6 +231,106 @@ public class Library
 			System.out.println("You have successfully learned the skill " + skillSet[skillIndex].getName());
 		}
 	}
+	
+	
+	public void bestiary()
+	{
+		EnemyActor[] enemies=EnemyActor.getEnemies();
+		Skill[] skillSet = Skill.getSkills();
+		boolean isEmpty=true;
+		for(int i=0; i<enemies.length;i++)
+		{
+			if(enemies[i].getNumDefeated()>0)
+			{
+				isEmpty=false;
+			}
+		}
+		if(isEmpty)
+		{
+			System.out.println("Sorry, you haven't defeated any enemies yet!");
+		}
+		int choice;
+		String in;
+		int[] indexRepresentedByChoice=new int[enemies.length];
+		boolean exit=false;
+		EnemyActor thisEnemy;
+		while(!exit)
+		{
+			choice=1;
+			System.out.println("Which enemy would you like to know more about?");
+			for(int i=0; i<enemies.length;i++)
+			{
+				if(enemies[i].getNumDefeated()>0)
+				{
+					System.out.println(choice+ ") " + enemies[i].getName());
+					choice++;
+					indexRepresentedByChoice[choice]=i;
+				}
+				System.out.println(choice+ ") Exit");
+			}
+			in=myScanner.next();
+			if(verifyInt(in))
+			{
+				select=Integer.parseInt(in);
+			}
+			else
+			{
+				select=-1;
+			}
+			
+			if(select<1||select>choice)
+			{
+				System.out.println("Sorry, we didn't understand your input");
+			}
+			else if((select>=1)&&(select<=choice))
+			{
+				thisEnemy=enemies[indexRepresentedByChoice[select]];
+				if(enemies[indexRepresentedByChoice[select]].getNumDefeated()>0)
+				{
+					System.out.println(enemies[indexRepresentedByChoice[select]].getDescription());
+				}
+				if(enemies[indexRepresentedByChoice[select]].getNumDefeated()>3)
+				{
+					System.out.println("You have defeated " + enemies[indexRepresentedByChoice[select]].getNumDefeated() + " and have learned more about them");
+					System.out.println("Max HP:  " +thisEnemy.getMaxHp());
+					System.out.println("Attack:  " + thisEnemy.getAtk());
+					System.out.println("Defense: " + thisEnemy.getDef());
+				}
+				if(thisEnemy.getNumDefeated()>5)
+				{
+					System.out.println("Equipped Sword: " + thisEnemy.getEquippedSword());
+					System.out.println("Equipped Shield: " + thisEnemy.getEquippedShield());
+				}
+				if(thisEnemy.getNumDefeated()>7)
+				{
+					System.out.println("Equipped Armor: " + thisEnemy.getEquippedArmor());
+				}
+				if(thisEnemy.getNumDefeated()>10)
+				{
+					System.out.println("Equipped Helmet: " + thisEnemy.getEquippedHelmet());
+					System.out.println("Equipped Gauntlets: " + thisEnemy.getEquippedGauntlets());
+					System.out.println("Equipped Boots: " + thisEnemy.getEquippedBoots());
+				}
+				if(thisEnemy.getNumDefeated()>15)
+				{
+					System.out.println(thisEnemy.getName() + " knows these skills");
+					for(int i=0; i<Skill.getNumOfSkillsTotal();i++)
+					{
+						if(thisEnemy.m_skillSet[i]==true)
+						{
+							System.out.print(skillSet[i].getName());
+						}
+					}
+				}
+			}
+			else
+			{
+				System.out.println("Sorry, we didn't understand your input");
+			}
+		}
+	}
+	
+	
 	private boolean verifyInt(String s)
 	{
 		try
