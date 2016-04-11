@@ -9,18 +9,22 @@ package ver0;
 
 
 public class Item{
-    private int m_type;
-    private int m_limit;
-    private int m_id;
-    private int m_bonusDef;
-    private int m_bonusAtk;
-    private int m_bonusHp;
-    private int m_value;
+    protected int m_type;
+    protected int m_limit;
+    protected int m_id;
+    protected int m_bonusDef;
+    protected int m_bonusAtk;
+    protected int m_bonusMDef;
+    protected int m_bonusMAtk;
+    protected int m_bonusHp;
+    protected int m_value;
+    protected int m_counter;
     
-    private static int m_numTypesOfItem=28;
+    private static int m_numTypesOfItem=7;
+    private static int m_numTypesOfWeapon = 11;
     
-    private String m_name;
-    private boolean m_used;
+    protected String m_name;
+    protected boolean m_used;
     
     /**
      * This function returns an array of all the items.
@@ -33,22 +37,37 @@ public class Item{
 
     	//Item[] itemArray = new Item[m_numTypesOfItem];
 
-    	Item[] itemArray = new Item[m_numTypesOfItem];
+    	Item[] itemArray = new Item[m_numTypesOfItem + m_numTypesOfWeapon];
 
 
-    	for(int i=0; i<itemArray.length; i++)//Hey, I thought this would ease the process for adding new items, should do it automatically
+    	for(int i=0; i<m_numTypesOfItem; i++)//Hey, I thought this would ease the process for adding new items, should do it automatically
     	{
     		itemArray[i]=new Item(i);
+    	}
+    	for(int i=m_numTypesOfItem; i<m_numTypesOfItem + m_numTypesOfWeapon; i++)//Hey, I thought this would ease the process for adding new items, should do it automatically
+    	{
+    		itemArray[i]=new Weapon(i-m_numTypesOfItem);
     	}
     	return itemArray;
     }
 
     /**
+     * This function is the default constructor for the different items
+     * pre - none
+     * post - none
+     * Returns - none
+     */
+    public Item()
+    {
+    	
+    }
+    
+    /**
      * This function is the constructor for the different items
      * pre - needs the parameters down below
      * post - creates a item
      * Returns - an item based off of the integer given.
-     * @param typeOfItem takes in an int in order to create the weapon
+     * @param typeOfItem takes in an int in order to create the item
      */
     public Item(int typeOfItem)
     {
@@ -56,283 +75,105 @@ public class Item{
         m_id = 0;
         m_bonusDef = 0;
         m_bonusAtk = 0;
+        m_bonusMDef = 0;
+        m_bonusMAtk = 0;
         m_bonusHp = 0;
         m_value = 0;
-       
+        m_counter = 0;
         
         m_name = "";
         m_used = false;
         
         if(typeOfItem == 0)
         {
-            m_type = 0;
-            m_name = "rags";
-            m_limit = 6;
-            m_value = 0;
+        	m_type = typeOfItem;
+            m_name = "basic potion";
+            m_limit = 10;
+            m_bonusDef = 0;
+            m_bonusAtk = 0;
+            m_bonusMDef = 0;
+            m_bonusMAtk = 0;
+            m_bonusHp = 50;
+            m_value = 10;
+            m_counter = 1;
         }
         else if(typeOfItem == 1)
         {
-            m_type = 1;
-            m_name = "basic sword";
-            m_limit = 1;
+            m_type = typeOfItem;
+            m_name = "advanced potion";
+            m_limit = 5;
             m_bonusDef = 0;
-            m_bonusAtk = 5;
-            m_bonusHp = 0;
-            m_value = 10;
+            m_bonusAtk = 0;
+            m_bonusMDef = 0;
+            m_bonusMAtk = 0;
+            m_bonusHp = 100;
+            m_value = 50;
+            m_counter = 1;
         }
         else if(typeOfItem == 2)
         {
-            m_type = 2;
-            m_name = "basic shield";
+            m_type = typeOfItem;
+            m_name = "master potion";
             m_limit = 1;
-            m_bonusDef = 5;
+            m_bonusDef = 0;
             m_bonusAtk = 0;
-            m_bonusHp = 0;
-            m_value = 10;
+            m_bonusMDef = 0;
+            m_bonusMAtk = 0;
+            m_bonusHp = 500;
+            m_value = 100;
+            m_counter = 1;
         }
         else if(typeOfItem == 3)
         {
-            m_type = 3;
-            m_name = "basic armor";
-            m_limit = 1;
-            m_bonusDef = 10;
+            m_type = typeOfItem;
+            m_name = "poison potion";
+            m_limit = 5;
+            m_bonusDef = 0;
             m_bonusAtk = 0;
+            m_bonusMDef = 0;
+            m_bonusMAtk = 0;
             m_bonusHp = 0;
             m_value = 10;
+            m_counter = 5;
         }
         else if(typeOfItem == 4)
         {
-            m_type = 4;
-            m_name = "basic helmet";
-            m_limit = 1;
-            m_bonusDef = 7;
+            m_type = typeOfItem;
+            m_name = "stun potion";
+            m_limit = 5;
+            m_bonusDef = 0;
             m_bonusAtk = 0;
+            m_bonusMDef = 0;
+            m_bonusMAtk = 0;
             m_bonusHp = 0;
             m_value = 10;
+            m_counter = 5;
         }
         else if(typeOfItem == 5)
         {
-            m_type = 5;
-            m_name = "basic gauntlet";
-            m_limit = 1;
-            m_bonusDef = 3;
+            m_type = typeOfItem;
+            m_name = "defense potion";
+            m_limit = 5;
+            m_bonusDef = 50;
             m_bonusAtk = 0;
+            m_bonusMDef = 0;
+            m_bonusMAtk = 0;
             m_bonusHp = 0;
             m_value = 10;
+            m_counter = 1;
         }
         else if(typeOfItem == 6)
         {
-            m_type = 6;
-            m_name = "basic boots";
-            m_limit = 1;
-            m_bonusDef = 3;
+            m_type = typeOfItem;
+            m_name = "attack potion";
+            m_limit = 5;
+            m_bonusDef = 50;
             m_bonusAtk = 0;
+            m_bonusMDef = 0;
+            m_bonusMAtk = 0;
             m_bonusHp = 0;
             m_value = 10;
-        }
-        else if(typeOfItem == 7)
-        {
-            m_type = 7;
-            m_name = "basic hPotion";
-            m_limit = 5;
-            m_bonusDef = 0;
-            m_bonusAtk = 0;
-            m_bonusHp = 50;
-            m_value = 10;
-        }
-        else if(typeOfItem == 8)
-        {
-        	m_type = 1;
-        	m_name = "No Sword";
-        	m_bonusDef=0;
-        	m_bonusAtk=0;
-        	m_bonusHp=0;
-        	m_value = 0;
-        }
-        else if(typeOfItem ==9)
-        {
-        	m_type = 2;
-        	m_name = "No Shield";
-        	m_bonusDef=0;
-        	m_bonusAtk=0;
-        	m_bonusHp=0;
-        	m_value = 0;
-        }
-        else if(typeOfItem == 10)
-        {
-        	m_type = 3;
-        	m_name = "No Armor";
-        	m_bonusDef=0;
-        	m_bonusAtk=0;
-        	m_bonusHp=0;
-        	m_value = 0;
-        }
-        else if(typeOfItem == 11)
-        {
-        	m_type = 4;
-        	m_name = "No Helmet";
-        	m_bonusDef=0;
-        	m_bonusAtk=0;
-        	m_bonusHp=0;
-        	m_value = 0;
-        }
-        else if(typeOfItem == 12)
-        {
-        	m_type = 5;
-        	m_name ="Bare Hands";
-        	m_bonusDef=0;
-        	m_bonusAtk=0;
-        	m_bonusHp=0;
-        	m_value = 0;
-        }
-        else if(typeOfItem==13)
-        {
-        	m_type=6;
-        	m_name="Bare Feet";
-        	m_bonusDef=0;
-        	m_bonusAtk=0;
-        	m_bonusHp=0;
-        	m_value = 0;
-        }
-        else if(typeOfItem == 14)
-        {
-            m_type = 1;
-            m_name = "iron sword";
-            m_limit = 1;
-            m_bonusDef = 0;
-            m_bonusAtk = 10;
-            m_bonusHp = 0;
-            m_value = 50;
-        }
-        else if(typeOfItem == 15)
-        {
-            m_type = 2;
-            m_name = "iron shield";
-            m_limit = 1;
-            m_bonusDef = 10;
-            m_bonusAtk = 0;
-            m_bonusHp = 0;
-            m_value = 50;
-        }
-        else if(typeOfItem == 16)
-        {
-            m_type = 3;
-            m_name = "iron armor";
-            m_limit = 1;
-            m_bonusDef = 15;
-            m_bonusAtk = 0;
-            m_bonusHp = 0;
-            m_value = 50;
-        }
-        else if(typeOfItem == 17)
-        {
-            m_type = 4;
-            m_name = "iron helmet";
-            m_limit = 1;
-            m_bonusDef = 10;
-            m_bonusAtk = 0;
-            m_bonusHp = 0;
-            m_value = 50;
-        }
-        else if(typeOfItem == 18)
-        {
-            m_type = 5;
-            m_name = "iron gauntlet";
-            m_limit = 1;
-            m_bonusDef = 5;
-            m_bonusAtk = 0;
-            m_bonusHp = 0;
-            m_value = 50;
-        }
-        else if(typeOfItem == 19)
-        {
-            m_type = 6;
-            m_name = "iron boots";
-            m_limit = 1;
-            m_bonusDef = 5;
-            m_bonusAtk = 0;
-            m_bonusHp = 0;
-            m_value = 50;
-        }
-        else if(typeOfItem == 20)
-        {
-            m_type = 7;
-            m_name = "advanced hPotion";
-            m_limit = 5;
-            m_bonusDef = 0;
-            m_bonusAtk = 0;
-            m_bonusHp = 100;
-            m_value = 50;
-        }
-        else if(typeOfItem == 21)
-        {
-            m_type = 1;
-            m_name = "steel sword";
-            m_limit = 1;
-            m_bonusDef = 0;
-            m_bonusAtk = 20;
-            m_bonusHp = 0;
-            m_value = 100;
-        }
-        else if(typeOfItem == 22)
-        {
-            m_type = 2;
-            m_name = "steel shield";
-            m_limit = 1;
-            m_bonusDef = 20;
-            m_bonusAtk = 0;
-            m_bonusHp = 0;
-            m_value = 100;
-        }
-        else if(typeOfItem == 23)
-        {
-            m_type = 3;
-            m_name = "steel armor";
-            m_limit = 1;
-            m_bonusDef = 20;
-            m_bonusAtk = 0;
-            m_bonusHp = 0;
-            m_value = 100;
-        }
-        else if(typeOfItem == 24)
-        {
-            m_type = 4;
-            m_name = "steel helmet";
-            m_limit = 1;
-            m_bonusDef = 15;
-            m_bonusAtk = 0;
-            m_bonusHp = 0;
-            m_value = 100;
-        }
-        else if(typeOfItem == 25)
-        {
-            m_type = 5;
-            m_name = "steel gauntlet";
-            m_limit = 1;
-            m_bonusDef = 10;
-            m_bonusAtk = 0;
-            m_bonusHp = 0;
-            m_value = 100;
-        }
-        else if(typeOfItem == 26)
-        {
-            m_type = 6;
-            m_name = "steel boots";
-            m_limit = 1;
-            m_bonusDef = 10;
-            m_bonusAtk = 0;
-            m_bonusHp = 0;
-            m_value = 100;
-        }
-        else if(typeOfItem == 27)
-        {
-            m_type = 7;
-            m_name = "expert hPotion";
-            m_limit = 5;
-            m_bonusDef = 0;
-            m_bonusAtk = 0;
-            m_bonusHp = 150;
-            m_value = 100;
+            m_counter = 1;
         }
         m_id = typeOfItem;
 
@@ -429,14 +270,55 @@ public class Item{
     }
     
     /**
+     *This function returns the value of m_bonusMDef
+     * pre - none
+     * post - none
+     * @return m_bonusMDef
+     */
+    public int getBonusMDef()
+    {
+    	return m_bonusMDef;
+    }
+
+    /**
+     *This function returns the value of m_bonusMAtk
+     * pre - none
+     * post - none
+     * @return m_bonusMAtk
+     */
+    public int getBonusMAtk()
+    {
+    	return m_bonusMAtk;
+    }
+    
+    /**
      *This function returns the value of m_bonusHp
      * pre - none
      * post - none
      * @return m_bonusHp
      */
+    
+    /**
+     *This function returns the value of m_bonusHp
+     * pre - none
+     * post - none
+     * @return m_bonusHp
+     */
+    
     public int getBonusHp()
     {
     	return m_bonusHp;
+    }
+    
+    /**
+     *This function returns the value of m_counter
+     * pre - none
+     * post - none
+     * @return m_counter
+     */
+    public int getCounter()
+    {
+    	return m_counter;
     }
 
     /**

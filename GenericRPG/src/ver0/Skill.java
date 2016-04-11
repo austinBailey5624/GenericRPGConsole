@@ -50,6 +50,16 @@ public class Skill
 	 * @return:			a skill based on the number passed into the constuctor
 	 * @param skillNum determines which skill is generated
 	 */
+	
+	//TODO Skill 0 keep basic attack
+	//TODO Skill 1 deal magic damage similar to basic attack except with magic damage
+	//TODO Skill 2 deal magic damage with a 33% poison debuff added on
+	//TODO Skill 3 deal magic damage with a 33% stun debuff added on
+	//TODO Skill 4 heal self by 20 health and remove debuff for 2 turns
+	//TODO Skill 5 deal magic damage and physical damage to enemies a combination of skill 0 and 1.
+	//TODO Skill 6 deal magic damage to all enemies similar to skill 1 except the damage is 70% as strong
+ 	//TODO Skill 7 deal magic damage to all enemies similar to skill 1 except the damage is 70% as strong with a 33% poison debuff added on to all enemies
+	//TODO Skill 8 deal magic damage to all enemies similar to skill 1 except the damage is 70% as strong with a 33% stun debuff added on to all enemies
 	public Skill(int skillNum)
 	{
 		m_accuracy=.8;
