@@ -37,6 +37,9 @@ public class World implements Place
 
 	//game exit variable
 	private boolean gameExit = false;
+	
+	//found chest/item variable
+	private boolean chestFound = false;
 
 	//constructors
 
@@ -221,6 +224,11 @@ public class World implements Place
 			{
 				return true;
 			}
+			else if (areaArrBase[tempY][tempX] == chest)
+			{
+				chestFound = true;
+				return true;
+			}
 			else
 			{
 				return false;
@@ -326,6 +334,11 @@ public class World implements Place
 			displayArea(curAreaArr);
 			menuInteraction();
 		}
+		
+		if (chestFound == true)
+		{
+			foundChest();
+		}
 	}
 
 	/**
@@ -367,6 +380,10 @@ public class World implements Place
 		}
 		else
 		{
+			if (areaArrBase[tempY][tempX] == chest)
+			{
+				areaArrBase[tempY][tempX] = path;
+			}
 			curAreaArr = resetArea(curAreaArr, areaArrBase);
 			curAreaArr[tempY][tempX] = player;
 			return true;
@@ -487,6 +504,14 @@ public class World implements Place
 		}
 
 		return currentArea;
+	}
+	
+	public void foundChest()
+	{
+		int chestID = 1; //placeholder
+		Chest newChest = new Chest(chestID); //placeholder
+		m_party.openChest(newChest);
+		chestFound = false;		
 	}
 }
 

@@ -550,4 +550,17 @@ public class Party
 			return false;
 		}
 	}
+	
+	/**
+	 * @precondition - 	
+	 * @post -			
+	 * @return - 			
+	 */
+	public void openChest(Chest chest)
+	{
+		m_inventory[chest.getItemInChest()] += 1;
+		Item newItem = new Item(chest.getItemInChest());
+		
+		System.out.println("\n\nYou have found a " + newItem.getName() + "! It has been added to your inventory.\n");
+	}
 }

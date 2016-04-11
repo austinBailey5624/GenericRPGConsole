@@ -17,7 +17,8 @@ public interface Place
   //constant variables for easier code reading
   public static final char path = 'P'; //character for path
   public static final char player = '@'; //character for the player
-
+  public static final char chest = 'C'; //character for chest
+  
   //direction constants
   public static final char up = 'w';
   public static final char down = 's';
