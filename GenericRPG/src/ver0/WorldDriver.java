@@ -45,20 +45,25 @@ public class WorldDriver
 		String worldMapFile = "worldLayout.txt";
 		String villagevilleFile = "villageville.txt";
 		String awesometownFile = "awesometown.txt";
+		String dungeon1File = "dungeon1.txt";
 
 		//create area arrays
 		char[][] worldMap = populateArea(worldMapFile);
 		char[][] villageville = populateArea(villagevilleFile);
 		char[][] awesometown = populateArea2(awesometownFile);
+		char[][] dungeon1 = populateArea(dungeon1File);
 		
 		//create area objects
 		World world = new World(0, 3, worldMap,m_party);
 		Town villagevilleTown = new Town(0, 3, villageville,m_party, "VillageVille");
 		Town awesometownTown = new Town(0, 3, awesometown, m_party, "AwesomeTown");
-
+		Dungeon dungeon1D = new Dungeon(6, 1, dungeon1, m_party, "Dungeon1");
+		
+		
 		//town array coordinates (x,y)
 		int[] vvCoor = {6, 1};
 		int[] atCoor = {6, 5};
+		int[] dun1Coor = {1, 6};
 
 		boolean gameIsActive = true;
 
@@ -95,6 +100,15 @@ public class WorldDriver
 					awesometownTown.displayArea(awesometownTown.getArea());
 					awesometownTown.menuInteraction();
 				} while (awesometownTown.inArea());
+			}
+			//visit dungeon1
+			else if (world.getCurrentLoc()[0] == dun1Coor[0] && world.getCurrentLoc()[1] == dun1Coor[1])
+			{
+				do
+				{
+					dungeon1D.displayArea(dungeon1D.getArea());
+					dungeon1D.menuInteraction();
+				} while (dungeon1D.inArea());
 			}
 
 			//return to world, return to previous coordinates

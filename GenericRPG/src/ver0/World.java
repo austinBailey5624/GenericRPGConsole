@@ -21,6 +21,7 @@ public class World implements Place
 
 	//constant variables for easier code reading
 	private final char town = 'T'; //character for tree
+	private final char dungeon = 'D'; //character for dungeon
 	//private final char mountain = 'M'; //character for mountain
 	//private final char river = 'R'; //character for river
 
@@ -220,7 +221,7 @@ public class World implements Place
 		}
 		else
 		{
-			if(areaArrBase[tempY][tempX] == path || areaArrBase[tempY][tempX] == town)
+			if(areaArrBase[tempY][tempX] == path || areaArrBase[tempY][tempX] == town || areaArrBase[tempY][tempX] == dungeon)
 			{
 				return true;
 			}
@@ -374,7 +375,7 @@ public class World implements Place
 		curPosX = tempX;
 		curPosY = tempY;
 
-		if (areaArrBase[tempY][tempX] == town)
+		if (areaArrBase[tempY][tempX] == town || areaArrBase[tempY][tempX] == dungeon)
 		{
 			return false;
 		}
