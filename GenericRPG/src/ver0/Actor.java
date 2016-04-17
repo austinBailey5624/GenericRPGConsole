@@ -590,7 +590,14 @@ public class Actor
      */
 	public int getAttackFighter()
 	{
-		return ((int)((getAtk()+m_equippedSword.getBonusAtk()+m_equippedShield.getBonusAtk()+m_equippedHelmet.getBonusAtk())*getAtkModifier()));		
+		if((m_equippedSword != null)&&(m_equippedShield != null)&&(m_equippedHelmet != null)&&(m_equippedArmor != null))
+		{
+			return ((int)((getAtk()+m_equippedSword.getBonusAtk()+m_equippedShield.getBonusAtk()+m_equippedHelmet.getBonusAtk()+m_equippedArmor.getBonusAtk())*getAtkModifier()));		
+		}
+		else
+		{
+			return (getAtk());
+		}
 	}
 	
     /**
@@ -601,7 +608,14 @@ public class Actor
      */
 	public int getDefenseFighter()
 	{
-		return ((int)((getDef()+m_equippedSword.getBonusDef()+m_equippedShield.getBonusDef()+m_equippedHelmet.getBonusDef())*getDefModifier()));
+		if((m_equippedSword != null)&&(m_equippedShield != null)&&(m_equippedHelmet != null)&&(m_equippedArmor != null))
+		{
+			return ((int)((getDef()+m_equippedSword.getBonusDef()+m_equippedShield.getBonusDef()+m_equippedHelmet.getBonusDef()+m_equippedArmor.getBonusDef())*getDefModifier()));
+		}
+		else
+		{
+			return (getDef());
+		}
 	}
 	
 	/**

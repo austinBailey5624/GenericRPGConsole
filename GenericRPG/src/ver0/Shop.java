@@ -287,10 +287,6 @@ public class Shop
 				{
 					isEmpty=false;
 				}
-				else
-				{
-					isEmpty = true;
-				}
 //				if(i==6)//skips empty items
 //				{
 //					i=13;
@@ -306,7 +302,7 @@ public class Shop
 			System.out.println("What would you like to sell?");
 			int choice=1;
 			int[] indexRepresentedByChoice= new int[itemSet.length];
-			for(int i=0;i<=20; i++)//displays possible sell options
+			for(int i=0;i<party.getInventory().length; i++)//displays possible sell options
 			{
 				if(party.getInventory()[i]>0)
 				{
