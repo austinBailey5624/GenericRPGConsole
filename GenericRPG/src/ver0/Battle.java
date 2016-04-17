@@ -97,7 +97,7 @@ public class Battle
 					{
 						if (player.getSkillset()[skillChoice]==true)
 						{
-								m_skillSet[skillChoice].Execute(player, npc);
+								m_skillSet[skillChoice].Execute(player, npc); //TODO once austin implements accuracy, check if skill hit or not
 						}
 						else
 						{
@@ -375,7 +375,7 @@ public class Battle
 	 * @post none
 	 * @return True if s is an int, otherwise false
 	 */
-	private boolean verifyInt(String s)
+	public boolean verifyInt(String s)
 	{
 		try
 		{
@@ -408,7 +408,7 @@ public class Battle
 	 * @post none
 	 * @return true if either actor passed in have 0 hitpoints left. otherwise false
 	 */
-	private boolean isBattleOver(Actor a1, Actor a2)
+	public boolean isBattleOver(Actor a1, Actor a2)
 	{
 		if (a1.getCurHp()<=0 || a2.getCurHp()<=0)
 		{
@@ -424,7 +424,7 @@ public class Battle
 	 * @post none
 	 * @return Int that has value inclusively between min and max
 	 */
-	private int randomNumber(int min, int max)
+	public int randomNumber(int min, int max)
 	{
 		return r.nextInt(max-min+1)+min;
 	}
@@ -470,7 +470,7 @@ public class Battle
 	 * @post none
 	 * @return True if player has 1 single potion in either of their three inventory slots, otherwise false
 	 */
-	private boolean potionsAvailable(Party p1)
+	public boolean potionsAvailable(Party p1)
 	{
 		int[] playerInventory=p1.getInventory();
 		if (playerInventory[7]>0 || playerInventory[20]>0 || playerInventory[27]>0)
@@ -519,7 +519,7 @@ public class Battle
 	 * 		 will be decremented accordingly. Messages printed to console
 	 * @return none
 	 */
-	private void usePotion(int choice)
+	public void usePotion(int choice)
 	{
 		if (choice==1)
 		{
@@ -566,7 +566,7 @@ public class Battle
 	 * @post none
 	 * @return Actor who's HP is not currently 0
 	 */
-	private Actor determineVictor(Actor a1, Actor a2)
+	public Actor determineVictor(Actor a1, Actor a2)
 	{
 		if (a1.getCurHp()<0)
 		{
