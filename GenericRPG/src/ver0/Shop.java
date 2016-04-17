@@ -48,7 +48,7 @@ public class Shop
 			{
 				m_inventory[i]=(Item.getAllItems())[i].getLimit();
 			}
-			m_inventory[7]=10;
+			//m_inventory[7]=10;
 			for(int i=9;i<=19;i++)//skipps 'empty' items
 			{
 				m_inventory[i]=(Item.getAllItems())[i].getLimit();
@@ -122,7 +122,7 @@ public class Shop
 				indexRepresentedByChoice[i]=-1;//the value -1 represents not having that as a possible choice
 			}
 			int choice=1;//this is the choice incrementer, that gets incremented each time we show a new option to the customer
-			for(int i=0;i<Item.getNumTypesOfItem();i++)
+			for(int i=0;i<Item.getAllItems().length;i++)
 			{
 				if(m_inventory[i]>0)
 				{
@@ -148,10 +148,10 @@ public class Shop
 					choice++;
 					System.out.println();
 				}
-				if(i==7)//Skips empty items
-				{
-					i=13;
-				}
+//				if(i==7)//Skips empty items
+//				{
+//					i=13;
+//				}
 			}
 			System.out.println((choice)+ ") Leave");
 			in=myScanner.next();
