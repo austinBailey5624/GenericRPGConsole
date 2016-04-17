@@ -1,4 +1,5 @@
 package ver0;
+import java.util.Random;
 
 public class Skill 
 {
@@ -6,6 +7,7 @@ public class Skill
 	private String m_name;
 	private String m_description;
 	private boolean m_targetsEnemy;
+	private boolean m_targetsMultiple;
 	private int m_id;
 	private double m_accuracy;
 	private int m_value;
@@ -68,6 +70,7 @@ public class Skill
 			m_name="Basic Attack";
 			m_description="A basic attack";
 			m_targetsEnemy=true;
+			m_targetsMultiple=false;
 			m_id=0;
 
 		}
@@ -76,7 +79,7 @@ public class Skill
 			m_name="Power Attack";
 			m_description="A very strong attack that is not very accurate";
 			m_targetsEnemy=true;
-
+			m_targetsMultiple=false;
 			m_accuracy=.7;
 		}
 		else if(skillNum==2)
@@ -84,13 +87,14 @@ public class Skill
 			m_name="Threading Needle";
 			m_description="A very accurate attack whose attack power is reduced";
 			m_targetsEnemy=true;
-
+			m_targetsMultiple=false;
 		}
 		else if(skillNum==3)
 		{
 			m_name="Shell";
 			m_description="Increase defense or the remainder of the battle";
 			m_targetsEnemy=false;
+			m_targetsMultiple=false;
 			m_accuracy=1;
 		}
 		else if(skillNum==4)
@@ -98,59 +102,105 @@ public class Skill
 			m_name="Heal";
 			m_description="Heals the caster for half their attack value";
 			m_targetsEnemy=false;
+			m_targetsMultiple=false;
 		}
 		else if(skillNum==5)
 		{
 			m_name="Strengthen";
 			m_description="Increases the user's attack power for the duration of the battle";
 			m_targetsEnemy=false;
+			m_targetsMultiple=false;
 		}
 		else if(skillNum==6)
 		{
 			m_name="Penetrating Strike";
 			m_description="Deals a reduced amount of damage but ignores a targets armor";
 			m_targetsEnemy=true;
+			m_targetsMultiple=false;
 		}
 		else if(skillNum==7)
 		{
 			m_name="Blood Ritual";
 			m_description="Attack yourself for an increase in attack damage";
 			m_targetsEnemy=false;
+			m_targetsMultiple=false;
 		}
 		else if(skillNum==8)
 		{
 			m_name="Berserker Rage";
 			m_description="When you are below half health, increase your attack power. Does nothing if above half health";
 			m_targetsEnemy=false;
-
+			m_targetsMultiple=false;
+		}
+		else if(skillNum==9)
+		{
+			m_name="Wolf Claw";
+			m_description="A wolf lunges at you, scratching your face";
+			m_targetsEnemy=true;
+			m_targetsMultiple=false;
+		}
+		else if(skillNum==10)
+		{
+			m_name="Wolf Bite";
+			m_description="A wolf bites you tearing the skin. More damage but less accurate";
+			m_targetsEnemy=true;
+			m_targetsMultiple=false;
+		}
+		else if(skillNum==11)
+		{
+			m_name="Wolf Howl";
+			m_description="The wolf howls at the moon, increasing its attack";
+			m_targetsEnemy=false;
+			m_targetsMultiple=false;
 		}
 		m_id=skillNum;
 		m_value=m_id*10;
 	}
 	
-	public void Execute(Actor User, Actor Target)
+	public boolean Execute(Actor User, Actor Target)//Returns true if it hit, false if it didn't
 	{
+		Random r;
+		r=new Random();
+		int hit=r.nextInt(100);
 		//TODO incorporate accuracy into calculation using random
 		if(this.m_id==0)
 		{
-			if((User.getAttackFighter()-(.5*Target.getDefenseFighter())>0))
+			if(hit<85)
 			{
-				Target.reduceHp((int) (User.getAttackFighter()-(.5*Target.getDefenseFighter())));
+				if((User.getAttackFighter()-(.5*Target.getDefenseFighter())>0))
+				{
+					Target.reduceHp((int) (User.getAttackFighter()-(.5*Target.getDefenseFighter())));
+				}
+				else
+				{
+					Target.reduceHp(1);
+				}
+				return true;
 			}
 			else
 			{
-				Target.reduceHp(1);
+				System.out.println("Basic attack missed!");
+				return false;
 			}
 		}
 		else if(this.m_id==1)
 		{
-			if((1.5)*User.getAttackFighter()-.5*Target.getDefenseFighter()>0)
+			if(hit<70)
 			{
-				Target.reduceHp((int)((1.5)*User.getAttackFighter()-.5*Target.getDefenseFighter()));
+				if((1.5)*User.getAttackFighter()-.5*Target.getDefenseFighter()>0)
+				{
+					Target.reduceHp((int)((1.5)*User.getAttackFighter()-.5*Target.getDefenseFighter()));
+				}
+				else
+				{
+					Target.reduceHp(1);
+				}
+				return true;
 			}
 			else
 			{
-				Target.reduceHp(1);
+				System.out.println("Power attack missed!");
+				return false;
 			}
 		}
 		else if(this.m_id==2)
@@ -163,10 +213,12 @@ public class Skill
 			{
 				Target.reduceHp(1);
 			}
+			return true;
 		}
 		else if(this.m_id==3)
 		{
 			User.setDefenseModifier(1.2);
+			return true;
 		}
 		else if(this.m_id==4)
 		{
@@ -178,27 +230,91 @@ public class Skill
 			{
 				User.setCurHp((int)(User.getCurHp()+User.getAttackFighter()*.5));
 			}
+			return true;
 		}
 		else if(this.m_id==5)
 		{
 			User.setAttackModifier(1.2);
+			return true;
 		}
 		else if(this.m_id==6)
 		{
-			Target.reduceHp((int)(.5*User.getAttackFighter()));//calculation doesn't regard the defense of the target
+			if(hit<=85)
+			{
+				Target.reduceHp((int)(.5*User.getAttackFighter()));//calculation doesn't regard the defense of the target
+				return true;
+			}
+			else
+			{
+				System.out.println("Penetrating Strike missed!");
+				return false;
+			}
 		}
 		else if(this.m_id==7)
 		{
 			User.reduceHp((int)(User.getAttackFighter()));//attacking self is intentional, its payment for a boost in attack power
 			User.setAttackModifier(1.35);
+			return true;
 		}
 		else if(this.m_id==8)
 		{
 			if(User.getCurHp()<=(.5)*User.getMaxHp())
 			{
 				User.setAttackModifier(1.3);
+				return true;
+			}
+			else
+			{
+				System.out.println("As you are not below half health, berserker rage does nothing");
 			}
 		}
+		else if(this.m_id==9)
+		{
+			if(hit<=87)
+			{
+				if((User.getAttackFighter()-(.5*Target.getDefenseFighter())>0))
+				{
+					Target.reduceHp((int) (User.getAttackFighter()-(.5*Target.getDefenseFighter())));
+				}
+				else
+				{
+					Target.reduceHp(1);
+				}
+				return true;
+			}
+			else
+			{
+				System.out.println("Wolf Claw missed!");
+				return false;
+			}
+		}
+		else if(this.m_id==10)
+		{
+			if(hit<=73)
+			{
+				if((1.5)*User.getAttackFighter()-.5*Target.getDefenseFighter()>0)
+				{
+					Target.reduceHp((int)((1.5)*User.getAttackFighter()-.5*Target.getDefenseFighter()));
+				}
+				else
+				{
+					Target.reduceHp(1);
+				}
+				return true;
+			}
+			else
+			{
+				System.out.println("You successfully dodged Wolf Bite!");
+				return false;
+			}
+		}
+		else if(this.m_id==11)
+		{
+			User.setAttackModifier(1.2);
+			System.out.println("The wolf is enraged by its howl and is now more aggressive");
+			return true;
+		}
+		return false;
 	}
 	
 	
@@ -285,6 +401,26 @@ public class Skill
 	}
 
 	/**
+	 * @precondition:	Skill exists
+	 * @postcondition:	does not change member variables
+	 * @return:			The value of m_targetsMultiple
+	 */
+	public boolean getTargetsMultiple()
+	{
+		return m_targetsMultiple;
+	}
+	
+	/**
+	 * @precondition:	Skill exists
+	 * @postcondition:	sets the value of m_targetsMultiple to targetsMultiple
+	 * @return:			void	 
+	 */
+	public void setTargetsMultiple(boolean targetsMultiple)
+	{
+		m_targetsMultiple=targetsMultiple;
+	}
+	
+	/**
 	 * @precondition: 	Skill exists
 	 * @postcondition:	values not changed
 	 * @return:			the id of the skill
@@ -334,4 +470,6 @@ public class Skill
 			m_accuracy=accuracy;
 		}
 	}
+	
+
 }
