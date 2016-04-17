@@ -44,10 +44,10 @@ public class EnemyActor extends Actor
 		}
 
 
-		equipSword(itemArray[8]);
-		equipShield(itemArray[9]);
-		equipArmor(itemArray[10]);
-		equipHelmet(itemArray[11]);
+//		equipSword(itemArray[8]);
+//		equipShield(itemArray[9]);
+//		equipArmor(itemArray[10]);
+//		equipHelmet(itemArray[11]);
 //		equipGauntlets(itemArray[12]);
 //		equipBoots(itemArray[13]);
 		setAttackModifier(1);
@@ -57,10 +57,10 @@ public class EnemyActor extends Actor
 		setAttackModifier(1);
 		setDefenseModifier(1);
 
-		equipSword(itemArray[8]);
-		equipShield(itemArray[9]);
-		equipArmor(itemArray[10]);
-		equipHelmet(itemArray[11]);
+//		equipSword(itemArray[8]);
+//		equipShield(itemArray[9]);
+//		equipArmor(itemArray[10]);
+//		equipHelmet(itemArray[11]);
 //		equipGauntlets(itemArray[12]);
 //		equipBoots(itemArray[13]);
 
