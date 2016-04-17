@@ -54,6 +54,7 @@ public class Arena
 	{
 		System.out.println("Welcome to the Arena");
 		boolean exit=false;
+		int didWin;
 		lost = false;
 		Battle myBattle = new Battle();
 		while(!exit)
@@ -81,7 +82,12 @@ public class Arena
 			}
 			if(select>=1 && select<=currentFightCeiling)
 			{
+<<<<<<< HEAD
 				if(myBattle.actorBattle(party,party.getContent()[0], enemySet[indexRepresentedByChoice[select]])==0) //TODO check if player ran or defeated enemy, adjust response accordingly
+=======
+				didWin=myBattle.actorBattle(party,party.getContent()[0], enemySet[indexRepresentedByChoice[select]]);
+				if(didWin==0) //TODO check if player ran or defeated enemy, adjust response accordingly
+>>>>>>> eac2cca104c3fabea4fc9a30262f96a6226a8881
 				{
 					System.out.println("Congratulations, you won! More difficult enemies come to the arena!");
 					if(currentFightCeiling<4)
@@ -89,12 +95,15 @@ public class Arena
 						currentFightCeiling++;
 					}
 				}
-				else
+				else if(didWin==1)
 				{
-					//TODO: need to move to inn somehow?
 					System.out.println("The guy who beats you took all your gold!\n But he used it to pay the inkeep to nurse you back to health");
 					exit = true;
 					lost = true;
+				}
+				else if(didWin==2)
+				{
+					System.out.println("You ran away shamefully...");
 				}
 			}
 			else if(select==choice)
