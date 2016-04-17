@@ -102,22 +102,50 @@ public class Party
 		
 		if(type==1)
 		{
-			System.out.println("Currently have: " + selected.getEquippedSword().getName() +" Equipped, with Attack Bonus: " + selected.getEquippedSword().getBonusAtk() + " And Defense Bonus: " + selected.getEquippedSword().getBonusDef());
+			if(selected.getEquippedSword() != null)
+			{
+				System.out.println("Currently have: " + selected.getEquippedSword().getName() +" Equipped, with Attack Bonus: " + selected.getEquippedSword().getBonusAtk() + " And Defense Bonus: " + selected.getEquippedSword().getBonusDef());
+			}
+			else
+			{
+				System.out.println("Currently have: no sword");
+			}
 			System.out.println("Which Sword do you want to equip?");
 		}
 		else if(type==2)
 		{
-			System.out.println("Currently have: " + selected.getEquippedShield().getName() +" Equipped, with Attack Bonus: " + selected.getEquippedShield().getBonusAtk() + " And Defense Bonus: " + selected.getEquippedShield().getBonusDef());
+			if(selected.getEquippedShield() != null)
+			{
+				System.out.println("Currently have: " + selected.getEquippedShield().getName() +" Equipped, with Attack Bonus: " + selected.getEquippedShield().getBonusAtk() + " And Defense Bonus: " + selected.getEquippedShield().getBonusDef());
+			}
+			else
+			{
+				System.out.println("Currently have: no shield");
+			}
 			System.out.println("Which Shield do you want to equip?");
 		}
 		else if(type==3)
 		{
-			System.out.println("Currently have: " + selected.getEquippedArmor().getName() + " Equipped, with Attack Bonus: " + selected.getEquippedArmor().getBonusAtk() + " And Defense Bonus: " + selected.getEquippedArmor().getBonusDef());
+			if(selected.getEquippedArmor() != null)
+			{
+				System.out.println("Currently have: " + selected.getEquippedArmor().getName() + " Equipped, with Attack Bonus: " + selected.getEquippedArmor().getBonusAtk() + " And Defense Bonus: " + selected.getEquippedArmor().getBonusDef());
+			}
+			else
+			{
+				System.out.println("Currently have: no armor");
+			}
 			System.out.println("Which Armor set do you want to equip?");
 		}
 		else if(type==4)
 		{
-			System.out.println("Currently have: " + selected.getEquippedHelmet().getName() + " Equipped, with Attack Bonus: " + selected.getEquippedHelmet().getBonusAtk() + " And Defense Bonus: " + selected.getEquippedHelmet().getBonusDef());
+			if(selected.getEquippedHelmet() != null)
+			{
+				System.out.println("Currently have: " + selected.getEquippedHelmet().getName() + " Equipped, with Attack Bonus: " + selected.getEquippedHelmet().getBonusAtk() + " And Defense Bonus: " + selected.getEquippedHelmet().getBonusDef());
+			}
+			else
+			{
+				System.out.println("Currently have: no helmet");
+			}
 			System.out.println("Which Helmet do you want to equip?");
 		}
 //		else if(type==5)
