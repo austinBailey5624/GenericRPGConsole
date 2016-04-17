@@ -293,10 +293,40 @@ public class Party
 		System.out.println("Exp to next Level:  " + (selected.getLevel()*100-selected.getExp()));
 		System.out.println("Maximum Health:     " + selected.getMaxHp());
 		System.out.println("Current Health:     " + selected.getCurHp());//TODO: make output uniform
-		System.out.println("Equipped Sword:     " + selected.getEquippedSword().getName() + " bonus Attack: " + selected.getEquippedSword().getBonusAtk() + " bonus Defense: " + selected.getEquippedSword().getBonusDef());
-		System.out.println("Equipped Shield:    " + selected.getEquippedShield().getName() + " bonus Atack: " + selected.getEquippedShield().getBonusAtk() + " bonus Defense: " + selected.getEquippedShield().getBonusDef());
-		System.out.println("Equipped Armor:     " + selected.getEquippedArmor().getName() + " bonus Attack: " + selected.getEquippedArmor().getBonusAtk() + " bonus Defense: " + selected.getEquippedArmor().getBonusDef());
-		System.out.println("Equipped Helmet:    " + selected.getEquippedHelmet().getName() + " bonus Attack: " + selected.getEquippedHelmet().getBonusAtk() + " bonus Defense: " +  selected.getEquippedHelmet().getBonusDef());
+		
+		if(selected.getEquippedSword() != null)
+		{
+			System.out.println("Equipped Sword:     " + selected.getEquippedSword().getName() + " bonus Attack: " + selected.getEquippedSword().getBonusAtk() + " bonus Defense: " + selected.getEquippedSword().getBonusDef());
+		}
+		else
+		{
+			System.out.println("Equipped Sword:  no sword");
+		}
+		if(selected.getEquippedShield() != null)
+		{
+			System.out.println("Equipped Shield:    " + selected.getEquippedShield().getName() + " bonus Atack: " + selected.getEquippedShield().getBonusAtk() + " bonus Defense: " + selected.getEquippedShield().getBonusDef());
+		}
+		else
+		{
+			System.out.println("Equipped Shield: no shield");
+		}
+		if(selected.getEquippedArmor() != null)
+		{
+			System.out.println("Equipped Armor:     " + selected.getEquippedArmor().getName() + " bonus Attack: " + selected.getEquippedArmor().getBonusAtk() + " bonus Defense: " + selected.getEquippedArmor().getBonusDef());
+		}
+		else
+		{
+			System.out.println("Equipped Armor: no armor");
+		}
+		if(selected.getEquippedHelmet() != null)
+		{
+			System.out.println("Equipped Helmet:    " + selected.getEquippedHelmet().getName() + " bonus Attack: " + selected.getEquippedHelmet().getBonusAtk() + " bonus Defense: " +  selected.getEquippedHelmet().getBonusDef());
+		}
+		else
+		{
+			System.out.println("Equipped Helmet: no helmet");
+		}
+	
 //		System.out.println("Equipped Gauntlets: " + selected.getEquippedGauntlets().getName() + " bonus Atack: " + selected.getEquippedGauntlets().getBonusAtk()+ " bonus Defense: " +selected.getEquippedGauntlets().getBonusDef());		
 //		System.out.println("Equipped Boots:     " + selected.getEquippedBoots().getName() + " bonus Attack " + selected.getEquippedBoots().getBonusAtk() + " bonus Defense: " + selected.getEquippedBoots().getBonusDef());
 		System.out.println("Natural Attack:     " + selected.getAtk());
