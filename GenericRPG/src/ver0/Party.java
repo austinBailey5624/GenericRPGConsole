@@ -390,20 +390,50 @@ public class Party
 		boolean quit=false;
 		while(!quit)
 		{
-			System.out.println("Equipped Sword:  " + selected.getEquippedSword().getName());
-			System.out.println("Equipped Shield: " + selected.getEquippedShield().getName());
-			System.out.println("Equipped Armor: " + selected.getEquippedArmor().getName());
-			System.out.println("Equipped Helmet: " +  selected.getEquippedHelmet().getName());
+			if(selected.getEquippedSword() != null)
+			{
+				System.out.println("Equipped Sword:  " + selected.getEquippedSword().getName());
+			}
+			else
+			{
+				System.out.println("Equipped Sword:  no sword");
+			}
+			if(selected.getEquippedShield() != null)
+			{
+				System.out.println("Equipped Shield: " + selected.getEquippedShield().getName());
+			}
+			else
+			{
+				System.out.println("Equipped Shield: no shield");
+			}
+			if(selected.getEquippedArmor() != null)
+			{
+				System.out.println("Equipped Armor: " + selected.getEquippedArmor().getName());
+			}
+			else
+			{
+				System.out.println("Equipped Armor: no armor");
+			}
+			if(selected.getEquippedHelmet() != null)
+			{
+				System.out.println("Equipped Helmet: " +  selected.getEquippedHelmet().getName());
+			}
+			else
+			{
+				System.out.println("Equipped Helmet: no helmet");
+			}
+			
+			
 //			System.out.println("Equipped Gauntlets: " + selected.getEquippedGauntlets().getName());
 //			System.out.println("Equipped Boots: "+ selected.getEquippedBoots().getName());
 			System.out.println("1) Equip a Sword");
 			System.out.println("2) Equip a Shield");
 			System.out.println("3) Equip Armor");
 			System.out.println("4) Equip Helmet");
-			System.out.println("5) Equip Gauntlets");
-			System.out.println("6) Equip Boots");
-			System.out.println("7) Look at inventory");
-			System.out.println("8) Return");
+//			System.out.println("5) Equip Gauntlets");
+//			System.out.println("6) Equip Boots");
+			System.out.println("5) Look at inventory");
+			System.out.println("6) Return");
 			String in=myScanner.next();
 			if(verifyInt(in))
 			{
@@ -412,17 +442,17 @@ public class Party
 			else
 			{
 				//System.out.println("You gave invalid input! please try again\n");
-				select=9;
+				select=7;
 			}
-			if(select>=0&&select<7)
+			if(select>=0&&select<4)
 			{
 				equipMenu(select,selected);
 			}
-			else if(select==7)
+			else if(select==5)
 			{
 				displayInventory();
 			}
-			else if(select==8)
+			else if(select==6)
 			{
 				return;
 			}
