@@ -23,10 +23,10 @@ public class PlayerActor extends Actor
 		Skill[] skillSet = Skill.getSkills();this.setLevel(1);
 		m_gold=0;
 		m_exp=0;
-		equipSword(itemSet[8]);
-		equipShield(itemSet[9]);
-		equipArmor(itemSet[10]);
-		equipHelmet(itemSet[11]);
+//		equipSword(itemSet[8]);
+//		equipShield(itemSet[9]);
+//		equipArmor(itemSet[10]);
+//		equipHelmet(itemSet[11]);
 //		equipBoots(itemSet[13]);
 //		equipGauntlets(itemSet[12]);
 		System.out.println("Welcome to Generic RPG!\n What is your name?");
@@ -68,10 +68,10 @@ public class PlayerActor extends Actor
 				m_skillSet[i]=false;
 			}
 		}
-		equipSword(itemSet[14]);
-		equipShield(itemSet[22]);
-		equipArmor(itemSet[3]);
-		equipHelmet(itemSet[11]);
+//		equipSword(itemSet[14]);
+//		equipShield(itemSet[22]);
+//		equipArmor(itemSet[3]);
+//		equipHelmet(itemSet[11]);
 //		equipBoots(itemSet[13]);
 //		equipGauntlets(itemSet[12]);
 	}

@@ -82,6 +82,7 @@ public class Arena
 			}
 			if(select>=1 && select<=currentFightCeiling)
 			{
+
 				didWin=myBattle.actorBattle(party,party.getContent()[0], enemySet[indexRepresentedByChoice[select]]);
 				if(didWin==0) //TODO check if player ran or defeated enemy, adjust response accordingly
 				{
