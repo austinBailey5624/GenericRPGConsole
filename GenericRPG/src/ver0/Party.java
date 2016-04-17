@@ -158,9 +158,9 @@ public class Party
 		
 		
 		int choices=1;
-		for(int i=1; i<items.length;i++)
+		for(int i=0; i<items.length;i++)
 		{
-			if(m_inventory[i]>0&&items[i].getType()==type)
+			if((m_inventory[i]>0) && (items[i].getType()==type))
 			{
 				System.out.println((choices) + ") " + items[i].getName() + " Attack Bonus: "+ items[i].getBonusAtk() + " Defense bonus: " + items[i].getBonusDef());
 				indexRepresentedByChoice[choices]=i;
