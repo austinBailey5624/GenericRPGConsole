@@ -81,7 +81,7 @@ public class Arena
 			}
 			if(select>=1 && select<=currentFightCeiling)
 			{
-				if(myBattle.actorBattle(party,party.getContent()[0], enemySet[indexRepresentedByChoice[select]])) //TODO check if player ran or defeated enemy, adjust response accordingly
+				if(myBattle.actorBattle(party,party.getContent()[0], enemySet[indexRepresentedByChoice[select]])==0) //TODO check if player ran or defeated enemy, adjust response accordingly
 				{
 					System.out.println("Congratulations, you won! More difficult enemies come to the arena!");
 					if(currentFightCeiling<4)

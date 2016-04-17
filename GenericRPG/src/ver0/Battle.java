@@ -375,7 +375,7 @@ public class Battle
 	 * @post none
 	 * @return True if s is an int, otherwise false
 	 */
-	private boolean verifyInt(String s)
+	public boolean verifyInt(String s)
 	{
 		try
 		{
