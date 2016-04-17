@@ -43,8 +43,8 @@ public class Battle
 	 * @post players hitpoints, gold, current exp, and potion quantity might be changed. Many, many messages will be printed to the console
 	 * @return True if player survives the battle, false if the player dies
 	 */
-	public boolean actorBattle(Party party, PlayerActor player, EnemyActor npc)//TODO add more output to user when using skills
-	//TODO make return int depending on ending of battle conditions 0--player won, 1--player dies --2 player ran away 
+	public int actorBattle(Party party, PlayerActor player, EnemyActor npc)//TODO add more output to user when using skills
+	//return int depending on ending of battle conditions 0--player won, 1--player dies --2 player ran away 
 	{
 		String in;
 		int choice=0;
@@ -335,7 +335,7 @@ public class Battle
 		if (ranAway)
 		{
 			System.out.println("You successfully ran away!");
-			return true;
+			return 2;
 		}
 		if(determineVictor(player,npc)==player)
 		{
@@ -344,13 +344,13 @@ public class Battle
 			player.setCurHp(player.getMaxHp());
 			npc.setCurHp(npc.getMaxHp());
 			System.out.println("\nCongrats on the victory! You recieved "+npc.getDefeatGold()+"gold, and "+npc.getDefeatExp()+" experience");
-			return true;
+			return 0;
 		}
 		else
 		{
 			player.setCurHp(player.getMaxHp());
 			npc.setCurHp(npc.getMaxHp());
-			return false;
+			return 1;
 		}
 	}
 	
