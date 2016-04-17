@@ -53,11 +53,6 @@ public class Skill
 	 * @param skillNum determines which skill is generated
 	 */
 	
-	//TODO Skill 0 keep basic attack
-	//TODO Skill 1 deal magic damage similar to basic attack except with magic damage
-	//TODO Skill 2 deal magic damage with a 33% poison debuff added on
-	//TODO Skill 3 deal magic damage with a 33% stun debuff added on
-	//TODO Skill 4 heal self by 20 health and remove debuff for 2 turns
 	//TODO Skill 5 deal magic damage and physical damage to enemies a combination of skill 0 and 1.
 	//TODO Skill 6 deal magic damage to all enemies similar to skill 1 except the damage is 70% as strong
  	//TODO Skill 7 deal magic damage to all enemies similar to skill 1 except the damage is 70% as strong with a 33% poison debuff added on to all enemies
@@ -71,10 +66,64 @@ public class Skill
 			m_description="A basic attack";
 			m_targetsEnemy=true;
 			m_targetsMultiple=false;
-			m_id=0;
-
 		}
 		else if(skillNum==1)
+		{
+			m_name="Magic Bolt";
+			m_description="A Basic magic bolt. Its blue and glowey, and it really hurts when you touch it";
+			m_targetsEnemy=true;
+			m_targetsMultiple=false;
+		}
+		else if(skillNum==2)
+		{
+			m_name="Poison Bolt";
+			m_description="A basic magic bolt corrupted with rotten energy that has a 33% chance to posion for 4 turns";
+			m_targetsEnemy=true;
+			m_targetsMultiple=false;
+		}
+		else if(skillNum==3)
+		{
+			m_name="Stunning Bolt";
+			m_description="A magic bolt laced with electric energy that has a 33% chance to stun for 4 turns";
+			m_targetsEnemy=true;
+			m_targetsMultiple=false;
+		}
+		else if(skillNum==4)
+		{
+			m_name="Cleanse";
+			m_description="Magically heal yourself or an ally and weaken debuffs on them";
+			m_targetsEnemy=false;
+			m_targetsMultiple=false;
+		}
+		else if(skillNum==5)
+		{
+			m_name="Magic Slash";
+			m_description="Deal magical and physical damage";
+			m_targetsEnemy=true;
+			m_targetsMultiple=false;
+		}
+		else if(skillNum==6)
+		{
+			m_name="Wide Burst";
+			m_description="Deal magic damage to all enemies";
+			m_targetsEnemy=true;
+			m_targetsMultiple=true;
+		}
+		else if(skillNum==7)
+		{
+			m_name="Poison Burst";
+			m_description="Deal magic Damage to all enemies with a chance to add a 3 turn poison debuff";
+			m_targetsEnemy=true;
+			m_targetsMultiple=true;
+		}
+		else if(skillNum==8)
+		{
+			m_name="Electric Burst";
+			m_description="Deal magic Damage to all enemies with a chance to add a 3 turn stun debuff";
+			m_targetsEnemy=true;
+			m_targetsMultiple=true;
+		}
+		else if(skillNum==9)
 		{
 			m_name="Power Attack";
 			m_description="A very strong attack that is not very accurate";
@@ -82,14 +131,14 @@ public class Skill
 			m_targetsMultiple=false;
 			m_accuracy=.7;
 		}
-		else if(skillNum==2)
+		else if(skillNum==10)
 		{
 			m_name="Threading Needle";
 			m_description="A very accurate attack whose attack power is reduced";
 			m_targetsEnemy=true;
 			m_targetsMultiple=false;
 		}
-		else if(skillNum==3)
+		else if(skillNum==11)
 		{
 			m_name="Shell";
 			m_description="Increase defense or the remainder of the battle";
@@ -97,56 +146,56 @@ public class Skill
 			m_targetsMultiple=false;
 			m_accuracy=1;
 		}
-		else if(skillNum==4)
+		else if(skillNum==12)
 		{
 			m_name="Heal";
 			m_description="Heals the caster for half their attack value";
 			m_targetsEnemy=false;
 			m_targetsMultiple=false;
 		}
-		else if(skillNum==5)
+		else if(skillNum==13)
 		{
 			m_name="Strengthen";
 			m_description="Increases the user's attack power for the duration of the battle";
 			m_targetsEnemy=false;
 			m_targetsMultiple=false;
 		}
-		else if(skillNum==6)
+		else if(skillNum==14)
 		{
 			m_name="Penetrating Strike";
 			m_description="Deals a reduced amount of damage but ignores a targets armor";
 			m_targetsEnemy=true;
 			m_targetsMultiple=false;
 		}
-		else if(skillNum==7)
+		else if(skillNum==15)
 		{
 			m_name="Blood Ritual";
 			m_description="Attack yourself for an increase in attack damage";
 			m_targetsEnemy=false;
 			m_targetsMultiple=false;
 		}
-		else if(skillNum==8)
+		else if(skillNum==16)
 		{
 			m_name="Berserker Rage";
 			m_description="When you are below half health, increase your attack power. Does nothing if above half health";
 			m_targetsEnemy=false;
 			m_targetsMultiple=false;
 		}
-		else if(skillNum==9)
+		else if(skillNum==17)
 		{
 			m_name="Wolf Claw";
 			m_description="A wolf lunges at you, scratching your face";
 			m_targetsEnemy=true;
 			m_targetsMultiple=false;
 		}
-		else if(skillNum==10)
+		else if(skillNum==18)
 		{
 			m_name="Wolf Bite";
 			m_description="A wolf bites you tearing the skin. More damage but less accurate";
 			m_targetsEnemy=true;
 			m_targetsMultiple=false;
 		}
-		else if(skillNum==11)
+		else if(skillNum==19)
 		{
 			m_name="Wolf Howl";
 			m_description="The wolf howls at the moon, increasing its attack";
@@ -183,7 +232,151 @@ public class Skill
 				return false;
 			}
 		}
-		else if(this.m_id==1)
+		else if(this.m_id==2)
+		{
+			if(hit<85)
+			{
+				if((User.getMAttackFighter()-(.5*Target.getMDefenseFighter())>0))
+				{
+					Target.reduceHp((int) (User.getMAttackFighter()-(.5*Target.getMDefenseFighter())));
+				}
+				else
+				{
+					Target.reduceHp(1);
+				}
+				return true;
+			}
+			else
+			{
+				System.out.println("Magic Bolt missed!");
+				return false;
+			}
+		}
+		else if(this.m_id==3)
+		{
+			if(hit<85)
+			{
+				if((User.getMAttackFighter()-(.5*Target.getMDefenseFighter())>0))
+				{
+					Target.reduceHp((int) (User.getMAttackFighter()-(.5*Target.getMDefenseFighter())));
+				}
+				else
+				{
+					Target.reduceHp(1);
+				}
+				Target.m_status[0]+=4;//applies the debuff
+				return true;
+			}
+			else
+			{
+				System.out.println("Poison Bolt missed!");
+				return false;
+			}
+		}
+		else if(this.m_id==4)
+		{
+			if(hit<85)
+			{
+				if((User.getMAttackFighter()-(.5*Target.getMDefenseFighter())>0))
+				{
+					Target.reduceHp((int) (User.getMAttackFighter()-(.5*Target.getMDefenseFighter())));
+				}
+				else
+				{
+					Target.reduceHp(1);
+				}
+				Target.m_status[3]+=4;//applies the stun debuff
+				return true;
+			}
+			else
+			{
+				System.out.println("Stunning Bolt missed!");
+				return false;
+			}
+		}
+		else if(this.m_id==5)
+		{
+			if(hit<85)
+			{
+				if((User.getAttackFighter()-(.5*Target.getDefenseFighter())+(User.getMAttackFighter()-(.5*Target.getMDefenseFighter())))*.6>0)
+				{
+					Target.reduceHp((int) ((User.getAttackFighter()-(.5*Target.getDefenseFighter())+(User.getMAttackFighter()-(.5*Target.getMDefenseFighter())))*.6));
+				}
+				else
+				{
+					Target.reduceHp(1);
+				}
+				return true;
+			}
+			else
+			{
+				System.out.println("Magic Slash missed!");
+				return false;
+			}
+		}
+		else if(this.m_id==6)
+		{
+			if(hit<85)
+			{
+				if(((User.getMAttackFighter()-(.5*Target.getMDefenseFighter())*.7)>0))
+				{
+					Target.reduceHp((int) ((User.getMAttackFighter()-(.5*Target.getMDefenseFighter()))*.7));
+				}
+				else
+				{
+					Target.reduceHp(1);
+				}
+				return true;
+			}
+			else
+			{
+				System.out.println("Magic Burst missed!");
+				return false;
+			}
+		}
+		else if(this.m_id==7)
+		{
+			if(hit<85)
+			{
+				if(((User.getMAttackFighter()-(.5*Target.getMDefenseFighter())*.7)>0))
+				{
+					Target.reduceHp((int) ((User.getMAttackFighter()-(.5*Target.getMDefenseFighter()))*.7));
+				}
+				else
+				{
+					Target.reduceHp(1);
+				}
+				Target.m_status[0]+=3;
+				return true;
+			}
+			else
+			{
+				System.out.println("Poison Burst missed!");
+				return false;
+			}
+		}
+		else if(this.m_id==8)
+		{
+			if(hit<85)
+			{
+				if(((User.getMAttackFighter()-(.5*Target.getMDefenseFighter())*.7)>0))
+				{
+					Target.reduceHp((int) ((User.getMAttackFighter()-(.5*Target.getMDefenseFighter()))*.7));
+				}
+				else
+				{
+					Target.reduceHp(1);
+				}
+				Target.m_status[3]+=3;
+				return true;
+			}
+			else
+			{
+				System.out.println("Electric Burst missed!");
+				return false;
+			}
+		}
+		else if(this.m_id==9)
 		{
 			if(hit<70)
 			{
@@ -203,7 +396,7 @@ public class Skill
 				return false;
 			}
 		}
-		else if(this.m_id==2)
+		else if(this.m_id==10)
 		{
 			if(.8*User.getAttackFighter()-.5*Target.getDefenseFighter()>0)
 			{
@@ -215,12 +408,12 @@ public class Skill
 			}
 			return true;
 		}
-		else if(this.m_id==3)
+		else if(this.m_id==11)
 		{
 			User.setDefenseModifier(1.2);
 			return true;
 		}
-		else if(this.m_id==4)
+		else if(this.m_id==12)
 		{
 			if(User.getCurHp()+(.5)*User.getAttackFighter()>User.getMaxHp())//The case where healing heals more than possible
 			{
@@ -232,12 +425,12 @@ public class Skill
 			}
 			return true;
 		}
-		else if(this.m_id==5)
+		else if(this.m_id==13)
 		{
 			User.setAttackModifier(1.2);
 			return true;
 		}
-		else if(this.m_id==6)
+		else if(this.m_id==14)
 		{
 			if(hit<=85)
 			{
@@ -250,13 +443,13 @@ public class Skill
 				return false;
 			}
 		}
-		else if(this.m_id==7)
+		else if(this.m_id==15)
 		{
 			User.reduceHp((int)(User.getAttackFighter()));//attacking self is intentional, its payment for a boost in attack power
 			User.setAttackModifier(1.35);
 			return true;
 		}
-		else if(this.m_id==8)
+		else if(this.m_id==16)
 		{
 			if(User.getCurHp()<=(.5)*User.getMaxHp())
 			{
@@ -268,7 +461,7 @@ public class Skill
 				System.out.println("As you are not below half health, berserker rage does nothing");
 			}
 		}
-		else if(this.m_id==9)
+		else if(this.m_id==17)
 		{
 			if(hit<=87)
 			{
@@ -288,7 +481,7 @@ public class Skill
 				return false;
 			}
 		}
-		else if(this.m_id==10)
+		else if(this.m_id==18)
 		{
 			if(hit<=73)
 			{
@@ -308,7 +501,7 @@ public class Skill
 				return false;
 			}
 		}
-		else if(this.m_id==11)
+		else if(this.m_id==19)
 		{
 			User.setAttackModifier(1.2);
 			System.out.println("The wolf is enraged by its howl and is now more aggressive");
