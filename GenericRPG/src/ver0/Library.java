@@ -308,8 +308,8 @@ public class Library
 				if(thisEnemy.getNumDefeated()>10)
 				{
 					System.out.println("Equipped Helmet: " + thisEnemy.getEquippedHelmet());
-					System.out.println("Equipped Gauntlets: " + thisEnemy.getEquippedGauntlets());
-					System.out.println("Equipped Boots: " + thisEnemy.getEquippedBoots());
+//					System.out.println("Equipped Gauntlets: " + thisEnemy.getEquippedGauntlets());
+//					System.out.println("Equipped Boots: " + thisEnemy.getEquippedBoots());
 				}
 				if(thisEnemy.getNumDefeated()>15)
 				{

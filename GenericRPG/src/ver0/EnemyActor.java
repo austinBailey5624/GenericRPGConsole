@@ -48,8 +48,8 @@ public class EnemyActor extends Actor
 		equipShield(itemArray[9]);
 		equipArmor(itemArray[10]);
 		equipHelmet(itemArray[11]);
-		equipGauntlets(itemArray[12]);
-		equipBoots(itemArray[13]);
+//		equipGauntlets(itemArray[12]);
+//		equipBoots(itemArray[13]);
 		setAttackModifier(1);
 		setDefenseModifier(1);
 
@@ -61,8 +61,8 @@ public class EnemyActor extends Actor
 		equipShield(itemArray[9]);
 		equipArmor(itemArray[10]);
 		equipHelmet(itemArray[11]);
-		equipGauntlets(itemArray[12]);
-		equipBoots(itemArray[13]);
+//		equipGauntlets(itemArray[12]);
+//		equipBoots(itemArray[13]);
 
 		m_numDefeated=0;//Sets the number of enemies defeated to zero
 		

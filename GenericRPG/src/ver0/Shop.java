@@ -20,7 +20,7 @@ public class Shop
 	static Scanner myScanner = new Scanner(System.in);
 	//TODO figure out what to do if the shop is sold out
 	static int select;
-	int[] m_inventory=new int[Item.getNumTypesOfItem()];
+	int[] m_inventory=new int[(Item.getNumTypesOfItem()+Item.getNumTypesOfWeapon())];
 	
 	/**
 	 * This constructor initializes a shop from one of the premade shops, based on its parameter int whichShop
@@ -30,30 +30,30 @@ public class Shop
 	 */
 	public Shop(int whichShop)//used in case we make more than one shop
 	{
-		for(int i=0;i<Item.getNumTypesOfItem();i++)
+		for(int i=0;i<(Item.getNumTypesOfItem()+Item.getNumTypesOfWeapon());i++)
 		{
 			m_inventory[i]=0;
 		}
 		if(whichShop==1)
 		{
-			for(int i=1;i<=6;i++)
+			for(int i=0;i<=8;i++)
 			{
-				m_inventory[i]=1;
+				m_inventory[i]=(Item.getAllItems())[i].getLimit();
 			}
-			m_inventory[7]=10;
+			//m_inventory[7]=10;
 		}
 		else if(whichShop==2)
 		{
-			for(int i=1;i<=6;i++)
+			for(int i=0;i<=8;i++)
 			{
-				m_inventory[i]=3;
+				m_inventory[i]=(Item.getAllItems())[i].getLimit();
 			}
 			m_inventory[7]=10;
-			for(int i=14;i<=20;i++)//skipps 'empty' items
+			for(int i=9;i<=19;i++)//skipps 'empty' items
 			{
-				m_inventory[i]=1;
+				m_inventory[i]=(Item.getAllItems())[i].getLimit();
 			}
-			m_inventory[20]=5;
+			//m_inventory[20]=(Item.getAllItems())[20].getLimit();
 		}
 	}
 	

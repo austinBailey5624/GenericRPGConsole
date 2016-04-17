@@ -20,7 +20,7 @@ public class Item{
     protected int m_value;
     protected int m_counter;
     
-    private static int m_numTypesOfItem=7;
+    private static int m_numTypesOfItem = 9;
     private static int m_numTypesOfWeapon = 11;
     
     protected String m_name;
@@ -36,7 +36,7 @@ public class Item{
     {
 
     	//Item[] itemArray = new Item[m_numTypesOfItem];
-
+    	
     	Item[] itemArray = new Item[m_numTypesOfItem + m_numTypesOfWeapon];
 
 
@@ -167,13 +167,39 @@ public class Item{
             m_type = typeOfItem;
             m_name = "attack potion";
             m_limit = 5;
+            m_bonusDef = 0;
+            m_bonusAtk = 50;
+            m_bonusMDef = 0;
+            m_bonusMAtk = 0;
+            m_bonusHp = 0;
+            m_value = 10;
+            m_counter = 1;
+        }
+        else if(typeOfItem == 7)
+        {
+            m_type = typeOfItem;
+            m_name = "basic armor";
+            m_limit = 5;
             m_bonusDef = 50;
             m_bonusAtk = 0;
             m_bonusMDef = 0;
             m_bonusMAtk = 0;
             m_bonusHp = 0;
             m_value = 10;
-            m_counter = 1;
+            m_counter = 0;
+        }
+        else if(typeOfItem == 8)
+        {
+            m_type = typeOfItem;
+            m_name = "basic helmet";
+            m_limit = 5;
+            m_bonusDef = 100;
+            m_bonusAtk = 0;
+            m_bonusMDef = 0;
+            m_bonusMAtk = 0;
+            m_bonusHp = 0;
+            m_value = 10;
+            m_counter = 0;
         }
         m_id = typeOfItem;
 
@@ -342,6 +368,17 @@ public class Item{
     public void setNumTypesOfItem(int numTypesItem)
     {
     	m_numTypesOfItem = numTypesItem;
+    }
+    
+    /**
+     *This function returns the value of m_numTypesOfWeapon
+     * pre - none
+     * post - none
+     * @return m_numTypesOfWeapon
+     */
+    public static int getNumTypesOfWeapon()
+    {
+    	return m_numTypesOfWeapon;
     }
     
     /**

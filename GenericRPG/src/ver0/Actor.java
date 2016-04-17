@@ -16,8 +16,8 @@ public class Actor
 	private Item m_equippedShield;
 	private Item m_equippedArmor;
 	private Item m_equippedHelmet;
-	private Item m_equippedBoots;
-	private Item m_equippedGauntlets;
+//	private Item m_equippedBoots;
+//	private Item m_equippedGauntlets;
 	protected boolean[] m_skillSet;
 	//Constructors
 	public Actor()//default constructor
@@ -35,8 +35,8 @@ public class Actor
 		equipShield(itemArray[9]);
 		equipArmor(itemArray[10]);
 		equipHelmet(itemArray[11]);
-		equipGauntlets(itemArray[12]);
-		equipBoots(itemArray[13]);
+//		equipGauntlets(itemArray[12]);
+//		equipBoots(itemArray[13]);
 		setAttackModifier(1);
 		setDefenseModifier(1);
 
@@ -44,8 +44,8 @@ public class Actor
 		equipShield(itemSet[9]);
 		equipArmor(itemSet[10]);
 		equipHelmet(itemSet[11]);
-		equipBoots(itemSet[13]);
-		equipGauntlets(itemSet[12]);
+//		equipBoots(itemSet[13]);
+//		equipGauntlets(itemSet[12]);
 
 		m_skillSet=new boolean[Skill.getNumOfSkillsTotal()];
 		for(int i=0; i<Skill.getNumOfSkillsTotal();i++)
@@ -388,10 +388,10 @@ public class Actor
      * @post - none
      * @return m_equippedGauntlets
      */
-	public Item getEquippedGauntlets()
-	{
-		return m_equippedGauntlets;
-	}
+//	public Item getEquippedGauntlets()
+//	{
+//		return m_equippedGauntlets;
+//	}
 	
     /**
      * This function attempts to set the Item m_equippedGauntlets to the parameter Item gauntlets
@@ -399,17 +399,17 @@ public class Actor
      * @post - sets m_equippedGauntlets to parameter Item gauntlets if the item is a gauntlets, else prints message "Cannot equip that in the Gauntlet slot!"
      * @return void
      */
-	public void equipGauntlets(Item gauntlets)
-	{
-		if(gauntlets.getType()==5)
-		{
-			m_equippedGauntlets=gauntlets;
-		}
-		else
-		{
-			System.out.println("Cannot equip that in the Gauntlet slot!");
-		}
-	}
+//	public void equipGauntlets(Item gauntlets)
+//	{
+//		if(gauntlets.getType()==5)
+//		{
+//			m_equippedGauntlets=gauntlets;
+//		}
+//		else
+//		{
+//			System.out.println("Cannot equip that in the Gauntlet slot!");
+//		}
+//	}
 	
 	/**
 	 * This function returns the value of m_description
@@ -439,10 +439,10 @@ public class Actor
      * @post - none
      * @return m_equippedBoots
      */
-	public Item getEquippedBoots()
-	{
-		return m_equippedBoots;
-	}
+//	public Item getEquippedBoots()
+//	{
+//		return m_equippedBoots;
+//	}
 	
     /**
      * This function attempts to set the Item m_equippedBoots to the parameter Item boots
@@ -450,17 +450,17 @@ public class Actor
      * @post - sets m_equippedBoots to parameter Item Boots if the items are boots, else prints message "Cannot equip that in the Boots slot!"
      * @return void
      */
-	public void equipBoots(Item boots)
-	{
-		if(boots.getType()==6)
-		{
-			m_equippedBoots=boots;
-		}
-		else
-		{
-			System.out.println("Cannot equip that in the Boots slot!");
-		}
-	}
+//	public void equipBoots(Item boots)
+//	{
+//		if(boots.getType()==6)
+//		{
+//			m_equippedBoots=boots;
+//		}
+//		else
+//		{
+//			System.out.println("Cannot equip that in the Boots slot!");
+//		}
+//	}
 	
 	//Battle Methods
     /**
@@ -502,7 +502,7 @@ public class Actor
      */
 	public int getAttackFighter()
 	{
-		return ((int)((getAtk()+m_equippedSword.getBonusAtk()+m_equippedShield.getBonusAtk()+m_equippedHelmet.getBonusAtk()+m_equippedBoots.getBonusAtk() + m_equippedGauntlets.getBonusAtk())*getAtkModifier()));		
+		return ((int)((getAtk()+m_equippedSword.getBonusAtk()+m_equippedShield.getBonusAtk()+m_equippedHelmet.getBonusAtk())*getDefModifier()));		
 	}
 	
     /**
@@ -513,6 +513,6 @@ public class Actor
      */
 	public int getDefenseFighter()
 	{
-		return ((int)((getDef()+m_equippedSword.getBonusDef()+m_equippedShield.getBonusDef()+m_equippedHelmet.getBonusDef()+m_equippedBoots.getBonusDef()+m_equippedGauntlets.getBonusDef())*getDefModifier()));
+		return ((int)((getDef()+m_equippedSword.getBonusDef()+m_equippedShield.getBonusDef()+m_equippedHelmet.getBonusDef())*getDefModifier()));
 	}
 }

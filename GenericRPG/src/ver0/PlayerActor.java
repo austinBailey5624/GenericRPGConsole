@@ -27,8 +27,8 @@ public class PlayerActor extends Actor
 		equipShield(itemSet[9]);
 		equipArmor(itemSet[10]);
 		equipHelmet(itemSet[11]);
-		equipBoots(itemSet[13]);
-		equipGauntlets(itemSet[12]);
+//		equipBoots(itemSet[13]);
+//		equipGauntlets(itemSet[12]);
 		System.out.println("Welcome to Generic RPG!\n What is your name?");
 		setName(myScanner.next());
 		System.out.println("You awake in the middle of a dark forest, bruised and alone\n");
@@ -72,8 +72,8 @@ public class PlayerActor extends Actor
 		equipShield(itemSet[22]);
 		equipArmor(itemSet[3]);
 		equipHelmet(itemSet[11]);
-		equipBoots(itemSet[13]);
-		equipGauntlets(itemSet[12]);
+//		equipBoots(itemSet[13]);
+//		equipGauntlets(itemSet[12]);
 	}
 	
 	/**
