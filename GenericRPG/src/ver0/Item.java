@@ -44,7 +44,7 @@ public class Item{
     	{
     		itemArray[i]=new Item(i);
     	}
-    	for(int i=m_numTypesOfItem; i<(m_numTypesOfItem + m_numTypesOfWeapon); i++)//Hey, I thought this would ease the process for adding new items, should do it automatically
+    	for(int i=m_numTypesOfItem; i<(m_numTypesOfItem + m_numTypesOfWeapon); i++)//Hey, I thought this would ease the process for adding new weapons, should do it automatically
     	{
     		itemArray[i]=new Weapon(i-m_numTypesOfItem);
     	}
@@ -86,7 +86,7 @@ public class Item{
         
         if(typeOfItem == 0)
         {
-        	m_type = typeOfItem;
+        	m_type = 0;
             m_name = "basic potion";
             m_limit = 10;
             m_bonusDef = 0;
@@ -99,7 +99,7 @@ public class Item{
         }
         else if(typeOfItem == 1)
         {
-            m_type = typeOfItem;
+            m_type = 0;
             m_name = "advanced potion";
             m_limit = 5;
             m_bonusDef = 0;
@@ -112,7 +112,7 @@ public class Item{
         }
         else if(typeOfItem == 2)
         {
-            m_type = typeOfItem;
+            m_type = 0;
             m_name = "master potion";
             m_limit = 1;
             m_bonusDef = 0;
@@ -125,7 +125,7 @@ public class Item{
         }
         else if(typeOfItem == 3)
         {
-            m_type = typeOfItem;
+            m_type = 0;
             m_name = "poison potion";
             m_limit = 5;
             m_bonusDef = 0;
@@ -138,7 +138,7 @@ public class Item{
         }
         else if(typeOfItem == 4)
         {
-            m_type = typeOfItem;
+            m_type = 0;
             m_name = "stun potion";
             m_limit = 5;
             m_bonusDef = 0;
@@ -151,7 +151,7 @@ public class Item{
         }
         else if(typeOfItem == 5)
         {
-            m_type = typeOfItem;
+            m_type = 0;
             m_name = "defense potion";
             m_limit = 5;
             m_bonusDef = 50;
@@ -164,7 +164,7 @@ public class Item{
         }
         else if(typeOfItem == 6)
         {
-            m_type = typeOfItem;
+            m_type = 0;
             m_name = "attack potion";
             m_limit = 5;
             m_bonusDef = 0;
@@ -177,7 +177,7 @@ public class Item{
         }
         else if(typeOfItem == 7)
         {
-            m_type = typeOfItem;
+            m_type = 3;
             m_name = "basic armor";
             m_limit = 5;
             m_bonusDef = 50;
@@ -190,7 +190,7 @@ public class Item{
         }
         else if(typeOfItem == 8)
         {
-            m_type = typeOfItem;
+            m_type = 4;
             m_name = "basic helmet";
             m_limit = 5;
             m_bonusDef = 100;

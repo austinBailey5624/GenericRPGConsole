@@ -366,7 +366,14 @@ public class Battle
 		m_skillSet[0].Execute(npc,curPlayer);
 		int newHp=curPlayer.getCurHp();
 		int damage=curHp-newHp;
-		System.out.println(npc.getName()+" attacks "+curPlayer.getName()+" with a "+npc.getEquippedSword().getName()+", dealing "+damage+" damage!\n");
+		if(npc.getEquippedSword() != null)
+		{
+			System.out.println(npc.getName()+" attacks "+curPlayer.getName()+" with a "+npc.getEquippedSword().getName()+", dealing "+damage+" damage!\n");
+		}
+		else
+		{
+			System.out.println(npc.getName()+" attacks "+curPlayer.getName()+" with fists "+", dealing "+damage+" damage!\n");
+		}
 	}
 	
 	/**

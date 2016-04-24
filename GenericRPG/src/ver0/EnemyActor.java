@@ -105,7 +105,7 @@ public class EnemyActor extends Actor
 			setAtk(11);
 			setDef(9);
 			
-			equipSword(itemArray[1]);
+			equipSword(itemArray[9]);
 			m_skillSet[0]=true;
 			m_skillSet[3]=true;
 			

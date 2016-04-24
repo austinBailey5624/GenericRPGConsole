@@ -199,9 +199,12 @@ public class Party
 				}
 				else
 				{
-					if(selected.getEquippedSword().getId()!=8)
+					if(selected.getEquippedSword() != null)
 					{
-						m_inventory[selected.getEquippedSword().getId()]++;
+						if((selected.getEquippedSword().getId() < 9)||(selected.getEquippedSword().getId() > 11))
+						{
+							m_inventory[selected.getEquippedSword().getId()]++;
+						}
 					}
 					selected.equipSword(items[indexRepresentedByChoice[select]]);
 					m_inventory[indexRepresentedByChoice[select]]--;
@@ -215,7 +218,7 @@ public class Party
 				}
 				else
 				{
-					if(selected.getEquippedShield().getId()!=9)
+					if(selected.getEquippedShield().getId()!=10)
 					{
 						m_inventory[selected.getEquippedShield().getId()]++;
 					}
@@ -231,9 +234,12 @@ public class Party
 				}
 				else
 				{
-					if(selected.getEquippedArmor().getId()!=10)
+					if(selected.getEquippedArmor() != null)
 					{
-						m_inventory[selected.getEquippedArmor().getId()]++;
+						if(selected.getEquippedArmor().getId()!=7)
+						{
+							m_inventory[selected.getEquippedArmor().getId()]++;
+						}
 					}
 					selected.equipArmor(items[indexRepresentedByChoice[select]]);
 					m_inventory[indexRepresentedByChoice[select]]--;
@@ -247,9 +253,12 @@ public class Party
 				}
 				else
 				{
-					if(selected.getEquippedHelmet().getId()!=11)
+					if(selected.getEquippedHelmet() != null)
 					{
-						m_inventory[selected.getEquippedHelmet().getId()]++;
+						if(selected.getEquippedHelmet().getId()!=8)
+						{
+							m_inventory[selected.getEquippedHelmet().getId()]++;
+						}
 					}
 					selected.equipHelmet(items[indexRepresentedByChoice[select]]);
 					m_inventory[indexRepresentedByChoice[select]]--;
@@ -288,7 +297,7 @@ public class Party
 		}
 		else
 		{
-			System.out.println("Equipped Sword:  no sword");
+			System.out.println("Equipped Sword:     no sword");
 		}
 		if(selected.getEquippedShield() != null)
 		{
@@ -296,7 +305,7 @@ public class Party
 		}
 		else
 		{
-			System.out.println("Equipped Shield: no shield");
+			System.out.println("Equipped Shield:    no shield");
 		}
 		if(selected.getEquippedArmor() != null)
 		{
@@ -304,7 +313,7 @@ public class Party
 		}
 		else
 		{
-			System.out.println("Equipped Armor: no armor");
+			System.out.println("Equipped Armor:     no armor");
 		}
 		if(selected.getEquippedHelmet() != null)
 		{
@@ -312,13 +321,13 @@ public class Party
 		}
 		else
 		{
-			System.out.println("Equipped Helmet: no helmet");
+			System.out.println("Equipped Helmet:    no helmet");
 		}
 	
 		System.out.println("Natural Attack:     " + selected.getAtk());
-		if((selected.getEquippedSword() != null)&&(selected.getEquippedShield() != null)&&(selected.getEquippedArmor() != null)&&(selected.getEquippedHelmet() != null))
+		if((selected.getEquippedSword() != null))
 		{
-			System.out.println("Bonus Attack:       " + (selected.getEquippedSword().getBonusAtk()+selected.getEquippedShield().getBonusAtk()+selected.getEquippedArmor().getBonusAtk()+selected.getEquippedHelmet().getBonusAtk()));
+			System.out.println("Bonus Attack:       " + (selected.getEquippedSword().getBonusAtk()));
 		}
 		else
 		{
@@ -326,14 +335,21 @@ public class Party
 		}
 		System.out.println("Effective Attack:   " + selected.getAttackFighter());
 		System.out.println("Natural Defese:     " + selected.getDef());
-		if((selected.getEquippedSword() != null)&&(selected.getEquippedShield() != null)&&(selected.getEquippedArmor() != null)&&(selected.getEquippedHelmet() != null))
+		int bonusDefense = 0;
+		if(selected.getEquippedShield() != null)
 		{
-			System.out.println("Bonus Defense:      " + (selected.getEquippedSword().getBonusDef()+selected.getEquippedShield().getBonusDef()+selected.getEquippedArmor().getBonusDef()+selected.getEquippedHelmet().getBonusDef()));
+			bonusDefense+=selected.getEquippedShield().getBonusDef();
 		}
-		else
+		if(selected.getEquippedArmor() != null)
 		{
-			System.out.println("Bonus Defense:      0");
+			bonusDefense+=selected.getEquippedArmor().getBonusDef();
 		}
+		if(selected.getEquippedHelmet() != null)
+		{
+			bonusDefense+=selected.getEquippedHelmet().getBonusDef();
+		}
+		System.out.println("Bonus Defense:      " + bonusDefense);
+			
 		System.out.println("Effective Defense:  " + selected.getDefenseFighter());
 	}
 
