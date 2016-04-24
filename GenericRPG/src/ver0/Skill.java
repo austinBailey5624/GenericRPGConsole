@@ -53,10 +53,6 @@ public class Skill
 	 * @param skillNum determines which skill is generated
 	 */
 	
-	//TODO Skill 5 deal magic damage and physical damage to enemies a combination of skill 0 and 1.
-	//TODO Skill 6 deal magic damage to all enemies similar to skill 1 except the damage is 70% as strong
- 	//TODO Skill 7 deal magic damage to all enemies similar to skill 1 except the damage is 70% as strong with a 33% poison debuff added on to all enemies
-	//TODO Skill 8 deal magic damage to all enemies similar to skill 1 except the damage is 70% as strong with a 33% stun debuff added on to all enemies
 	public Skill(int skillNum)
 	{
 		m_accuracy=.8;
