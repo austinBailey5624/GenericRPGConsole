@@ -79,7 +79,7 @@ public class EnemyActor extends Actor
 			setDef(6);
 			m_AIDiscription="Has a 70% chance to use basic attack, 30% chance to use Power attack";
 			m_skillSet[0]=true;
-			m_skillSet[1]=true;
+			m_skillSet[9]=true;
 			
 			m_defeatGold=15;
 		}
@@ -95,7 +95,7 @@ public class EnemyActor extends Actor
 			
 			equipSword(itemArray[1]);
 			m_skillSet[0]=true;
-			m_skillSet[2]=true;
+			m_skillSet[10]=true;
 			m_AIDiscription="Has a 70% chance to use basic attack, 30% chance to use Threading Needle";
 			m_defeatGold=20;
 		}
@@ -110,7 +110,7 @@ public class EnemyActor extends Actor
 			setDef(14);
 			 
 			m_skillSet[0]=true;
-			m_skillSet[3]=true;
+			m_skillSet[11]=true;
 			m_AIDiscription="begins by using shell, then only uses basic attack";
 			equipShield(itemArray[2]);
 			
@@ -127,12 +127,30 @@ public class EnemyActor extends Actor
 			setDef(5);
 			
 			m_skillSet[0]=true;
-			m_skillSet[1]=true;
-			m_skillSet[8]=true;
+			m_skillSet[9]=true;
+			m_skillSet[16]=true;
 			m_AIDiscription="Has a 70% chance to use basic attack, 30% chance to use Power attack. If his health is below 50%, he will use berserker rage, only once";
 			m_defeatGold=40;
 		}
-		m_defeatExp=index*15;
+		else if(index==5)
+		{
+			setName("Wolf");
+			setDescription("An evil wolf looking to steal your sheep!");
+			setLevel(1);
+			setMaxHp(50);
+			setCurHp(getMaxHp());
+			setAtk(8);
+			setDef(5);
+			
+			m_skillSet[0]=true;
+			m_skillSet[17]=true;
+			m_skillSet[18]=true;
+			m_skillSet[19]=true;
+			
+			m_AIDiscription="Has a fifty fifty shot of using either wolf claw or wolf bite, except if under 50% health, then he will use howl before going back to fifty fifty between wolf claw or wolf bite";
+			m_defeatGold=5;
+		}
+		m_defeatExp=getLevel()*15;
 	}
 	//getters-setters
     /**
