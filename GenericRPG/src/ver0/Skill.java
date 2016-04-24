@@ -207,8 +207,8 @@ public class Skill
 		Random r;
 		r=new Random();
 		int hit=r.nextInt(100);
-		//TODO incorporate accuracy into calculation using random
-		if(this.m_id==0)
+
+		if(this.m_id==0)//Basic Attack
 		{
 			if(hit<85)
 			{
@@ -228,7 +228,7 @@ public class Skill
 				return false;
 			}
 		}
-		else if(this.m_id==2)
+		else if(this.m_id==1)//Magic Bolt
 		{
 			if(hit<85)
 			{
@@ -248,7 +248,7 @@ public class Skill
 				return false;
 			}
 		}
-		else if(this.m_id==3)
+		else if(this.m_id==2)//Poison Bolt
 		{
 			if(hit<85)
 			{
@@ -269,7 +269,7 @@ public class Skill
 				return false;
 			}
 		}
-		else if(this.m_id==4)
+		else if(this.m_id==3)//stunning bolt
 		{
 			if(hit<85)
 			{
@@ -290,7 +290,29 @@ public class Skill
 				return false;
 			}
 		}
-		else if(this.m_id==5)
+		else if(this.m_id==4)//cleanse
+		{
+			if(Target.getCurHp()+User.getMAttackFighter()>Target.getMaxHp())//if healing the target would put them over their max hp
+			{
+				Target.setCurHp(Target.getMaxHp());//set their current hp to their max hp
+			}
+			else
+			{
+				Target.setCurHp(User.getMAttackFighter()+Target.getCurHp());
+			}
+			for(int i=0;i<Target.m_status.length;i++)//decreases all statuses by 2
+			{
+				if(Target.m_status[i]>2)
+				{
+					Target.m_status[i]-=2;
+				}
+				else
+				{
+					Target.m_status[i]=0;
+				}
+			}
+		}
+		else if(this.m_id==5)//magic slash
 		{
 			if(hit<85)
 			{
@@ -310,7 +332,7 @@ public class Skill
 				return false;
 			}
 		}
-		else if(this.m_id==6)
+		else if(this.m_id==6)//Wide Burst
 		{
 			if(hit<85)
 			{
@@ -330,7 +352,7 @@ public class Skill
 				return false;
 			}
 		}
-		else if(this.m_id==7)
+		else if(this.m_id==7)//poison Burst
 		{
 			if(hit<85)
 			{
@@ -351,7 +373,7 @@ public class Skill
 				return false;
 			}
 		}
-		else if(this.m_id==8)
+		else if(this.m_id==8)//Electric Burst
 		{
 			if(hit<85)
 			{
@@ -372,7 +394,7 @@ public class Skill
 				return false;
 			}
 		}
-		else if(this.m_id==9)
+		else if(this.m_id==9)//Power Attack
 		{
 			if(hit<70)
 			{
@@ -392,7 +414,7 @@ public class Skill
 				return false;
 			}
 		}
-		else if(this.m_id==10)
+		else if(this.m_id==10)//Threading Needle
 		{
 			if(.8*User.getAttackFighter()-.5*Target.getDefenseFighter()>0)
 			{
@@ -404,12 +426,12 @@ public class Skill
 			}
 			return true;
 		}
-		else if(this.m_id==11)
+		else if(this.m_id==11)//shell
 		{
 			User.setDefenseModifier(1.2);
 			return true;
 		}
-		else if(this.m_id==12)
+		else if(this.m_id==12)//heal
 		{
 			if(User.getCurHp()+(.5)*User.getAttackFighter()>User.getMaxHp())//The case where healing heals more than possible
 			{
@@ -421,7 +443,7 @@ public class Skill
 			}
 			return true;
 		}
-		else if(this.m_id==13)
+		else if(this.m_id==13)//strengthen
 		{
 			User.setAttackModifier(1.2);
 			return true;
