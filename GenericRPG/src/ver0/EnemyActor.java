@@ -6,6 +6,7 @@ public class EnemyActor extends Actor
 	private int m_defeatExp;//This is the experience provided to the player character upon defeat
 	private int m_defeatGold;//This is the gold provided to the player character upon defeat
 	private int m_numDefeated;
+	private String m_AIDiscription;
 	//static int m_numOfEnemies;//This is the total number of enemies
 	boolean[] m_skillSet;
 
@@ -42,27 +43,14 @@ public class EnemyActor extends Actor
 		{
 			m_skillSet[i]=false;
 		}
-
-
-//		equipSword(itemArray[8]);
-//		equipShield(itemArray[9]);
-//		equipArmor(itemArray[10]);
-//		equipHelmet(itemArray[11]);
-//		equipGauntlets(itemArray[12]);
-//		equipBoots(itemArray[13]);
-		setAttackModifier(1);
-		setDefenseModifier(1);
-
+		m_status=new int[4];
+		for(int i=0;i<m_status.length;i++)
+		{
+			m_status[i]=0;
+		}
 
 		setAttackModifier(1);
 		setDefenseModifier(1);
-
-//		equipSword(itemArray[8]);
-//		equipShield(itemArray[9]);
-//		equipArmor(itemArray[10]);
-//		equipHelmet(itemArray[11]);
-//		equipGauntlets(itemArray[12]);
-//		equipBoots(itemArray[13]);
 
 		m_numDefeated=0;//Sets the number of enemies defeated to zero
 		
@@ -75,7 +63,7 @@ public class EnemyActor extends Actor
 			setCurHp(getMaxHp());
 			setAtk(8);
 			setDef(8);
-
+			m_AIDiscription="Only uses basic attack over and over again";
 			m_skillSet[0]=true;
 			
 			m_defeatGold=10;
@@ -89,9 +77,9 @@ public class EnemyActor extends Actor
 			setCurHp(getMaxHp());
 			setAtk(12);
 			setDef(6);
-			
+			m_AIDiscription="Has a 70% chance to use basic attack, 30% chance to use Power attack";
 			m_skillSet[0]=true;
-			m_skillSet[1]=true;
+			m_skillSet[9]=true;
 			
 			m_defeatGold=15;
 		}
@@ -107,8 +95,8 @@ public class EnemyActor extends Actor
 			
 			equipSword(itemArray[9]);
 			m_skillSet[0]=true;
-			m_skillSet[3]=true;
-			
+			m_skillSet[10]=true;
+			m_AIDiscription="Has a 70% chance to use basic attack, 30% chance to use Threading Needle";
 			m_defeatGold=20;
 		}
 		else if(index==3)
@@ -122,8 +110,8 @@ public class EnemyActor extends Actor
 			setDef(14);
 			 
 			m_skillSet[0]=true;
-			m_skillSet[3]=true;
-			
+			m_skillSet[11]=true;
+			m_AIDiscription="begins by using shell, then only uses basic attack";
 			equipShield(itemArray[2]);
 			
 			m_defeatGold=30;
@@ -139,11 +127,30 @@ public class EnemyActor extends Actor
 			setDef(5);
 			
 			m_skillSet[0]=true;
-			m_skillSet[1]=true;
-			
+			m_skillSet[9]=true;
+			m_skillSet[16]=true;
+			m_AIDiscription="Has a 70% chance to use basic attack, 30% chance to use Power attack. If his health is below 50%, he will use berserker rage, only once";
 			m_defeatGold=40;
 		}
-		m_defeatExp=index*15;
+		else if(index==5)
+		{
+			setName("Wolf");
+			setDescription("An evil wolf looking to steal your sheep!");
+			setLevel(1);
+			setMaxHp(50);
+			setCurHp(getMaxHp());
+			setAtk(8);
+			setDef(5);
+			
+			m_skillSet[0]=true;
+			m_skillSet[17]=true;
+			m_skillSet[18]=true;
+			m_skillSet[19]=true;
+			
+			m_AIDiscription="Has a fifty fifty shot of using either wolf claw or wolf bite, except if under 50% health, then he will use howl before going back to fifty fifty between wolf claw or wolf bite";
+			m_defeatGold=5;
+		}
+		m_defeatExp=getLevel()*15;
 	}
 	//getters-setters
     /**
