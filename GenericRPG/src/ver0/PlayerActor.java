@@ -23,6 +23,11 @@ public class PlayerActor extends Actor
 		Skill[] skillSet = Skill.getSkills();this.setLevel(1);
 		m_gold=0;
 		m_exp=0;
+		m_status=new int[4];
+		for(int i=0;i<m_status.length;i++)
+		{
+			m_status[i]=0;
+		}
 //		equipSword(itemSet[8]);
 //		equipShield(itemSet[9]);
 //		equipArmor(itemSet[10]);
