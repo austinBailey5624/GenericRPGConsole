@@ -399,6 +399,7 @@ public class Battle
 	public void groupBattle(Actor[] goodguys, Actor[] badguys)//TODO complete group battle method
 	{
 		//will be filled in later
+		//TODO make mikes aoe magic attack affect all enemies in enemy party
 	}
 	
 	/**
