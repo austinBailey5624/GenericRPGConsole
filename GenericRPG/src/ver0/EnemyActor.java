@@ -110,7 +110,7 @@ public class EnemyActor extends Actor
 			setDef(14);
 			 
 			m_skillSet[0]=true;
-			m_skillSet[11]=true;
+			//m_skillSet[11]=true;
 			m_AIDiscription="begins by using shell, then only uses basic attack";
 			equipShield(itemArray[2]);
 			

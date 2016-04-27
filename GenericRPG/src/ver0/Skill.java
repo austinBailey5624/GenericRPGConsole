@@ -12,7 +12,7 @@ public class Skill
 	private double m_accuracy;
 	private int m_value;
 
-	static int m_numOfSkills=8;
+	static int m_numOfSkills=19;
 
 	//static int m_numOfSkills=9;
 
