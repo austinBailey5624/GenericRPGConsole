@@ -240,9 +240,12 @@ public class Library
 		boolean isEmpty=true;
 		for(int i=0; i<enemies.length;i++)
 		{
-			if(enemies[i].getNumDefeated()>0)
+			if(enemies[i] != null)
 			{
-				isEmpty=false;
+				if(enemies[i].getNumDefeated()>0)
+				{
+					isEmpty=false;
+				}
 			}
 		}
 		if(isEmpty)
@@ -260,11 +263,14 @@ public class Library
 			System.out.println("Which enemy would you like to know more about?");
 			for(int i=0; i<enemies.length;i++)
 			{
-				if(enemies[i].getNumDefeated()>0)
+				if(enemies[i] != null)
 				{
-					System.out.println(choice+ ") " + enemies[i].getName());
-					choice++;
-					indexRepresentedByChoice[choice]=i;
+					if(enemies[i].getNumDefeated()>0)
+					{
+						System.out.println(choice+ ") " + enemies[i].getName());
+						choice++;
+						indexRepresentedByChoice[choice]=i;
+					}
 				}
 				System.out.println(choice+ ") Exit");
 			}
