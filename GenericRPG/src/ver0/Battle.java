@@ -77,7 +77,14 @@ public class Battle
 					m_skillSet[0].Execute(player, npc);
 					int temphp2=npc.getCurHp();
 					int difference=temphp1-temphp2;
-					System.out.println(player.getName()+" attacks "+npc.getName()+" with a "+player.getEquippedSword().getName()+", dealing "+difference+" damage!\n");
+					if(player.getEquippedSword()== null)
+					{
+						System.out.println(player.getName()+" attacks "+npc.getName()+" with no sword, dealing "+difference+" damage!\n");
+					}
+					else
+					{
+						System.out.println(player.getName()+" attacks "+npc.getName()+" with a "+player.getEquippedSword().getName()+", dealing "+difference+" damage!\n");
+					}
 				}
 				else if (choice==2) //TODO handle when skill does not target enemy, adjust effects for single battle
 				{
@@ -217,7 +224,14 @@ public class Battle
 					m_skillSet[0].Execute(player, npc);
 					int temphp2=npc.getCurHp();
 					int difference=temphp1-temphp2;
-					System.out.println(player.getName()+" attacks "+npc.getName()+" with a "+player.getEquippedSword().getName()+", dealing "+difference+" damage!\n");
+					if(player.getEquippedSword() == null)
+					{
+						System.out.println(player.getName()+" attacks "+npc.getName()+" with no sword , dealing "+difference+" damage!\n");
+					}
+					else
+					{
+						System.out.println(player.getName()+" attacks "+npc.getName()+" with a "+player.getEquippedSword().getName()+", dealing "+difference+" damage!\n");
+					}
 					playerMistake=false;
 				}
 				else if (choice==2)

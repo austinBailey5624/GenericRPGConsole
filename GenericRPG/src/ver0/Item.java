@@ -44,7 +44,7 @@ public class Item{
     	{
     		itemArray[i]=new Item(i);
     	}
-    	for(int i=m_numTypesOfItem; i<(m_numTypesOfItem + m_numTypesOfWeapon); i++)//Hey, I thought this would ease the process for adding new weapons, should do it automatically
+    	for(int i=m_numTypesOfItem; i<(m_numTypesOfItem + m_numTypesOfWeapon); i++)
     	{
     		itemArray[i]=new Weapon(i-m_numTypesOfItem);
     	}

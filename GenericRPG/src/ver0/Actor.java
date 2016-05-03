@@ -371,15 +371,23 @@ public class Actor
      * @post - sets m_equippedSword to parameter Item sword if the item is a sword, else prints message "Cannot equip that in the sword slot!"
      * @return void
      */
-	public void equipSword(Item sword)
+	public void equipSword(Item weapon)
 	{
-		if(sword.getType()==1)
+		if(weapon.getType()==1)
 		{
-			m_equippedSword=sword;
+			m_equippedSword=weapon;
+		}
+		else if(weapon.getType()==5)
+		{
+			m_equippedSword=weapon;
+		}
+		if((weapon.getType()==6)&&(m_equippedArmor==null))
+		{
+			m_equippedSword=weapon;
 		}
 		else
 		{
-			System.out.println("Cannot equip that in the sword slot!");
+			System.out.println("Cannot equip that in the weapon slot!");
 		}
 	}
 	
@@ -626,7 +634,14 @@ public class Actor
 	 */
 	public int getMAttackFighter()
 	{
-		return((int)((getMatk()+m_equippedSword.getBonusMAtk()+m_equippedShield.getBonusMAtk()+m_equippedHelmet.getBonusMAtk())*getMatkModifier()));
+		if(m_equippedSword == null)
+		{
+			return((int)((getMatk())*getMatkModifier()));
+		}
+		else
+		{
+			return((int)((getMatk()+m_equippedSword.getBonusMAtk()+m_equippedShield.getBonusMAtk()+m_equippedHelmet.getBonusMAtk())*getMatkModifier()));
+		}
 	}
 	
 	/**
@@ -637,6 +652,13 @@ public class Actor
 	 */
 	public int getMDefenseFighter()
 	{
-		return((int)((getMdef()+m_equippedSword.getBonusMDef()+m_equippedShield.getBonusDef()+m_equippedHelmet.getBonusMDef())*getMdefModifier()));
+		if(m_equippedSword == null)
+		{
+			return((int)((getMdef())*getMdefModifier()));
+		}
+		else
+		{
+			return((int)((getMdef()+m_equippedSword.getBonusMDef()+m_equippedShield.getBonusDef()+m_equippedHelmet.getBonusMDef())*getMdefModifier()));
+		}
 	}
 }

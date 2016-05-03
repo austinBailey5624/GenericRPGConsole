@@ -36,7 +36,7 @@ public class Skill
 	 */
 	public static Skill[] getSkills()
 	{
-		Skill[] skillSet = new Skill[8];
+		Skill[] skillSet = new Skill[19];
 		for(int i=0; i<skillSet.length; i++)
 		{
 			skillSet[i]=new Skill(i);
