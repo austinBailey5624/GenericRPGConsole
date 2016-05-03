@@ -27,9 +27,9 @@ public class Weapon extends Item
         m_name = "";
         m_used = false;
         
-		if(typeOfWeapon == 0)
+		if(typeOfWeapon == 9)
         {
-        	m_type = typeOfWeapon;
+        	m_type = 1;
             m_name = "iron sword";
             m_limit = 10;
             m_bonusDef = 0;
@@ -41,9 +41,9 @@ public class Weapon extends Item
             m_counter = 0;
             m_skill = 0;
         }
-        else if(typeOfWeapon == 1)
+        else if(typeOfWeapon == 10)
         {
-            m_type = typeOfWeapon;
+            m_type = 1;
             m_name = "steel sword";
             m_limit = 5;
             m_bonusDef = 0;
@@ -55,9 +55,9 @@ public class Weapon extends Item
             m_counter = 0;
             m_skill = 0;
         }
-        else if(typeOfWeapon == 2)
+        else if(typeOfWeapon == 11)
         {
-            m_type = typeOfWeapon;
+            m_type = 1;
             m_name = "master sword";
             m_limit = 1;
             m_bonusDef = 0;
@@ -69,9 +69,9 @@ public class Weapon extends Item
             m_counter = 0;
             m_skill = 0;
         }
-        else if(typeOfWeapon == 3)
+        else if(typeOfWeapon == 12)
         {
-            m_type = typeOfWeapon;
+            m_type = 5;
             m_name = "birch wand";
             m_limit = 10;
             m_bonusDef = 0;
@@ -83,9 +83,9 @@ public class Weapon extends Item
             m_counter = 0;
             m_skill = 1;
         }
-        else if(typeOfWeapon == 5)
+        else if(typeOfWeapon == 13)
         {
-            m_type = typeOfWeapon;
+            m_type = 5;
             m_name = "oak wand";
             m_limit = 5;
             m_bonusDef = 0;
@@ -97,9 +97,9 @@ public class Weapon extends Item
             m_counter = 0;
             m_skill = 2;
         }
-        else if(typeOfWeapon == 6)
+        else if(typeOfWeapon == 14)
         {
-            m_type = typeOfWeapon;
+            m_type = 5;
             m_name = "elm wand";
             m_limit = 1;
             m_bonusDef = 0;
@@ -111,9 +111,9 @@ public class Weapon extends Item
             m_counter = 0;
             m_skill = 3;
         }
-        else if(typeOfWeapon == 7)
+        else if(typeOfWeapon == 15)
         {
-            m_type = typeOfWeapon;
+            m_type = 5;
             m_name = "sickamore wand";
             m_limit = 3;
             m_bonusDef = 0;
@@ -125,9 +125,9 @@ public class Weapon extends Item
             m_counter = 0;
             m_skill = 4;
         }
-        else if(typeOfWeapon == 8)
+        else if(typeOfWeapon == 16)
         {
-            m_type = typeOfWeapon;
+            m_type = 6;
             m_name = "bolted staff";
             m_limit = 10;
             m_bonusDef = 0;
@@ -139,9 +139,9 @@ public class Weapon extends Item
             m_counter = 0;
             m_skill = 5;
         }
-        else if(typeOfWeapon == 9)
+        else if(typeOfWeapon == 17)
         {
-            m_type = typeOfWeapon;
+            m_type = 6;
             m_name = "birch staff";
             m_limit = 5;
             m_bonusDef = 0;
@@ -153,9 +153,9 @@ public class Weapon extends Item
             m_counter = 0;
             m_skill = 6;
         }
-        else if(typeOfWeapon == 10)
+        else if(typeOfWeapon == 18)
         {
-            m_type = typeOfWeapon;
+            m_type = 6;
             m_name = "oak staff";
             m_limit = 3;
             m_bonusDef = 0;
@@ -167,9 +167,9 @@ public class Weapon extends Item
             m_counter = 0;
             m_skill = 7;
         }
-        else if(typeOfWeapon == 11)
+        else if(typeOfWeapon == 19)
         {
-            m_type = typeOfWeapon;
+            m_type = 6;
             m_name = "elm staff";
             m_limit = 1;
             m_bonusDef = 0;
@@ -181,6 +181,7 @@ public class Weapon extends Item
             m_counter = 0;
             m_skill = 8;
         }
+		m_id = typeOfWeapon;
 	}
 	
 	/**
