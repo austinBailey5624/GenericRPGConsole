@@ -220,6 +220,49 @@ public class Library
 			System.out.println("You can't afford to learn that Skill!");
 			return;
 		}
+		else if(character.getEquippedSword() != null)
+		{
+			if((skillIndex == 1)&&((character.getEquippedSword()).getName()!= "birch wand"))
+			{
+				System.out.println("You don't have the right weapon to learn that skill!");
+				return;
+			}
+			else if((skillIndex == 2)&&((character.getEquippedSword()).getName()!= "oak wand"))
+			{
+				System.out.println("You don't have the right weapon to learn that skill!");
+				return;
+			}
+			else if((skillIndex == 3)&&((character.getEquippedSword()).getName()!= "elm wand"))
+			{
+				System.out.println("You don't have the right weapon to learn that skill!");
+				return;
+			}
+			else if((skillIndex == 4)&&((character.getEquippedSword()).getName()!= "sickamore wand"))
+			{
+				System.out.println("You don't have the right weapon to learn that skill!");
+				return;
+			}
+			else if((skillIndex == 5)&&((character.getEquippedSword()).getName()!= "bolted staff"))
+			{
+				System.out.println("You don't have the right weapon to learn that skill!");
+				return;
+			}
+			else if((skillIndex == 6)&&((character.getEquippedSword()).getName()!= "birch staff"))
+			{
+				System.out.println("You don't have the right weapon to learn that skill!");
+				return;
+			}
+			else if((skillIndex == 7)&&((character.getEquippedSword()).getName()!= "oak staff"))
+			{
+				System.out.println("You don't have the right weapon to learn that skill!");
+				return;
+			}
+			else if((skillIndex == 8)&&((character.getEquippedSword()).getName()!= "elm staff"))
+			{
+				System.out.println("You don't have the right weapon to learn that skill!");
+				return;
+			}
+		}
 		else if(character.m_skillSet[skillIndex]==true)
 		{
 			System.out.println("You alreay know that skill!");
@@ -287,6 +330,11 @@ public class Library
 			if(select<1||select>choice)
 			{
 				System.out.println("Sorry, we didn't understand your input");
+			}
+			else if((select ==1)&&(exit == false))
+			{
+				exit = true;
+				return;
 			}
 			else if((select>=1)&&(select<=choice))
 			{

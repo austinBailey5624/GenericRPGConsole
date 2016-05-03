@@ -36,7 +36,7 @@ public class Shop
 		}
 		if(whichShop==1)
 		{
-			for(int i=0;i<=8;i++)
+			for(int i=0;i<=13;i++)
 			{
 				m_inventory[i]=(Item.getAllItems())[i].getLimit();
 			}
