@@ -671,4 +671,236 @@ public class RPGActor extends Actor
    a.m_name.setName("bob");
    return(a.m_name.equals("bob"));
  }
+
+ /**
+ * Tests that member method getLevel() works
+ * @precondition - getLevel() has method definition and RPGActor constructor works
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest12()
+ {
+   RPGActor a = new RPGActor();
+   return(a.getLevel()=1);
+ }
+
+ /**
+ * Tests that memeber method setLevel() works
+ * @precondition - setLevel() has method definition and RPGActor constructor works
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest13()
+ {
+   RPGActor a = new RPGActor();
+   a.setLevel(5);
+   return(a.m_level==5);
+ }
+
+ /**
+ * Tests that member method getMaxHp() works
+ * @precondition - getMaxHp() has method definition and RPGActor constructor works
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest14()
+ {
+   RPGActor a = new RPGActor();
+   return(a.getMaxHp()==100);
+ }
+
+ /**
+ * Tests that member method setMaxHp() works
+ * @precondition - setMaxHp() has method definition and RPGActor constructor works
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest15()
+ {
+   RPGActor a = new RPGActor();
+   a.setMaxHp(123);
+   return(a.m_maxHp==123);
+ }
+
+ /**
+ * Tests that member method getCurHp() works
+ * @precondition - getCurHp() hsa method definition and RPGActor constructor works
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest16()
+ {
+   RPGActor a = new RPGActor();
+   a.m_curHp=123;
+   return(a.getCurHp()==123);
+ }
+
+ /**
+ * Tests that member method setCurHp() works
+ * @precondition - setCurHp() has a method definition and RPGActor constructor works
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest17()
+ {
+   RPGActor a = new RPGActor();
+   a.setCurHp(123);
+   return(m_curHp==123);
+ }
+
+ /**
+ * Test that the member method getAtk() returns m_atk
+ * @precondition - getAtk() has definition and RPGActor constructor works
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest18()
+ {
+   RPGActor a = new RPGActor();
+   a.m_atk=12;
+   return(a.getAtk()==12);
+ }
+
+ /**
+ * Test that the member method setAtk() sets a value to member variable m_atk
+ * @precondition - setAtk() has definition and RPGActor constructor works
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest19()
+ {
+   RPGActor a = new RPGActor();
+   a.setAtk(53);
+   return(a.m_atk==53);
+ }
+
+ /**
+ * Test that the member method getAtkModifier() returns the value m_atkModifier
+ * @precondition - getAtkModifier() has definition and RPGActor constructor is functional
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest20();
+ {
+   RPGActor a = new RPGActor();
+   a.m_atkModifier = 2;
+   return(a.getAtkModifier()==2);
+ }
+
+ /**
+ * Test that ensures if the value passed to setAttackModifier is >5 m_attackModifier is set to 5
+ * @precondition - setAttackModifier() has definition and RPGActor constructor is functional
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest21();
+ {
+   RPGActor a = new RPGActor();
+   a.setAttackModifier(50);
+   return(a.m_atkModifier==5);
+ }
+
+ /**
+ * Test that ensures if the value passed to setAttackModifier is in range it is set
+ * @precondition - setAttackModifier() has definition and RPGActor constructor is functional
+ * @post - none;
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest22()
+ {
+   RPGActor a = new RPGActor();
+   a.setAttackModifier(2.5);
+   return(a.m_atkModifier==2.5);
+ }
+
+ /**
+ * Test that ensures if the value passed to setAttackModifier is below range m_attackModifer is set to 0
+ * @precondition - setAttackModifier() has definition and RPGActor constructor is functional
+ * @post - none;
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest23()
+ {
+   RPGActor a = new RPGActor();
+   a.setAttackModifier(-123);
+   return(a.m_atkModifier==0);
+ }
+
+ /**
+ * Test that ensures getDef() returns correct value
+ * @precondition - getDef() has definition and RPGActor constructor is functional
+ * @post - none;
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest24()
+ {
+   RPGActor a = new RPGActor();
+   a.m_def=543;
+   return(a.getDef()==543);
+ }
+
+ /**
+ * Test that ensures that setDef() correctly sets m_def
+ * @precondition - setDef() has definition and RPGActor constructor is functional
+ * @post - none;
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest25()
+ {
+   RPGActor a = new RPGActor();
+   a.setDef(234);
+   return(a.m_def==234);
+ }
+
+ /**
+ * Test that ensures that getDefModifier() returns the correct value
+ * @precondition - getDefModifier() has definition and RPGActor constructor is functional
+ * @post - none;
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest26()
+ {
+   RPGActor a = new RPGActor();
+   a.m_defModifier=123;
+   return(a.getDefenseModifier()==123);
+ }
+
+ /**
+ * Test that ensures setDefenseModifier() sets m_defModifier to 5 if given a value above 5
+ * @precondition - setDefenseModifier() has definition and RPGActor constructor is functional
+ * @post - none;
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest27()
+ {
+  RPGActor a = new RPGActor();
+  a.setDefenseModifier(6);
+  return(a.m_defModifier==5);
+ }
+
+ /**
+ * Test ensures that setDefenseModifier sets m_defModifier appropriately if given a good value
+ * @precondition - setDefenseModifier() has definition and RPGActor constructor is functional
+ * @post - none;
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest28()
+ {
+   RPGActor a = new RPGActor();
+   a.setDefenseModifier(3);
+   return(a.m_defModifier==3);
+ }
+
+ /**
+ * Test ensures that setDefenseModifier sets m_defModifer to 0 if given a bad value less than zero
+ * @precondition - setDefenseModifier() has definition and RPGActor constructor is functional
+ * @post - none;
+ * @return true if passed false else
+ */
+ public boolean RGPActorTest29()
+ {
+   RPGActor a = new RPGActor();
+   a.setDefenseModifier(-123);
+   return(a.m_defModifier==0);
+ }
 }
