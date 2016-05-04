@@ -325,7 +325,7 @@ public class RPGActor extends Actor
 	}
 
     /**
-     * This function returns the Item m_equippeArmor
+     * This function returns the Item m_equippedArmor
      * @precondition - Actor Object exists
      * @post - none
      * @return m_equippedArmor
@@ -902,5 +902,315 @@ public class RPGActor extends Actor
    RPGActor a = new RPGActor();
    a.setDefenseModifier(-123);
    return(a.m_defModifier==0);
+ }
+
+ /**
+ * Test ensures that getEquippedSword() function returns the correct Item
+ * @precondition - getEquippedSword() function has definition and can interface with item class
+ * @post - none;
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest30()
+ {
+   RPGActor a = new RPGActor();
+   Item[] itemArray = Item.getAllItems();
+   a.m_equippedSword=itemArray[8];
+   return(a.getEquippedSword()==itemArray[8]);
+ }
+
+ /**
+ * Test ensures that equipSword() function equips an item in the case that that item is of the correct type
+ * @precondition - equipSword has definition and is compatable with item class
+ * @post - none;
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest31()
+ {
+   RPGActor a = new RPGActor();
+   Item[] itemArray = Item.getAllItems();
+   a.equipSword(itemArray[14]);//good item passed in
+   return(a.m_equippedSword==itemArray[14]);
+ }
+
+ /**
+ * Test ensures that equipSword() function does not equip an item that is not of the right type
+ * @precondition - equipSword() has definition and is compatable with item class
+ * @post - none;
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest32()
+ {
+   RPGActor a = new RPGActor();
+   Item[] itemArray = Item.getAllItems();
+   a.equipSword(itemArray[14]);//good item passed in that should be accepted
+   a.equipSword(itemArray[15]);//bad item passed in that should be rejected
+   return(a.m_equippedSword==itemArray[14]);//checks that the good item is equipped which means the bad item was ignored
+ }
+
+ /**
+ * Test ensures that getEquippedShield() function returns correct value
+ * @precondition - getEquippedShield() has definition, is compatable with item class, and RPGActor constructor works
+ * @post - none;
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest33()
+ {
+   RPGActor a = new RPGActor();
+   Item[] itemArray = Item.getAllItems();
+   a.m_equippedShield=itemArray[15];
+   return(a.getEquippedShield()==itemArray[15]);
+ }
+
+ /**
+ * test ensures taht equipShield() method equips an item if it is of the right type
+ * @precondition - equipShield() has definiton, is compatable with item class, and RPGActor constructor works
+ * @post - none;
+ * @ return true if passed false else
+ */
+ public boolean RPGActorTest34()
+ {
+   RPGActor a = new RPGActor();
+   Item[] itemArray = Item.getAllItems();
+   a.equipShield(itemArray[15]);
+   return(a.m_equippedShield==itemArray[15]);
+ }
+
+ /**
+ * test ensures that equipShield() method does not equip an item if it is of the wrong type
+ * @precondition - equipShield() has definition, is compatable with item calss and RPGActor constructor works
+ * @post - none;
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest35()
+ {
+   RPGActor a = new RPGActor();
+   Item[] itemArray = Item.getAllItems();
+   a.equipShield(itemArray[15]);//good item passed that should be accepted
+   a.equipShield(itemArray[14]);//bad item passed that shoud be rejected
+   return(a.m_equippedShield==itemArray[15]);
+ }
+
+ /**
+ * test ensures that getEquippedArmor returns the correct value
+ * @precondition - getEquippedArmor() has definiton, is compatable with item class, and RPGActor constructor works
+ * @post - none;
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest36()
+ {
+   RPGActor a = new RPGActor();
+   Item[] itemArray = Item.getAllItems();
+   a.m_equippedArmor = itemArray[16];//sets equipped armor to good value
+   return(a.getEquippedArmor()==itemArray[16]);
+ }
+
+ /**
+ * test ensures that equipArmor() equips an item if it is of the right type
+ * @precondition - equipArmor() has definition, is compatable with item class, and RPGActor constructor works
+ * @post - none;
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest37()
+ {
+   RPGActor a = new RPGActor();
+   Item[] itemArray = Item.getAllItems();
+   a.equipArmor(itemArray[16]);
+   return(a.m_equippedArmor==itemArray[16]);
+ }
+
+ /**
+ * test ensures that equipArmor() equips fails to equip an item if it is of the wrong type
+ * @precondition - equipArmor() has definition, is compatable with item class, and RPGActor constructor works
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest38()
+ {
+   RPGActor a = new RPGActor();
+   Item[] itemArray = Item.getAllItems();
+   a.equipArmor(itemArray[16]);//good item should be accepted
+   a.equipArmor(itemArray[14]);//bad item should be rejected
+   return(a.m_equippedArmor==itemArray[16]);
+ }
+
+ /**
+ * test ensures that getEquippedHelmet returns the correct value
+ * @precondition - getEquippedHemlet()  has definition, is compatable with item class, and RPGActor constructor works
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest39()
+ {
+   RPGActor a = new RPGActor();
+   Item[] itemArray = Item.getAllItems();
+   a.m_equippedHelmet = itemArray[17];
+   return(a.getEquippedHelmet()==itemArray[17]);
+ }
+
+ /**
+ * test ensures that equipHelmet() equips an item if it is of the right type
+ * @precondition - equipHelmet() has definition, is compatable with item class, and RPGActor contructor works
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest40()
+ {
+   RPGActor a = new RPGActor();
+   Item[] itemArray = Item.getAllItems();
+   a.equipHelmet(itemArray[17]);
+   return(a.m_equippedHelmet==itemArray[17]);
+ }
+
+ /**
+ * test ensures that equipHelmet() rejects an item of the wrong type
+ * @precondition - equipHelmet() has definition, is compatable with item class, and RPGActor constructor works
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest41()
+ {
+   RPGActor a = new RPGActor();
+   Item[] itemArray = Item.getAllItems();
+   a.equipHelmet(itemArray[17]);//good item should be accepted
+   a.equipHelmet(itemArray[16]);
+   return(a.m_equippedHelmet==itemArray[17]);
+ }
+
+ /**
+ * test ensures that getDescription returns m_description
+ * @precondition - getDescritpion() has definition, RPGActor has working constructor
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest42()
+ {
+   RPGActor a = new RPGActor();
+   a.m_description="asdf";
+   return(a.getDescription().equals("asdf"));
+ }
+
+ /**
+ * test ensures that setDescription sets properly
+ * @precondition - setDescription() has definition, RPGActor has working constructor
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest43()
+ {
+   RPGActor a = new RPGActor();
+   a.setDescription("asdf");
+   return(a.m_description.equals("asdf"));
+ }
+
+ /**
+ * test ensures that getEquippedGauntlets returns the correct value
+ * @precondition - getEquippedGauntlets has definition that is compatable with item class, and RPGActor constructor works
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest44()
+ {
+   RPGActor a = new RPGActor();
+   Item[] itemArray = Item.getAllItems();
+   a.m_equippedGauntlets==itemArray[18];
+   return(a.getEquippedGauntlets()==itemArray[18]);
+ }
+
+ /**
+ * test ensures that equipGauntlets() equips items of the right type
+ * @precondition - equipGauntlets() has definition that works with item, RPGActor has working constructor
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest45()
+ {
+   RPGActor a = new RPGActor();
+   Item[] itemArray = Item.getAllItems();
+   a.equipGauntlets(itemArray[18]);
+   return(a.m_equippedGauntlets==itemArray[18]);
+ }
+
+ /**
+ * test ensures that equipGauntlets() fails to equip items of the wrong type
+ * @precondition - equipGauntlets() has definition that works with item, RPGActor has working constructor
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest46()
+ {
+   RPGActor a = new RPGActor();
+   Item[] itemArray = Item.getAllItems();
+   a.equipGauntlets(itemArray[18]);
+   a.equipGauntlets(itemArray[14]);
+   return(a.m_equippedGauntlets==itemArray[18]);
+ }
+
+ /**
+ * test ensures that getBoots returns the correct value
+ * @precondition - getBoots() has working definition and RPGActor has working constructor
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest47()
+ {
+   RPGActor a = new RPGActor();
+   Item[] itemArray = Item.getAllItems();
+   a.m_equippedBoots = itemArray[19];
+   return(a.getEquippedBoots()==itemArray[19]);
+ }
+
+ /**
+ * test ensures that equipBoots() properly equipps an item of the right type
+ * @precondition - equipBoots() has working definition and RPGActor has woking constructor
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest48()
+ {
+   RPGActor a = new RPGActor();
+   Item[] itemArray = Item.getAllItems();
+   a.equipBoots(itemArray[19]);
+   return(a.m_equippedBoots==itemArray[19]);
+ }
+
+ /**
+ * test ensures that equipBoots() rejects item of incorrect type
+ * @precondition - equipBoots() has working definition and RPGActor has working constructor
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest49()
+ {
+   RPGActor a = new RPGActor();
+   Item[] itemArray = Item.getAllItems();
+   a.equipBoots(itemArray[19]);
+   a.equipBoots(itemArray[18]);
+   return(a.m_equippedBoots==itemArray[19]);
+ }
+
+ /**
+ * test ensures that reduceHp works properly if the actor does not die
+ * @precondition - instance of RPGActor
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest50()
+ {
+    RPGActor a = new RPGActor();
+    a.m_curHp=100;
+    return(!reduceHp(53)&&a.m_curHp==47);
+ }
+
+ /**
+ * test ensures that reduceHp works properly if the actor dies
+ * @precondition - instance of RPGActor
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest51()
+ {
+   RPGActor a = new RPGActor();
+   a.m_curHp=100;
+   return(reduceHp(101));
  }
 }
