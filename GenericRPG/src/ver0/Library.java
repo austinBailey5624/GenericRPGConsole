@@ -220,7 +220,7 @@ public class Library
 			System.out.println("You can't afford to learn that Skill!");
 			return;
 		}
-<<<<<<< HEAD
+
 		else if(character.getEquippedSword() != null)
 		{
 			if((skillIndex == 1)&&((character.getEquippedSword()).getName()!= "birch wand"))
@@ -272,8 +272,7 @@ public class Library
 				return;
 			}
 		}
-||||||| merged common ancestors
-=======
+
 		else if(character.getEquippedSword() != null)
 		{
 			if((skillIndex == 1)&&((character.getEquippedSword()).getName()!= "birch wand"))
@@ -317,7 +316,7 @@ public class Library
 				return;
 			}
 		}
->>>>>>> 4586fc2fa88335214c6eef5d44c6fe6c4b428d39
+
 		else if(character.m_skillSet[skillIndex]==true)
 		{
 			System.out.println("You alreay know that skill!");
