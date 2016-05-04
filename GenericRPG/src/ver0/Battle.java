@@ -43,8 +43,8 @@ public class Battle
 	 * @post players hitpoints, gold, current exp, and potion quantity might be changed. Many, many messages will be printed to the console
 	 * @return True if player survives the battle, false if the player dies
 	 */
-	public boolean actorBattle(Party party, PlayerActor player, EnemyActor npc)//TODO add more output to user when using skills
-	//TODO make return int depending on ending of battle conditions 0--player won, 1--player dies --2 player ran away 
+	public int actorBattle(Party party, PlayerActor player, EnemyActor npc)//TODO add more output to user when using skills
+	//return int depending on ending of battle conditions 0--player won, 1--player dies --2 player ran away 
 	{
 		String in;
 		int choice=0;
@@ -77,7 +77,14 @@ public class Battle
 					m_skillSet[0].Execute(player, npc);
 					int temphp2=npc.getCurHp();
 					int difference=temphp1-temphp2;
-					System.out.println(player.getName()+" attacks "+npc.getName()+" with a "+player.getEquippedSword().getName()+", dealing "+difference+" damage!\n");
+					if(player.getEquippedSword()== null)
+					{
+						System.out.println(player.getName()+" attacks "+npc.getName()+" with no sword, dealing "+difference+" damage!\n");
+					}
+					else
+					{
+						System.out.println(player.getName()+" attacks "+npc.getName()+" with a "+player.getEquippedSword().getName()+", dealing "+difference+" damage!\n");
+					}
 				}
 				else if (choice==2) //TODO handle when skill does not target enemy, adjust effects for single battle
 				{
@@ -97,7 +104,7 @@ public class Battle
 					{
 						if (player.getSkillset()[skillChoice]==true)
 						{
-								m_skillSet[skillChoice].Execute(player, npc);
+								m_skillSet[skillChoice].Execute(player, npc); //TODO once austin implements accuracy, check if skill hit or not
 						}
 						else
 						{
@@ -217,7 +224,14 @@ public class Battle
 					m_skillSet[0].Execute(player, npc);
 					int temphp2=npc.getCurHp();
 					int difference=temphp1-temphp2;
-					System.out.println(player.getName()+" attacks "+npc.getName()+" with a "+player.getEquippedSword().getName()+", dealing "+difference+" damage!\n");
+					if(player.getEquippedSword() == null)
+					{
+						System.out.println(player.getName()+" attacks "+npc.getName()+" with no sword , dealing "+difference+" damage!\n");
+					}
+					else
+					{
+						System.out.println(player.getName()+" attacks "+npc.getName()+" with a "+player.getEquippedSword().getName()+", dealing "+difference+" damage!\n");
+					}
 					playerMistake=false;
 				}
 				else if (choice==2)
@@ -335,7 +349,7 @@ public class Battle
 		if (ranAway)
 		{
 			System.out.println("You successfully ran away!");
-			return true;
+			return 2;
 		}
 		if(determineVictor(player,npc)==player)
 		{
@@ -344,13 +358,13 @@ public class Battle
 			player.setCurHp(player.getMaxHp());
 			npc.setCurHp(npc.getMaxHp());
 			System.out.println("\nCongrats on the victory! You recieved "+npc.getDefeatGold()+"gold, and "+npc.getDefeatExp()+" experience");
-			return true;
+			return 0;
 		}
 		else
 		{
 			player.setCurHp(player.getMaxHp());
 			npc.setCurHp(npc.getMaxHp());
-			return false;
+			return 1;
 		}
 	}
 	
@@ -366,7 +380,14 @@ public class Battle
 		m_skillSet[0].Execute(npc,curPlayer);
 		int newHp=curPlayer.getCurHp();
 		int damage=curHp-newHp;
-		System.out.println(npc.getName()+" attacks "+curPlayer.getName()+" with a "+npc.getEquippedSword().getName()+", dealing "+damage+" damage!\n");
+		if(npc.getEquippedSword() != null)
+		{
+			System.out.println(npc.getName()+" attacks "+curPlayer.getName()+" with a "+npc.getEquippedSword().getName()+", dealing "+damage+" damage!\n");
+		}
+		else
+		{
+			System.out.println(npc.getName()+" attacks "+curPlayer.getName()+" with fists "+", dealing "+damage+" damage!\n");
+		}
 	}
 	
 	/**
@@ -375,7 +396,7 @@ public class Battle
 	 * @post none
 	 * @return True if s is an int, otherwise false
 	 */
-	private boolean verifyInt(String s)
+	public boolean verifyInt(String s)
 	{
 		try
 		{
@@ -399,6 +420,7 @@ public class Battle
 	public void groupBattle(Actor[] goodguys, Actor[] badguys)//TODO complete group battle method
 	{
 		//will be filled in later
+		//TODO make mikes aoe magic attack affect all enemies in enemy party
 	}
 	
 	/**
@@ -408,7 +430,7 @@ public class Battle
 	 * @post none
 	 * @return true if either actor passed in have 0 hitpoints left. otherwise false
 	 */
-	private boolean isBattleOver(Actor a1, Actor a2)
+	public boolean isBattleOver(Actor a1, Actor a2)
 	{
 		if (a1.getCurHp()<=0 || a2.getCurHp()<=0)
 		{
@@ -424,7 +446,7 @@ public class Battle
 	 * @post none
 	 * @return Int that has value inclusively between min and max
 	 */
-	private int randomNumber(int min, int max)
+	public int randomNumber(int min, int max)
 	{
 		return r.nextInt(max-min+1)+min;
 	}
@@ -470,7 +492,7 @@ public class Battle
 	 * @post none
 	 * @return True if player has 1 single potion in either of their three inventory slots, otherwise false
 	 */
-	private boolean potionsAvailable(Party p1)
+	public boolean potionsAvailable(Party p1)
 	{
 		int[] playerInventory=p1.getInventory();
 		if (playerInventory[7]>0 || playerInventory[20]>0 || playerInventory[27]>0)
@@ -519,7 +541,7 @@ public class Battle
 	 * 		 will be decremented accordingly. Messages printed to console
 	 * @return none
 	 */
-	private void usePotion(int choice)
+	public void usePotion(int choice)
 	{
 		if (choice==1)
 		{
@@ -566,7 +588,7 @@ public class Battle
 	 * @post none
 	 * @return Actor who's HP is not currently 0
 	 */
-	private Actor determineVictor(Actor a1, Actor a2)
+	public Actor determineVictor(Actor a1, Actor a2)
 	{
 		if (a1.getCurHp()<0)
 		{

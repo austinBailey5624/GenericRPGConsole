@@ -9,15 +9,18 @@ public class Actor
 	private int m_maxHp;//max Hit Points
 	private int m_curHp;//current Hit Points
 	private int m_atk;
+	private int m_matk;
 	private double m_atkModifier;
+	private double m_matkModifier;
 	private int m_def;
+	private int m_mdef;
 	private double m_defModifier;
+	private double m_mdefModifier;
 	private Item m_equippedSword;
 	private Item m_equippedShield;
 	private Item m_equippedArmor;
 	private Item m_equippedHelmet;
-	private Item m_equippedBoots;
-	private Item m_equippedGauntlets;
+	protected int[] m_status;
 	protected boolean[] m_skillSet;
 	//Constructors
 	public Actor()//default constructor
@@ -27,25 +30,22 @@ public class Actor
 		m_maxHp=100;
 		m_curHp=100;
 		m_atk=10;
+		m_matk=10;
 		m_atkModifier=1;
+		m_matkModifier=1;
 		m_def=10;
+		m_mdef=10;
 		m_defModifier=1;
+		m_mdefModifier=1;
+		m_status=new int[4];
+		for(int i=0;i<m_status.length;i++)
+		{
+			m_status[i]=0;
+		}
 
-		equipSword(itemArray[8]);
-		equipShield(itemArray[9]);
-		equipArmor(itemArray[10]);
-		equipHelmet(itemArray[11]);
-		equipGauntlets(itemArray[12]);
-		equipBoots(itemArray[13]);
 		setAttackModifier(1);
 		setDefenseModifier(1);
 
-		equipSword(itemSet[8]);
-		equipShield(itemSet[9]);
-		equipArmor(itemSet[10]);
-		equipHelmet(itemSet[11]);
-		equipBoots(itemSet[13]);
-		equipGauntlets(itemSet[12]);
 
 		m_skillSet=new boolean[Skill.getNumOfSkillsTotal()];
 		for(int i=0; i<Skill.getNumOfSkillsTotal();i++)
@@ -178,6 +178,28 @@ public class Actor
 		m_atk=Atk;
 	}
 	
+	/**
+	 * This function gets the value of m_matk
+	 * @precondition -	Actor Object Exists with a set value for m_matk
+	 * @postcondition - member variables unchanged
+	 * @return -		The value of m_matk
+	 */
+	public int getMatk()
+	{
+		return m_matk;
+	}
+	
+	/**
+	 * This function sets the value of m_matk
+	 * @precondition - 	Actor Object Exists
+	 * @postcondition - sets m_matk to parameter
+	 * @return -		void
+	 */
+	public void setMatk(int matk)
+	{
+		m_matk=matk;
+	}
+	
     /**
      * This function returns the value of m_atkModifier
      * @precondition - Actor Object exists
@@ -211,6 +233,28 @@ public class Actor
 		}
 	}
 	
+	/**
+	 * This function returns the value of m_matkModifier
+	 * @precondition - 	Actor object exists with initialized value for m_matkModifier
+	 * @postcondition - Does not change member variables
+	 * @return -		m_matkModifier
+	 */
+	public double getMatkModifier()
+	{
+		return m_matkModifier;
+	}
+	
+	/**
+	 * This function sets the value of m_matkModifier
+	 * @precondition - 	Actor object exists
+	 * @postcondition - Sets m_matkModifier to parameter
+	 * @return - 		void
+	 */
+	public void setMatkModifier(double matkModifier)
+	{
+		m_matkModifier=matkModifier;
+	}
+	
     /**
      * This function returns the value of m_def
      * @precondition - Actor Object exists
@@ -231,6 +275,28 @@ public class Actor
 	public void setDef(int Def)
 	{
 		m_def=Def;
+	}
+	
+	/**
+	 * This function returns the value of m_mdef
+	 * @precondition - 	Actor Object exists with set m_mdef
+	 * @postcondition - does not change member variables
+	 * @return - 		m_mdef
+	 */
+	public int getMdef()
+	{
+		return m_mdef;
+	}
+	
+	/**
+	 * This function sets the value of m_mdef
+	 * @precondition - 	Actor Object exists
+	 * @postcondition - sets m_mdef to parameter mdef
+	 * @return -		void
+	 */
+	public void setMdef(int mdef)
+	{
+		m_mdef=mdef;
 	}
 	
     /**
@@ -266,6 +332,28 @@ public class Actor
 		}
 	}
 	
+	/**
+	 * This function returns the value of m_mdefModifer
+	 * @precondition - 	Actor object exists with set value for m_mdefModifier
+	 * @postcondition -	does not change member variables
+	 * @return - 		m_mdefModifier
+	 */
+	public double getMdefModifier()
+	{
+		return m_mdefModifier;
+	}
+	
+	/**
+	 * This function sets the value of m_mdefModifier
+	 * @precondition - 	Actor object exists
+	 * @postcondition - sets m_mdefModifier to parameter
+	 * @return - 		void
+	 */
+	public void setMdefModifier(double mdefModifier)
+	{
+		m_mdefModifier=mdefModifier;
+	}
+	
     /**
      * This function returns the Item m_equippedSword
      * @precondition - Actor Object exists
@@ -283,15 +371,23 @@ public class Actor
      * @post - sets m_equippedSword to parameter Item sword if the item is a sword, else prints message "Cannot equip that in the sword slot!"
      * @return void
      */
-	public void equipSword(Item sword)
+	public void equipSword(Item weapon)
 	{
-		if(sword.getType()==1)
+		if(weapon.getType()==1)
 		{
-			m_equippedSword=sword;
+			m_equippedSword=weapon;
+		}
+		else if(weapon.getType()==5)
+		{
+			m_equippedSword=weapon;
+		}
+		if((weapon.getType()==6)&&(m_equippedArmor==null))
+		{
+			m_equippedSword=weapon;
 		}
 		else
 		{
-			System.out.println("Cannot equip that in the sword slot!");
+			System.out.println("Cannot equip that in the weapon slot!");
 		}
 	}
 	
@@ -388,10 +484,10 @@ public class Actor
      * @post - none
      * @return m_equippedGauntlets
      */
-	public Item getEquippedGauntlets()
-	{
-		return m_equippedGauntlets;
-	}
+//	public Item getEquippedGauntlets()
+//	{
+//		return m_equippedGauntlets;
+//	}
 	
     /**
      * This function attempts to set the Item m_equippedGauntlets to the parameter Item gauntlets
@@ -399,17 +495,17 @@ public class Actor
      * @post - sets m_equippedGauntlets to parameter Item gauntlets if the item is a gauntlets, else prints message "Cannot equip that in the Gauntlet slot!"
      * @return void
      */
-	public void equipGauntlets(Item gauntlets)
-	{
-		if(gauntlets.getType()==5)
-		{
-			m_equippedGauntlets=gauntlets;
-		}
-		else
-		{
-			System.out.println("Cannot equip that in the Gauntlet slot!");
-		}
-	}
+//	public void equipGauntlets(Item gauntlets)
+//	{
+//		if(gauntlets.getType()==5)
+//		{
+//			m_equippedGauntlets=gauntlets;
+//		}
+//		else
+//		{
+//			System.out.println("Cannot equip that in the Gauntlet slot!");
+//		}
+//	}
 	
 	/**
 	 * This function returns the value of m_description
@@ -439,10 +535,10 @@ public class Actor
      * @post - none
      * @return m_equippedBoots
      */
-	public Item getEquippedBoots()
-	{
-		return m_equippedBoots;
-	}
+//	public Item getEquippedBoots()
+//	{
+//		return m_equippedBoots;
+//	}
 	
     /**
      * This function attempts to set the Item m_equippedBoots to the parameter Item boots
@@ -450,17 +546,17 @@ public class Actor
      * @post - sets m_equippedBoots to parameter Item Boots if the items are boots, else prints message "Cannot equip that in the Boots slot!"
      * @return void
      */
-	public void equipBoots(Item boots)
-	{
-		if(boots.getType()==6)
-		{
-			m_equippedBoots=boots;
-		}
-		else
-		{
-			System.out.println("Cannot equip that in the Boots slot!");
-		}
-	}
+//	public void equipBoots(Item boots)
+//	{
+//		if(boots.getType()==6)
+//		{
+//			m_equippedBoots=boots;
+//		}
+//		else
+//		{
+//			System.out.println("Cannot equip that in the Boots slot!");
+//		}
+//	}
 	
 	//Battle Methods
     /**
@@ -502,7 +598,14 @@ public class Actor
      */
 	public int getAttackFighter()
 	{
-		return ((int)((getAtk()+m_equippedSword.getBonusAtk()+m_equippedShield.getBonusAtk()+m_equippedHelmet.getBonusAtk()+m_equippedBoots.getBonusAtk() + m_equippedGauntlets.getBonusAtk())*getAtkModifier()));		
+		if((m_equippedSword != null)&&(m_equippedShield != null)&&(m_equippedHelmet != null)&&(m_equippedArmor != null))
+		{
+			return ((int)((getAtk()+m_equippedSword.getBonusAtk()+m_equippedShield.getBonusAtk()+m_equippedHelmet.getBonusAtk()+m_equippedArmor.getBonusAtk())*getAtkModifier()));		
+		}
+		else
+		{
+			return (getAtk());
+		}
 	}
 	
     /**
@@ -513,6 +616,49 @@ public class Actor
      */
 	public int getDefenseFighter()
 	{
-		return ((int)((getDef()+m_equippedSword.getBonusDef()+m_equippedShield.getBonusDef()+m_equippedHelmet.getBonusDef()+m_equippedBoots.getBonusDef()+m_equippedGauntlets.getBonusDef())*getDefModifier()));
+		if((m_equippedSword != null)&&(m_equippedShield != null)&&(m_equippedHelmet != null)&&(m_equippedArmor != null))
+		{
+			return ((int)((getDef()+m_equippedSword.getBonusDef()+m_equippedShield.getBonusDef()+m_equippedHelmet.getBonusDef()+m_equippedArmor.getBonusDef())*getDefModifier()));
+		}
+		else
+		{
+			return (getDef());
+		}
+	}
+	
+	/**
+	 * Returns the mAtk value to be used by battle methods that includes modifiers from all items
+	 * @precondition -	Actor Object exists
+	 * @postcondition -	does not change member variables
+	 * @return -		m_matk plus bonus matk from all equipped items
+	 */
+	public int getMAttackFighter()
+	{
+		if(m_equippedSword == null)
+		{
+			return((int)((getMatk())*getMatkModifier()));
+		}
+		else
+		{
+			return((int)((getMatk()+m_equippedSword.getBonusMAtk()+m_equippedShield.getBonusMAtk()+m_equippedHelmet.getBonusMAtk())*getMatkModifier()));
+		}
+	}
+	
+	/**
+	 * Returns the mDef value to be used by battle methods that includes modifier from all relevant items
+	 * @precondition - 	Actor Object exists
+	 * @postcondition - does not change member variables
+	 * @return - 		m_def plus bonus mdef from all equipped items
+	 */
+	public int getMDefenseFighter()
+	{
+		if(m_equippedSword == null)
+		{
+			return((int)((getMdef())*getMdefModifier()));
+		}
+		else
+		{
+			return((int)((getMdef()+m_equippedSword.getBonusMDef()+m_equippedShield.getBonusDef()+m_equippedHelmet.getBonusMDef())*getMdefModifier()));
+		}
 	}
 }
