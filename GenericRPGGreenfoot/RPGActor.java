@@ -2,8 +2,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class RPGActor here.
- * 
- * @author (your name) 
+ *
+ * @author (your name)
  * @version (a version number or a date)
  */
 public class RPGActor extends Actor
@@ -25,7 +25,7 @@ public class RPGActor extends Actor
 	private Item m_equippedBoots;
 	private Item m_equippedGauntlets;
 	protected boolean[] m_skillSet;
-	
+
 	//Constructors
 	public RPGActor()//default constructor
 	{
@@ -47,22 +47,15 @@ public class RPGActor extends Actor
 		setAttackModifier(1);
 		setDefenseModifier(1);
 
-		equipSword(itemSet[8]);
-		equipShield(itemSet[9]);
-		equipArmor(itemSet[10]);
-		equipHelmet(itemSet[11]);
-		equipBoots(itemSet[13]);
-		equipGauntlets(itemSet[12]);
-
 		m_skillSet=new boolean[Skill.getNumOfSkillsTotal()];
 		for(int i=0; i<Skill.getNumOfSkillsTotal();i++)
 		{
-			m_skillSet[i]=false; 
+			m_skillSet[i]=false;
 		}
 		m_skillSet[0]=true;//sets the basic attack skill to true to ensure that it is avaliable to all
 	}
-	
-	
+
+
 	//Setters and Getters
     /**
      * This function returns the value of m_skillSet
@@ -74,7 +67,7 @@ public class RPGActor extends Actor
 	{
 		return m_skillSet;
 	}
-	
+
     /**
      * This function returns the value of m_name
      * @precondition - Actor Object exists
@@ -85,7 +78,7 @@ public class RPGActor extends Actor
 	{
 		return m_name;
 	}
-	
+
     /**
      * This function sets the value of m_name
      * @precondition - Actor Object exists
@@ -96,7 +89,7 @@ public class RPGActor extends Actor
 	{
 		m_name=name;
 	}
-	
+
     /**
      * This function returns the value of m_level
      * @precondition - Actor Object exists
@@ -107,7 +100,7 @@ public class RPGActor extends Actor
 	{
 		return m_level;
 	}
-	
+
     /**
      * This function sets the value of m_level
      * @precondition - Actor Object exists
@@ -118,7 +111,7 @@ public class RPGActor extends Actor
 	{
 		m_level=level;
 	}
-	
+
     /**
      * This function returns the value of m_maxHp
      * @precondition - Actor Object exists
@@ -129,7 +122,7 @@ public class RPGActor extends Actor
 	{
 		return m_maxHp;
 	}
-	
+
     /**
      * This function sets the value of m_maxHp
      * @precondition - Actor Object exists
@@ -140,7 +133,7 @@ public class RPGActor extends Actor
 	{
 		m_maxHp=maxHP;
 	}
-	
+
     /**
      * This function returns the value of m_CurHp
      * @precondition - Actor Object exists
@@ -151,7 +144,7 @@ public class RPGActor extends Actor
 	{
 		return m_curHp;
 	}
-	
+
     /**
      * This function sets the value of m_CurHp
      * @precondition - Actor Object exists
@@ -162,7 +155,7 @@ public class RPGActor extends Actor
 	{
 		m_curHp=curHp;
 	}
-	
+
     /**
      * This function returns the value of m_atk
      * @precondition - Actor Object exists
@@ -173,7 +166,7 @@ public class RPGActor extends Actor
 	{
 		return m_atk;
 	}
-	
+
     /**
      * This function sets the value of m_atk
      * @precondition - Actor Object exists
@@ -184,7 +177,7 @@ public class RPGActor extends Actor
 	{
 		m_atk=Atk;
 	}
-	
+
     /**
      * This function returns the value of m_atkModifier
      * @precondition - Actor Object exists
@@ -195,7 +188,7 @@ public class RPGActor extends Actor
 	{
 		return m_atkModifier;
 	}
-	
+
     /**
      * This function sets the value of m_atkModifier
      * @precondition - Actor Object exists
@@ -217,7 +210,7 @@ public class RPGActor extends Actor
 			m_atkModifier=AttackModifier;
 		}
 	}
-	
+
     /**
      * This function returns the value of m_def
      * @precondition - Actor Object exists
@@ -228,7 +221,7 @@ public class RPGActor extends Actor
 	{
 		return m_def;
 	}
-	
+
     /**
      * This function sets the value of m_def
      * @precondition - Actor Object exists
@@ -239,7 +232,7 @@ public class RPGActor extends Actor
 	{
 		m_def=Def;
 	}
-	
+
     /**
      * This function returns the value of m_defModifier
      * @precondition - Actor Object exists
@@ -250,7 +243,7 @@ public class RPGActor extends Actor
 	{
 		return m_defModifier;
 	}
-	
+
     /**
      * This function sets the value of m_defModifier and ensures it is within an acceptable range
      * @precondition - Actor Object exists
@@ -272,7 +265,7 @@ public class RPGActor extends Actor
 			m_defModifier=DefenseModifier;
 		}
 	}
-	
+
     /**
      * This function returns the Item m_equippedSword
      * @precondition - Actor Object exists
@@ -283,7 +276,7 @@ public class RPGActor extends Actor
 	{
 		return m_equippedSword;
 	}
-	
+
     /**
      * This function attempts to set the Item m_equippedSword to the parameter Item sword
      * @precondition - Actor Object exists
@@ -301,7 +294,7 @@ public class RPGActor extends Actor
 			System.out.println("Cannot equip that in the sword slot!");
 		}
 	}
-	
+
     /**
      * This function returns the Item m_equippedShield
      * @precondition - Actor Object exists
@@ -312,7 +305,7 @@ public class RPGActor extends Actor
 	{
 		return m_equippedShield;
 	}
-	
+
     /**
      * This function attempts to set the Item m_equippedShield to the parameter Item shield
      * @precondition - Actor Object exists
@@ -330,7 +323,7 @@ public class RPGActor extends Actor
 			System.out.println("Cannot equip that in the Sheild slot!");
 		}
 	}
-	
+
     /**
      * This function returns the Item m_equippeArmor
      * @precondition - Actor Object exists
@@ -341,7 +334,7 @@ public class RPGActor extends Actor
 	{
 		return m_equippedArmor;
 	}
-	
+
     /**
      * This function attempts to set the Item m_equippedArmor to the parameter Item armor
      * @precondition - Actor Object exists
@@ -359,7 +352,7 @@ public class RPGActor extends Actor
 			System.out.println("Cannot equip that in the Armor Slot!");
 		}
 	}
-	
+
     /**
      * This function returns the Item m_equippedArmor
      * @precondition - Actor Object exists
@@ -370,7 +363,7 @@ public class RPGActor extends Actor
 	{
 		return m_equippedHelmet;
 	}
-	
+
     /**
      * This function attempts to set the Item m_equippedHelmet to the parameter Item helmet
      * @precondition - Actor Object exists
@@ -388,7 +381,7 @@ public class RPGActor extends Actor
 			System.out.println("Cannot equip that in the Helmet slot!");
 		}
 	}
-	
+
     /**
      * This function returns the Item m_equippedGauntlets
      * @precondition - Actor Object exists
@@ -399,7 +392,7 @@ public class RPGActor extends Actor
 	{
 		return m_equippedGauntlets;
 	}
-	
+
     /**
      * This function attempts to set the Item m_equippedGauntlets to the parameter Item gauntlets
      * @precondition - Actor Object exists
@@ -417,7 +410,7 @@ public class RPGActor extends Actor
 			System.out.println("Cannot equip that in the Gauntlet slot!");
 		}
 	}
-	
+
 	/**
 	 * This function returns the value of m_description
 	 * @precondition -	Actor Object Exists
@@ -428,7 +421,7 @@ public class RPGActor extends Actor
 	{
 		return m_description;
 	}
-	
+
 	/**
 	 * This function sets the value of m_description to String given
 	 * @precondition - 	Actor Object Exists
@@ -439,7 +432,7 @@ public class RPGActor extends Actor
 	{
 		m_description=given;
 	}
-	
+
     /**
      * This function returns the Item m_equippedBoots
      * @precondition - Actor Object exists
@@ -450,7 +443,7 @@ public class RPGActor extends Actor
 	{
 		return m_equippedBoots;
 	}
-	
+
     /**
      * This function attempts to set the Item m_equippedBoots to the parameter Item boots
      * @precondition - Actor Object exists
@@ -468,7 +461,7 @@ public class RPGActor extends Actor
 			System.out.println("Cannot equip that in the Boots slot!");
 		}
 	}
-	
+
 	//Battle Methods
     /**
      * This function reduces the hp of the RPGActor by the parameter int damage
@@ -483,12 +476,12 @@ public class RPGActor extends Actor
 		{
 			return false;
 		}
-		else 
+		else
 		{
 			return true;
 		}
 	}
-	
+
     /**
      * This is a container function utilizing the reduceHp function
      * @precondition - Actor Object exists
@@ -499,7 +492,7 @@ public class RPGActor extends Actor
 	{
 		return opponent.reduceHp(this.getAtk());
 	}
-	
+
 	//getters and setters for battle that have the alteration from the items in addition to the basics
     /**
      * Returns the atk value to be used by battle methods that includes modifiers from all items
@@ -509,9 +502,9 @@ public class RPGActor extends Actor
      */
 	public int getAttackFighter()
 	{
-		return ((int)((getAtk()+m_equippedSword.getBonusAtk()+m_equippedShield.getBonusAtk()+m_equippedHelmet.getBonusAtk()+m_equippedBoots.getBonusAtk() + m_equippedGauntlets.getBonusAtk())*getAtkModifier()));		
+		return ((int)((getAtk()+m_equippedSword.getBonusAtk()+m_equippedShield.getBonusAtk()+m_equippedHelmet.getBonusAtk()+m_equippedBoots.getBonusAtk() + m_equippedGauntlets.getBonusAtk())*getAtkModifier()));
 	}
-	
+
     /**
      * Returns the def value to be used by the battle methods that includes modifiers from all items
      * @precondition - Actor Object exists
@@ -522,4 +515,160 @@ public class RPGActor extends Actor
 	{
 		return ((int)((getDef()+m_equippedSword.getBonusDef()+m_equippedShield.getBonusDef()+m_equippedHelmet.getBonusDef()+m_equippedBoots.getBonusDef()+m_equippedGauntlets.getBonusDef())*getDefModifier()));
 	}
+
+  /**
+  * Tests Actor constructor base values for m_level, m_maxHp, m_curHp, m_atk, m_atkModifier, m-def, and m_defModifier
+  * @precondition - Actor constructor exists
+  * @post - none
+  * @return true if passed false else
+  */
+  public boolean RPGActorTest1()
+  {
+    RPGActor a = new RPGActor();
+    return((a.m_level==1)&&(a.m_maxHp==100)&&(a.m_curHp==100)&&(a.m_atk==10)&&(a.m_atkModifier==1)&&(a.m_def==10)&&(m_defModifier==1));
+  }
+
+  /**
+ * Tests Actor constructor and equip Sword
+ * @precondition - Actor constructor and equipSword() works
+ * @post - 		none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest2()
+ {
+   Item[] itemArray = Item.getAllItems();
+   RPGActor a=new RPGActor();
+   return (a.m_equippedSword==itemArray[8]);
+ }
+
+ /**
+ * Tests Actor constructor and equipShield()
+ * @precondition - Actor constructor and equipSword() works
+ * @post -         none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest3()
+ {
+   Item[] itemArray = Item.getAllItems();
+   RPGActor a = new RPGActor();
+   return (a.m_equippedShield==itemArray[9]);
+ }
+
+
+ /**
+ * Tests Actor constructor and equipArmor()
+ * @precondition - Actor object is functional
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest4()
+ {
+   Item[] itemArray = Item.getAllItems();
+   RPGActor a = new RPGActor()
+   return (a.m_equippedShield==itemArray[10];
+ }
+
+ /**
+ * Tests Actor constructor and equipHelmet()
+ * @precondition - Actor constructor and equipHelmet() works
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest5()
+ {
+   Item[] itemArray = Item.getAllItems();
+   RPGActor a = new RPGActor();
+   return (a.m_equippedHelmet==itemArray[11]);
+ }
+
+ /**
+ * Tests Actor constructor and equipGauntlets()
+ * @precondition - Actor constructor and equipHelmet() works
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest6()
+ {
+   Item[] itemArray = Item.getAllItems();
+   RPGActor a = new RPGActor();
+   return (a.m_equippedGauntlets(itemArray[12]))
+ }
+
+ /**
+ * Tests that RPGActor member array m_skillset is of proper length
+ * @precondition - Actor constructor assigns value to m_skillset
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest7()
+ {
+   RPGActor a = new RPGActor();
+   return (a.m_skillset.length==Skill.getNumOfSkillsTotal());
+ }
+
+ /**
+ * Tests that RPGActor member array m_skillset has proper starting values
+ * @precondition - Actor consturctor assigns m_skillset of proper length
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest8()
+ {
+   RPGActor a = new RPGActor();
+   if(a.m_skillset.length!=Skill.getNumOfSkillsTotal())
+   {
+     return false;
+   }
+   if(a.m_skillset[0]==false)
+   {
+     return false;
+   }
+   for(int i=1; i<Skill.getNumOfSkillsTotal();i++)
+   {
+     if(m_skillset[i]==true)
+     {
+       return false;
+     }
+   }
+   return true;
+ }
+
+ /**
+ * Tests that member method getSkillset() works
+ * @precondition - getSkillset() has method definition and RPGActor constructor works
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest9()
+ {
+   RPGActor a = new RPGActor();
+   return(a.m_skillset==a.getSkillset());
+ }
+
+ /**
+ * Tests that member method getName() works
+ * @precondition - getName() has method definition and RPGActor consturctor works
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest10()
+ {
+   RPGActor a = new RPGActor();
+   a.m_name = "bob";
+   return(a.m_name.equals(a.getName()));
+ }
+
+ /**
+ * Tests that member method setName() works
+ * @precondition - setName() has method definition and RPGActor constructor works
+ * @post - none
+ * @return ture if passed false else
+ */
+ public boolean RPGActorTest11()
+ {
+   RPGActor a = new RPGActor();
+   a.m_name="sue";//prevents nullpointer exception in the event setName fails
+   a.m_name.setName("bob");
+   return(a.m_name.equals("bob"));
+ }
 }
