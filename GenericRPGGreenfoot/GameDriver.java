@@ -28,6 +28,8 @@ public class GameDriver extends Actor
     Town villagevilleTown = new Town(0, 3, villageville,m_party, "VillageVille");
     Town awesometownTown = new Town(0, 3, awesometown, m_party, "AwesomeTown");
     //Dungeon dungeon1D = new Dungeon(6, 1, dungeon1, m_party, "Dungeon1");
+    
+    GameWorld worldstart = (GameWorld) getWorld();
 
     //town array coordinates (x,y)
     int[] vvCoor = {6, 0};
@@ -37,6 +39,7 @@ public class GameDriver extends Actor
     boolean inWorld = true;
     boolean inArea = false;
     boolean keyPressed = false;
+    boolean transition = false;
     
     String area = "world";
     
@@ -61,7 +64,13 @@ public class GameDriver extends Actor
         }
         
         if (inWorld)
-        {
+        {           
+            if(transition)
+            {
+                transition = false;
+                world.setCurrentToPrevious();
+                Greenfoot.setWorld(worldstart);
+            }            
             w = (GameWorld) getWorld();
             
             w.getObjects(PlayerToken.class).get(0).updateLocation(world.getCurrentLoc()[0], world.getCurrentLoc()[1]);
@@ -203,6 +212,11 @@ public class GameDriver extends Actor
                             } while (inArea);
                             inArea = true;                            
                         }
+                        else if (!inArea)
+                        {
+                            inWorld = true;
+                            transition = true;
+                        }
                         
                         keyPressed = true;
                     }
@@ -219,6 +233,12 @@ public class GameDriver extends Actor
                             } while (inArea);
                             inArea = true; 
                         }
+                        else if (!inArea)
+                        {
+                            inWorld = true;
+                            transition = true;
+                        }
+                        
                         keyPressed = true;
                     }
                     else if(Greenfoot.isKeyDown("s") && villagevilleTown.validMoveCheck(2))
@@ -234,6 +254,11 @@ public class GameDriver extends Actor
                             } while (inArea);
                             inArea = true; 
                         }
+                        else if (!inArea)
+                        {
+                            inWorld = true;
+                            transition = true;
+                        }
                         keyPressed = true;
                     }
                     else if(Greenfoot.isKeyDown("d") && villagevilleTown.validMoveCheck(4))
@@ -248,6 +273,11 @@ public class GameDriver extends Actor
                                 inArea = villagevilleTown.townInteraction(villagevilleTown.getBase()[villagevilleTown.getCurrentLoc()[1]][ villagevilleTown.getCurrentLoc()[0]]);
                             } while (inArea);
                             inArea = true; 
+                        }
+                        else if (!inArea)
+                        {
+                            inWorld = true;
+                            transition = true;
                         }
                         keyPressed = true;
                     }
@@ -271,6 +301,11 @@ public class GameDriver extends Actor
                             } while (inArea);
                             inArea = true; 
                         }
+                        else if (!inArea)
+                        {
+                            inWorld = true;
+                            transition = true;
+                        }
                         keyPressed = true;
                     }
                     else if(Greenfoot.isKeyDown("a") && awesometownTown.validMoveCheck(3))
@@ -285,6 +320,11 @@ public class GameDriver extends Actor
                                 inArea = awesometownTown.townInteraction(awesometownTown.getBase()[awesometownTown.getCurrentLoc()[1]][ awesometownTown.getCurrentLoc()[0]]);
                             } while (inArea);
                             inArea = true; 
+                        }
+                        else if (!inArea)
+                        {
+                            inWorld = true;
+                            transition = true;
                         }
                         keyPressed = true;
                     }
@@ -301,6 +341,11 @@ public class GameDriver extends Actor
                             } while (inArea);
                             inArea = true; 
                         }
+                        else if (!inArea)
+                        {
+                            inWorld = true;
+                            transition = true;
+                        }
                         keyPressed = true;
                     }
                     else if(Greenfoot.isKeyDown("d") && awesometownTown.validMoveCheck(4))
@@ -315,6 +360,11 @@ public class GameDriver extends Actor
                                  inArea = awesometownTown.townInteraction(awesometownTown.getBase()[awesometownTown.getCurrentLoc()[1]][ awesometownTown.getCurrentLoc()[0]]);
                             } while (inArea);
                             inArea = true; 
+                        }
+                        else if (!inArea)
+                        {
+                            inWorld = true;
+                            transition = true;
                         }
                         keyPressed = true;
                     }
