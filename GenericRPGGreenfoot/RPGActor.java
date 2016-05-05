@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class RPGActor here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Austin Bailey
+ * @version 5/5/2016
  */
 public class RPGActor extends Actor
 {
@@ -1212,5 +1212,57 @@ public class RPGActor extends Actor
    RPGActor a = new RPGActor();
    a.m_curHp=100;
    return(reduceHp(101));
+ }
+
+ /**
+ * test ensures that basicAttack() returns false if opponent lives
+ * @precondition - two instances of RPGActor
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest52()
+ {
+   RPGActor a = new RPGActor();
+   a.m_atk=50;
+   RPGActor b = new RPGActor();
+   return(!a.basicAttack(b));
+ }
+
+ /**
+ * test ensures that basicAttack() returns true if opponent dies
+ * @precondition - two instances of RPGActor
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest53()
+ {
+   RPGActor a = new RPGActor();
+   a.m_atk=200;
+   RPGActor b = new RPGActor();
+   return(a.basicAttack(b));
+ }
+
+ /**
+ * test ensures that getAttackFighter() returns appropriately
+ * @precondition - RPGActor constructor is functional
+ * @post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest54()
+ {
+   RPGActor a = new RPGActor();
+   return(a.getAttackFighter()==((int)((a.getAtk()+a.m_equippedSword.getBonusAtk()+a.m_equippedShield.getBonusAtk()+a.m_equippedHelmet.getBonusAtk()+a.m_equippedBoots.getBonusAtk() + a.m_equippedGauntlets.getBonusAtk())*a.getAtkModifier())))
+ }
+
+ /**
+ * test ensures that getDefenseFighter() returns appropriately
+ * @precondition - RPGActor constructor is functional
+ * @post - none
+ * @return trueif passed false else
+ */
+ public boolean RPGActorTest55()
+ {
+   RPGActor a = new RPGActor();
+   return(a.getDefenseFighter()==((int)((a.getDef()+a.m_equippedSword.getBonusDef()+a.m_equippedShield.getBonusDef()+a.m_equippedHelmet.getBonusDef()+a.m_equippedBoots.getBonusDef()+a.m_equippedGauntlets.getBonusDef())*a.getDefModifier())))
  }
 }
