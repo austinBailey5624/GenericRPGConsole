@@ -3,8 +3,8 @@ import java.util.Scanner;
 /**
  * Write a description of class Library here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Austin Bailey 
+ * @version 5/6/2016
  */
 public class Library  
 {
@@ -238,6 +238,11 @@ public class Library
         }
     }
 
+	/**
+	* This function handles the bestiary part of the library, displaying information about defeated enemies
+	* @precondition:	none
+	* @postcondition:	does not alter member variables
+	* @return void*/
     public void bestiary()
     {
         EnemyActor[] enemies=EnemyActor.getEnemies();
@@ -335,6 +340,12 @@ public class Library
         }
     }
 
+	/**
+	* This function is used to verify that the input given by the user is an integer, which prevents errors
+	* @precondition: 	none
+	* @postcondition: 	none
+	* @return:			true if string is an integer, false else
+	*/
     private boolean verifyInt(String s)
     {
         try
@@ -348,4 +359,42 @@ public class Library
             return false;
         }
     }
+	
+	/**
+	* This function is used to test the constructor for Library, ensuring that it gives good results if passed a 1; 
+	* @precondition:	Working definition of constructor
+	* @postcondition:	none
+	* @return: 			true if passed false else
+	*/
+	public boolean LibraryTest1()
+	{
+		try
+		{
+			Library a = new Library(1);
+			return((a.canteach[0]==true)&&(a.canteach[1]==true)&&(a.canTeach[2]==true)&&(a.canTeach[3]==true)&&(a.canTeach[4]==true)&&(a.canTeach[5]==true)&&(a.canTeach[6]==false)&&(a.canTeach[7]==false));
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+	}
+	
+	/**
+	* This function is used to test the constructor if passed a 2
+	* @precondition:	Working definition of constructor
+	* @postcondition:	none
+	* @return:			true if passed false else
+	*/
+	public boolean LibraryTest2()
+	{
+		try
+		{
+			Library a = new Library(2);
+			return((a.canTeach[0]==true)&&(a.canTeach[1]==true)&&(a.canTeach[2]==true)&&(a.canTeach[3]==true)&&(a.canTeach[4]==true)&&(a.canTeach[5]==true)&&(a.canTeach[6]==true)&&(a.canTeach[7]==true));
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+	}
 }
