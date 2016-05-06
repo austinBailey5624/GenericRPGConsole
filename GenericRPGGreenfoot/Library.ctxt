@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=Library
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Library\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=whichLibrary
+comment1.target=Library(int)
+comment1.text=\r\n\ This\ function\ generates\ a\ library\ based\ on\ the\ input\ whichLibrary\r\n\ @precondition\:\tnone\r\n\ @post\:\t\t\tgenerates\ an\ instance\ of\ Library\r\n\ @return\:\t\t\tinstance\ of\ Library\r\n
+comment2.params=party
+comment2.target=void\ menu(Party)
+comment2.text=\r\n\ This\ function\ handles\ the\ characters\ interaction\ with\ the\ Library\r\n\ @precondition\:\tnone\r\n\ @post\:\t\t\tmay\ manipulate\ character's\ member\ variables\ by\ changing\ booleans\ to\ add\ skills\r\n\ @return\:\t\t\tvoid\ \r\n
+comment3.params=character
+comment3.target=void\ learnSkills(PlayerActor)
+comment3.text=\r\n\ This\ function\ handles\ the\ menu\ interface\ surrounding\ learning\ skills\r\n\ @precondition\:\tinstance\ of\ Library\r\n\ @postcondition\:\tcharacter\ may\ have\ parts\ of\ his\ skillset\ set\ to\ true\r\n\ @return\:\t\t\tvoid\r\n\ @param\ character\ represents\ the\ character\ learning\ the\ skill\r\n
+comment4.params=skillIndex\ character
+comment4.target=void\ learn(int,\ PlayerActor)
+comment4.text=\r\n\ This\ function\ determines\ if\ the\ character\ can\ learn\ the\ skill\r\n\ and\ if\ so\ teaches\ it\r\n\ @precondition\:\ttraversal\ through\ encapsulating\ method\ that\ determines\ which\ skill\ will\ be\ learned\r\n\ @postconditon\:\talters\ users\ member\ variables\ if\ they\ are\ successful\ in\ learning\ the\ skills\r\n\ @return\:\t\t\tvoid\r\n
+comment5.params=
+comment5.target=void\ bestiary()
+comment6.params=s
+comment6.target=boolean\ verifyInt(java.lang.String)
+numComments=7
