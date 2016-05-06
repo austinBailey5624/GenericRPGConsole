@@ -4,8 +4,8 @@ import java.util.Scanner;
 /**
  * Write a description of class Party here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Austin Bailey
+ * @version 5/6/2016
  */
 public class Party extends Actor
 {
@@ -562,6 +562,12 @@ public class Party extends Actor
         }
     }
 
+	/**
+	* This function verifies that the string passed to it is an int
+	* @precondition:	String is passed as parameter
+	* @postcondition:	none
+	* @return:			true if int, false else
+	*/
     private boolean verifyInt(String s)
     {
         try
@@ -577,9 +583,10 @@ public class Party extends Actor
     }
 
     /**
-     * @precondition - 	
-     * @post -			
-     * @return - 			
+	 * This function adds the item within the chest to the inventory
+     * @precondition:	Chest exists and is passed 	
+     * @postcondition:	increments the inventory whose index is represented in the chest
+     * @return:			void 			
      */
     public void openChest(Chest chest)
     {
@@ -588,4 +595,218 @@ public class Party extends Actor
 
         System.out.println("\n\nYou have found a " + newItem.getName() + "! It has been added to your inventory.\n");
     }
+	
+	/**
+	* This function tests the party constructor
+	* @precondition:	none
+	* @postcondition:	none
+	* @return:			true if passed false else
+	*/
+	public boolean PartyTest1()
+	{
+		try
+		{
+			Party p = new Party();
+			PlayerActor pa = new PlayerActor();
+			int[] testInventory = new int[Item.getNumTypesOfItem()];
+			for(int i=0; i<m_inventory.length;i++)
+			{
+				m_inventory[i]=0;
+			}
+			return((p.m_content[0]==pa)&&(p.m_content[1]==null)&&(p.m_content[2]==null)&&(p.m_content[3]==null)&&(p.m_gold==100)&&(p.m_inventory==testInventory));
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+	}
+	
+	/**
+	* This function ensures that onlyOne returns true when it is supposed to 
+	* @precondition:	none
+	* @postcondition:	none
+	* @return:			true if passed false else
+	*/
+	public boolean PartyTest2()
+	{
+		try
+		{
+			Party p = new Party();
+			return(p.onlyOne());
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+	}
+	
+	/**
+	* This function ensures that function onlyOne returns false when it is supposed to
+	* @precondition: 	none
+	* @postcondition:	none
+	* #return:			true if passed false else
+	*/
+	public boolean PartyTest3()
+	{
+		try
+		{
+			Party p = new Party();
+			PlayerActor pa = new PlayerActor();
+			p.m_content[2]=pa;
+			return(!p.onlyOne());
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+	}
+	
+	/**
+	 * This function ensures that function getGold returns the correct value
+	 * @precondition:	none
+	 * @postcondition:	none
+	 * @return:			true if passed false else
+	 */
+	public boolean PartyTest4()
+	{
+		try
+		{
+			Party p = new Party();
+			p.m_gold=123;
+			return(p.getGold()==123);
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+	}
+	
+	/**
+	 * This function ensures that the function setGold sets m_gold to the correct value
+	 * @precondition:	none
+	 * @postcondition:	none
+	 * @return:			true if passed false else
+	 */
+	public boolean PartyTest5()
+	{
+		try
+		{
+			Party p = new Party();
+			p.setGold(123);
+			return(p.m_gold==123);
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+	}
+	
+	/**
+	 * This function ensures that the function addGold works properly
+	 * @precondition:	none
+	 * @postcondition:	none
+	 * @return:			true if passed false else
+	 */
+	public boolean PartyTest6()
+	{
+		try
+		{
+			Party p = new Party();
+			p.m_gold=123;
+			p.addGold(123);
+			return(p.m_gold==246);
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+	}
+	
+	/**
+	 * This function ensures that the function getInventory works
+	 * @precondition:	none
+	 * @postcondition:	none
+	 * @return:			true if passed false else
+	 */
+	public boolean PartyTest7()
+	{
+		try
+		{
+			Party p = new Party();
+			int[] inventory = new int[Item.getNumTypesOfItem()];
+			inventory[1]=123;
+			inventory[2]=456;
+			p.m_inventory[1]=123;
+			p.m_inventory[2]=456;
+			return(p.m_inventory==inventory);
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+	}
+	
+	/** 
+	 * This function ensures that the function setInventory works properly
+	 * @precondition:	none
+	 * @postcondition:	none
+	 * @return:			true if passed false else
+	 */
+	public boolean PartyTest8()
+	{
+		try
+		{
+			Party p = new Party();
+			int[] inventory = new int[Item.getNumTypesOfItem()];
+			inventory[5]=123;
+			inventory[8]=90;
+			p.setInventory(inventory);
+			return(p.m_inventory[5]==123&&p.m_inventory[8]==90);
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+	}
+	
+	/** 
+	 * This function ensures that the function getContent works properly
+	 * @precondition: 	none
+	 * @postcondition:	none
+	 * @return:			true if passed false else
+	 */
+	public boolean PartyTest9()
+	{
+		try
+		{
+			Party p = new Party();
+			return(p.m_content==p.getContent());
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+	}
+	
+	/** 
+	 * This function ensures that the function setContent works properly
+	 * @precondition:	none
+	 * @postcondition:	none
+	 * @return:			true if passed false else
+	 */
+	public boolean PartyTest10()
+	{
+		try
+		{
+			Party p = new Party();
+			PlayerActor[] content = new PlayerActor[4];
+			content[2]=new PlayerActor();
+			p.setContent(content);
+			return(p.m_content==content);
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+	}
 }
