@@ -520,5 +520,369 @@ public class Item
     {
     	return m_value;
     }
+    
+   /**
+     *This function tests the item 0
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem0()
+    {
+        item item1 = new item(1);
+        boolean testPassed = ((item0.getType() == 0)&&(item1.getName == "rags")&&(item0.getLimit() == 6)&&(item0.getValue == 0));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 1
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem1()
+    {
+		item item1 = new item(1);
+        boolean testPassed = ((item1.getType() == 1)&&(item1.getName == "basic sword")&&(item1.getLimit() == 1)&&(item1.getBonusDef() == 0)&&(item1.getBonusAtk() == 5)&&(item1.getBonusHP()==0)&&(item1.getValue == 10));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 2
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem2()
+    {
+		item item2 = new item(2);
+        boolean testPassed = ((item2.getType() == 2)&&(item2.getName == "basic shield")&&(item2.getLimit() == 1)&&(item2.getBonusDef() == 5)&&(item2.getBonusAtk() == 0)&&(item2.getBonusHP()==0)&&(item2.getValue == 10));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 3
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem3()
+    {
+	item item3 = new item(3);
+        boolean testPassed = ((item3.getType() == 3)&&(item3.getName == "basic armor")&&(item3.getLimit() == 1)&&(item3.getBonusDef() == 10)&&(item3.getBonusAtk() == 0)&&(item3.getBonusHP()==0)&&(item3.getValue == 10));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 4
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem4()
+    {
+	item item4 = new item(4);
+        boolean testPassed = ((item4.getType() == 4)&&(item4.getName == "basic helmet")&&(item4.getLimit() == 1)&&(item4.getBonusDef() == 7)&&(item4.getBonusAtk() == 0)&&(item4.getBonusHP()==0)&&(item4.getValue == 10));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 5
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem5()
+    {
+	item item5 = new item(5);
+        boolean testPassed = ((item5.getType() == 5)&&(item5.getName == "basic gauntlet")&&(item5.getLimit() == 1)&&(item5.getBonusDef() == 3)&&(item5.getBonusAtk() == 0)&&(item5.getBonusHP()==0)&&(item5.getValue == 10));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 6
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public bool testItem6()
+    {
+	item item6 = new item(6);
+        boolean testPassed = ((item6.getType() == 6)&&(item6.getName == "basic boots")&&(item6.getLimit() == 1)&&(item6.getBonusDef() == 3)&&(item6.getBonusAtk() == 0)&&(item6.getBonusHP()==0)&&(item6.getValue == 10));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 7
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem7()
+    {
+	item item7 = new item(7);
+        boolean testPassed = ((item7.getType() == 7)&&(item7.getName == "basic hPotion")&&(item7.getLimit() == 5)&&(item7.getBonusDef() == 0)&&(item7.getBonusAtk() == 0)&&(item7.getBonusHP()==0)&&(item7.getValue == 10));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 8
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem8()
+    {
+	item item8 = new item(8);
+        boolean testPassed = ((item8.getType() == 1)&&(item8.getName == "No Sword")&&(item8.getBonusDef() == 0)&&(item8.getBonusAtk() == 0)&&(item8.getBonusHP()==0)&&(item8.getValue == 0));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 9
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem9()
+    {
+	item item9 = new item(9);
+        boolean testPassed = ((item9.getType() == 2)&&(item9.getName == "No Shield")&&(item9.getBonusDef() == 0)&&(item9.getBonusAtk() == 0)&&(item9.getBonusHP()==0)&&(item9.getValue == 0));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 10
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem10()
+    {
+	item item10 = new item(10);
+        boolean testPassed = ((item10.getType() == 3)&&(item10.getName == "No Armor")&&(item10.getBonusDef() == 0)&&(item10.getBonusAtk() == 0)&&(item10.getBonusHP()==0)&&(item10.getValue == 0));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 11
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwisean
+     */
+    public boolean testItem11()
+    {
+	item item11 = new item(11);
+        boolean testPassed = ((item11.getType() == 4)&&(item11.getName == "No Helmet")&&(item11.getBonusDef() == 0)&&(item11.getBonusAtk() == 0)&&(item11.getBonusHP()==0)&&(item11.getValue == 0));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 12
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem12()
+    {
+		item item12 = new item(12);
+        boolean testPassed = ((item12.getType() == 5)&&(item12.getName == "Bare Hands")&&(item12.getBonusDef() == 0)&&(item12.getBonusAtk() == 0)&&(item12.getBonusHP()==0)&&(item12.getValue == 0));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 13
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem13()
+    {
+		item item13 = new item(13);
+        boolean testPassed = ((item13.getType() == 6)&&(item13.getName == "Bare Feet")&&(item13.getBonusDef() == 0)&&(item13.getBonusAtk() == 0)&&(item13.getBonusHP()==0)&&(item13.getValue == 0));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 14
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem14()
+    {
+	item item14 = new item(14);
+        boolean testPassed = ((item14.getType() == 1)&&(item14.getName == "iron sword")&&(item14.getLimit() == 1)&&(item14.getBonusDef() == 0)&&(item14.getBonusAtk() == 10)&&(item14.getBonusHP()==0)&&(item14.getValue == 50));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 15
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem15()
+    {
+		item item15 = new item(15);
+        boolean testPassed = ((item15.getType() == 2)&&(item15.getName == "iron shield")&&(item15.getLimit() == 1)&&(item15.getBonusDef() == 10)&&(item15.getBonusAtk() == 0)&&(item15.getBonusHP()==0)&&(item15.getValue == 50));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 16
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem16()
+    {
+		item item16 = new item(16);
+        boolean testPassed = ((item16.getType() == 3)&&(item16.getName == "iron armor")&&(item16.getLimit() == 1)&&(item16.getBonusDef() == 15)&&(item16.getBonusAtk() == 0)&&(item16.getBonusHP()==0)&&(item16.getValue == 50));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 17
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem17()
+    {
+		item item17 = new item(17);
+        boolean testPassed = ((item17.getType() == 4)&&(item17.getName == "iron helmet")&&(item17.getLimit() == 1)&&(item17.getBonusDef() == 10)&&(item17.getBonusAtk() == 0)&&(item17.getBonusHP()==0)&&(item17.getValue == 50));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 18
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem18()
+    {	
+		item item18 = new item(18);
+        boolean testPassed = ((item18.getType() == 5)&&(item18.getName == "iron gauntlet")&&(item18.getLimit() == 1)&&(item18.getBonusDef() == 5)&&(item18.getBonusAtk() == 0)&&(item18.getBonusHP()==0)&&(item18.getValue == 50));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 19
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem19()
+    {
+			item item19 = new item(19);
+        boolean testPassed = ((item19.getType() == 6)&&(item19.getName == "iron boots")&&(item19.getLimit() == 1)&&(item19.getBonusDef() == 5)&&(item19.getBonusAtk() == 0)&&(item19.getBonusHP()==0)&&(item19.getValue == 50));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 20
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem20()
+    {
+    	item item20 = new item(20);
+        boolean testPassed = ((item20.getType() == 7)&&(item20.getName == "advanced hPotion")&&(item20.getLimit() == 5)&&(item20.getBonusDef() == 0)&&(item20.getBonusAtk() == 0)&&(item20.getBonusHP()==100)&&(item20.getValue == 50));
+		return testPassed;
+    }
+    
+    /**
+     *This function tests the item 21
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem21()
+    {
+	item item21 = new item(21);
+        boolean testPassed = ((item21.getType() == 1)&&(item12.getName == "steel sword")&&(item21.getLimit() == 1)&&(item21.getBonusDef() == 0)&&(item21.getBonusAtk() == 20)&&(item21.getBonusHP()==0)&&(item21.getValue == 100));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 22
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem22()
+    {
+	item item22 = new item(22);
+        boolean testPassed = ((item22.getType() == 2)&&(item22.getName == "steel shield")&&(item22.getLimit() == 1)&&(item22.getBonusDef() == 20)&&(item22.getBonusAtk() == 0)&&(item22.getBonusHP()==0)&&(item22.getValue == 100));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 23
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem23()
+    {
+	item item23 = new item(23);
+        boolean testPassed = ((item23.getType() == 3)&&(item23.getName == "steel armor")&&(item23.getLimit() == 1)&&(item23.getBonusDef() == 0)&&(item23.getBonusAtk() == 0)&&(item23.getBonusHP()==0)&&(item23.getValue == 100));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 24
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem24()
+    {
+	item item24 = new item(24);
+        boolean testPassed = ((item24.getType() == 4)&&(item24.getName == "steel helmet")&&(item24.getLimit() == 1)&&(item24.getBonusDef() == 15)&&(item24.getBonusAtk() == 0)&&(item24.getBonusHP()==0)&&(item24.getValue == 100));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 25
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem25()
+    {
+	item item25 = new item(25);
+        boolean testPassed = ((item25.getType() == 5)&&(item25.getName == "steel gauntlet")&&(item25.getLimit() == 1)&&(item25.getBonusDef() == 10)&&(item25.getBonusAtk() == 0)&&(item25.getBonusHP()==0)&&(item25.getValue == 100));
+    	return testPassed;
+    }
+    
+    /**
+     *This function tests the item 26
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem26()
+    {
+	item item26 = new item(26);
+        boolean testPassed = ((item26.getType() == 6)&&(item26.getName == "steel boots")&&(item26.getLimit() == 1)&&(item26.getBonusDef() == 10)&&(item26.getBonusAtk() == 0)&&(item26.getBonusHP()==0)&&(item26.getValue == 100));
+    	return testPassed;
+    }
+	
+	/**
+     *This function tests the item 27
+     * pre - none
+     * post - none
+     * @return boolean that is true if the test is passed and false otherwise
+     */
+    public boolean testItem27()
+    {
+	item item27 = new item(27);
+        boolean testPassed = ((item27.getType() == 7)&&(item27.getName == "expert hPotion")&&(item27.getLimit() == 1)&&(item27.getBonusDef() == 0)&&(item27.getBonusAtk() == 0)&&(item27.getBonusHP()==150)&&(item27.getValue == 100));
+    	return testPassed;
+    }
 }
 
