@@ -1,14 +1,14 @@
 #BlueJ class context
 comment0.target=Arena
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Arena\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ Arena\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
 comment1.target=Arena[]\ getAllArenas()
 comment2.params=whichArena
 comment2.target=Arena(int)
-comment2.text=\r\n\ This\ funcion\ generates\ an\ arena\ based\ on\ the\ input\r\n\ @precondition\:\ \tnone\r\n\ @post\:\ \t\t\tconstructs\ Arena\r\n\ @return\:\t\t\tinstance\ of\ Arena\r\n
+comment2.text=\n\ This\ funcion\ generates\ an\ arena\ based\ on\ the\ input\n\ @precondition\:\ \tnone\n\ @post\:\ \t\t\tconstructs\ Arena\n\ @return\:\t\t\tinstance\ of\ Arena\n
 comment3.params=party
 comment3.target=void\ menu(Party)
-comment3.text=\r\n\ this\ function\ passes\ in\ character\ and\ handles\ battles\ in\ the\ arena\r\n\ @precondition\:\tinstance\ of\ Arena\r\n\ @post\:\t\t\tcan\ change\ member\ variables\ of\ character\ based\ on\ preformance,\ if\ they\ are\ successful\ allows\ them\ to\ fight\ harder\ enemies\r\n\ @param\ character\r\n
+comment3.text=\n\ this\ function\ passes\ in\ character\ and\ handles\ battles\ in\ the\ arena\n\ @precondition\:\tinstance\ of\ Arena\n\ @post\:\t\t\tcan\ change\ member\ variables\ of\ character\ based\ on\ preformance,\ if\ they\ are\ successful\ allows\ them\ to\ fight\ harder\ enemies\n\ @param\ character\n
 comment4.params=
 comment4.target=boolean\ getLostBattle()
 comment5.params=s

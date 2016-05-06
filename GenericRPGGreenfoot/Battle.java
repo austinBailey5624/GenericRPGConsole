@@ -26,7 +26,7 @@ public class Battle
 	 * @return none
 	 */
 	public Battle()
-	{
+	{ 
 		myScanner=new Scanner(System.in);
 		r=new Random();
 		ranAway=false;
