@@ -564,8 +564,8 @@ public class RPGActor extends Actor
  public boolean RPGActorTest4()
  {
    Item[] itemArray = Item.getAllItems();
-   RPGActor a = new RPGActor()
-   return (a.m_equippedShield==itemArray[10];
+   RPGActor a = new RPGActor();
+   return (a.m_equippedShield==itemArray[10]);
  }
 
  /**
@@ -591,7 +591,7 @@ public class RPGActor extends Actor
  {
    Item[] itemArray = Item.getAllItems();
    RPGActor a = new RPGActor();
-   return (a.m_equippedGauntlets(itemArray[12]))
+   return (a.m_equippedGauntlets==itemArray[12]);
  }
 
  /**
@@ -603,7 +603,7 @@ public class RPGActor extends Actor
  public boolean RPGActorTest7()
  {
    RPGActor a = new RPGActor();
-   return (a.m_skillset.length==Skill.getNumOfSkillsTotal());
+   return (a.m_skillSet.length==Skill.getNumOfSkillsTotal());
  }
 
  /**
@@ -615,17 +615,17 @@ public class RPGActor extends Actor
  public boolean RPGActorTest8()
  {
    RPGActor a = new RPGActor();
-   if(a.m_skillset.length!=Skill.getNumOfSkillsTotal())
+   if(a.m_skillSet.length!=Skill.getNumOfSkillsTotal())
    {
      return false;
    }
-   if(a.m_skillset[0]==false)
+   if(a.m_skillSet[0]==false)
    {
      return false;
    }
    for(int i=1; i<Skill.getNumOfSkillsTotal();i++)
    {
-     if(m_skillset[i]==true)
+     if(m_skillSet[i]==true)
      {
        return false;
      }
@@ -642,7 +642,7 @@ public class RPGActor extends Actor
  public boolean RPGActorTest9()
  {
    RPGActor a = new RPGActor();
-   return(a.m_skillset==a.getSkillset());
+   return(a.m_skillSet==a.getSkillset());
  }
 
  /**
@@ -668,7 +668,7 @@ public class RPGActor extends Actor
  {
    RPGActor a = new RPGActor();
    a.m_name="sue";//prevents nullpointer exception in the event setName fails
-   a.m_name.setName("bob");
+   a.setName("bob");
    return(a.m_name.equals("bob"));
  }
 
@@ -681,7 +681,7 @@ public class RPGActor extends Actor
  public boolean RPGActorTest12()
  {
    RPGActor a = new RPGActor();
-   return(a.getLevel()=1);
+   return(a.getLevel()==1);
  }
 
  /**
@@ -780,7 +780,7 @@ public class RPGActor extends Actor
  * @post - none
  * @return true if passed false else
  */
- public boolean RPGActorTest20();
+ public boolean RPGActorTest20()
  {
    RPGActor a = new RPGActor();
    a.m_atkModifier = 2;
@@ -793,11 +793,11 @@ public class RPGActor extends Actor
  * @post - none
  * @return true if passed false else
  */
- public boolean RPGActorTest21();
+ public boolean RPGActorTest21()
  {
    RPGActor a = new RPGActor();
    a.setAttackModifier(50);
-   return(a.m_atkModifier==5);
+   return(a.m_atkModifier==(double)5);
  }
 
  /**
@@ -862,7 +862,7 @@ public class RPGActor extends Actor
  {
    RPGActor a = new RPGActor();
    a.m_defModifier=123;
-   return(a.getDefenseModifier()==123);
+   return(a.getDefModifier()==123);
  }
 
  /**
@@ -1112,7 +1112,7 @@ public class RPGActor extends Actor
  {
    RPGActor a = new RPGActor();
    Item[] itemArray = Item.getAllItems();
-   a.m_equippedGauntlets==itemArray[18];
+   a.m_equippedGauntlets=itemArray[18];
    return(a.getEquippedGauntlets()==itemArray[18]);
  }
 
@@ -1251,7 +1251,7 @@ public class RPGActor extends Actor
  public boolean RPGActorTest54()
  {
    RPGActor a = new RPGActor();
-   return(a.getAttackFighter()==((int)((a.getAtk()+a.m_equippedSword.getBonusAtk()+a.m_equippedShield.getBonusAtk()+a.m_equippedHelmet.getBonusAtk()+a.m_equippedBoots.getBonusAtk() + a.m_equippedGauntlets.getBonusAtk())*a.getAtkModifier())))
+   return(a.getAttackFighter()==((int)((a.getAtk()+a.m_equippedSword.getBonusAtk()+a.m_equippedShield.getBonusAtk()+a.m_equippedHelmet.getBonusAtk()+a.m_equippedBoots.getBonusAtk() + a.m_equippedGauntlets.getBonusAtk())*a.getAtkModifier())));
  }
 
  /**
@@ -1263,6 +1263,6 @@ public class RPGActor extends Actor
  public boolean RPGActorTest55()
  {
    RPGActor a = new RPGActor();
-   return(a.getDefenseFighter()==((int)((a.getDef()+a.m_equippedSword.getBonusDef()+a.m_equippedShield.getBonusDef()+a.m_equippedHelmet.getBonusDef()+a.m_equippedBoots.getBonusDef()+a.m_equippedGauntlets.getBonusDef())*a.getDefModifier())))
+   return(a.getDefenseFighter()==((int)((a.getDef()+a.m_equippedSword.getBonusDef()+a.m_equippedShield.getBonusDef()+a.m_equippedHelmet.getBonusDef()+a.m_equippedBoots.getBonusDef()+a.m_equippedGauntlets.getBonusDef())*a.getDefModifier())));
  }
 }
