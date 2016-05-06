@@ -517,70 +517,70 @@ public class RPGActor extends Actor
 	}
 
 
-  // /**
-  // * Tests Actor constructor base values for m_level, m_maxHp, m_curHp, m_atk, m_atkModifier, m-def, and m_defModifier
-  // * pre - Actor constructor exists
-  // * post - none
-  // * @return true if passed false else
-  // */
-  // public boolean RPGActorTest1()
-  // {
-    // RPGActor a = new RPGActor();
-    // return((a.m_level==1)&&(a.m_maxHp==100)&&(a.m_curHp==100)&&(a.m_atk==10)&&(a.m_atkModifier==1)&&(a.m_def==10)&&(m_defModifier==1));
-  // }
+  /**
+  * Tests Actor constructor base values for m_level, m_maxHp, m_curHp, m_atk, m_atkModifier, m-def, and m_defModifier
+  * pre - Actor constructor exists
+  * post - none
+  * @return true if passed false else
+  */
+  public boolean RPGActorTest1()
+  {
+    RPGActor a = new RPGActor();
+    return((a.m_level==1)&&(a.m_maxHp==100)&&(a.m_curHp==100)&&(a.m_atk==10)&&(a.m_atkModifier==1)&&(a.m_def==10)&&(m_defModifier==1));
+  }
 
-  // /**
- // * Tests Actor constructor and equip Sword
- // * pre - Actor constructor and equipSword() works
- // * post - 		none
- // * @return true if passed false else
- // */
- // public boolean RPGActorTest2()
- // {
-   // Item[] itemArray = Item.getAllItems();
-   // RPGActor a=new RPGActor();
-   // return (a.m_equippedSword==itemArray[8]);
- // }
+  /**
+ * Tests Actor constructor and equip Sword
+ * pre - Actor constructor and equipSword() works
+ * post - 		none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest2()
+ {
+   Item[] itemArray = Item.getAllItems();
+   RPGActor a=new RPGActor();
+   return (a.m_equippedSword==itemArray[8]);
+ }
 
- // /**
- // * Tests Actor constructor and equipShield()
- // * pre - Actor constructor and equipSword() works
- // * post -         none
- // * @return true if passed false else
- // */
- // public boolean RPGActorTest3()
- // {
-   // Item[] itemArray = Item.getAllItems();
-   // RPGActor a = new RPGActor();
-   // return (a.m_equippedShield==itemArray[9]);
- // }
+ /**
+ * Tests Actor constructor and equipShield()
+ * pre - Actor constructor and equipSword() works
+ * post -         none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest3()
+ {
+   Item[] itemArray = Item.getAllItems();
+   RPGActor a = new RPGActor();
+   return (a.m_equippedShield==itemArray[9]);
+ }
 
 
- // /**
- // * Tests Actor constructor and equipArmor()
- // * pre - Actor object is functional
- // * post - none
- // * @return true if passed false else
- // */
- // public boolean RPGActorTest4()
- // {
-   // Item[] itemArray = Item.getAllItems();
-   // RPGActor a = new RPGActor();
-   // return (a.m_equippedShield==itemArray[10]);
- // }
+ /**
+ * Tests Actor constructor and equipArmor()
+ * pre - Actor object is functional
+ * post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest4()
+ {
+   Item[] itemArray = Item.getAllItems();
+   RPGActor a = new RPGActor();
+   return (a.m_equippedShield==itemArray[10]);
+ }
 
- // /**
- // * Tests Actor constructor and equipHelmet()
- // * pre - Actor constructor and equipHelmet() works
- // * post - none
- // * @return true if passed false else
- // */
- // public boolean RPGActorTest5()
- // {
-   // Item[] itemArray = Item.getAllItems();
-   // RPGActor a = new RPGActor();
-   // return (a.m_equippedHelmet==itemArray[11]);
- // }
+ /**
+ * Tests Actor constructor and equipHelmet()
+ * pre - Actor constructor and equipHelmet() works
+ * post - none
+ * @return true if passed false else
+ */
+ public boolean RPGActorTest5()
+ {
+   Item[] itemArray = Item.getAllItems();
+   RPGActor a = new RPGActor();
+   return (a.m_equippedHelmet==itemArray[11]);
+ }
 
  // /**
  // * Tests Actor constructor and equipGauntlets()
