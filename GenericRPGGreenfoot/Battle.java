@@ -388,18 +388,6 @@ public class Battle
     }
     
     /**
-     * @param goodguys
-     * @param badguys
-     * @pre instance of Battle exists
-     * @post to be determined
-     * @return none
-     */
-    public void groupBattle(RPGActor[] goodguys, RPGActor[] badguys)//TODO complete group battle method
-    {
-        //will be filled in later
-    }
-    
-    /**
      * @param a1
      * @param a2
      * @pre instance of Battle exists
@@ -566,7 +554,7 @@ public class Battle
      */
     private RPGActor determineVictor(RPGActor a1, RPGActor a2)
     {
-        if (a1.getCurHp()<0)
+        if (a1.getCurHp()<=0)
         {
             return a2;
         }
@@ -576,16 +564,31 @@ public class Battle
         }
     }
     
+    /**
+     * @pre instance of Battle exists
+     * @post none
+     * @return true if verifyInt returns true if the input string is an int
+     */
     public boolean battleTest1() // if string passed in is an int, verigyInt returns true
     {
         return verifyInt("5");
     }
     
+    /**
+     * @pre instance of Battle exists
+     * @post none
+     * @return true if verifyInt returns false if the input string is not an int
+     */
     public boolean battleTest2() // if string passed in is not an int, it returns false
     {
         return !(verifyInt("T"));
     }
     
+    /**
+     * @pre instance of Battle exists
+     * @post none
+     * @return true if isBattleOver returns true if one of the actors has no health, otherwise false
+     */
     public boolean battleTest3() // if one of the actors has no health, it returns true
     {
         RPGActor a1=new RPGActor();
@@ -593,6 +596,12 @@ public class Battle
         a1.setCurHp(0);
         return isBattleOver(a1,a2);
     }
+    
+    /**
+     * @pre instance of Battle exists
+     * @post none 
+     * @return true if isBattleOver returns true if both actors have no health, otherwise false
+     */
     public boolean battleTest4() // if both actors have no health, it returns true
     {
         RPGActor a1=new RPGActor();
@@ -602,6 +611,11 @@ public class Battle
         return isBattleOver(a1,a2);
     }
     
+    /**
+     * @pre instance of Battle exists
+     * @post none
+     * @return true if isBattleOver returns false if both actors have HP left, otherwise false
+     */
     public boolean battleTest5() // if both actors have health, it will return false
     {   
         RPGActor a1=new RPGActor();
@@ -613,12 +627,22 @@ public class Battle
         
     }
     
+    /**
+     * @pre instance of Battle exists
+     * @post none
+     * @return true if potionsAvilable returns false if the player has no potions in their inventory, otherwise false
+     */
     public boolean battleTest6() // if the player has not potions available, then it returns false
     {
         Party a1 = new Party();
         return !(potionsAvailable(a1));
     }
     
+    /**
+     * @pre instance of Battle exists
+     * @post none
+     * @return true if potionsAvailable returns true when the player has potions in their inventory
+     */
     public boolean battleTest7() // if the player has potions, it returns true
     {
         Party a1=new Party();
@@ -626,5 +650,39 @@ public class Battle
         a1.getInventory()[20]=1;
         a1.getInventory()[27]=1;
         return (potionsAvailable(a1));
+    }
+    
+    /**
+     * @pre instance of Battle exists
+     * @post none
+     * @return true if determineVictor returns the actor with health remaining after a battle, otherwise false
+     */
+    public boolean battleTest8() //returns true if the actor with health remaining is returned
+    {
+        RPGActor a1=new RPGActor();
+        RPGActor a2=new RPGActor();
+        a1.setCurHp(0);
+        if (determineVictor(a1,a2)==a2)
+        {
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * @pre instance of Battle exists
+     * @post none
+     * @return true if determineVictor does not return the actor with no health 
+     */
+    public boolean battleTest9()
+    {
+        RPGActor a1=new RPGActor();
+        RPGActor a2=new RPGActor();
+        a1.setCurHp(0);
+        if (determineVictor(a1,a2)!=a1)
+        {
+            return true;
+        }
+        return false;
     }
 }
