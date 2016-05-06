@@ -605,7 +605,7 @@ public class Item
      * post - none
      * @return boolean that is true if the test is passed and false otherwise
      */
-    public bool testItem6()
+    public boolean testItem6()
     {
 	item item6 = new item(6);
         boolean testPassed = ((item6.getType() == 6)&&(item6.getName == "basic boots")&&(item6.getLimit() == 1)&&(item6.getBonusDef() == 3)&&(item6.getBonusAtk() == 0)&&(item6.getBonusHP()==0)&&(item6.getValue == 10));

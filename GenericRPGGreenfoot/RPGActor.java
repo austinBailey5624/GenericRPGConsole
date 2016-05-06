@@ -59,8 +59,8 @@ public class RPGActor extends Actor
 	//Setters and Getters
     /**
      * This function returns the value of m_skillSet
-     * @precondition - RPGActor Object exists
-     * @post - none
+     * pre - RPGActor Object exists
+     * post - none
      * @return m_skillSet
      */
 	public boolean[] getSkillset()
@@ -70,8 +70,8 @@ public class RPGActor extends Actor
 
     /**
      * This function returns the value of m_name
-     * @precondition - Actor Object exists
-     * @post - none
+     * pre - Actor Object exists
+     * post - none
      * @return m_name
      */
 	public String getName()
@@ -81,8 +81,8 @@ public class RPGActor extends Actor
 
     /**
      * This function sets the value of m_name
-     * @precondition - Actor Object exists
-     * @post - changes m_name to parameter String name
+     * pre - Actor Object exists
+     * post - changes m_name to parameter String name
      * @return void
      */
 	public void setName(String name)
@@ -92,8 +92,8 @@ public class RPGActor extends Actor
 
     /**
      * This function returns the value of m_level
-     * @precondition - Actor Object exists
-     * @post - none
+     * pre - Actor Object exists
+     * post - none
      * @return m_level
      */
 	public int getLevel()
@@ -103,8 +103,8 @@ public class RPGActor extends Actor
 
     /**
      * This function sets the value of m_level
-     * @precondition - Actor Object exists
-     * @post - sets m_level to parameter int level
+     * pre - Actor Object exists
+     * post - sets m_level to parameter int level
      * @return void
      */
 	public void setLevel(int level)
@@ -114,8 +114,8 @@ public class RPGActor extends Actor
 
     /**
      * This function returns the value of m_maxHp
-     * @precondition - Actor Object exists
-     * @post - none
+     * pre - Actor Object exists
+     * post - none
      * @return m_maxHp
      */
 	public int getMaxHp()
@@ -125,8 +125,8 @@ public class RPGActor extends Actor
 
     /**
      * This function sets the value of m_maxHp
-     * @precondition - Actor Object exists
-     * @post - sets m_maxHp to parameter int maxHP
+     * pre - Actor Object exists
+     * post - sets m_maxHp to parameter int maxHP
      * @return void
      */
 	public void setMaxHp(int maxHP)
@@ -136,8 +136,8 @@ public class RPGActor extends Actor
 
     /**
      * This function returns the value of m_CurHp
-     * @precondition - Actor Object exists
-     * @post - none
+     * pre - Actor Object exists
+     * post - none
      * @return m_curHp
      */
 	public int getCurHp()
@@ -147,8 +147,8 @@ public class RPGActor extends Actor
 
     /**
      * This function sets the value of m_CurHp
-     * @precondition - Actor Object exists
-     * @post - sets m_curHp to parameter int curHp
+     * pre - Actor Object exists
+     * post - sets m_curHp to parameter int curHp
      * @return void
      */
 	public void setCurHp(int curHp)
@@ -158,8 +158,8 @@ public class RPGActor extends Actor
 
     /**
      * This function returns the value of m_atk
-     * @precondition - Actor Object exists
-     * @post - none
+     * pre - Actor Object exists
+     * post - none
      * @return m_atk
      */
 	public int getAtk()
@@ -169,8 +169,8 @@ public class RPGActor extends Actor
 
     /**
      * This function sets the value of m_atk
-     * @precondition - Actor Object exists
-     * @post - sets m_atk to parameter int Atk
+     * pre - Actor Object exists
+     * post - sets m_atk to parameter int Atk
      * @return void
      */
 	public void setAtk(int Atk)
@@ -180,8 +180,8 @@ public class RPGActor extends Actor
 
     /**
      * This function returns the value of m_atkModifier
-     * @precondition - Actor Object exists
-     * @post - none
+     * pre - Actor Object exists
+     * post - none
      * @return m_atkModifier
      */
 	public double getAtkModifier()
@@ -191,8 +191,8 @@ public class RPGActor extends Actor
 
     /**
      * This function sets the value of m_atkModifier
-     * @precondition - Actor Object exists
-     * @post - sets the value of m_atkModifer and ensures it is within acceptable parameters
+     * pre - Actor Object exists
+     * post - sets the value of m_atkModifer and ensures it is within acceptable parameters
      * @return void
      */
 	public void setAttackModifier(double AttackModifier)
@@ -213,8 +213,8 @@ public class RPGActor extends Actor
 
     /**
      * This function returns the value of m_def
-     * @precondition - Actor Object exists
-     * @post - none
+     * pre - Actor Object exists
+     * post - none
      * @return m_def
      */
 	public int getDef()
@@ -224,8 +224,8 @@ public class RPGActor extends Actor
 
     /**
      * This function sets the value of m_def
-     * @precondition - Actor Object exists
-     * @post - sets the value of m_def to paramter int Def
+     * pre - Actor Object exists
+     * post - sets the value of m_def to paramter int Def
      * @return void
      */
 	public void setDef(int Def)
@@ -235,8 +235,8 @@ public class RPGActor extends Actor
 
     /**
      * This function returns the value of m_defModifier
-     * @precondition - Actor Object exists
-     * @post - none
+     * pre - Actor Object exists
+     * post - none
      * @return m_defModifier
      */
 	public double getDefModifier()
@@ -246,8 +246,8 @@ public class RPGActor extends Actor
 
     /**
      * This function sets the value of m_defModifier and ensures it is within an acceptable range
-     * @precondition - Actor Object exists
-     * @post - m_defModifier is set to parameter double DefenseModifier unless unacceptable, then value approximated
+     * pre - Actor Object exists
+     * post - m_defModifier is set to parameter double DefenseModifier unless unacceptable, then value approximated
      * @return void
      */
 	public void setDefenseModifier(double DefenseModifier)
@@ -268,8 +268,8 @@ public class RPGActor extends Actor
 
     /**
      * This function returns the Item m_equippedSword
-     * @precondition - Actor Object exists
-     * @post - none
+     * pre - Actor Object exists
+     * post - none
      * @return m_equippedSword
      */
 	public Item getEquippedSword()
@@ -279,8 +279,8 @@ public class RPGActor extends Actor
 
     /**
      * This function attempts to set the Item m_equippedSword to the parameter Item sword
-     * @precondition - Actor Object exists
-     * @post - sets m_equippedSword to parameter Item sword if the item is a sword, else prints message "Cannot equip that in the sword slot!"
+     * pre - Actor Object exists
+     * post - sets m_equippedSword to parameter Item sword if the item is a sword, else prints message "Cannot equip that in the sword slot!"
      * @return void
      */
 	public void equipSword(Item sword)
@@ -297,8 +297,8 @@ public class RPGActor extends Actor
 
     /**
      * This function returns the Item m_equippedShield
-     * @precondition - Actor Object exists
-     * @post - none
+     * pre - Actor Object exists
+     * post - none
      * @return m_equippedShield
      */
 	public Item getEquippedShield()
@@ -308,8 +308,8 @@ public class RPGActor extends Actor
 
     /**
      * This function attempts to set the Item m_equippedShield to the parameter Item shield
-     * @precondition - Actor Object exists
-     * @post - sets m_equippedShield to parameter Item shield if the item is a shield, else prints message "Cannot equip that in the shield slot!"
+     * pre - Actor Object exists
+     * post - sets m_equippedShield to parameter Item shield if the item is a shield, else prints message "Cannot equip that in the shield slot!"
      * @return void
      */
 	public void equipShield(Item shield)
@@ -326,8 +326,8 @@ public class RPGActor extends Actor
 
     /**
      * This function returns the Item m_equippedArmor
-     * @precondition - Actor Object exists
-     * @post - none
+     * pre - Actor Object exists
+     * post - none
      * @return m_equippedArmor
      */
 	public Item getEquippedArmor()
@@ -337,8 +337,8 @@ public class RPGActor extends Actor
 
     /**
      * This function attempts to set the Item m_equippedArmor to the parameter Item armor
-     * @precondition - Actor Object exists
-     * @post - sets m_equippedArmor to parameter Item armor if the item is a armor, else prints message "Cannot equip that in the armor slot!"
+     * pre - Actor Object exists
+     * post - sets m_equippedArmor to parameter Item armor if the item is a armor, else prints message "Cannot equip that in the armor slot!"
      * @return void
      */
 	public void equipArmor(Item armor)
@@ -355,8 +355,8 @@ public class RPGActor extends Actor
 
     /**
      * This function returns the Item m_equippedArmor
-     * @precondition - Actor Object exists
-     * @post - none
+     * pre - Actor Object exists
+     * post - none
      * @return m_equippedArmor
      */
 	public Item getEquippedHelmet()
@@ -366,8 +366,8 @@ public class RPGActor extends Actor
 
     /**
      * This function attempts to set the Item m_equippedHelmet to the parameter Item helmet
-     * @precondition - Actor Object exists
-     * @post - sets m_equippedHelmet to parameter Item helmet if the item is a helmet, else prints message "Cannot equip that in the Helmet slot!"
+     * pre - Actor Object exists
+     * post - sets m_equippedHelmet to parameter Item helmet if the item is a helmet, else prints message "Cannot equip that in the Helmet slot!"
      * @return void
      */
 	public void equipHelmet(Item helmet)
@@ -384,8 +384,8 @@ public class RPGActor extends Actor
 
     /**
      * This function returns the Item m_equippedGauntlets
-     * @precondition - Actor Object exists
-     * @post - none
+     * pre - Actor Object exists
+     * post - none
      * @return m_equippedGauntlets
      */
 	public Item getEquippedGauntlets()
@@ -395,8 +395,8 @@ public class RPGActor extends Actor
 
     /**
      * This function attempts to set the Item m_equippedGauntlets to the parameter Item gauntlets
-     * @precondition - Actor Object exists
-     * @post - sets m_equippedGauntlets to parameter Item gauntlets if the item is a gauntlets, else prints message "Cannot equip that in the Gauntlet slot!"
+     * pre - Actor Object exists
+     * post - sets m_equippedGauntlets to parameter Item gauntlets if the item is a gauntlets, else prints message "Cannot equip that in the Gauntlet slot!"
      * @return void
      */
 	public void equipGauntlets(Item gauntlets)
@@ -413,8 +413,8 @@ public class RPGActor extends Actor
 
 	/**
 	 * This function returns the value of m_description
-	 * @precondition -	Actor Object Exists
-	 * @post - 			does not change member variables
+	 * pre -	Actor Object Exists
+	 * post - 			does not change member variables
 	 * @return-			returns the value of m_description
 	 */
 	public String getDescription()
@@ -424,8 +424,8 @@ public class RPGActor extends Actor
 
 	/**
 	 * This function sets the value of m_description to String given
-	 * @precondition - 	Actor Object Exists
-	 * @post - 			changes m_description to the string given in the parameter
+	 * pre - 	Actor Object Exists
+	 * post - 			changes m_description to the string given in the parameter
 	 * @return -		void
 	 */
 	public void setDescription(String given)
@@ -435,8 +435,8 @@ public class RPGActor extends Actor
 
     /**
      * This function returns the Item m_equippedBoots
-     * @precondition - Actor Object exists
-     * @post - none
+     * pre - Actor Object exists
+     * post - none
      * @return m_equippedBoots
      */
 	public Item getEquippedBoots()
@@ -446,8 +446,8 @@ public class RPGActor extends Actor
 
     /**
      * This function attempts to set the Item m_equippedBoots to the parameter Item boots
-     * @precondition - Actor Object exists
-     * @post - sets m_equippedBoots to parameter Item Boots if the items are boots, else prints message "Cannot equip that in the Boots slot!"
+     * pre - Actor Object exists
+     * post - sets m_equippedBoots to parameter Item Boots if the items are boots, else prints message "Cannot equip that in the Boots slot!"
      * @return void
      */
 	public void equipBoots(Item boots)
@@ -465,8 +465,8 @@ public class RPGActor extends Actor
 	//Battle Methods
     /**
      * This function reduces the hp of the RPGActor by the parameter int damage
-     * @precondition - Actor Object exists
-     * @post - reduces m_curHp by damage, if after m_curHp is >0 returns false, else true
+     * pre - Actor Object exists
+     * post - reduces m_curHp by damage, if after m_curHp is >0 returns false, else true
      * @return false if RPGActor is alive, true if dead
      */
 	public boolean reduceHp(int damage)//returns bool if fatal
@@ -484,8 +484,8 @@ public class RPGActor extends Actor
 
     /**
      * This is a container function utilizing the reduceHp function
-     * @precondition - Actor Object exists
-     * @post - reduces m_curHp by damage, if after m_curHp is >0 returns false, else true
+     * pre - Actor Object exists
+     * post - reduces m_curHp by damage, if after m_curHp is >0 returns false, else true
      * @return false if RPGActor is alive, true if dead
      */
 	public boolean basicAttack(RPGActor opponent)
@@ -496,8 +496,8 @@ public class RPGActor extends Actor
 	//getters and setters for battle that have the alteration from the items in addition to the basics
     /**
      * Returns the atk value to be used by battle methods that includes modifiers from all items
-     * @precondition - Actor Object exists
-     * @post - none
+     * pre - Actor Object exists
+     * post - none
      * @return m_atk plus bonus attack from all equipped items
      */
 	public int getAttackFighter()
@@ -507,8 +507,8 @@ public class RPGActor extends Actor
 
     /**
      * Returns the def value to be used by the battle methods that includes modifiers from all items
-     * @precondition - Actor Object exists
-     * @post - none
+     * pre - Actor Object exists
+     * post - none
      * @return m_def plus bonus def from all equipped items
      */
 	public int getDefenseFighter()
@@ -518,8 +518,8 @@ public class RPGActor extends Actor
 
   /**
   * Tests Actor constructor base values for m_level, m_maxHp, m_curHp, m_atk, m_atkModifier, m-def, and m_defModifier
-  * @precondition - Actor constructor exists
-  * @post - none
+  * pre - Actor constructor exists
+  * post - none
   * @return true if passed false else
   */
   public boolean RPGActorTest1()
@@ -530,8 +530,8 @@ public class RPGActor extends Actor
 
   /**
  * Tests Actor constructor and equip Sword
- * @precondition - Actor constructor and equipSword() works
- * @post - 		none
+ * pre - Actor constructor and equipSword() works
+ * post - 		none
  * @return true if passed false else
  */
  public boolean RPGActorTest2()
@@ -543,8 +543,8 @@ public class RPGActor extends Actor
 
  /**
  * Tests Actor constructor and equipShield()
- * @precondition - Actor constructor and equipSword() works
- * @post -         none
+ * pre - Actor constructor and equipSword() works
+ * post -         none
  * @return true if passed false else
  */
  public boolean RPGActorTest3()
@@ -557,8 +557,8 @@ public class RPGActor extends Actor
 
  /**
  * Tests Actor constructor and equipArmor()
- * @precondition - Actor object is functional
- * @post - none
+ * pre - Actor object is functional
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest4()
@@ -570,8 +570,8 @@ public class RPGActor extends Actor
 
  /**
  * Tests Actor constructor and equipHelmet()
- * @precondition - Actor constructor and equipHelmet() works
- * @post - none
+ * pre - Actor constructor and equipHelmet() works
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest5()
@@ -583,8 +583,8 @@ public class RPGActor extends Actor
 
  /**
  * Tests Actor constructor and equipGauntlets()
- * @precondition - Actor constructor and equipHelmet() works
- * @post - none
+ * pre - Actor constructor and equipHelmet() works
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest6()
@@ -596,8 +596,8 @@ public class RPGActor extends Actor
 
  /**
  * Tests that RPGActor member array m_skillset is of proper length
- * @precondition - Actor constructor assigns value to m_skillset
- * @post - none
+ * pre - Actor constructor assigns value to m_skillset
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest7()
@@ -608,8 +608,8 @@ public class RPGActor extends Actor
 
  /**
  * Tests that RPGActor member array m_skillset has proper starting values
- * @precondition - Actor consturctor assigns m_skillset of proper length
- * @post - none
+ * pre - Actor consturctor assigns m_skillset of proper length
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest8()
@@ -635,8 +635,8 @@ public class RPGActor extends Actor
 
  /**
  * Tests that member method getSkillset() works
- * @precondition - getSkillset() has method definition and RPGActor constructor works
- * @post - none
+ * pre - getSkillset() has method definition and RPGActor constructor works
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest9()
@@ -647,8 +647,8 @@ public class RPGActor extends Actor
 
  /**
  * Tests that member method getName() works
- * @precondition - getName() has method definition and RPGActor consturctor works
- * @post - none
+ * pre - getName() has method definition and RPGActor consturctor works
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest10()
@@ -660,8 +660,8 @@ public class RPGActor extends Actor
 
  /**
  * Tests that member method setName() works
- * @precondition - setName() has method definition and RPGActor constructor works
- * @post - none
+ * pre - setName() has method definition and RPGActor constructor works
+ * post - none
  * @return ture if passed false else
  */
  public boolean RPGActorTest11()
@@ -674,8 +674,8 @@ public class RPGActor extends Actor
 
  /**
  * Tests that member method getLevel() works
- * @precondition - getLevel() has method definition and RPGActor constructor works
- * @post - none
+ * pre - getLevel() has method definition and RPGActor constructor works
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest12()
@@ -686,8 +686,8 @@ public class RPGActor extends Actor
 
  /**
  * Tests that memeber method setLevel() works
- * @precondition - setLevel() has method definition and RPGActor constructor works
- * @post - none
+ * pre - setLevel() has method definition and RPGActor constructor works
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest13()
@@ -699,8 +699,8 @@ public class RPGActor extends Actor
 
  /**
  * Tests that member method getMaxHp() works
- * @precondition - getMaxHp() has method definition and RPGActor constructor works
- * @post - none
+ * pre - getMaxHp() has method definition and RPGActor constructor works
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest14()
@@ -711,8 +711,8 @@ public class RPGActor extends Actor
 
  /**
  * Tests that member method setMaxHp() works
- * @precondition - setMaxHp() has method definition and RPGActor constructor works
- * @post - none
+ * pre - setMaxHp() has method definition and RPGActor constructor works
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest15()
@@ -724,8 +724,8 @@ public class RPGActor extends Actor
 
  /**
  * Tests that member method getCurHp() works
- * @precondition - getCurHp() hsa method definition and RPGActor constructor works
- * @post - none
+ * pre - getCurHp() hsa method definition and RPGActor constructor works
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest16()
@@ -737,8 +737,8 @@ public class RPGActor extends Actor
 
  /**
  * Tests that member method setCurHp() works
- * @precondition - setCurHp() has a method definition and RPGActor constructor works
- * @post - none
+ * pre - setCurHp() has a method definition and RPGActor constructor works
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest17()
@@ -750,8 +750,8 @@ public class RPGActor extends Actor
 
  /**
  * Test that the member method getAtk() returns m_atk
- * @precondition - getAtk() has definition and RPGActor constructor works
- * @post - none
+ * pre - getAtk() has definition and RPGActor constructor works
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest18()
@@ -763,8 +763,8 @@ public class RPGActor extends Actor
 
  /**
  * Test that the member method setAtk() sets a value to member variable m_atk
- * @precondition - setAtk() has definition and RPGActor constructor works
- * @post - none
+ * pre - setAtk() has definition and RPGActor constructor works
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest19()
@@ -776,8 +776,8 @@ public class RPGActor extends Actor
 
  /**
  * Test that the member method getAtkModifier() returns the value m_atkModifier
- * @precondition - getAtkModifier() has definition and RPGActor constructor is functional
- * @post - none
+ * pre - getAtkModifier() has definition and RPGActor constructor is functional
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest20();
@@ -789,8 +789,8 @@ public class RPGActor extends Actor
 
  /**
  * Test that ensures if the value passed to setAttackModifier is >5 m_attackModifier is set to 5
- * @precondition - setAttackModifier() has definition and RPGActor constructor is functional
- * @post - none
+ * pre - setAttackModifier() has definition and RPGActor constructor is functional
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest21();
@@ -802,8 +802,8 @@ public class RPGActor extends Actor
 
  /**
  * Test that ensures if the value passed to setAttackModifier is in range it is set
- * @precondition - setAttackModifier() has definition and RPGActor constructor is functional
- * @post - none;
+ * pre - setAttackModifier() has definition and RPGActor constructor is functional
+ * post - none;
  * @return true if passed false else
  */
  public boolean RPGActorTest22()
@@ -815,8 +815,8 @@ public class RPGActor extends Actor
 
  /**
  * Test that ensures if the value passed to setAttackModifier is below range m_attackModifer is set to 0
- * @precondition - setAttackModifier() has definition and RPGActor constructor is functional
- * @post - none;
+ * pre - setAttackModifier() has definition and RPGActor constructor is functional
+ * post - none;
  * @return true if passed false else
  */
  public boolean RPGActorTest23()
@@ -828,8 +828,8 @@ public class RPGActor extends Actor
 
  /**
  * Test that ensures getDef() returns correct value
- * @precondition - getDef() has definition and RPGActor constructor is functional
- * @post - none;
+ * pre - getDef() has definition and RPGActor constructor is functional
+ * post - none;
  * @return true if passed false else
  */
  public boolean RPGActorTest24()
@@ -841,8 +841,8 @@ public class RPGActor extends Actor
 
  /**
  * Test that ensures that setDef() correctly sets m_def
- * @precondition - setDef() has definition and RPGActor constructor is functional
- * @post - none;
+ * pre - setDef() has definition and RPGActor constructor is functional
+ * post - none;
  * @return true if passed false else
  */
  public boolean RPGActorTest25()
@@ -854,8 +854,8 @@ public class RPGActor extends Actor
 
  /**
  * Test that ensures that getDefModifier() returns the correct value
- * @precondition - getDefModifier() has definition and RPGActor constructor is functional
- * @post - none;
+ * pre - getDefModifier() has definition and RPGActor constructor is functional
+ * post - none;
  * @return true if passed false else
  */
  public boolean RPGActorTest26()
@@ -867,8 +867,8 @@ public class RPGActor extends Actor
 
  /**
  * Test that ensures setDefenseModifier() sets m_defModifier to 5 if given a value above 5
- * @precondition - setDefenseModifier() has definition and RPGActor constructor is functional
- * @post - none;
+ * pre - setDefenseModifier() has definition and RPGActor constructor is functional
+ * post - none;
  * @return true if passed false else
  */
  public boolean RPGActorTest27()
@@ -880,8 +880,8 @@ public class RPGActor extends Actor
 
  /**
  * Test ensures that setDefenseModifier sets m_defModifier appropriately if given a good value
- * @precondition - setDefenseModifier() has definition and RPGActor constructor is functional
- * @post - none;
+ * pre - setDefenseModifier() has definition and RPGActor constructor is functional
+ * post - none;
  * @return true if passed false else
  */
  public boolean RPGActorTest28()
@@ -893,8 +893,8 @@ public class RPGActor extends Actor
 
  /**
  * Test ensures that setDefenseModifier sets m_defModifer to 0 if given a bad value less than zero
- * @precondition - setDefenseModifier() has definition and RPGActor constructor is functional
- * @post - none;
+ * pre - setDefenseModifier() has definition and RPGActor constructor is functional
+ * post - none;
  * @return true if passed false else
  */
  public boolean RGPActorTest29()
@@ -906,8 +906,8 @@ public class RPGActor extends Actor
 
  /**
  * Test ensures that getEquippedSword() function returns the correct Item
- * @precondition - getEquippedSword() function has definition and can interface with item class
- * @post - none;
+ * pre - getEquippedSword() function has definition and can interface with item class
+ * post - none;
  * @return true if passed false else
  */
  public boolean RPGActorTest30()
@@ -920,8 +920,8 @@ public class RPGActor extends Actor
 
  /**
  * Test ensures that equipSword() function equips an item in the case that that item is of the correct type
- * @precondition - equipSword has definition and is compatable with item class
- * @post - none;
+ * pre - equipSword has definition and is compatable with item class
+ * post - none;
  * @return true if passed false else
  */
  public boolean RPGActorTest31()
@@ -934,8 +934,8 @@ public class RPGActor extends Actor
 
  /**
  * Test ensures that equipSword() function does not equip an item that is not of the right type
- * @precondition - equipSword() has definition and is compatable with item class
- * @post - none;
+ * pre - equipSword() has definition and is compatable with item class
+ * post - none;
  * @return true if passed false else
  */
  public boolean RPGActorTest32()
@@ -949,8 +949,8 @@ public class RPGActor extends Actor
 
  /**
  * Test ensures that getEquippedShield() function returns correct value
- * @precondition - getEquippedShield() has definition, is compatable with item class, and RPGActor constructor works
- * @post - none;
+ * pre - getEquippedShield() has definition, is compatable with item class, and RPGActor constructor works
+ * post - none;
  * @return true if passed false else
  */
  public boolean RPGActorTest33()
@@ -963,8 +963,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures taht equipShield() method equips an item if it is of the right type
- * @precondition - equipShield() has definiton, is compatable with item class, and RPGActor constructor works
- * @post - none;
+ * pre - equipShield() has definiton, is compatable with item class, and RPGActor constructor works
+ * post - none;
  * @ return true if passed false else
  */
  public boolean RPGActorTest34()
@@ -977,8 +977,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures that equipShield() method does not equip an item if it is of the wrong type
- * @precondition - equipShield() has definition, is compatable with item calss and RPGActor constructor works
- * @post - none;
+ * pre - equipShield() has definition, is compatable with item calss and RPGActor constructor works
+ * post - none;
  * @return true if passed false else
  */
  public boolean RPGActorTest35()
@@ -992,8 +992,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures that getEquippedArmor returns the correct value
- * @precondition - getEquippedArmor() has definiton, is compatable with item class, and RPGActor constructor works
- * @post - none;
+ * pre - getEquippedArmor() has definiton, is compatable with item class, and RPGActor constructor works
+ * post - none;
  * @return true if passed false else
  */
  public boolean RPGActorTest36()
@@ -1006,8 +1006,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures that equipArmor() equips an item if it is of the right type
- * @precondition - equipArmor() has definition, is compatable with item class, and RPGActor constructor works
- * @post - none;
+ * pre - equipArmor() has definition, is compatable with item class, and RPGActor constructor works
+ * post - none;
  * @return true if passed false else
  */
  public boolean RPGActorTest37()
@@ -1020,8 +1020,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures that equipArmor() equips fails to equip an item if it is of the wrong type
- * @precondition - equipArmor() has definition, is compatable with item class, and RPGActor constructor works
- * @post - none
+ * pre - equipArmor() has definition, is compatable with item class, and RPGActor constructor works
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest38()
@@ -1035,8 +1035,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures that getEquippedHelmet returns the correct value
- * @precondition - getEquippedHemlet()  has definition, is compatable with item class, and RPGActor constructor works
- * @post - none
+ * pre - getEquippedHemlet()  has definition, is compatable with item class, and RPGActor constructor works
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest39()
@@ -1049,8 +1049,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures that equipHelmet() equips an item if it is of the right type
- * @precondition - equipHelmet() has definition, is compatable with item class, and RPGActor contructor works
- * @post - none
+ * pre - equipHelmet() has definition, is compatable with item class, and RPGActor contructor works
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest40()
@@ -1063,8 +1063,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures that equipHelmet() rejects an item of the wrong type
- * @precondition - equipHelmet() has definition, is compatable with item class, and RPGActor constructor works
- * @post - none
+ * pre - equipHelmet() has definition, is compatable with item class, and RPGActor constructor works
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest41()
@@ -1078,8 +1078,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures that getDescription returns m_description
- * @precondition - getDescritpion() has definition, RPGActor has working constructor
- * @post - none
+ * pre - getDescritpion() has definition, RPGActor has working constructor
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest42()
@@ -1091,8 +1091,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures that setDescription sets properly
- * @precondition - setDescription() has definition, RPGActor has working constructor
- * @post - none
+ * pre - setDescription() has definition, RPGActor has working constructor
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest43()
@@ -1104,8 +1104,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures that getEquippedGauntlets returns the correct value
- * @precondition - getEquippedGauntlets has definition that is compatable with item class, and RPGActor constructor works
- * @post - none
+ * pre - getEquippedGauntlets has definition that is compatable with item class, and RPGActor constructor works
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest44()
@@ -1118,8 +1118,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures that equipGauntlets() equips items of the right type
- * @precondition - equipGauntlets() has definition that works with item, RPGActor has working constructor
- * @post - none
+ * pre - equipGauntlets() has definition that works with item, RPGActor has working constructor
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest45()
@@ -1132,8 +1132,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures that equipGauntlets() fails to equip items of the wrong type
- * @precondition - equipGauntlets() has definition that works with item, RPGActor has working constructor
- * @post - none
+ * pre - equipGauntlets() has definition that works with item, RPGActor has working constructor
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest46()
@@ -1147,8 +1147,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures that getBoots returns the correct value
- * @precondition - getBoots() has working definition and RPGActor has working constructor
- * @post - none
+ * pre - getBoots() has working definition and RPGActor has working constructor
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest47()
@@ -1161,8 +1161,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures that equipBoots() properly equipps an item of the right type
- * @precondition - equipBoots() has working definition and RPGActor has woking constructor
- * @post - none
+ * pre - equipBoots() has working definition and RPGActor has woking constructor
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest48()
@@ -1175,8 +1175,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures that equipBoots() rejects item of incorrect type
- * @precondition - equipBoots() has working definition and RPGActor has working constructor
- * @post - none
+ * pre - equipBoots() has working definition and RPGActor has working constructor
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest49()
@@ -1190,8 +1190,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures that reduceHp works properly if the actor does not die
- * @precondition - instance of RPGActor
- * @post - none
+ * pre - instance of RPGActor
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest50()
@@ -1203,8 +1203,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures that reduceHp works properly if the actor dies
- * @precondition - instance of RPGActor
- * @post - none
+ * pre - instance of RPGActor
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest51()
@@ -1216,8 +1216,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures that basicAttack() returns false if opponent lives
- * @precondition - two instances of RPGActor
- * @post - none
+ * pre - two instances of RPGActor
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest52()
@@ -1230,8 +1230,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures that basicAttack() returns true if opponent dies
- * @precondition - two instances of RPGActor
- * @post - none
+ * pre - two instances of RPGActor
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest53()
@@ -1244,8 +1244,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures that getAttackFighter() returns appropriately
- * @precondition - RPGActor constructor is functional
- * @post - none
+ * pre - RPGActor constructor is functional
+ * post - none
  * @return true if passed false else
  */
  public boolean RPGActorTest54()
@@ -1256,8 +1256,8 @@ public class RPGActor extends Actor
 
  /**
  * test ensures that getDefenseFighter() returns appropriately
- * @precondition - RPGActor constructor is functional
- * @post - none
+ * pre - RPGActor constructor is functional
+ * post - none
  * @return trueif passed false else
  */
  public boolean RPGActorTest55()
