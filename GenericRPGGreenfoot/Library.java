@@ -366,18 +366,18 @@ public class Library
 	* @postcondition:	none
 	* @return: 			true if passed false else
 	*/
-	public boolean LibraryTest1()
-	{
-		try
-		{
-			Library a = new Library(1);
-			return((a.canteach[0]==true)&&(a.canteach[1]==true)&&(a.canTeach[2]==true)&&(a.canTeach[3]==true)&&(a.canTeach[4]==true)&&(a.canTeach[5]==true)&&(a.canTeach[6]==false)&&(a.canTeach[7]==false));
-		}
-		catch(Exception e)
-		{
-			return false;
-		}
-	}
+	//public boolean LibraryTest1()
+	//{
+	//	try
+	//	{
+	//		Library a = new Library(1);
+	//		return((a.canteach[0]==true)&&(a.canteach[1]==true)&&(a.canTeach[2]==true)&&(a.canTeach[3]==true)&&(a.canTeach[4]==true)&&(a.canTeach[5]==true)&&(a.canTeach[6]==false)&&(a.canTeach[7]==false));
+	//	}
+	//	catch(Exception e)
+	//	{
+	//		return false;
+	//	}
+	//}
 	
 	/**
 	* This function is used to test the constructor if passed a 2
