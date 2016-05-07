@@ -23,51 +23,58 @@ UTF-8
 G:\Greenfoot-302-standalone\Greenfoot\lib\bjdoclet.jar
 -doclet
 bluej.doclet.doclets.formats.html.HtmlDoclet
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java
 <---- end of javadoc command ---->
-Loading source file H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java...
+Loading source file H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java...
 Constructing Javadoc information...
 Standard Doclet version 1.8.0_66
 Building tree for all the packages and classes...
-Generating H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\doc\Town.html...
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:65: warning - Tag @return cannot be used in constructor documentation.  It can only be used in the following types of documentation: method.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:65: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:65: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:389: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:389: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:136: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:136: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:280: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:280: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:570: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:570: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:570: warning - @return tag cannot be used in method with void return type.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:584: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:584: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:584: warning - @return tag cannot be used in method with void return type.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:98: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:98: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:126: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:126: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:453: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:453: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:559: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:559: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:508: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:508: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:695: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:695: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:675: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:675: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:113: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:113: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:113: warning - @return tag cannot be used in method with void return type.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:364: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:364: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:329: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:329: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:153: warning - @param argument ":" is not a parameter name.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Town.java:153: warning - @param argument ":" is not a parameter name.
+Generating H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\doc\Skill.html...
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:67: warning - @precondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:67: warning - @postcondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:67: warning - @return: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:316: warning - @precondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:316: warning - @postcondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:316: warning - @return: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:256: warning - @precondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:256: warning - @postcondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:256: warning - @return: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:296: warning - @precondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:296: warning - @postcondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:296: warning - @return: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:236: warning - @precondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:236: warning - @postcondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:236: warning - @return: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:28: warning - @precondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:28: warning - @postcondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:28: warning - @return: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:39: warning - @precondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:39: warning - @postcondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:39: warning - @return: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:276: warning - @precondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:276: warning - @postcondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:276: warning - @return: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:216: warning - @precondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:216: warning - @postcondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:216: warning - @return: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:326: warning - @precondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:326: warning - @postcondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:326: warning - @return: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:266: warning - @precondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:266: warning - @postcondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:266: warning - @return: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:306: warning - @precondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:306: warning - @postcondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:306: warning - @return: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:246: warning - @precondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:246: warning - @postcondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:246: warning - @return: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:286: warning - @precondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:286: warning - @postcondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:286: warning - @return: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:226: warning - @precondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:226: warning - @postcondition: is an unknown tag.
+H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:226: warning - @return: is an unknown tag.
 Generating H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\doc\package-frame.html...
 Generating H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\doc\package-summary.html...
 Generating H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\doc\constant-values.html...
@@ -77,4 +84,4 @@ Generating H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\doc\allcla
 Generating H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\doc\allclasses-noframe.html...
 Generating H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\doc\index.html...
 Generating H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\doc\stylesheet.css...
-38 warnings
+45 warnings
