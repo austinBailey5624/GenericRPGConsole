@@ -86,8 +86,16 @@ public class Battle
                     m_skillSet[0].Execute(player, npc);
                     int temphp2=npc.getCurHp();
                     int difference=temphp1-temphp2;
+                    if(player.getEquippedSword() != null)
+                    {
                     JOptionPane.showMessageDialog(null, player.getName()+" attacks "+npc.getName()+" with a "+player.getEquippedSword().getName()+", dealing "+difference+" damage!\n");
                     System.out.println(player.getName()+" attacks "+npc.getName()+" with a "+player.getEquippedSword().getName()+", dealing "+difference+" damage!\n");
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, player.getName()+" attacks "+npc.getName()+" with a no sword, dealing "+difference+" damage!\n");
+                    System.out.println(player.getName()+" attacks "+npc.getName()+" with a no sword, dealing "+difference+" damage!\n");
+                    }
                 }
                 else if (choice==2) //TODO handle when skill does not target enemy, adjust effects for single battle
                 {
@@ -410,8 +418,16 @@ public class Battle
         m_skillSet[0].Execute(npc,curPlayer);
         int newHp=curPlayer.getCurHp();
         int damage=curHp-newHp;
-        JOptionPane.showMessageDialog(null, npc.getName()+" attacks "+curPlayer.getName()+" with a "+npc.getEquippedSword().getName()+", dealing "+damage+" damage!\n");
+        if(npc.getEquippedSword() != null)
+        {
+            JOptionPane.showMessageDialog(null, npc.getName()+" attacks "+curPlayer.getName()+" with a "+npc.getEquippedSword().getName()+", dealing "+damage+" damage!\n");
         System.out.println(npc.getName()+" attacks "+curPlayer.getName()+" with a "+npc.getEquippedSword().getName()+", dealing "+damage+" damage!\n");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, npc.getName()+" attacks "+curPlayer.getName()+" with a no sword, dealing "+damage+" damage!\n");
+        System.out.println(npc.getName()+" attacks "+curPlayer.getName()+" with a no sword, dealing "+damage+" damage!\n");
+        }
     }
     
     /**
