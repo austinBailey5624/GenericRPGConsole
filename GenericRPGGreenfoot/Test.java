@@ -12,6 +12,11 @@ public class Test
     private Item item;
     private Battle b;
    
+    /**
+     * @pre none
+     * @post instance of Test is created and initialized
+     * @return none, it is a constructor
+     */
     public Test()
     {
         a=new RPGActor();
@@ -20,11 +25,22 @@ public class Test
         b=new Battle();
     }
     
+    /**
+     * @pre instance of Test exists
+     * @post none
+     * @return none
+     * @brief time saving method to avoid having to type System.out.println a million times 
+     */
     public void println(String s)
     {
         System.out.println(s);
     }
     
+    /**
+     * @pre instance of Test exists
+     * @post messages will be printed to the console
+     * @return none
+     */
     public void runTests()
     {
         println("Running all tests:\n");
