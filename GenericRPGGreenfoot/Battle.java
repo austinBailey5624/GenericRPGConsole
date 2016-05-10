@@ -16,7 +16,7 @@ public class Battle
     //private Scanner myScanner;
     private int order;
     private int skillChoice; 
-    private PlayerActor curPlayer;
+    public PlayerActor curPlayer;
     private boolean ranAway;
     private boolean playerMistake;
     private Skill[] m_skillSet;
@@ -776,4 +776,122 @@ public class Battle
         }
         return false;
     }
+    
+    /**
+     * @pre instance of Battle exists
+     * @post none
+     * @return true if usePotion sets curHp to max if player has lost less than 50, when using basic health potion, otherwise false
+     */
+    public boolean battleTest10()
+    {
+       PlayerActor a1=new PlayerActor();
+        
+        a1.setCurHp(75);
+        Battle myBattle = new Battle();
+        myBattle.curPlayer=a1;
+        myBattle.usePotion(1);
+        return (a1.getCurHp() == a1.getMaxHp());
+        
+        
+    }
+    
+    /**
+     * @pre instance of Battle exists
+     * @post none
+     * @return true if usePotion adds 50 to players health when player has lost more than 50 hp, using basic health potion
+     */
+    public boolean battleTest11()
+    {
+        PlayerActor a1=new PlayerActor();
+        a1.setCurHp(25);
+        Battle myBattle=new Battle();
+        myBattle.curPlayer=a1;
+        myBattle.usePotion(1);
+        return (a1.getCurHp()==75);
+    }
+    
+    /**
+     * @pre instance of Battle exists
+     * @post none
+     * @return true if usePotion sets curHp to max if player has lost fewer than 100 hp when using advanced health potion
+     */
+    public boolean battleTest12()
+    {
+        PlayerActor a1=new PlayerActor();
+        a1.setMaxHp(200);
+        a1.setCurHp(150);
+        Battle b=new Battle();
+        b.curPlayer=a1;
+        b.usePotion(2);
+        return (a1.getCurHp()==200);
+    }
+    
+    /**
+     * @pre instance of Battle exists
+     * @post none
+     * @return true if usePotion adds 100 to hp if player has lost more than 100 hp
+     */
+    public boolean battleTest13() // adds 100 to health if youve lost over 100 using potion 2
+    {
+        PlayerActor a1=new PlayerActor();
+        a1.setMaxHp(200);
+        a1.setCurHp(25);
+        Battle b=new Battle();
+        b.curPlayer=a1;
+        b.usePotion(2);
+        return (a1.getCurHp()==125);
+    }
+    
+    /**
+     * @pre instance of battle exists
+     * @post none
+     * @return true if usePotion sets curHp to max if player has lost fewer than 150 hp when using expert health potion
+     */
+    public boolean battleTest14() // makes health max if youve lost fewer than 150
+    {
+        PlayerActor a1=new PlayerActor();
+        a1.setMaxHp(200);
+        a1.setCurHp(100);
+        Battle b=new Battle();
+        b.curPlayer=a1;
+        b.usePotion(3);
+        return (a1.getCurHp()==200);
+    }
+    
+    /**
+     * @pre instance of Battle exists
+     * @post none
+     * @return true if usePotion adds 150 to curHp if player has lost more than 150 hp, when using expert health potion
+     */
+    public boolean battleTest15() // adds 150 to health if youve lost over 150
+    {
+        PlayerActor a1=new PlayerActor();
+        a1.setMaxHp(200);
+        a1.setCurHp(25);
+        Battle b=new Battle();
+        b.curPlayer=a1;
+        b.usePotion(3);
+        return (a1.getCurHp()==175);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
