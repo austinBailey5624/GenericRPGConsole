@@ -8,10 +8,12 @@
 public class Test  
 {
     private RPGActor a;
+    private Party p;
    
     public Test()
     {
         a=new RPGActor();
+        p=new Party();
     }
     
     public void println(String s)
@@ -22,7 +24,7 @@ public class Test
     public void runTests()
     {
         println("Running all tests:\n");
-        println("Actor Tests:\n");
+        println("\nActor Tests:\n");
         println("1) Actor member variables are correctly set in the constructor: "+ a.RPGActorTest1() );
         println("2) Correct sword is equipped in actor constructor: "+ a.RPGActorTest2());
         println("3) Correct shield is equipped in the actor constructor: " + a.RPGActorTest3());
@@ -79,7 +81,19 @@ public class Test
         println("54) Test that getAttackFighter() returns correct value: " + a.RPGActorTest54());
         println("55) Test that getDefenseFighter() returns correct value: " + a.RPGActorTest55());
         
-        println("Party Tests: \n");
+        println("\nParty Tests: \n");
+        println("1) Test that party constructor works properly: " + p.PartyTest1());
+        println("2) Test that onlyOne() returns true when it should: " + p.PartyTest2());
+        println("3) Test that onlyOne() returns false when it should: " + p.PartyTest3());
+        println("4) Test that getGold() returns the correct value: " + p.PartyTest4());
+        println("5) Test that setGold() sets m_gold to correct value: " + p.PartyTest5());
+        println("6) Test that addGold() works correctly: " + p.PartyTest6());
+        println("7) Test that getInventory() works correctly: " + p.PartyTest7());
+        println("8) Test that setInventory() works correctly: " + p.PartyTest8());
+        println("9) Test that getContent() works correctly: " + p.PartyTest9());
+        println("10) Test that setContent() works correctly: " + p.PartyTest10());
+        
+        
         
         
         

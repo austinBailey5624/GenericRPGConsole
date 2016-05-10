@@ -1,6 +1,6 @@
 Class documentation
 <---- javadoc command: ---->
-G:\Greenfoot-302-standalone\Greenfoot\jdk\bin\javadoc.exe
+/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/JDK/Home/bin/javadoc
 -author
 -version
 -nodeprecated
@@ -12,76 +12,18 @@ G:\Greenfoot-302-standalone\Greenfoot\jdk\bin\javadoc.exe
 -source
 1.8
 -classpath
-G:\Greenfoot-302-standalone\Greenfoot\lib\extensions\greenfoot.jar;G:\Greenfoot-302-standalone\Greenfoot\lib\bluejcore.jar;G:\Greenfoot-302-standalone\Greenfoot\lib\bluejeditor.jar;G:\Greenfoot-302-standalone\Greenfoot\lib\bluejext.jar;G:\Greenfoot-302-standalone\Greenfoot\lib\AppleJavaExtensions.jar;G:\Greenfoot-302-standalone\Greenfoot\lib\junit-4.11.jar;G:\Greenfoot-302-standalone\Greenfoot\lib\hamcrest-core-1.3.jar;G:\Greenfoot-302-standalone\Greenfoot\lib\bluej.jar;G:\Greenfoot-302-standalone\Greenfoot\lib\commons-httpclient-3.1.jar;G:\Greenfoot-302-standalone\Greenfoot\lib\commons-logging-api-1.1.2.jar;G:\Greenfoot-302-standalone\Greenfoot\lib\commons-codec-1.3.jar;G:\Greenfoot-302-standalone\Greenfoot\lib\jl1.0.1.jar;G:\Greenfoot-302-standalone\Greenfoot\lib\opencsv-2.3.jar;G:\Greenfoot-302-standalone\Greenfoot\lib\xom-1.2.9.jar;G:\Greenfoot-302-standalone\Greenfoot\lib\jna-4.2.0.jar;G:\Greenfoot-302-standalone\Greenfoot\lib\jna-platform-4.2.0.jar;G:\Greenfoot-302-standalone\Greenfoot\lib\guava-17.0.jar;G:\Greenfoot-302-standalone\Greenfoot\lib\javassist-3.18.0.jar;G:\Greenfoot-302-standalone\Greenfoot\lib\commons-vfs2-2.0.jar;G:\Greenfoot-302-standalone\Greenfoot\lib\httpclient-4.1.1.jar;G:\Greenfoot-302-standalone\Greenfoot\lib\httpcore-4.1.jar;G:\Greenfoot-302-standalone\Greenfoot\lib\httpmime-4.1.1.jar;H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot
+/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/extensions/greenfoot.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/bluejcore.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/bluejeditor.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/bluejext.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/AppleJavaExtensions.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/junit-4.11.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/hamcrest-core-1.3.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/bluej.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/diffutils-1.2.1.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/commons-httpclient-3.1.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/commons-logging-api-1.1.2.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/commons-codec-1.3.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/jl1.0.1.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/opencsv-2.3.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/xom-1.2.9.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/jna-4.2.0.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/jna-platform-4.2.0.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/guava-17.0.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/javassist-3.18.0.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/commons-vfs2-2.0.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/httpclient-4.1.1.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/httpcore-4.1.jar:/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/httpmime-4.1.1.jar:/Users/Tim/Desktop/GenericRPG/GenericRPGGreenfoot
 -d
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\doc
+/Users/Tim/Desktop/GenericRPG/GenericRPGGreenfoot/doc
 -encoding
 UTF-8
 -charset
 UTF-8
 -docletpath
-G:\Greenfoot-302-standalone\Greenfoot\lib\bjdoclet.jar
+/Users/Tim/Downloads/Greenfoot 3.0.3/Greenfoot.app/Contents/Resources/Java/bjdoclet.jar
 -doclet
 bluej.doclet.doclets.formats.html.HtmlDoclet
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java
+/Users/Tim/Desktop/GenericRPG/GenericRPGGreenfoot/Test.java
 <---- end of javadoc command ---->
-Loading source file H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java...
-Constructing Javadoc information...
-Standard Doclet version 1.8.0_66
-Building tree for all the packages and classes...
-Generating H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\doc\Skill.html...
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:67: warning - @precondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:67: warning - @postcondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:67: warning - @return: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:316: warning - @precondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:316: warning - @postcondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:316: warning - @return: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:256: warning - @precondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:256: warning - @postcondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:256: warning - @return: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:296: warning - @precondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:296: warning - @postcondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:296: warning - @return: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:236: warning - @precondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:236: warning - @postcondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:236: warning - @return: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:28: warning - @precondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:28: warning - @postcondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:28: warning - @return: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:39: warning - @precondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:39: warning - @postcondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:39: warning - @return: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:276: warning - @precondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:276: warning - @postcondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:276: warning - @return: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:216: warning - @precondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:216: warning - @postcondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:216: warning - @return: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:326: warning - @precondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:326: warning - @postcondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:326: warning - @return: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:266: warning - @precondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:266: warning - @postcondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:266: warning - @return: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:306: warning - @precondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:306: warning - @postcondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:306: warning - @return: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:246: warning - @precondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:246: warning - @postcondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:246: warning - @return: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:286: warning - @precondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:286: warning - @postcondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:286: warning - @return: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:226: warning - @precondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:226: warning - @postcondition: is an unknown tag.
-H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\Skill.java:226: warning - @return: is an unknown tag.
-Generating H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\doc\package-frame.html...
-Generating H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\doc\package-summary.html...
-Generating H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\doc\constant-values.html...
-Building index for all the packages and classes...
-Building index for all classes...
-Generating H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\doc\allclasses-frame.html...
-Generating H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\doc\allclasses-noframe.html...
-Generating H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\doc\index.html...
-Generating H:\EECS_448\Project4\GenericRPGConsole\GenericRPGGreenfoot\doc\stylesheet.css...
-45 warnings
+javadoc: error - fatal error
+1 error
