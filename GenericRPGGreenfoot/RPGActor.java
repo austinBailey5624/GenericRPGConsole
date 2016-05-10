@@ -913,7 +913,7 @@ public class RPGActor extends Actor
  * @post - none;
  * @return true if passed false else
  */
- public boolean RGPActorTest29()
+ public boolean RPGActorTest29()
  {
    RPGActor a = new RPGActor();
    a.setDefenseModifier(-123);
