@@ -1,12 +1,12 @@
 #BlueJ class context
 comment0.target=Inn
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Inn\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ Inn\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=whichInn
 comment1.target=Inn(int)
-comment1.text=\r\n\ Generates\ an\ inn\ based\ on\ the\ input\ provided\ in\ parameter\ whichInn\r\n\ @precondition\:\ \tnone\r\n\ @post\:\t\t\tgenerates\ an\ Inn\t\r\n\ @return\:\t\t\tinstance\ of\ Inn\r\n
+comment1.text=\n\ Generates\ an\ inn\ based\ on\ the\ input\ provided\ in\ parameter\ whichInn\n\ @precondition\:\ \tnone\n\ @post\:\t\t\tgenerates\ an\ Inn\t\n\ @return\:\t\t\tinstance\ of\ Inn\n
 comment2.params=party
 comment2.target=void\ menu(Party)
-comment2.text=\r\n\ Handles\ the\ player's\ interaction\ with\ the\ inn\r\n\ @precondition\:\ \tinstance\ of\ Inn,\ instance\ of\ PlayerActor\ to\ pass\ to\ inn\r\n\ @post\:\t\t\tcan\ heal\ user\ and\ decrement\ gold\r\n\ @return\:\t\t\tvoid\r\n
+comment2.text=\n\ Handles\ the\ player's\ interaction\ with\ the\ inn\n\ @precondition\:\ \tinstance\ of\ Inn,\ instance\ of\ PlayerActor\ to\ pass\ to\ inn\n\ @post\:\t\t\tcan\ heal\ user\ and\ decrement\ gold\n\ @return\:\t\t\tvoid\n
 comment3.params=s
 comment3.target=boolean\ verifyInt(java.lang.String)
 numComments=4
