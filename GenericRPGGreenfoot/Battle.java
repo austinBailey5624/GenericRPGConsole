@@ -1,5 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
+import java.lang.StringBuilder;
 
 /**
  * Write a description of class Battle here.
@@ -11,7 +13,7 @@ public class Battle
 {
    //member variables
     private Random r;
-    private Scanner myScanner;
+    //private Scanner myScanner;
     private int order;
     private int skillChoice; 
     private PlayerActor curPlayer;
@@ -27,7 +29,7 @@ public class Battle
      */
     public Battle()
     { 
-        myScanner=new Scanner(System.in);
+        //myScanner=new Scanner(System.in);
         r=new Random();
         ranAway=false;
         order=0;
@@ -49,23 +51,32 @@ public class Battle
         ranAway=false;
         curPlayer=player;
         order=randomNumber(0,1);
+        
+        Shop[] shops=Shop.getAllShops();
+        Arena[] arenas=Arena.getAllArenas();
+        
         System.out.println("Starting battle between "+player.getName()+" and "+npc.getName());
         
         if (order==0)
         {
+            JOptionPane.showMessageDialog(null, "Starting battle between "+player.getName()+" and "+npc.getName() + "\nBy random selection, "+player.getName()+" will go first\n\n");
             System.out.println("By random selection, "+player.getName()+" will go first\n");
             
             do
             {
+                StringBuilder text = new StringBuilder();
+                
+                text.append("Current HP-> "+player.getName()+": "+player.getCurHp()+", "+npc.getName()+": "+npc.getCurHp() + "\n");
                 System.out.println("Current HP-> "+player.getName()+": "+player.getCurHp()+", "+npc.getName()+": "+npc.getCurHp());
-                printBattleMenu();//TODO mark for reuse
-                in=myScanner.next();
+                text.append(printBattleMenu());//TODO mark for reuse
+                in= JOptionPane.showInputDialog(text.toString());
                 if(verifyInt(in))
                 {
                     choice=Integer.parseInt(in);
                 }
                 else
                 {
+                    JOptionPane.showMessageDialog(null, "You gave invalid input! please try again\n");
                     System.out.println("You gave invalid input! please try again\n");
                     continue;
                 }
@@ -75,19 +86,23 @@ public class Battle
                     m_skillSet[0].Execute(player, npc);
                     int temphp2=npc.getCurHp();
                     int difference=temphp1-temphp2;
+                    JOptionPane.showMessageDialog(null, player.getName()+" attacks "+npc.getName()+" with a "+player.getEquippedSword().getName()+", dealing "+difference+" damage!\n");
                     System.out.println(player.getName()+" attacks "+npc.getName()+" with a "+player.getEquippedSword().getName()+", dealing "+difference+" damage!\n");
                 }
                 else if (choice==2) //TODO handle when skill does not target enemy, adjust effects for single battle
                 {
-                    printSkillsAvailable(player);
+                    StringBuilder a = new StringBuilder();
+                    a.append(printSkillsAvailable(player));
+                    a.append("Input the corresponding number to use the skill");
                     System.out.println("Input the corresponding number to use the skill");
-                    in=myScanner.next();
+                    in=JOptionPane.showInputDialog(a.toString());
                     if (verifyInt(in))
                     {
                         skillChoice=Integer.parseInt(in);
                     }
                     else
                     {
+                        JOptionPane.showMessageDialog(null, "You didnt input a number, please try again \n");
                         System.out.println("You didnt input a number, please try again \n");
                         continue;
                     }
@@ -99,31 +114,37 @@ public class Battle
                         }
                         else
                         {
+                            JOptionPane.showMessageDialog(null, "You did not choose a skill you have! Please try again\n");
                             System.out.println("You did not choose a skill you have! Please try again\n");
                             continue;
                         }
                     }
                     else
                     {
+                        JOptionPane.showMessageDialog(null, "You entered a number too high!\n");
                         System.out.println("You entered a number too high!\n");
                         continue;
                     }
                 }
                 else if (choice==3)
                 {
+                    StringBuilder b = new StringBuilder();
+                    
                     int[] pinv=party.getInventory();
-                    printPotionsAvailable(party);
+                    b.append(printPotionsAvailable(party));
                     if (potionsAvailable(party))
                     {
+                        b.append("Input the corresponding number to use the potion\n");
                         System.out.println("Input the corresponding number to use the potion");
                         
-                        in=myScanner.next();
+                        in=JOptionPane.showInputDialog(b.toString());
                         if (verifyInt(in))
                         {
                             potionchoice=Integer.parseInt(in);
                         }
                         else
                         {
+                            JOptionPane.showMessageDialog(null, "You did not enter a number!\n");
                             System.out.println("You did not enter a number!\n");
                             continue;
                         }
@@ -153,6 +174,7 @@ public class Battle
                         }
                         else
                         {
+                            JOptionPane.showMessageDialog(null, "Invalid input given, please try again\n");
                             System.out.println("Invalid input given, please try again\n");
                             continue;
                         }
@@ -171,14 +193,17 @@ public class Battle
                     }
                     else
                     {
+                        JOptionPane.showMessageDialog(null, "You were unable to run away, coward!\n");
                         System.out.println("You were unable to run away, coward!\n");
                     }
                 }
                 else
                 {
+                    JOptionPane.showMessageDialog(null, "Invalid input given, please try again\n");
                     System.out.println("Invalid input given, please try again\n");
                     continue;
                 }
+                JOptionPane.showMessageDialog(null, "It is now "+npc.getName()+"'s turn");
                 System.out.println("It is now "+npc.getName()+"'s turn");
                 npcTurn(npc);
                 
@@ -187,24 +212,28 @@ public class Battle
         
         else
         {
+            JOptionPane.showMessageDialog(null, "Starting battle between "+player.getName()+" and "+npc.getName() + "By random selection, "+npc.getName()+" will go first\n\n");
             System.out.println("By random selection, "+npc.getName()+" will go first\n");
             do
             {
+                StringBuilder text = new StringBuilder();
                 if (!playerMistake)
                 {
+                    text.append("\nIt is now "+npc.getName()+"'s turn\n");
                     System.out.println("\nIt is now "+npc.getName()+"'s turn");
                     npcTurn(npc);
                 }
-                
+                text.append("Current HP-> "+player.getName()+": "+player.getCurHp()+", "+npc.getName()+": "+npc.getCurHp() + "\n");
                 System.out.println("Current HP-> "+player.getName()+": "+player.getCurHp()+", "+npc.getName()+": "+npc.getCurHp());
-                printBattleMenu();
-                in=myScanner.next();
+                text.append(printBattleMenu());
+                in=JOptionPane.showInputDialog(text.toString());
                 if (verifyInt(in))
                 {
                     choice=Integer.parseInt(in);
                 }
                 else
                 {
+                    JOptionPane.showMessageDialog(null, "You did not input a number!\n");
                     System.out.println("You did not input a number!\n");
                     playerMistake=true;
                 }
@@ -215,20 +244,24 @@ public class Battle
                     m_skillSet[0].Execute(player, npc);
                     int temphp2=npc.getCurHp();
                     int difference=temphp1-temphp2;
+                    JOptionPane.showMessageDialog(null, player.getName()+" attacks "+npc.getName()+" with a "+player.getEquippedSword().getName()+", dealing "+difference+" damage!\n");
                     System.out.println(player.getName()+" attacks "+npc.getName()+" with a "+player.getEquippedSword().getName()+", dealing "+difference+" damage!\n");
                     playerMistake=false;
                 }
                 else if (choice==2)
                 {
-                    printSkillsAvailable(player);
+                    StringBuilder a = new StringBuilder();
+                    a.append(printSkillsAvailable(player));
+                    a.append("Input the corresponding number to use the skill\n");
                     System.out.println("Input the corresponding number to use the skill");
-                    in=myScanner.next();
+                    in=JOptionPane.showInputDialog(a.toString());
                     if (verifyInt(in))
                     {
                         skillChoice=Integer.parseInt(in);
                     }
                     else
                     {
+                        JOptionPane.showMessageDialog(null, "You didnt input a number");
                         System.out.println("You didnt input a number");
                         playerMistake=true;
                         continue;
@@ -243,6 +276,7 @@ public class Battle
                         }
                         else
                         {
+                            JOptionPane.showMessageDialog(null, "You did not choose a skill you have! Please try again\n");
                             System.out.println("You did not choose a skill you have! Please try again\n");
                             playerMistake=true;
                             continue;
@@ -250,6 +284,7 @@ public class Battle
                     }
                     else
                     {
+                        JOptionPane.showMessageDialog(null, "You entered a number too high!\n");
                         System.out.println("You entered a number too high!\n");
                         playerMistake=true;
                         continue;
@@ -257,19 +292,22 @@ public class Battle
                 }
                 else if (choice==3)
                 {
+                    StringBuilder b = new StringBuilder();
                     int[] pinv=party.getInventory();
-                    printPotionsAvailable(party);
+                    b.append(printPotionsAvailable(party));
                     if (potionsAvailable(party))
                     {
+                        b.append("Input the corresponding number to use the potion\n");
                         System.out.println("Input the corresponding number to use the potion");         
                         
-                            in=myScanner.next();
+                            in=JOptionPane.showInputDialog(b.toString());
                             if (verifyInt(in))
                             {
                                 potionchoice=Integer.parseInt(in);
                             }
                             else
                             {
+                                JOptionPane.showMessageDialog(null, "You did not enter a number!");
                                 System.out.println("You did not enter a number!");
                                 playerMistake=true;
                                 continue;
@@ -304,6 +342,7 @@ public class Battle
                         }
                         else
                         {
+                            JOptionPane.showMessageDialog(null, "Invalid input given, please try again\n");
                             System.out.println("Invalid input given, please try again\n");
                             playerMistake=true;
                             continue;
@@ -324,6 +363,7 @@ public class Battle
                     }
                     else
                     {
+                        JOptionPane.showMessageDialog(null, "You were unable to run away, coward!\n");
                         System.out.println("You were unable to run away, coward!\n");
                     }
                 }
@@ -332,6 +372,7 @@ public class Battle
         
         if (ranAway)
         {
+            JOptionPane.showMessageDialog(null, "You successfully ran away!");
             System.out.println("You successfully ran away!");
             return true;
         }
@@ -341,6 +382,7 @@ public class Battle
             player.addExp(npc.getDefeatExp());
             player.setCurHp(player.getMaxHp());
             npc.setCurHp(npc.getMaxHp());
+            JOptionPane.showMessageDialog(null, "\nCongrats on the victory! You recieved "+npc.getDefeatGold()+"gold, and "+npc.getDefeatExp()+" experience");
             System.out.println("\nCongrats on the victory! You recieved "+npc.getDefeatGold()+"gold, and "+npc.getDefeatExp()+" experience");
             return true;
         }
@@ -361,9 +403,14 @@ public class Battle
     public void npcTurn(RPGActor npc)//TODO implement randomness into the npc turn
     {
         int curHp=curPlayer.getCurHp();
+        if(curPlayer == null || npc == null)
+        {
+            JOptionPane.showMessageDialog(null, "null");
+        }
         m_skillSet[0].Execute(npc,curPlayer);
         int newHp=curPlayer.getCurHp();
         int damage=curHp-newHp;
+        JOptionPane.showMessageDialog(null, npc.getName()+" attacks "+curPlayer.getName()+" with a "+npc.getEquippedSword().getName()+", dealing "+damage+" damage!\n");
         System.out.println(npc.getName()+" attacks "+curPlayer.getName()+" with a "+npc.getEquippedSword().getName()+", dealing "+damage+" damage!\n");
     }
     
@@ -420,13 +467,21 @@ public class Battle
      * @post menu will be printed to the console containing options
      * @return none 
      */
-    private void printBattleMenu()
+    private String printBattleMenu()
     {
+        StringBuilder text = new StringBuilder();
+        text.append("It is your turn, input a number to choose one of the following to do:\n");
         System.out.println("It is your turn, input a number to choose one of the following to do:");
+        text.append("1) Basic Attack (using sword)\n");
         System.out.println("1) Basic Attack (using sword)");
+        text.append("2) Use Skill\n");
         System.out.println("2) Use Skill");
+        text.append("3) Use Potion\n");
         System.out.println("3) Use Potion");
+        text.append("4) Run Run Run!\n");
         System.out.println("4) Run Run Run!");
+        
+        return text.toString();
     }
     
     /**
@@ -435,8 +490,11 @@ public class Battle
      * @post the names and descriptions of all skills a1 has unlocked will be printed to the console
      * @return none
      */
-    public void printSkillsAvailable(PlayerActor a1)
+    public String printSkillsAvailable(PlayerActor a1)
     {
+        StringBuilder text = new StringBuilder();
+        
+        text.append("Skills available to you:\n\n");
         System.out.println("Skills available to you:\n");
         boolean[] skills=a1.getSkillset();
         
@@ -444,10 +502,13 @@ public class Battle
         {
             if (skills[i]==true)
             {
+                text.append(i+") "+m_skillSet[i].getName()+"- "+m_skillSet[i].getDescription() + "\n");
                 System.out.println(i+") "+m_skillSet[i].getName()+"- "+m_skillSet[i].getDescription());
             }
         }
         System.out.print("\n");
+        
+        return text.toString();
     }
     
     /**
@@ -475,27 +536,38 @@ public class Battle
      * @post all potions available, as well as descriptions and quantity in players inventory will be printed to console
      * @return none
      */
-    private void printPotionsAvailable(Party a1)
+    private String printPotionsAvailable(Party a1)
     {
+        StringBuilder text = new StringBuilder();
+        
+        text.append("Potions available to you:\n");
         System.out.println("Potions available to you:");
         int[] playerInventory=a1.getInventory();
         
+        JOptionPane.showMessageDialog(null, playerInventory.length);
+        
         if (playerInventory[7]>0)
         {
+            text.append("1) Name: Basic Health Potion, Effect: Restore 50 HP, Quantity: "+playerInventory[7] + "\n");
             System.out.println("1) Name: Basic Health Potion, Effect: Restore 50 HP, Quantity: "+playerInventory[7]);
         }
         if (playerInventory[20]>0)
         {
+            text.append("2) Name: Advanced Health Potion, Effect: Restore 100 HP, Quantity: "+playerInventory[20] + "\n");
             System.out.println("2) Name: Advanced Health Potion, Effect: Restore 100 HP, Quantity: "+playerInventory[20]);
         }
         if (playerInventory[27]>0)
         {
+            text.append("3) Name: Expert Health Potion, Effect: Restore 150 HP, Quantity: "+playerInventory[27] + "\n");
             System.out.println("3) Name: Expert Health Potion, Effect: Restore 150 HP, Quantity: "+playerInventory[27]);
         }
         if (!(potionsAvailable(a1)))
         {
+            text.append("You currently don't have any potions\n");
             System.out.println("You currently don't have any potions\n");
         }
+        
+        return text.toString();
     }
     
     /**
@@ -517,6 +589,7 @@ public class Battle
             {
                 curPlayer.setCurHp(curPlayer.getCurHp()+50);
             }
+            JOptionPane.showMessageDialog(null, "You used a basic health potion, recovering 50 HP!\n");
             System.out.println("You used a basic health potion, recovering 50 HP!\n");
         }
         else if (choice==2)
@@ -529,6 +602,7 @@ public class Battle
             {
                 curPlayer.setCurHp(curPlayer.getCurHp()+100);
             }
+            JOptionPane.showMessageDialog(null, "You used an advanced health potion, recovering 100 HP!\n");
             System.out.println("You used an advanced health potion, recovering 100 HP!\n");
         }
         else if (choice==3)
@@ -541,6 +615,7 @@ public class Battle
             {
                 curPlayer.setCurHp(curPlayer.getCurHp()+150);
             }
+            JOptionPane.showMessageDialog(null, "You used an expert health potion, recovering 150 HP!\n");
             System.out.println("You used an expert health potion, recovering 150 HP!\n");
         }
     }

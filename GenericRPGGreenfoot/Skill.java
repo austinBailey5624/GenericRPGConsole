@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 /**
  * Write a description of class Skill here.
  * 
@@ -135,6 +137,11 @@ public class Skill
 	public void Execute(RPGActor User, RPGActor Target)
 	{
 		//TODO incorporate accuracy into calculation using random
+		
+		if(User == null || Target == null)
+        {
+            JOptionPane.showMessageDialog(null, "null");
+        }
 		if(this.m_id==0)
 		{
 			if((User.getAttackFighter()-(.5*Target.getDefenseFighter())>0))

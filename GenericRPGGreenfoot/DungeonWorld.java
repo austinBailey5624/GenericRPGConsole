@@ -1,28 +1,28 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class TownWorld here.
+ * Write a description of class DungeonWorld here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class TownWorld extends World
-{    
+public class DungeonWorld extends World
+{
     protected final int XDIM = 7;
     protected final int YDIM = 7;
     protected final int OFFSET = 50;
     protected final int TILE_DIM = 100;
     
-    public TownWorld()
-    {
-        super(1000, 700, 1);
-        
+    public DungeonWorld()
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        super(1000, 700, 1); 
     }
     /**
      * Constructor for objects of class TownWorld.
      * 
      */
-    public TownWorld(Party party, Town town, GameDriver gd)
+    public DungeonWorld(Party party, Dungeon dungeon, GameDriver gd)
     {       
         super(1000, 700, 1);
         
@@ -33,10 +33,10 @@ public class TownWorld extends World
         {
             for (int j = 0; j < XDIM; j++)
             {
-                addObject(new Grid(town.getBase()[i][j]), j*100 + OFFSET, i*100 + OFFSET);
+                addObject(new Grid(dungeon.getBase()[i][j]), j*100 + OFFSET, i*100 + OFFSET);
             }
         }
         
-        addObject(new PlayerToken(), town.getStartLoc()[0]*TILE_DIM + OFFSET, town.getStartLoc()[0]*TILE_DIM + OFFSET); 
+        addObject(new PlayerToken(), dungeon.getStartLoc()[0]*TILE_DIM + OFFSET, dungeon.getStartLoc()[0]*TILE_DIM + OFFSET); 
     }
 }

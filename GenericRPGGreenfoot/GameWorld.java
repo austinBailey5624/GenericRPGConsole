@@ -24,7 +24,7 @@ public class GameWorld extends World
     public GameWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(700, 700, 1); 
+        super(1000, 700, 1); 
         
         setBackground("background.png");
         addObject(new GameDriver(), 0, 0);
@@ -37,6 +37,28 @@ public class GameWorld extends World
             }
         }
         addObject(new PlayerToken(), OFFSET, OFFSET);
+    }
+    
+    /**
+     * Constructor for objects of class MyWorld.
+     * 
+     */
+    public GameWorld(Party party, RPGWorld world, GameDriver gd)
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        super(1000, 700, 1); 
+        
+        setBackground("background.png");
+        addObject(gd, 0, 0);
+        
+        for (int i = 0; i < YDIM; i++)
+        {
+            for (int j = 0; j < XDIM; j++)
+            {
+                addObject(new Grid(worldMap[i][j]), j*100 + OFFSET, i*100 + OFFSET);
+            }
+        }
+        addObject(new PlayerToken(), world.getCurrentLoc()[0]*TILE_DIM + OFFSET, world.getCurrentLoc()[1]*TILE_DIM + OFFSET);
     }
     
     public char[][] populateArea(String fileName)

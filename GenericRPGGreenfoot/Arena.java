@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import javax.swing.JOptionPane;
+import java.lang.StringBuilder;
 
 /**
  * Write a description of class Arena here.
@@ -23,9 +25,9 @@ public class Arena
         }
         return ArenaArray;
     }
-    EnemyActor[] enemySet = EnemyActor.getEnemies();
+    EnemyActor[] enemySet;
     int select;
-    Scanner myScanner = new Scanner(System.in);
+    // myScanner = new Scanner(System.in);
     int currentFightCeiling;
     int maxFight;
 
@@ -37,6 +39,7 @@ public class Arena
      */
     public Arena(int whichArena)
     {
+        enemySet = EnemyActor.getEnemies();
         if(whichArena==1)//in this arena you can only fight the first three enemies
         {
             maxFight=3;
@@ -56,6 +59,8 @@ public class Arena
      */
     public void menu(Party party)//TODO make this return a boolean that controls whether the actor won the battle, if lost, return false
     {
+        StringBuilder text = new StringBuilder();
+        text.append("Welcome to the Arena\n");
         System.out.println("Welcome to the Arena");
         boolean exit=false;
         lost = false;
@@ -64,22 +69,26 @@ public class Arena
         {
             int indexRepresentedByChoice[]=new int[enemySet.length];
             int choice=1;
+            text.append("Who will you fight?\n");
             System.out.println("Who will you fight?");
             for(int i=0; i< currentFightCeiling; i++)
             {
+                text.append(choice + ") "  + enemySet[i].getName() + "\n");
                 System.out.println(choice + ") "  + enemySet[i].getName());
                 indexRepresentedByChoice[choice]=i;	
                 choice++;
                 //				indexRepresentedByChoice[choice]=i;
             }
+            text.append(choice + ") Exit\n");
             System.out.println(choice + ") Exit");
-            String in=myScanner.next();
+            String in=JOptionPane.showInputDialog(text.toString());
             if(verifyInt(in))
             {
                 select=Integer.parseInt(in);
             }
             else
             {
+                JOptionPane.showMessageDialog(null, "You gave invalid input! please try again\n");
                 System.out.println("You gave invalid input! please try again\n");
                 continue;
             }
@@ -87,6 +96,7 @@ public class Arena
             {
                 if(myBattle.actorBattle(party,party.getContent()[0], enemySet[indexRepresentedByChoice[select]])) //TODO check if player ran or defeated enemy, adjust response accordingly
                 {
+                    JOptionPane.showMessageDialog(null, "Congratulations, you won! More difficult enemies come to the arena!");
                     System.out.println("Congratulations, you won! More difficult enemies come to the arena!");
                     if(currentFightCeiling<4)
                     {
@@ -96,7 +106,8 @@ public class Arena
                 else
                 {
                     //TODO: need to move to inn somehow?
-                    System.out.println("The guy who beats you took all your gold!\n But he used it to pay the inkeep to nurse you back to health");
+                    JOptionPane.showMessageDialog(null, "The guy who beats you took all your gold!\nBut he used it to pay the inkeep to nurse you back to health");
+                    System.out.println("The guy who beats you took all your gold!\nBut he used it to pay the inkeep to nurse you back to health");
                     exit = true;
                     lost = true;
                 }

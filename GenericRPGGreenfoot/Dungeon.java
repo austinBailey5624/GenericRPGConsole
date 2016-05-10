@@ -80,7 +80,18 @@ public class Dungeon extends Actor
     } 
 
     //get/set methods
-
+     public int[] getStartLoc()
+    {
+        int[] temp = {startLocX, startLocY};
+        return temp;
+    }
+    
+    public int[] getCurrentLoc()
+    {
+        int temp[] = {curPosX, curPosY};
+        return temp;
+    }  
+    
     /**
      * @param : (pre) curAreaArr is initialized
      * @param : (post) None
@@ -91,6 +102,11 @@ public class Dungeon extends Actor
         return curAreaArr;
     }
 
+    public char[][] getBase()
+    {
+        return areaArrBase;
+    }
+    
     /**
      * @param : (pre) curPosX and curPosY declared
      * @param : (post) Sets the previous coordinates to our current coordinates
