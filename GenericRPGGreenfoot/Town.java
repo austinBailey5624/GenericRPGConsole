@@ -13,8 +13,8 @@ public class Town extends Actor
     Party m_party;
     
     //   PlayerActor m_user;
-    Shop[] shops=Shop.getAllShops();
-    Arena[] arenas=Arena.getAllArenas();
+    Shop[] shops;
+    Arena[] arenas;
     
     //dimension and coordinate max constants
     public static final int areaXDim = 7; //max x-axis length
@@ -71,6 +71,9 @@ public class Town extends Actor
         startLocY = y;
         curPosX = startLocX;
         curPosY = startLocY;
+        
+        shops=Shop.getAllShops();
+        arenas=Arena.getAllArenas();
 
         areaArrBase = setBaseArea(townBase);
         curAreaArr = resetArea(curAreaArr, areaArrBase);

@@ -34,5 +34,33 @@ public class Grid extends Actor
         {
             setImage("water.png");
         }
+        else if (type == 'S')
+        {
+            setImage("shop.png");
+        }
+        else if (type == 'A')
+        {
+            setImage("arena.png");
+        }
+        else if (type == 'I')
+        {
+            setImage("inn.png");
+        }
+        else if (type == 'L')
+        {
+            setImage("library.png");
+        }
+        else if (type == 'E')
+        {
+            setImage("exit.png");
+        }
+        else if (type == 'B')
+        {
+            setImage("boss.png");
+        }
+        else if (type == 'C')
+        {
+            setImage("chest.png");
+        }
     }
 }

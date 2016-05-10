@@ -35,7 +35,7 @@ public class EnemyActor extends RPGActor
 	public static EnemyActor[] getEnemies()
 	{
 		EnemyActor[] enemies = new EnemyActor[5];
-		for(int i=0; i<4;i++)
+		for(int i=0; i<5;i++)
 		{
 			enemies[i]= new EnemyActor(i);
 		}

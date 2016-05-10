@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class RPGActor extends Actor
 {
-    Item[] itemSet = Item.getAllItems();
+    Item[] itemSet;
 	private String m_name;
 	private String m_description;
 	private int m_level;
@@ -29,6 +29,7 @@ public class RPGActor extends Actor
 	//Constructors
 	public RPGActor()//default constructor
 	{
+	    itemSet = Item.getAllItems();
 		Item[] itemArray = Item.getAllItems();
 		m_level=1;
 		m_maxHp=100;

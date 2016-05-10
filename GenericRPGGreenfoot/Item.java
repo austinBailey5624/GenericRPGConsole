@@ -1,4 +1,4 @@
- /**
+/**
  * Write a description of class Item here.
  *
  * @author Michael Wang
@@ -17,7 +17,8 @@ public class Item
     protected int m_value;
     protected int m_counter;
 
-    private static int m_numTypesOfItem=28;
+    private static int m_numTypesOfItem = 9;
+    private static int m_numTypesOfWeapon = 11;
 
     protected String m_name;
     protected boolean m_used;
@@ -31,16 +32,19 @@ public class Item
     public static Item[] getAllItems()
     {
 
-    	//Item[] itemArray = new Item[m_numTypesOfItem];
+        //Item[] itemArray = new Item[m_numTypesOfItem];
 
-    	Item[] itemArray = new Item[m_numTypesOfItem];
+        Item[] itemArray = new Item[m_numTypesOfItem + m_numTypesOfWeapon];
 
-
-    	for(int i=0; i<itemArray.length; i++)
-    	{
-    		itemArray[i]=new Item(i);
-    	}
-    	return itemArray;
+        for(int i=0; i<m_numTypesOfItem; i++)//Hey, I thought this would ease the process for adding new items, should do it automatically
+        {
+            itemArray[i]=new Item(i);
+        }
+        for(int i=m_numTypesOfItem; i<(m_numTypesOfItem + m_numTypesOfWeapon); i++)
+        {
+            itemArray[i]=new Weapon(i-m_numTypesOfItem);
+        }
+        return itemArray;
     }
 
     /**
@@ -61,300 +65,141 @@ public class Item
      * Returns - an item based off of the integer given.
      * @param typeOfItem takes in an int in order to create the item
      */
-     /**
-      * This function is the constructor for the different items
-      * pre - needs the parameters down below
-      * post - creates a item
-      * Returns - an item based off of the integer given.
-      * @param typeOfItem takes in an int in order to create the weapon
-      */
-     public Item(int typeOfItem)
-     {
-         m_limit = 0;
-         m_id = 0;
-         m_bonusDef = 0;
-         m_bonusAtk = 0;
-         m_bonusHp = 0;
-         m_value = 0;
+    public Item(int typeOfItem)
+    {
+        m_limit = 0;
+        m_id = 0;
+        m_bonusDef = 0;
+        m_bonusAtk = 0;
+        m_bonusMDef = 0;
+        m_bonusMAtk = 0;
+        m_bonusHp = 0;
+        m_value = 0;
+        m_counter = 0;
 
+        m_name = "";
+        m_used = false;
 
-         m_name = "";
-         m_used = false;
+        if(typeOfItem == 0)
+        {
+            m_type = 0;
+            m_name = "basic potion";
+            m_limit = 10;
+            m_bonusDef = 0;
+            m_bonusAtk = 0;
+            m_bonusMDef = 0;
+            m_bonusMAtk = 0;
+            m_bonusHp = 50;
+            m_value = 10;
+            m_counter = 1;
+        }
+        else if(typeOfItem == 1)
+        {
+            m_type = 0;
+            m_name = "advanced potion";
+            m_limit = 5;
+            m_bonusDef = 0;
+            m_bonusAtk = 0;
+            m_bonusMDef = 0;
+            m_bonusMAtk = 0;
+            m_bonusHp = 100;
+            m_value = 50;
+            m_counter = 1;
+        }
+        else if(typeOfItem == 2)
+        {
+            m_type = 0;
+            m_name = "master potion";
+            m_limit = 1;
+            m_bonusDef = 0;
+            m_bonusAtk = 0;
+            m_bonusMDef = 0;
+            m_bonusMAtk = 0;
+            m_bonusHp = 500;
+            m_value = 100;
+            m_counter = 1;
+        }
+        else if(typeOfItem == 3)
+        {
+            m_type = 0;
+            m_name = "poison potion";
+            m_limit = 5;
+            m_bonusDef = 0;
+            m_bonusAtk = 0;
+            m_bonusMDef = 0;
+            m_bonusMAtk = 0;
+            m_bonusHp = 0;
+            m_value = 10;
+            m_counter = 5;
+        }
+        else if(typeOfItem == 4)
+        {
+            m_type = 0;
+            m_name = "stun potion";
+            m_limit = 5;
+            m_bonusDef = 0;
+            m_bonusAtk = 0;
+            m_bonusMDef = 0;
+            m_bonusMAtk = 0;
+            m_bonusHp = 0;
+            m_value = 10;
+            m_counter = 5;
+        }
+        else if(typeOfItem == 5)
+        {
+            m_type = 0;
+            m_name = "defense potion";
+            m_limit = 5;
+            m_bonusDef = 50;
+            m_bonusAtk = 0;
+            m_bonusMDef = 0;
+            m_bonusMAtk = 0;
+            m_bonusHp = 0;
+            m_value = 10;
+            m_counter = 1;
+        }
+        else if(typeOfItem == 6)
+        {
+            m_type = 0;
+            m_name = "attack potion";
+            m_limit = 5;
+            m_bonusDef = 0;
+            m_bonusAtk = 50;
+            m_bonusMDef = 0;
+            m_bonusMAtk = 0;
+            m_bonusHp = 0;
+            m_value = 10;
+            m_counter = 1;
+        }
+        else if(typeOfItem == 7)
+        {
+            m_type = 3;
+            m_name = "basic armor";
+            m_limit = 5;
+            m_bonusDef = 50;
+            m_bonusAtk = 0;
+            m_bonusMDef = 0;
+            m_bonusMAtk = 0;
+            m_bonusHp = 0;
+            m_value = 10;
+            m_counter = 0;
+        }
+        else if(typeOfItem == 8)
+        {
+            m_type = 4;
+            m_name = "basic helmet";
+            m_limit = 5;
+            m_bonusDef = 100;
+            m_bonusAtk = 0;
+            m_bonusMDef = 0;
+            m_bonusMAtk = 0;
+            m_bonusHp = 0;
+            m_value = 10;
+            m_counter = 0;
+        }
+        m_id = typeOfItem;
 
-         if(typeOfItem == 0)
-         {
-             m_type = 0;
-             m_name = "rags";
-             m_limit = 6;
-             m_value = 0;
-         }
-         else if(typeOfItem == 1)
-         {
-             m_type = 1;
-             m_name = "basic sword";
-             m_limit = 1;
-             m_bonusDef = 0;
-             m_bonusAtk = 5;
-             m_bonusHp = 0;
-             m_value = 10;
-         }
-         else if(typeOfItem == 2)
-         {
-             m_type = 2;
-             m_name = "basic shield";
-             m_limit = 1;
-             m_bonusDef = 5;
-             m_bonusAtk = 0;
-             m_bonusHp = 0;
-             m_value = 10;
-         }
-         else if(typeOfItem == 3)
-         {
-             m_type = 3;
-             m_name = "basic armor";
-             m_limit = 1;
-             m_bonusDef = 10;
-             m_bonusAtk = 0;
-             m_bonusHp = 0;
-             m_value = 10;
-         }
-         else if(typeOfItem == 4)
-         {
-             m_type = 4;
-             m_name = "basic helmet";
-             m_limit = 1;
-             m_bonusDef = 7;
-             m_bonusAtk = 0;
-             m_bonusHp = 0;
-             m_value = 10;
-         }
-         else if(typeOfItem == 5)
-         {
-             m_type = 5;
-             m_name = "basic gauntlet";
-             m_limit = 1;
-             m_bonusDef = 3;
-             m_bonusAtk = 0;
-             m_bonusHp = 0;
-             m_value = 10;
-         }
-         else if(typeOfItem == 6)
-         {
-             m_type = 6;
-             m_name = "basic boots";
-             m_limit = 1;
-             m_bonusDef = 3;
-             m_bonusAtk = 0;
-             m_bonusHp = 0;
-             m_value = 10;
-         }
-         else if(typeOfItem == 7)
-         {
-             m_type = 7;
-             m_name = "basic hPotion";
-             m_limit = 5;
-             m_bonusDef = 0;
-             m_bonusAtk = 0;
-             m_bonusHp = 50;
-             m_value = 10;
-         }
-         else if(typeOfItem == 8)
-         {
-         	m_type = 1;
-         	m_name = "No Sword";
-         	m_bonusDef=0;
-         	m_bonusAtk=0;
-         	m_bonusHp=0;
-         	m_value = 0;
-         }
-         else if(typeOfItem ==9)
-         {
-         	m_type = 2;
-         	m_name = "No Shield";
-         	m_bonusDef=0;
-         	m_bonusAtk=0;
-         	m_bonusHp=0;
-         	m_value = 0;
-         }
-         else if(typeOfItem == 10)
-         {
-         	m_type = 3;
-         	m_name = "No Armor";
-         	m_bonusDef=0;
-         	m_bonusAtk=0;
-         	m_bonusHp=0;
-         	m_value = 0;
-         }
-         else if(typeOfItem == 11)
-         {
-         	m_type = 4;
-         	m_name = "No Helmet";
-         	m_bonusDef=0;
-         	m_bonusAtk=0;
-         	m_bonusHp=0;
-         	m_value = 0;
-         }
-         else if(typeOfItem == 12)
-         {
-         	m_type = 5;
-         	m_name ="Bare Hands";
-         	m_bonusDef=0;
-         	m_bonusAtk=0;
-         	m_bonusHp=0;
-         	m_value = 0;
-         }
-         else if(typeOfItem==13)
-         {
-         	m_type=6;
-         	m_name="Bare Feet";
-         	m_bonusDef=0;
-         	m_bonusAtk=0;
-         	m_bonusHp=0;
-         	m_value = 0;
-         }
-         else if(typeOfItem == 14)
-         {
-             m_type = 1;
-             m_name = "iron sword";
-             m_limit = 1;
-             m_bonusDef = 0;
-             m_bonusAtk = 10;
-             m_bonusHp = 0;
-             m_value = 50;
-         }
-         else if(typeOfItem == 15)
-         {
-             m_type = 2;
-             m_name = "iron shield";
-             m_limit = 1;
-             m_bonusDef = 10;
-             m_bonusAtk = 0;
-             m_bonusHp = 0;
-             m_value = 50;
-         }
-         else if(typeOfItem == 16)
-         {
-             m_type = 3;
-             m_name = "iron armor";
-             m_limit = 1;
-             m_bonusDef = 15;
-             m_bonusAtk = 0;
-             m_bonusHp = 0;
-             m_value = 50;
-         }
-         else if(typeOfItem == 17)
-         {
-             m_type = 4;
-             m_name = "iron helmet";
-             m_limit = 1;
-             m_bonusDef = 10;
-             m_bonusAtk = 0;
-             m_bonusHp = 0;
-             m_value = 50;
-         }
-         else if(typeOfItem == 18)
-         {
-             m_type = 5;
-             m_name = "iron gauntlet";
-             m_limit = 1;
-             m_bonusDef = 5;
-             m_bonusAtk = 0;
-             m_bonusHp = 0;
-             m_value = 50;
-         }
-         else if(typeOfItem == 19)
-         {
-             m_type = 6;
-             m_name = "iron boots";
-             m_limit = 1;
-             m_bonusDef = 5;
-             m_bonusAtk = 0;
-             m_bonusHp = 0;
-             m_value = 50;
-         }
-         else if(typeOfItem == 20)
-         {
-             m_type = 7;
-             m_name = "advanced hPotion";
-             m_limit = 5;
-             m_bonusDef = 0;
-             m_bonusAtk = 0;
-             m_bonusHp = 100;
-             m_value = 50;
-         }
-         else if(typeOfItem == 21)
-         {
-             m_type = 1;
-             m_name = "steel sword";
-             m_limit = 1;
-             m_bonusDef = 0;
-             m_bonusAtk = 20;
-             m_bonusHp = 0;
-             m_value = 100;
-         }
-         else if(typeOfItem == 22)
-         {
-             m_type = 2;
-             m_name = "steel shield";
-             m_limit = 1;
-             m_bonusDef = 20;
-             m_bonusAtk = 0;
-             m_bonusHp = 0;
-             m_value = 100;
-         }
-         else if(typeOfItem == 23)
-         {
-             m_type = 3;
-             m_name = "steel armor";
-             m_limit = 1;
-             m_bonusDef = 20;
-             m_bonusAtk = 0;
-             m_bonusHp = 0;
-             m_value = 100;
-         }
-         else if(typeOfItem == 24)
-         {
-             m_type = 4;
-             m_name = "steel helmet";
-             m_limit = 1;
-             m_bonusDef = 15;
-             m_bonusAtk = 0;
-             m_bonusHp = 0;
-             m_value = 100;
-         }
-         else if(typeOfItem == 25)
-         {
-             m_type = 5;
-             m_name = "steel gauntlet";
-             m_limit = 1;
-             m_bonusDef = 10;
-             m_bonusAtk = 0;
-             m_bonusHp = 0;
-             m_value = 100;
-         }
-         else if(typeOfItem == 26)
-         {
-             m_type = 6;
-             m_name = "steel boots";
-             m_limit = 1;
-             m_bonusDef = 10;
-             m_bonusAtk = 0;
-             m_bonusHp = 0;
-             m_value = 100;
-         }
-         else if(typeOfItem == 27)
-         {
-             m_type = 7;
-             m_name = "expert hPotion";
-             m_limit = 5;
-             m_bonusDef = 0;
-             m_bonusAtk = 0;
-             m_bonusHp = 150;
-             m_value = 100;
-         }
-         m_id = typeOfItem;
-
-     }
+    }
 
     /**
      * This function returns the value of m_type
@@ -365,6 +210,17 @@ public class Item
     public int getType()
     {
         return m_type;
+    }
+
+    /**
+     * This function returns the value of m_limit
+     * pre - none
+     * post - none
+     * @return m_limit
+     */
+    public int getLimit()
+    {
+        return m_limit;
     }
 
     /**
@@ -388,7 +244,6 @@ public class Item
     {
         return m_name;
     }
-
 
     /**
      *This function returns the value of m_used
@@ -421,7 +276,7 @@ public class Item
      */
     public int getBonusDef()
     {
-    	return m_bonusDef;
+        return m_bonusDef;
     }
 
     /**
@@ -432,7 +287,7 @@ public class Item
      */
     public int getBonusAtk()
     {
-    	return m_bonusAtk;
+        return m_bonusAtk;
     }
 
     /**
@@ -443,7 +298,7 @@ public class Item
      */
     public int getBonusMDef()
     {
-    	return m_bonusMDef;
+        return m_bonusMDef;
     }
 
     /**
@@ -454,7 +309,7 @@ public class Item
      */
     public int getBonusMAtk()
     {
-    	return m_bonusMAtk;
+        return m_bonusMAtk;
     }
 
     /**
@@ -473,7 +328,7 @@ public class Item
 
     public int getBonusHp()
     {
-    	return m_bonusHp;
+        return m_bonusHp;
     }
 
     /**
@@ -484,18 +339,7 @@ public class Item
      */
     public int getCounter()
     {
-    	return m_counter;
-    }
-    
-        /**
-     *This function returns the value of m_limit
-     * pre - none
-     * post - none
-     * @return m_limit
-     */
-    public int getLimit()
-    {
-    	return m_limit;
+        return m_counter;
     }
 
     /**
@@ -506,7 +350,7 @@ public class Item
      */
     public static int getNumTypesOfItem()
     {
-    	return m_numTypesOfItem;
+        return m_numTypesOfItem;
     }
 
     /**
@@ -518,7 +362,18 @@ public class Item
      */
     public void setNumTypesOfItem(int numTypesItem)
     {
-    	m_numTypesOfItem = numTypesItem;
+        m_numTypesOfItem = numTypesItem;
+    }
+
+    /**
+     *This function returns the value of m_numTypesOfWeapon
+     * pre - none
+     * post - none
+     * @return m_numTypesOfWeapon
+     */
+    public static int getNumTypesOfWeapon()
+    {
+        return m_numTypesOfWeapon;
     }
 
     /**
@@ -529,371 +384,170 @@ public class Item
      */
     public int getValue()
     {
-    	return m_value;
+        return m_value;
     }
+
     
-   /**
-     *This function tests the item 0
+    //These are the test functions to see if certain functions work
+
+    /**
+     *This function returns true if the item array length is equal to the sum of the number of types of items and the number of types of weapons
      * pre - none
      * post - none
-     * @return boolean that is true if the test is passed and false otherwise
+     * @return true if the item array length is not equal to the sum of the total number of items and weapons and false otherwise
      */
-    public boolean testItem0()
+    public boolean itemTest1()
+    {
+        int itemArray = Item.getAllItems().length;
+        if(itemArray != (getNumTypesOfItem() + getNumTypesOfWeapon()))
+        {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     *This function returns true if the item0 is a basic potion by comparing the stats of the item
+     * pre - none
+     * post - none
+     * @return true if the item is a basic potion and false otherwise
+     */
+    public boolean itemTest2()
+    {
+        Item item0 = new Item(0);
+        if((m_type == 0)&&(m_name == "basic potion")&&(m_limit == 10)&&(m_bonusDef == 0)&&(m_bonusAtk == 0)&&(m_bonusMDef == 0)&&(m_bonusMAtk == 0)&&(m_bonusHp == 50)&&(m_value == 10)&&(m_counter == 1)&&(m_id == 0))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *This function returns true if the item1 is an advanced potion by comparing the stats of the item
+     * pre - none
+     * post - none
+     * @return true if the item is an advanced potion and false otherwise
+     */
+    public boolean itemTest3()
     {
         Item item0 = new Item(1);
-        boolean testPassed = ((item0.getType() == 0)&&(item0.getName() == "rags")&&(item0.getLimit() == 6)&&(item0.getValue() == 0));
-    	return testPassed;
+        if((m_type == 1)&&(m_name == "advanced potion")&&(m_limit == 5)&&(m_bonusDef == 0)&&(m_bonusAtk == 0)&&(m_bonusMDef == 0)&&(m_bonusMAtk == 0)&&(m_bonusHp == 100)&&(m_value == 50)&&(m_counter == 1)&&(m_id == 1))
+        {
+            return true;
+        }
+        return false;
     }
-    
+
     /**
-     *This function tests the item 1
+     *This function returns true if the item2 is a master potion by comparing the stats of the item
      * pre - none
      * post - none
-     * @return boolean that is true if the test is passed and false otherwise
+     * @return true if the item is a master potion and false otherwise
      */
-    public boolean testItem1()
+    public boolean itemTest4()
     {
-		Item item1 = new Item(1);
-        boolean testPassed = ((item1.getType() == 1)&&(item1.getName() == "basic sword")&&(item1.getLimit() == 1)&&(item1.getBonusDef() == 0)&&(item1.getBonusAtk() == 5)&&(item1.getBonusHp()==0)&&(item1.getValue() == 10));
-    	return testPassed;
+        Item item0 = new Item(2);
+        if((m_type == 2)&&(m_name == "master potion")&&(m_limit == 1)&&(m_bonusDef == 0)&&(m_bonusAtk == 0)&&(m_bonusMDef == 0)&&(m_bonusMAtk == 0)&&(m_bonusHp == 500)&&(m_value == 100)&&(m_counter == 1)&&(m_id == 2))
+        {
+            return true;
+        }
+        return false;
     }
-    
+
     /**
-     *This function tests the item 2
+     *This function returns true if the item3 is a posion potion by comparing the stats of the item
      * pre - none
      * post - none
-     * @return boolean that is true if the test is passed and false otherwise
+     * @return true if the item is a posion potion and false otherwise
      */
-    public boolean testItem2()
+    public boolean itemTest5()
     {
-		Item item2 = new Item(2);
-        boolean testPassed = ((item2.getType() == 2)&&(item2.getName() == "basic shield")&&(item2.getLimit() == 1)&&(item2.getBonusDef() == 5)&&(item2.getBonusAtk() == 0)&&(item2.getBonusHp()==0)&&(item2.getValue() == 10));
-    	return testPassed;
+        Item item0 = new Item(3);
+        if((m_type == 3)&&(m_name == "posion potion")&&(m_limit == 5)&&(m_bonusDef == 0)&&(m_bonusAtk == 0)&&(m_bonusMDef == 0)&&(m_bonusMAtk == 0)&&(m_bonusHp == 0)&&(m_value == 10)&&(m_counter == 5)&&(m_id == 3))
+        {
+            return true;
+        }
+        return false;
     }
-    
+
     /**
-     *This function tests the item 3
+     *This function returns true if the item4 is a stun potion by comparing the stats of the item
      * pre - none
      * post - none
-     * @return boolean that is true if the test is passed and false otherwise
+     * @return true if the item is a stun potion and false otherwise
      */
-    public boolean testItem3()
+    public boolean itemTest6()
     {
-	    Item item3 = new Item(3);
-        boolean testPassed = ((item3.getType() == 3)&&(item3.getName() == "basic armor")&&(item3.getLimit() == 1)&&(item3.getBonusDef() == 10)&&(item3.getBonusAtk() == 0)&&(item3.getBonusHp()==0)&&(item3.getValue() == 10));
-    	return testPassed;
+        Item item0 = new Item(4);
+        if((m_type == 4)&&(m_name == "stun potion")&&(m_limit == 5)&&(m_bonusDef == 0)&&(m_bonusAtk == 0)&&(m_bonusMDef == 0)&&(m_bonusMAtk == 0)&&(m_bonusHp == 0)&&(m_value == 10)&&(m_counter == 5)&&(m_id == 4))
+        {
+            return true;
+        }
+        return false;
     }
-    
+
     /**
-     *This function tests the item 4
+     *This function returns true if the item5 is a defense potion by comparing the stats of the item
      * pre - none
      * post - none
-     * @return boolean that is true if the test is passed and false otherwise
+     * @return true if the item is a defense potion and false otherwise
      */
-    public boolean testItem4()
+    public boolean itemTest7()
     {
-	    Item item4 = new Item(4);
-        boolean testPassed = ((item4.getType() == 4)&&(item4.getName() == "basic helmet")&&(item4.getLimit() == 1)&&(item4.getBonusDef() == 7)&&(item4.getBonusAtk() == 0)&&(item4.getBonusHp()==0)&&(item4.getValue() == 10));
-    	return testPassed;
+        Item item0 = new Item(5);
+        if((m_type == 5)&&(m_name == "defense potion")&&(m_limit == 5)&&(m_bonusDef == 50)&&(m_bonusAtk == 0)&&(m_bonusMDef == 0)&&(m_bonusMAtk == 0)&&(m_bonusHp == 0)&&(m_value == 10)&&(m_counter == 1)&&(m_id == 5))
+        {
+            return true;
+        }
+        return false;
     }
-    
+
     /**
-     *This function tests the item 5
+     *This function returns true if the item6 is an attack potion by comparing the stats of the item
      * pre - none
      * post - none
-     * @return boolean that is true if the test is passed and false otherwise
+     * @return true if the item is an attack potion and false otherwise
      */
-    public boolean testItem5()
+    public boolean itemTest8()
     {
-	    Item item5 = new Item(5);
-        boolean testPassed = ((item5.getType() == 5)&&(item5.getName() == "basic gauntlet")&&(item5.getLimit() == 1)&&(item5.getBonusDef() == 3)&&(item5.getBonusAtk() == 0)&&(item5.getBonusHp()==0)&&(item5.getValue() == 10));
-    	return testPassed;
+        Item item0 = new Item(6);
+        if((m_type == 6)&&(m_name == "attack potion")&&(m_limit == 5)&&(m_bonusDef == 0)&&(m_bonusAtk == 50)&&(m_bonusMDef == 0)&&(m_bonusMAtk == 0)&&(m_bonusHp == 0)&&(m_value == 10)&&(m_counter == 1)&&(m_id == 6))
+        {
+            return true;
+        }
+        return false;
     }
-    
+
     /**
-     *This function tests the item 6
+     *This function returns true if the item7 is a basic armor by comparing the stats of the item
      * pre - none
      * post - none
-     * @return boolean that is true if the test is passed and false otherwise
+     * @return true if the item is a basic armor and false otherwise
      */
-    public boolean testItem6()
+    public boolean itemTest9()
     {
-	    Item item6 = new Item(6);
-        boolean testPassed = ((item6.getType() == 6)&&(item6.getName() == "basic boots")&&(item6.getLimit() == 1)&&(item6.getBonusDef() == 3)&&(item6.getBonusAtk() == 0)&&(item6.getBonusHp()==0)&&(item6.getValue() == 10));
-    	return testPassed;
+        Item item0 = new Item(7);
+        if((m_type == 7)&&(m_name == "basic armor")&&(m_limit == 5)&&(m_bonusDef == 50)&&(m_bonusAtk == 0)&&(m_bonusMDef == 0)&&(m_bonusMAtk == 0)&&(m_bonusHp == 0)&&(m_value == 10)&&(m_counter == 0)&&(m_id == 7))
+        {
+            return true;
+        }
+        return false;
     }
-    
+
     /**
-     *This function tests the item 7
+     *This function returns true if the item8 is a basic helmet by comparing the stats of the item
      * pre - none
      * post - none
-     * @return boolean that is true if the test is passed and false otherwise
+     * @return true if the item is a basic helmet and false otherwise
      */
-    public boolean testItem7()
+    public boolean itemTest10()
     {
-	Item item7 = new Item(7);
-        boolean testPassed = ((item7.getType() == 7)&&(item7.getName() == "basic hPotion")&&(item7.getLimit() == 5)&&(item7.getBonusDef() == 0)&&(item7.getBonusAtk() == 0)&&(item7.getBonusHp()==0)&&(item7.getValue() == 10));
-    	return testPassed;
-    }
-    
-    /**
-     *This function tests the item 8
-     * pre - none
-     * post - none
-     * @return boolean that is true if the test is passed and false otherwise
-     */
-    public boolean testItem8()
-    {
-	Item item8 = new Item(8);
-        boolean testPassed = ((item8.getType() == 1)&&(item8.getName() == "No Sword")&&(item8.getBonusDef() == 0)&&(item8.getBonusAtk() == 0)&&(item8.getBonusHp()==0)&&(item8.getValue() == 0));
-    	return testPassed;
-    }
-    
-    /**
-     *This function tests the item 9
-     * pre - none
-     * post - none
-     * @return boolean that is true if the test is passed and false otherwise
-     */
-    public boolean testItem9()
-    {
-	Item item9 = new Item(9);
-        boolean testPassed = ((item9.getType() == 2)&&(item9.getName() == "No Shield")&&(item9.getBonusDef() == 0)&&(item9.getBonusAtk() == 0)&&(item9.getBonusHp()==0)&&(item9.getValue() == 0));
-    	return testPassed;
-    }
-    
-    /**
-     *This function tests the item 10
-     * pre - none
-     * post - none
-     * @return boolean that is true if the test is passed and false otherwise
-     */
-    public boolean testItem10()
-    {
-	Item item10 = new Item(10);
-        boolean testPassed = ((item10.getType() == 3)&&(item10.getName() == "No Armor")&&(item10.getBonusDef() == 0)&&(item10.getBonusAtk() == 0)&&(item10.getBonusHp()==0)&&(item10.getValue() == 0));
-    	return testPassed;
-    }
-    
-    /**
-     *This function tests the item 11
-     * pre - none
-     * post - none
-     * @return boolean that is true if the test is passed and false otherwisean
-     */
-    public boolean testItem11()
-    {
-	Item item11 = new Item(11);
-        boolean testPassed = ((item11.getType() == 4)&&(item11.getName() == "No Helmet")&&(item11.getBonusDef() == 0)&&(item11.getBonusAtk() == 0)&&(item11.getBonusHp()==0)&&(item11.getValue() == 0));
-    	return testPassed;
-    }
-    
-    /**
-     *This function tests the item 12
-     * pre - none
-     * post - none
-     * @return boolean that is true if the test is passed and false otherwise
-     */
-    public boolean testItem12()
-    {
-		Item item12 = new Item(12);
-        boolean testPassed = ((item12.getType() == 5)&&(item12.getName() == "Bare Hands")&&(item12.getBonusDef() == 0)&&(item12.getBonusAtk() == 0)&&(item12.getBonusHp()==0)&&(item12.getValue() == 0));
-    	return testPassed;
-    }
-    
-    /**
-     *This function tests the item 13
-     * pre - none
-     * post - none
-     * @return boolean that is true if the test is passed and false otherwise
-     */
-    public boolean testItem13()
-    {
-		Item item13 = new Item(13);
-        boolean testPassed = ((item13.getType() == 6)&&(item13.getName() == "Bare Feet")&&(item13.getBonusDef() == 0)&&(item13.getBonusAtk() == 0)&&(item13.getBonusHp()==0)&&(item13.getValue() == 0));
-    	return testPassed;
-    }
-    
-    /**
-     *This function tests the item 14
-     * pre - none
-     * post - none
-     * @return boolean that is true if the test is passed and false otherwise
-     */
-    public boolean testItem14()
-    {
-	Item item14 = new Item(14);
-        boolean testPassed = ((item14.getType() == 1)&&(item14.getName() == "iron sword")&&(item14.getLimit() == 1)&&(item14.getBonusDef() == 0)&&(item14.getBonusAtk() == 10)&&(item14.getBonusHp()==0)&&(item14.getValue() == 50));
-    	return testPassed;
-    }
-    
-    /**
-     *This function tests the item 15
-     * pre - none
-     * post - none
-     * @return boolean that is true if the test is passed and false otherwise
-     */
-    public boolean testItem15()
-    {
-		Item item15 = new Item(15);
-        boolean testPassed = ((item15.getType() == 2)&&(item15.getName() == "iron shield")&&(item15.getLimit() == 1)&&(item15.getBonusDef() == 10)&&(item15.getBonusAtk() == 0)&&(item15.getBonusHp()==0)&&(item15.getValue() == 50));
-    	return testPassed;
-    }
-    
-    /**
-     *This function tests the item 16
-     * pre - none
-     * post - none
-     * @return boolean that is true if the test is passed and false otherwise
-     */
-    public boolean testItem16()
-    {
-		Item item16 = new Item(16);
-        boolean testPassed = ((item16.getType() == 3)&&(item16.getName() == "iron armor")&&(item16.getLimit() == 1)&&(item16.getBonusDef() == 15)&&(item16.getBonusAtk() == 0)&&(item16.getBonusHp()==0)&&(item16.getValue() == 50));
-    	return testPassed;
-    }
-    
-    /**
-     *This function tests the item 17
-     * pre - none
-     * post - none
-     * @return boolean that is true if the test is passed and false otherwise
-     */
-    public boolean testItem17()
-    {
-		Item item17 = new Item(17);
-        boolean testPassed = ((item17.getType() == 4)&&(item17.getName() == "iron helmet")&&(item17.getLimit() == 1)&&(item17.getBonusDef() == 10)&&(item17.getBonusAtk() == 0)&&(item17.getBonusHp()==0)&&(item17.getValue() == 50));
-    	return testPassed;
-    }
-    
-    /**
-     *This function tests the item 18
-     * pre - none
-     * post - none
-     * @return boolean that is true if the test is passed and false otherwise
-     */
-    public boolean testItem18()
-    {	
-		Item item18 = new Item(18);
-        boolean testPassed = ((item18.getType() == 5)&&(item18.getName() == "iron gauntlet")&&(item18.getLimit() == 1)&&(item18.getBonusDef() == 5)&&(item18.getBonusAtk() == 0)&&(item18.getBonusHp()==0)&&(item18.getValue() == 50));
-    	return testPassed;
-    }
-    
-    /**
-     *This function tests the item 19
-     * pre - none
-     * post - none
-     * @return boolean that is true if the test is passed and false otherwise
-     */
-    public boolean testItem19()
-    {
-			Item item19 = new Item(19);
-        boolean testPassed = ((item19.getType() == 6)&&(item19.getName() == "iron boots")&&(item19.getLimit() == 1)&&(item19.getBonusDef() == 5)&&(item19.getBonusAtk() == 0)&&(item19.getBonusHp()==0)&&(item19.getValue() == 50));
-    	return testPassed;
-    }
-    
-    /**
-     *This function tests the item 20
-     * pre - none
-     * post - none
-     * @return boolean that is true if the test is passed and false otherwise
-     */
-    public boolean testItem20()
-    {
-    	Item item20 = new Item(20);
-        boolean testPassed = ((item20.getType() == 7)&&(item20.getName() == "advanced hPotion")&&(item20.getLimit() == 5)&&(item20.getBonusDef() == 0)&&(item20.getBonusAtk() == 0)&&(item20.getBonusHp()==100)&&(item20.getValue() == 50));
-		return testPassed;
-    }
-    
-    /**
-     *This function tests the item 21
-     * pre - none
-     * post - none
-     * @return boolean that is true if the test is passed and false otherwise
-     */
-    public boolean testItem21()
-    {
-	Item item21 = new Item(21);
-        boolean testPassed = ((item21.getType() == 1)&&(item21.getName() == "steel sword")&&(item21.getLimit() == 1)&&(item21.getBonusDef() == 0)&&(item21.getBonusAtk() == 20)&&(item21.getBonusHp()==0)&&(item21.getValue() == 100));
-    	return testPassed;
-    }
-    
-    /**
-     *This function tests the item 22
-     * pre - none
-     * post - none
-     * @return boolean that is true if the test is passed and false otherwise
-     */
-    public boolean testItem22()
-    {
-	Item item22 = new Item(22);
-        boolean testPassed = ((item22.getType() == 2)&&(item22.getName() == "steel shield")&&(item22.getLimit() == 1)&&(item22.getBonusDef() == 20)&&(item22.getBonusAtk() == 0)&&(item22.getBonusHp()==0)&&(item22.getValue() == 100));
-    	return testPassed;
-    }
-    
-    /**
-     *This function tests the item 23
-     * pre - none
-     * post - none
-     * @return boolean that is true if the test is passed and false otherwise
-     */
-    public boolean testItem23()
-    {
-	Item item23 = new Item(23);
-        boolean testPassed = ((item23.getType() == 3)&&(item23.getName() == "steel armor")&&(item23.getLimit() == 1)&&(item23.getBonusDef() == 0)&&(item23.getBonusAtk() == 0)&&(item23.getBonusHp()==0)&&(item23.getValue() == 100));
-    	return testPassed;
-    }
-    
-    /**
-     *This function tests the item 24
-     * pre - none
-     * post - none
-     * @return boolean that is true if the test is passed and false otherwise
-     */
-    public boolean testItem24()
-    {
-	Item item24 = new Item(24);
-        boolean testPassed = ((item24.getType() == 4)&&(item24.getName() == "steel helmet")&&(item24.getLimit() == 1)&&(item24.getBonusDef() == 15)&&(item24.getBonusAtk() == 0)&&(item24.getBonusHp()==0)&&(item24.getValue() == 100));
-    	return testPassed;
-    }
-    
-    /**
-     *This function tests the item 25
-     * pre - none
-     * post - none
-     * @return boolean that is true if the test is passed and false otherwise
-     */
-    public boolean testItem25()
-    {
-	Item item25 = new Item(25);
-        boolean testPassed = ((item25.getType() == 5)&&(item25.getName() == "steel gauntlet")&&(item25.getLimit() == 1)&&(item25.getBonusDef() == 10)&&(item25.getBonusAtk() == 0)&&(item25.getBonusHp()==0)&&(item25.getValue() == 100));
-    	return testPassed;
-    }
-    
-    /**
-     *This function tests the item 26
-     * pre - none
-     * post - none
-     * @return boolean that is true if the test is passed and false otherwise
-     */
-    public boolean testItem26()
-    {
-	Item item26 = new Item(26);
-        boolean testPassed = ((item26.getType() == 6)&&(item26.getName() == "steel boots")&&(item26.getLimit() == 1)&&(item26.getBonusDef() == 10)&&(item26.getBonusAtk() == 0)&&(item26.getBonusHp()==0)&&(item26.getValue() == 100));
-    	return testPassed;
-    }
-	
-	/**
-     *This function tests the item 27
-     * pre - none
-     * post - none
-     * @return boolean that is true if the test is passed and false otherwise
-     */
-    public boolean testItem27()
-    {
-	Item item27 = new Item(27);
-        boolean testPassed = ((item27.getType() == 7)&&(item27.getName() == "expert hPotion")&&(item27.getLimit() == 1)&&(item27.getBonusDef() == 0)&&(item27.getBonusAtk() == 0)&&(item27.getBonusHp()==150)&&(item27.getValue() == 100));
-    	return testPassed;
+        Item item0 = new Item(8);
+        if((m_type == 8)&&(m_name == "basic helmet")&&(m_limit == 5)&&(m_bonusDef == 100)&&(m_bonusAtk == 0)&&(m_bonusMDef == 0)&&(m_bonusMAtk == 0)&&(m_bonusHp == 0)&&(m_value == 10)&&(m_counter == 0)&&(m_id == 8))
+        {
+            return true;
+        }
+        return false;
     }
 }
 
