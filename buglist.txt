@@ -17,5 +17,6 @@ Buglist - EECS 448 Project 4
  - Shop : Array out of bounds exception in Sell menu and occasionally Buy menu. May be due to Item class references
  - Player Menu : Due to exceptions thrown, full menu for Access Inventory and Character Status cannot be displayed
  - Arena : Null pointer exception thrown using basic attack in some cases, cause unknown
- - Arena : Array index out of bounds exception thrown when using potion methods
-
+fixed - Arena : Array index out of bounds exception thrown when using potion methods
+ - Arena : Potion given health past max player health
+ - Arena : choosing option 3 prints out 20 randomly
