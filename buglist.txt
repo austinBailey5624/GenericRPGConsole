@@ -22,3 +22,5 @@ fixed - Arena : Array index out of bounds exception thrown when using potion met
  - Arena : enemy can still attack even if they are dead if player is first to attack
  - Arena : Potion given health past max player health
  - Arena : choosing option 3 prints out 20 randomly
+fixed - Menu : null pointer when trying to equip item.
+ - Menu : game crashes when trying to equip item.
