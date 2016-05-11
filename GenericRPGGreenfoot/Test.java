@@ -10,19 +10,37 @@ public class Test
     private RPGActor a;
     private Party p;
     private Item item;
+    private Battle b;
    
+    /**
+     * @pre none
+     * @post instance of Test is created and initialized
+     * @return none, it is a constructor
+     */
     public Test()
     {
         a=new RPGActor();
         p=new Party();
         item=new Item();
+        b=new Battle();
     }
     
+    /**
+     * @pre instance of Test exists
+     * @post none
+     * @return none
+     * @brief time saving method to avoid having to type System.out.println a million times 
+     */
     public void println(String s)
     {
         System.out.println(s);
     }
     
+    /**
+     * @pre instance of Test exists
+     * @post messages will be printed to the console
+     * @return none
+     */
     public void runTests()
     {
         println("Running all tests:\n");
@@ -55,7 +73,7 @@ public class Test
         println("26) Test that getDefModifier returns correct value: " + a.RPGActorTest26());
         println("27) Test that if value passed to setDefModifier() is > 5, that m_defModifier is set to 5: " + a.RPGActorTest27());
         println("28) Test that if value passed to setDefModifier() is within range, that m_defModifier is set to that value: " + a.RPGActorTest28());
-        //println("29) Test that if value passed to setDefModifier() is < 0, that m_defModifier is set to 0: " + a.RPGActorTest29());
+        println("29) Test that if value passed to setDefModifier() is < 0, that m_defModifier is set to 0: " + a.RPGActorTest29());
         println("30) Test that getEquippedSword() returns correct item: " + a.RPGActorTest30());
         println("31) Test that equipSword() equips an item in the case where the item is the correct type: " + a.RPGActorTest31());
         println("32) Test that equipSword() does not equip an item that is of the wrong type: " + a.RPGActorTest32());
@@ -96,34 +114,38 @@ public class Test
         println("10) Test that setContent() works correctly: " + p.PartyTest10());
         
         println("\nItem Tests: \n");
-        /* temporary
-        println("Verify attributes are correct for item type 1 - basic sword: " + item.testItem1());
-        println("Verify attributes are correct for item type 2 - basic shield: " + item.testItem2());
-        println("Verify attributes are correct for item type 3 - basic armor: " + item.testItem3());
-        println("Verify attributes are correct for item type 4 - basic helmet: " + item.testItem4());
-        println("Verify attributes are correct for item type 5 - basic gauntlet: " + item.testItem5());
-        println("Verify attributes are correct for item type 6 - basic boots: " + item.testItem6());
-        println("Verify attributes are correct for item type 7 - basic health potion: " + item.testItem7());
-        println("Verify attributes are correct for item type 8 - no sword: " + item.testItem8());
-        println("Verify attributes are correct for item type 9 - no shield: " + item.testItem9());
-        println("Verify attributes are correct for item type 10 - no armor: " + item.testItem10());
-        println("Verify attributes are correct for item type 11 - no helmet: " + item.testItem11());
-        println("Verify attributes are correct for item type 12 - bare hands: " + item.testItem12());
-        println("Verify attributes are correct for item type 13 - bare feet: " + item.testItem13());
-        println("Verify attributes are correct for item type 14 - iron sword: " + item.testItem14());
-        println("Verify attributes are correct for item type 15 - iron shield: " + item.testItem15());
-        println("Verify attributes are correct for item type 16 - iron armor: " + item.testItem16());
-        println("Verify attributes are correct for item type 17 - iron helmet: " + item.testItem17());
-        println("Verify attributes are correct for item type 18 - iron gauntlet: " + item.testItem18());
-        println("Verify attributes are correct for item type 19 - iron boots: " + item.testItem19());
-        println("Verify attributes are correct for item type 20 - advanced health potion: " + item.testItem20());
-        println("Verify attributes are correct for item type 21 - steel sword: " + item.testItem21());
-        println("Verify attributes are correct for item type 22 - steel shield: " + item.testItem22());
-        println("Verify attributes are correct for item type 23 - steel armor: " + item.testItem23());
-        println("Verify attributes are correct for item type 24 - steel helmet: " + item.testItem24());
-        println("Verify attributes are correct for item type 25 - steel gauntlet: " + item.testItem25());
-        println("Verify attributes are correct for item type 26 - steel boots: " + item.testItem26());
-        println("Verify attributes are correct for item type 27 - expert health potion: " + item.testItem27());  
-        */
-    }  
+        println("1) Tests that the length of the item set array is equal to the number of types of items and weapons combined: " + item.itemTest1());
+        println("2) Verify attributes are correct for item type 0 - basic potion: " + item.itemTest2());
+        println("3) Verify attributes are correct for item type 1 - advanced potion: " + item.itemTest3());
+        println("4) Verify attributes are correct for item type 2 - master potion: " + item.itemTest4());
+        println("5) Verify attributes are correct for item type 3 - poison potion: " + item.itemTest5());
+        println("6) Verify attributes are correct for item type 4 - stun potion: " + item.itemTest6());
+        println("7) Verify attributes are correct for item type 5 - defense potion: " + item.itemTest7());
+        println("8) Verify attributes are correct for item type 6 - attack potion: " + item.itemTest8());
+        println("9) Verify attributes are correct for item type 7 - basic armor: " + item.itemTest9());
+        println("10) Verify attributes are correct for item type 8 - basic helmet: " + item.itemTest10());
+   
+        println("\nBattle Tests: \n");
+        println("1) Test that verifyInt() returns true if input string was an int: " + b.battleTest1());
+        println("2) Test that verifyInt() returns false if input string was not an int: " + b.battleTest2());
+        println("3) Test that isBattleOver() returns true if one of the actors has no health: " + b.battleTest3());
+        println("4) Test that isBattleOver() returns true if both actors have no health: " + b.battleTest4());
+        println("5) Test that isBattleOver() returns false if both actors have health remaining: " + b.battleTest5());
+        println("6) Test that potionsAvailable() returns false if player has no potions in their inventory: " + b.battleTest6());
+        println("7) Test that potionsAvailable() returns true if player has potions in their inventory: " + b.battleTest7());
+        println("8) Test that determineVictor() returns the actor with health remaining after a battle: " + b.battleTest8());
+        println("9) Test that determineVictor() does not return the actor with no health: " + b.battleTest9());
+        println("10) Test that usePotion() sets player's hp to max if player has lost fewer than 50 hp, when using basic health potion: " + b.battleTest10());
+        println("11) Test that usePotion() adds 50 to player's hp if player has lost more than 50 hp, when using basic health potion: " + b.battleTest11());
+        println("12) Test that usePotion() sets player's hp to max if player has lost fewer than 100 hp, when using advanced health potion: " + b.battleTest12());
+        println("13) Test that usePotion() adds 100 to player's hp if player has lost more than 100 hp, when using advanced health potion: " + b.battleTest13());
+        println("14) Test that usePotion() sets player's hp to max if player has lost fewer than 150 hp, when using expert health potion: " + b.battleTest14());
+        println("15) Test that usePotion() adds 150 to player's hp if player has lost more than 150 hp, when using expert health potion: " + b.battleTest15());
+        
+        println("\nAll tests complete!\n");
+        
+        
+    }
+    
+  
 }
