@@ -114,35 +114,17 @@ public class Test
         println("10) Test that setContent() works correctly: " + p.PartyTest10());
         
         println("\nItem Tests: \n");
-        println("1) Verify attributes are correct for item type 1 - basic sword: " + item.itemTest1());
-        println("2) Verify attributes are correct for item type 2 - basic shield: " + item.itemTest2());
-        println("3) Verify attributes are correct for item type 3 - basic armor: " + item.itemTest3());
-        println("4) Verify attributes are correct for item type 4 - basic helmet: " + item.itemTest4());
-        println("5) Verify attributes are correct for item type 5 - basic gauntlet: " + item.itemTest5());
-        println("6) Verify attributes are correct for item type 6 - basic boots: " + item.itemTest6());
-        println("7) Verify attributes are correct for item type 7 - basic health potion: " + item.itemTest7());
-        println("8) Verify attributes are correct for item type 8 - no sword: " + item.itemTest8());
-        println("9) Verify attributes are correct for item type 9 - no shield: " + item.itemTest9());
-        println("10) Verify attributes are correct for item type 10 - no armor: " + item.itemTest10());
-        /*
-        println("11) Verify attributes are correct for item type 11 - no helmet: " + item.itemTest11());
-        println("12) Verify attributes are correct for item type 12 - bare hands: " + item.itemTest12());
-        println("13) Verify attributes are correct for item type 13 - bare feet: " + item.itemTest13());
-        println("14) Verify attributes are correct for item type 14 - iron sword: " + item.itemTest14());
-        println("15) Verify attributes are correct for item type 15 - iron shield: " + item.itemTest15());
-        println("16) Verify attributes are correct for item type 16 - iron armor: " + item.itemTest16());
-        println("17) Verify attributes are correct for item type 17 - iron helmet: " + item.itemTest17());
-        println("18) Verify attributes are correct for item type 18 - iron gauntlet: " + item.itemTest18());
-        println("19) Verify attributes are correct for item type 19 - iron boots: " + item.itemTest19());
-        println("20) Verify attributes are correct for item type 20 - advanced health potion: " + item.itemTest20());
-        println("21) Verify attributes are correct for item type 21 - steel sword: " + item.itemTest21());
-        println("22) Verify attributes are correct for item type 22 - steel shield: " + item.itemTest22());
-        println("23) Verify attributes are correct for item type 23 - steel armor: " + item.itemTest23());
-        println("24) Verify attributes are correct for item type 24 - steel helmet: " + item.itemTest24());
-        println("25) Verify attributes are correct for item type 25 - steel gauntlet: " + item.itemTest25());
-        println("26) Verify attributes are correct for item type 26 - steel boots: " + item.itemTest26());
-        println("27) Verify attributes are correct for item type 27 - expert health potion: " + item.itemTest27());
-        */
+        println("1) Tests that the length of the item set array is equal to the number of types of items and weapons combined: " + item.itemTest1());
+        println("2) Verify attributes are correct for item type 0 - basic potion: " + item.itemTest2());
+        println("3) Verify attributes are correct for item type 1 - advanced potion: " + item.itemTest3());
+        println("4) Verify attributes are correct for item type 2 - master potion: " + item.itemTest4());
+        println("5) Verify attributes are correct for item type 3 - poison potion: " + item.itemTest5());
+        println("6) Verify attributes are correct for item type 4 - stun potion: " + item.itemTest6());
+        println("7) Verify attributes are correct for item type 5 - defense potion: " + item.itemTest7());
+        println("8) Verify attributes are correct for item type 6 - attack potion: " + item.itemTest8());
+        println("9) Verify attributes are correct for item type 7 - basic armor: " + item.itemTest9());
+        println("10) Verify attributes are correct for item type 10 - basic helmet: " + item.itemTest10());
+   
         println("\nBattle Tests: \n");
         println("1) Test that verifyInt() returns true if input string was an int: " + b.battleTest1());
         println("2) Test that verifyInt() returns false if input string was not an int: " + b.battleTest2());
