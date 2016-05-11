@@ -1,5 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.Scanner;
+import javax.swing.JOptionPane;
+import java.lang.StringBuilder;
 
 /**
  * Write a description of class Party here.
@@ -119,7 +121,7 @@ public class Party extends Actor
         m_content=content;
     }
 
-    //menu methods	
+    //menu methods  
     public void equipMenu(int type, PlayerActor selected)
     {
         Item[] items = Item.getAllItems();
@@ -303,74 +305,140 @@ public class Party extends Actor
 
     /**
      * This function displays relevant information about the character
-     * @precondition - 	PlayerActor Object exists
-     * @post - 			Does not change member variables
-     * @return - 		void 
+     * @precondition -  PlayerActor Object exists
+     * @post -          Does not change member variables
+     * @return -        void 
      */
     public void viewCharacterStatus(PlayerActor selected)
     {
+        StringBuilder text = new StringBuilder();
+        
+        text.append("Name:               " + selected.getName() + "\n");
         System.out.println("Name:               " + selected.getName());
+        text.append("Current Level:      " + selected.getLevel() + "\n");
         System.out.println("Current Level:      " + selected.getLevel());
+        text.append("Current Experience: " + selected.getExp() + "\n");
         System.out.println("Current Experience: " + selected.getExp());
+        text.append("Exp to next Level:  " + (selected.getLevel()*100-selected.getExp()) + "\n");
         System.out.println("Exp to next Level:  " + (selected.getLevel()*100-selected.getExp()));
+        text.append("Maximum Health:     " + selected.getMaxHp() + "\n");
         System.out.println("Maximum Health:     " + selected.getMaxHp());
+        text.append("Current Health:     " + selected.getCurHp() + "\n");
         System.out.println("Current Health:     " + selected.getCurHp());//TODO: make output uniform
-        System.out.println("Equipped Sword:     " + selected.getEquippedSword().getName() + " bonus Attack: " + selected.getEquippedSword().getBonusAtk() + " bonus Defense: " + selected.getEquippedSword().getBonusDef());
-        System.out.println("Equipped Shield:    " + selected.getEquippedShield().getName() + " bonus Atack: " + selected.getEquippedShield().getBonusAtk() + " bonus Defense: " + selected.getEquippedShield().getBonusDef());
-        System.out.println("Equipped Armor:     " + selected.getEquippedArmor().getName() + " bonus Attack: " + selected.getEquippedArmor().getBonusAtk() + " bonus Defense: " + selected.getEquippedArmor().getBonusDef());
-        System.out.println("Equipped Helmet:    " + selected.getEquippedHelmet().getName() + " bonus Attack: " + selected.getEquippedHelmet().getBonusAtk() + " bonus Defense: " +  selected.getEquippedHelmet().getBonusDef());
-        System.out.println("Equipped Gauntlets: " + selected.getEquippedGauntlets().getName() + " bonus Atack: " + selected.getEquippedGauntlets().getBonusAtk()+ " bonus Defense: " +selected.getEquippedGauntlets().getBonusDef());		
-        System.out.println("Equipped Boots:     " + selected.getEquippedBoots().getName() + " bonus Attack " + selected.getEquippedBoots().getBonusAtk() + " bonus Defense: " + selected.getEquippedBoots().getBonusDef());
-        System.out.println("Natural Attack:     " + selected.getAtk());
-        System.out.println("Bonus Attack:       " + (selected.getEquippedSword().getBonusAtk()+selected.getEquippedShield().getBonusAtk()+selected.getEquippedArmor().getBonusAtk()+selected.getEquippedHelmet().getBonusAtk()+selected.getEquippedGauntlets().getBonusAtk()+selected.getEquippedBoots().getBonusAtk()));
-        System.out.println("Effective Attack:   " + selected.getAttackFighter());
-        System.out.println("Natural Defese:     " + selected.getDef());
-        System.out.println("Bonus Defense:      " + (selected.getEquippedSword().getBonusDef()+selected.getEquippedShield().getBonusDef()+selected.getEquippedArmor().getBonusDef()+selected.getEquippedHelmet().getBonusDef()+selected.getEquippedGauntlets().getBonusDef()+selected.getEquippedBoots().getBonusDef()));
-        System.out.println("Effective Defense:  " + selected.getDefenseFighter());
+        if (selected.getEquippedSword() != null)
+        {
+            text.append("Equipped Sword:     " + selected.getEquippedSword().getName() + " bonus Attack: " + selected.getEquippedSword().getBonusAtk() + " bonus Defense: " + selected.getEquippedSword().getBonusDef() + "\n   ");
+            System.out.println("Equipped Sword:     " + selected.getEquippedSword().getName() + " bonus Attack: " + selected.getEquippedSword().getBonusAtk() + " bonus Defense: " + selected.getEquippedSword().getBonusDef());
+        }
+        if (selected.getEquippedShield() != null)
+        {
+            text.append("Equipped Shield:    " + selected.getEquippedShield().getName() + " bonus Atack: " + selected.getEquippedShield().getBonusAtk() + " bonus Defense: " + selected.getEquippedShield().getBonusDef() + "\n");
+            System.out.println("Equipped Shield:    " + selected.getEquippedShield().getName() + " bonus Atack: " + selected.getEquippedShield().getBonusAtk() + " bonus Defense: " + selected.getEquippedShield().getBonusDef());
+        }
+        if (selected.getEquippedArmor() != null)
+        {
+            text.append("Equipped Armor:     " + selected.getEquippedArmor().getName() + " bonus Attack: " + selected.getEquippedArmor().getBonusAtk() + " bonus Defense: " + selected.getEquippedArmor().getBonusDef() + "\n");
+            System.out.println("Equipped Armor:     " + selected.getEquippedArmor().getName() + " bonus Attack: " + selected.getEquippedArmor().getBonusAtk() + " bonus Defense: " + selected.getEquippedArmor().getBonusDef());
+        }        
+        if (selected.getEquippedHelmet() != null)
+        {
+             text.append("Equipped Helmet:    " + selected.getEquippedHelmet().getName() + " bonus Attack: " + selected.getEquippedHelmet().getBonusAtk() + " bonus Defense: " +  selected.getEquippedHelmet().getBonusDef() + "\n");
+             System.out.println("Equipped Helmet:    " + selected.getEquippedHelmet().getName() + " bonus Attack: " + selected.getEquippedHelmet().getBonusAtk() + " bonus Defense: " +  selected.getEquippedHelmet().getBonusDef());
+        }       
+        if (selected.getEquippedGauntlets() != null)
+        {
+            text.append("Equipped Gauntlets: " + selected.getEquippedGauntlets().getName() + " bonus Atack: " + selected.getEquippedGauntlets().getBonusAtk()+ " bonus Defense: " +selected.getEquippedGauntlets().getBonusDef() + "\n");
+            System.out.println("Equipped Gauntlets: " + selected.getEquippedGauntlets().getName() + " bonus Atack: " + selected.getEquippedGauntlets().getBonusAtk()+ " bonus Defense: " +selected.getEquippedGauntlets().getBonusDef());   
+        }        
+        if (selected.getEquippedBoots() != null)
+        {
+            text.append("Equipped Boots:     " + selected.getEquippedBoots().getName() + " bonus Attack " + selected.getEquippedBoots().getBonusAtk() + " bonus Defense: " + selected.getEquippedBoots().getBonusDef() + "\n");
+            System.out.println("Equipped Boots:     " + selected.getEquippedBoots().getName() + " bonus Attack " + selected.getEquippedBoots().getBonusAtk() + " bonus Defense: " + selected.getEquippedBoots().getBonusDef());
+        }        
+        if (true)
+        {
+            text.append("Natural Attack:     " + selected.getAtk() + "\n");
+            System.out.println("Natural Attack:     " + selected.getAtk());
+        }        
+        //TODO find appropriate conditions
+        if (false)
+        {
+            text.append("Bonus Attack:       " + (selected.getEquippedSword().getBonusAtk()+selected.getEquippedShield().getBonusAtk()+selected.getEquippedArmor().getBonusAtk()+selected.getEquippedHelmet().getBonusAtk()+selected.getEquippedGauntlets().getBonusAtk()+selected.getEquippedBoots().getBonusAtk()) + "\n");
+            System.out.println("Bonus Attack:       " + (selected.getEquippedSword().getBonusAtk()+selected.getEquippedShield().getBonusAtk()+selected.getEquippedArmor().getBonusAtk()+selected.getEquippedHelmet().getBonusAtk()+selected.getEquippedGauntlets().getBonusAtk()+selected.getEquippedBoots().getBonusAtk()));
+        }        
+        if (false)
+        {
+            text.append("Effective Attack:   " + selected.getAttackFighter() + "\n");
+            System.out.println("Effective Attack:   " + selected.getAttackFighter());
+        }        
+        if (false)
+        {
+            text.append("Natural Defese:     " + selected.getDef() + "\n");
+            System.out.println("Natural Defese:     " + selected.getDef());
+        }        
+        if (false)
+        {
+            text.append("Bonus Defense:      " + (selected.getEquippedSword().getBonusDef()+selected.getEquippedShield().getBonusDef()+selected.getEquippedArmor().getBonusDef()+selected.getEquippedHelmet().getBonusDef()+selected.getEquippedGauntlets().getBonusDef()+selected.getEquippedBoots().getBonusDef()) + "\n");
+            System.out.println("Bonus Defense:      " + (selected.getEquippedSword().getBonusDef()+selected.getEquippedShield().getBonusDef()+selected.getEquippedArmor().getBonusDef()+selected.getEquippedHelmet().getBonusDef()+selected.getEquippedGauntlets().getBonusDef()+selected.getEquippedBoots().getBonusDef()));
+        }        
+        if (false)
+        {
+            text.append("Effective Defense:  " + selected.getDefenseFighter() + "\n");
+            System.out.println("Effective Defense:  " + selected.getDefenseFighter());
+        }        
+        JOptionPane.showMessageDialog(null, text.toString());
     }
 
     /**
      * This function displays what skills the user has learned
-     * @precondition - 	PlayerActor Object Exists
-     * @post - 			Does not change member variables
-     * @return - 		void
+     * @precondition -  PlayerActor Object Exists
+     * @post -          Does not change member variables
+     * @return -        void
      */
     public void viewCharacterSkills(PlayerActor selected)
     {
+        StringBuilder text = new StringBuilder();
+        
         Skill[] skillSet = Skill.getSkills();
         for(int i=0; i<Skill.getNumOfSkillsTotal(); i++)
         {
             //TODO: only show known skills
+            text.append(skillSet[i].getName());
             System.out.print(skillSet[i].getName());
             for(int j=0; j<(20-skillSet[i].getName().length());j++)
             {
+                text.append(" ");
                 System.out.print(" ");
             }
             if(selected.m_skillSet[i])
             {
+                text.append(" LEARNED - ");
                 System.out.print(" LEARNED - ");
             }
             else
             {
+                text.append(" UNKNOWN - ");
                 System.out.print(" UNKNOWN - ");
             }
+            text.append(skillSet[i].getDescription() + "\n");
             System.out.println(skillSet[i].getDescription());
         }
+        JOptionPane.showMessageDialog(null, text.toString());
     }
 
     /**
      * This function handles the menu the user interacts with when the option is selected while the person is in world
-     * @precondition - 	PlayerActor Object exists
-     * @post - 			none 
-     * @return - 		void
+     * @precondition -  PlayerActor Object exists
+     * @post -          none 
+     * @return -        void
      */
     public void menu()
     {
         boolean exit=false;
         while(!exit)
         {
-            System.out.println("1) Access Inventory\n2) Character Status\n3) View Skills\n4) exit");
-            String in=myScanner.next();
+            System.out.println("1) Access Inventory\n2) Character Status\n3) View Skills\n4) Exit");
+            String in=JOptionPane.showInputDialog("1) Access Inventory\n2) Character Status\n3) View Skills\n4) Exit");
             if(verifyInt(in))
             {
                 select=Integer.parseInt(in);
@@ -395,6 +463,7 @@ public class Party extends Actor
             }
             else
             {
+                JOptionPane.showMessageDialog(null, "Sorry, we didn't understand your input");
                 System.out.println("Sorry, we didn't understand your input");
             }
         }
@@ -402,9 +471,9 @@ public class Party extends Actor
 
     /**
      * This function handles the user accessing the playerCharacters inventory
-     * @precondition - 	PlayerActor Object exists
-     * @post - 			none 
-     * @return - 		void
+     * @precondition -  PlayerActor Object exists
+     * @post -          none 
+     * @return -        void
      */
     public void accessInventory(PlayerActor selected)//TODO implement unequip methods
     {
@@ -413,21 +482,40 @@ public class Party extends Actor
         boolean quit=false;
         while(!quit)
         {
+            StringBuilder text = new StringBuilder();
+            
+            /*
+            text.append("Equipped Sword:  " + selected.getEquippedSword().getName() + "\n");
             System.out.println("Equipped Sword:  " + selected.getEquippedSword().getName());
+            text.append("Equipped Shield: " + selected.getEquippedShield().getName() + "\n");
             System.out.println("Equipped Shield: " + selected.getEquippedShield().getName());
+            text.append("Equipped Armor: " + selected.getEquippedArmor().getName() + "\n");
             System.out.println("Equipped Armor: " + selected.getEquippedArmor().getName());
+            text.append("Equipped Helmet: " +  selected.getEquippedHelmet().getName() + "\n");
             System.out.println("Equipped Helmet: " +  selected.getEquippedHelmet().getName());
+            text.append("Equipped Gauntlets: " + selected.getEquippedGauntlets().getName() + "\n");
             System.out.println("Equipped Gauntlets: " + selected.getEquippedGauntlets().getName());
+            text.append("Equipped Boots: "+ selected.getEquippedBoots().getName() + "\n");
             System.out.println("Equipped Boots: "+ selected.getEquippedBoots().getName());
+            */
+            text.append("1) Equip a Sword" + "\n");
             System.out.println("1) Equip a Sword");
+            text.append("2) Equip a Shield" + "\n");
             System.out.println("2) Equip a Shield");
+            text.append("3) Equip Armor" + "\n");
             System.out.println("3) Equip Armor");
+            text.append("4) Equip Helmet" + "\n");
             System.out.println("4) Equip Helmet");
+            text.append("5) Equip Gauntlets" + "\n");
             System.out.println("5) Equip Gauntlets");
+            text.append("6) Equip Boots" + "\n");
             System.out.println("6) Equip Boots");
+            text.append("7) Look at inventory" + "\n");
             System.out.println("7) Look at inventory");
+            text.append("8) Return" + "\n");
             System.out.println("8) Return");
-            String in=myScanner.next();
+            
+            String in=JOptionPane.showInputDialog(text.toString());
             if(verifyInt(in))
             {
                 select=Integer.parseInt(in);
@@ -458,9 +546,9 @@ public class Party extends Actor
 
     /**
      * This function attempts to buy an item from the items given index
-     * @precondition - 	PlayerActor Object existsw with initialized m_inventory
-     * @post - 			If buy is successful, adds one to the index of the inventory that stands for that item, else returns false
-     * @return - 		true if buy is successful, false else
+     * @precondition -  PlayerActor Object existsw with initialized m_inventory
+     * @post -          If buy is successful, adds one to the index of the inventory that stands for that item, else returns false
+     * @return -        true if buy is successful, false else
      */
     public boolean buyItem(int index)//return true if buy is possible
     {
@@ -479,9 +567,9 @@ public class Party extends Actor
 
     /**
      * This function checks to see if an actor can buy an item
-     * @precondition - 	PlayerActor Object exists
-     * @post - 			none 
-     * @return - 		true if the item can be bought, false else
+     * @precondition -  PlayerActor Object exists
+     * @post -          none 
+     * @return -        true if the item can be bought, false else
      */
     public boolean canBuyItem(int cost)
     {
@@ -497,9 +585,9 @@ public class Party extends Actor
 
     /**
      * This function attempts to buy a number of items
-     * @precondition - 	PlayerActor Object existsw with initialized m_inventory
-     * @post - 			If buy is successful, adds parameter int quantity to the index of the inventory that stands for that item, else returns false
-     * @return - 		true if buy is successful, false else
+     * @precondition -  PlayerActor Object existsw with initialized m_inventory
+     * @post -          If buy is successful, adds parameter int quantity to the index of the inventory that stands for that item, else returns false
+     * @return -        true if buy is successful, false else
      */
     public boolean buyItems(int index, int quantity)
     {
@@ -518,9 +606,9 @@ public class Party extends Actor
 
     /**
      * This function checks to see if an actor can buy multiple of an item
-     * @precondition - 	PlayerActor Object exists
-     * @post - 			none 
-     * @return - 		true if the item can be bought, false else
+     * @precondition -  PlayerActor Object exists
+     * @post -          none 
+     * @return -        true if the item can be bought, false else
      */
     public boolean canBuyItems(int cost, int quantity)
     {
@@ -536,18 +624,21 @@ public class Party extends Actor
 
     /**
      * This function displays the inventory
-     * @precondition - 	PlayerActor Object exists
-     * @post -			none /
-     * @return - 		void			
+     * @precondition -  PlayerActor Object exists
+     * @post -          none /
+     * @return -        void            
      */
     public void displayInventory()
     {
+        StringBuilder text = new StringBuilder();
+        
         Item[] itemSet = Item.getAllItems();
         boolean isEmpty=true;
         for(int i=0; i<itemSet.length;i++)
         {
             if(this.getInventory()[i]>0)
             {
+                text.append("You have " + getInventory()[i] +" " + itemSet[i].getName() + " In your inventory\n"); 
                 System.out.println("You have " + getInventory()[i] +" " + itemSet[i].getName() + " In your inventory");
                 isEmpty=false;
             }
@@ -556,18 +647,20 @@ public class Party extends Actor
                 i=13;
             }
         }
+        JOptionPane.showMessageDialog(null, text.toString());
         if(isEmpty)
         {
+            JOptionPane.showMessageDialog(null, "You don't have anything in your inventory!");
             System.out.println("You don't have anything in your inventory!");
         }
     }
 
-	/**
-	* This function verifies that the string passed to it is an int
-	* @precondition:	String is passed as parameter
-	* @postcondition:	none
-	* @return:			true if int, false else
-	*/
+    /**
+    * This function verifies that the string passed to it is an int
+    * @precondition:    String is passed as parameter
+    * @postcondition:   none
+    * @return:          true if int, false else
+    */
     private boolean verifyInt(String s)
     {
         try
@@ -583,10 +676,10 @@ public class Party extends Actor
     }
 
     /**
-	 * This function adds the item within the chest to the inventory
-     * @precondition:	Chest exists and is passed 	
-     * @postcondition:	increments the inventory whose index is represented in the chest
-     * @return:			void 			
+     * This function adds the item within the chest to the inventory
+     * @precondition:   Chest exists and is passed  
+     * @postcondition:  increments the inventory whose index is represented in the chest
+     * @return:         void            
      */
     public void openChest(Chest chest)
     {
@@ -595,218 +688,218 @@ public class Party extends Actor
 
         System.out.println("\n\nYou have found a " + newItem.getName() + "! It has been added to your inventory.\n");
     }
-	
-	/**
-	* This function tests the party constructor
-	* @precondition:	none
-	* @postcondition:	none
-	* @return:			true if passed false else
-	*/
-	public boolean PartyTest1()
-	{
-		try
-		{
-			Party p = new Party();
-			PlayerActor pa = new PlayerActor();
-			int[] testInventory = new int[Item.getNumTypesOfItem()];
-			for(int i=0; i<m_inventory.length;i++)
-			{
-				m_inventory[i]=0;
-			}
-			return((p.m_content[0]==pa)&&(p.m_content[1]==null)&&(p.m_content[2]==null)&&(p.m_content[3]==null)&&(p.m_gold==100)&&(p.m_inventory==testInventory));
-		}
-		catch(Exception e)
-		{
-			return false;
-		}
-	}
-	
-	/**
-	* This function ensures that onlyOne returns true when it is supposed to 
-	* @precondition:	none
-	* @postcondition:	none
-	* @return:			true if passed false else
-	*/
-	public boolean PartyTest2()
-	{
-		try
-		{
-			Party p = new Party();
-			return(p.onlyOne());
-		}
-		catch(Exception e)
-		{
-			return false;
-		}
-	}
-	
-	/**
-	* This function ensures that function onlyOne returns false when it is supposed to
-	* @precondition: 	none
-	* @postcondition:	none
-	* #return:			true if passed false else
-	*/
-	public boolean PartyTest3()
-	{
-		try
-		{
-			Party p = new Party();
-			PlayerActor pa = new PlayerActor();
-			p.m_content[2]=pa;
-			return(!p.onlyOne());
-		}
-		catch(Exception e)
-		{
-			return false;
-		}
-	}
-	
-	/**
-	 * This function ensures that function getGold returns the correct value
-	 * @precondition:	none
-	 * @postcondition:	none
-	 * @return:			true if passed false else
-	 */
-	public boolean PartyTest4()
-	{
-		try
-		{
-			Party p = new Party();
-			p.m_gold=123;
-			return(p.getGold()==123);
-		}
-		catch(Exception e)
-		{
-			return false;
-		}
-	}
-	
-	/**
-	 * This function ensures that the function setGold sets m_gold to the correct value
-	 * @precondition:	none
-	 * @postcondition:	none
-	 * @return:			true if passed false else
-	 */
-	public boolean PartyTest5()
-	{
-		try
-		{
-			Party p = new Party();
-			p.setGold(123);
-			return(p.m_gold==123);
-		}
-		catch(Exception e)
-		{
-			return false;
-		}
-	}
-	
-	/**
-	 * This function ensures that the function addGold works properly
-	 * @precondition:	none
-	 * @postcondition:	none
-	 * @return:			true if passed false else
-	 */
-	public boolean PartyTest6()
-	{
-		try
-		{
-			Party p = new Party();
-			p.m_gold=123;
-			p.addGold(123);
-			return(p.m_gold==246);
-		}
-		catch(Exception e)
-		{
-			return false;
-		}
-	}
-	
-	/**
-	 * This function ensures that the function getInventory works
-	 * @precondition:	none
-	 * @postcondition:	none
-	 * @return:			true if passed false else
-	 */
-	public boolean PartyTest7()
-	{
-		try
-		{
-			Party p = new Party();
-			int[] inventory = new int[Item.getNumTypesOfItem()];
-			inventory[1]=123;
-			inventory[2]=456;
-			p.m_inventory[1]=123;
-			p.m_inventory[2]=456;
-			return(p.m_inventory==inventory);
-		}
-		catch(Exception e)
-		{
-			return false;
-		}
-	}
-	
-	/** 
-	 * This function ensures that the function setInventory works properly
-	 * @precondition:	none
-	 * @postcondition:	none
-	 * @return:			true if passed false else
-	 */
-	public boolean PartyTest8()
-	{
-		try
-		{
-			Party p = new Party();
-			int[] inventory = new int[Item.getNumTypesOfItem()];
-			inventory[5]=123;
-			inventory[8]=90;
-			p.setInventory(inventory);
-			return(p.m_inventory[5]==123&&p.m_inventory[8]==90);
-		}
-		catch(Exception e)
-		{
-			return false;
-		}
-	}
-	
-	/** 
-	 * This function ensures that the function getContent works properly
-	 * @precondition: 	none
-	 * @postcondition:	none
-	 * @return:			true if passed false else
-	 */
-	public boolean PartyTest9()
-	{
-		try
-		{
-			Party p = new Party();
-			return(p.m_content==p.getContent());
-		}
-		catch(Exception e)
-		{
-			return false;
-		}
-	}
-	
-	/** 
-	 * This function ensures that the function setContent works properly
-	 * @precondition:	none
-	 * @postcondition:	none
-	 * @return:			true if passed false else
-	 */
-	public boolean PartyTest10()
-	{
-		try
-		{
-			Party p = new Party();
-			PlayerActor[] content = new PlayerActor[4];
-			content[2]=new PlayerActor();
-			p.setContent(content);
-			return(p.m_content==content);
-		}
-		catch(Exception e)
-		{
-			return false;
-		}
-	}
+    
+    /**
+    * This function tests the party constructor
+    * @precondition:    none
+    * @postcondition:   none
+    * @return:          true if passed false else
+    */
+    public boolean PartyTest1()
+    {
+        try
+        {
+            Party p = new Party();
+            PlayerActor pa = new PlayerActor();
+            int[] testInventory = new int[Item.getNumTypesOfItem()];
+            for(int i=0; i<m_inventory.length;i++)
+            {
+                m_inventory[i]=0;
+            }
+            return((p.m_content[0]==pa)&&(p.m_content[1]==null)&&(p.m_content[2]==null)&&(p.m_content[3]==null)&&(p.m_gold==100)&&(p.m_inventory==testInventory));
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
+    }
+    
+    /**
+    * This function ensures that onlyOne returns true when it is supposed to 
+    * @precondition:    none
+    * @postcondition:   none
+    * @return:          true if passed false else
+    */
+    public boolean PartyTest2()
+    {
+        try
+        {
+            Party p = new Party();
+            return(p.onlyOne());
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
+    }
+    
+    /**
+    * This function ensures that function onlyOne returns false when it is supposed to
+    * @precondition:    none
+    * @postcondition:   none
+    * #return:          true if passed false else
+    */
+    public boolean PartyTest3()
+    {
+        try
+        {
+            Party p = new Party();
+            PlayerActor pa = new PlayerActor();
+            p.m_content[2]=pa;
+            return(!p.onlyOne());
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
+    }
+    
+    /**
+     * This function ensures that function getGold returns the correct value
+     * @precondition:   none
+     * @postcondition:  none
+     * @return:         true if passed false else
+     */
+    public boolean PartyTest4()
+    {
+        try
+        {
+            Party p = new Party();
+            p.m_gold=123;
+            return(p.getGold()==123);
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
+    }
+    
+    /**
+     * This function ensures that the function setGold sets m_gold to the correct value
+     * @precondition:   none
+     * @postcondition:  none
+     * @return:         true if passed false else
+     */
+    public boolean PartyTest5()
+    {
+        try
+        {
+            Party p = new Party();
+            p.setGold(123);
+            return(p.m_gold==123);
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
+    }
+    
+    /**
+     * This function ensures that the function addGold works properly
+     * @precondition:   none
+     * @postcondition:  none
+     * @return:         true if passed false else
+     */
+    public boolean PartyTest6()
+    {
+        try
+        {
+            Party p = new Party();
+            p.m_gold=123;
+            p.addGold(123);
+            return(p.m_gold==246);
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
+    }
+    
+    /**
+     * This function ensures that the function getInventory works
+     * @precondition:   none
+     * @postcondition:  none
+     * @return:         true if passed false else
+     */
+    public boolean PartyTest7()
+    {
+        try
+        {
+            Party p = new Party();
+            int[] inventory = new int[Item.getNumTypesOfItem()];
+            inventory[1]=123;
+            inventory[2]=456;
+            p.m_inventory[1]=123;
+            p.m_inventory[2]=456;
+            return(p.m_inventory==inventory);
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
+    }
+    
+    /** 
+     * This function ensures that the function setInventory works properly
+     * @precondition:   none
+     * @postcondition:  none
+     * @return:         true if passed false else
+     */
+    public boolean PartyTest8()
+    {
+        try
+        {
+            Party p = new Party();
+            int[] inventory = new int[Item.getNumTypesOfItem()];
+            inventory[5]=123;
+            inventory[8]=90;
+            p.setInventory(inventory);
+            return(p.m_inventory[5]==123&&p.m_inventory[8]==90);
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
+    }
+    
+    /** 
+     * This function ensures that the function getContent works properly
+     * @precondition:   none
+     * @postcondition:  none
+     * @return:         true if passed false else
+     */
+    public boolean PartyTest9()
+    {
+        try
+        {
+            Party p = new Party();
+            return(p.m_content==p.getContent());
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
+    }
+    
+    /** 
+     * This function ensures that the function setContent works properly
+     * @precondition:   none
+     * @postcondition:  none
+     * @return:         true if passed false else
+     */
+    public boolean PartyTest10()
+    {
+        try
+        {
+            Party p = new Party();
+            PlayerActor[] content = new PlayerActor[4];
+            content[2]=new PlayerActor();
+            p.setContent(content);
+            return(p.m_content==content);
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
+    }
 }

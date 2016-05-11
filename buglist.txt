@@ -1,0 +1,21 @@
+Austin Bailey
+Tim Elvart
+Michael Wang
+William Teeple
+
+Buglist - EECS 448 Project 4
+
+ - At World creation : Cannot equip item errors - Error equiping initial items, causing errors elsewhere
+ - Inventory and Item Set : Inventory array size and Item Set array size do not match, causing IndexOutOfBoundsExceptions in several cases
+ - Dungeon area : Chest and Boss tiles are not properly implemented 
+ - Inn menu : Player is not charged for the stay
+ - Test suite : Null pointer exceptions during testing, cause unknown as of now
+ - Test suite : Inefficiencies in some test cases, RPGActor constructor continuously prompts for user for input
+ - Arena : Player automatically replenishes health after battle
+ - Arena : Player advances in arena even if the run
+ - Library : Bestiary does not work properly, checks against enemy array that does not include incrementing (no reference to actual enemies defeated)
+ - Shop : Array out of bounds exception in Sell menu and occasionally Buy menu. May be due to Item class references
+ - Player Menu : Due to exceptions thrown, full menu for Access Inventory and Character Status cannot be displayed
+ - Arena : Null pointer exception thrown using basic attack in some cases, cause unknown
+ - Arena : Array index out of bounds exception thrown when using potion methods
+

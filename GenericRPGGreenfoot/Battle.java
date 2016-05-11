@@ -560,8 +560,6 @@ public class Battle
         System.out.println("Potions available to you:");
         int[] playerInventory=a1.getInventory();
         
-        JOptionPane.showMessageDialog(null, playerInventory.length);
-        
         if (playerInventory[7]>0)
         {
             text.append("1) Name: Basic Health Potion, Effect: Restore 50 HP, Quantity: "+playerInventory[7] + "\n");

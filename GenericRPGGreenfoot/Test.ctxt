@@ -1,13 +1,13 @@
 #BlueJ class context
 comment0.target=Test
-comment0.text=\n\ Write\ a\ description\ of\ class\ Test\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Test\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=Test()
-comment1.text=\n\ @pre\ none\n\ @post\ instance\ of\ Test\ is\ created\ and\ initialized\n\ @return\ none,\ it\ is\ a\ constructor\n
+comment1.text=\r\n\ @pre\ none\r\n\ @post\ instance\ of\ Test\ is\ created\ and\ initialized\r\n\ @return\ none,\ it\ is\ a\ constructor\r\n
 comment2.params=s
 comment2.target=void\ println(java.lang.String)
-comment2.text=\n\ @pre\ instance\ of\ Test\ exists\n\ @post\ none\n\ @return\ none\n\ @brief\ time\ saving\ method\ to\ avoid\ having\ to\ type\ System.out.println\ a\ million\ times\ \n
+comment2.text=\r\n\ @pre\ instance\ of\ Test\ exists\r\n\ @post\ none\r\n\ @return\ none\r\n\ @brief\ time\ saving\ method\ to\ avoid\ having\ to\ type\ System.out.println\ a\ million\ times\ \r\n
 comment3.params=
 comment3.target=void\ runTests()
-comment3.text=\n\ @pre\ instance\ of\ Test\ exists\n\ @post\ messages\ will\ be\ printed\ to\ the\ console\n\ @return\ none\n
+comment3.text=\r\n\ @pre\ instance\ of\ Test\ exists\r\n\ @post\ messages\ will\ be\ printed\ to\ the\ console\r\n\ @return\ none\r\n
 numComments=4

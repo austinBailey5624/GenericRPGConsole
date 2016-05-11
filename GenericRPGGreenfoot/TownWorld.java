@@ -37,6 +37,8 @@ public class TownWorld extends World
             }
         }
         
+        addObject(new menuButton(), 850, 200);
+        addObject(new testButton(), 850, 500);
         addObject(new PlayerToken(), town.getStartLoc()[0]*TILE_DIM + OFFSET, town.getStartLoc()[0]*TILE_DIM + OFFSET); 
     }
 }
