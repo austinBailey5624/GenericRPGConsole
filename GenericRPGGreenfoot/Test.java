@@ -123,7 +123,7 @@ public class Test
         println("7) Verify attributes are correct for item type 5 - defense potion: " + item.itemTest7());
         println("8) Verify attributes are correct for item type 6 - attack potion: " + item.itemTest8());
         println("9) Verify attributes are correct for item type 7 - basic armor: " + item.itemTest9());
-        println("10) Verify attributes are correct for item type 10 - basic helmet: " + item.itemTest10());
+        println("10) Verify attributes are correct for item type 8 - basic helmet: " + item.itemTest10());
    
         println("\nBattle Tests: \n");
         println("1) Test that verifyInt() returns true if input string was an int: " + b.battleTest1());
