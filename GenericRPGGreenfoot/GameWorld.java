@@ -36,6 +36,8 @@ public class GameWorld extends World
                 addObject(new Grid(worldMap[i][j]), j*100 + OFFSET, i*100 + OFFSET);
             }
         }
+        addObject(new menuButton(), 850, 200);
+        addObject(new testButton(), 850, 500);
         addObject(new PlayerToken(), OFFSET, OFFSET);
     }
     
@@ -58,6 +60,9 @@ public class GameWorld extends World
                 addObject(new Grid(worldMap[i][j]), j*100 + OFFSET, i*100 + OFFSET);
             }
         }
+        
+        addObject(new menuButton(), 850, 200);
+        addObject(new testButton(), 850, 500);
         addObject(new PlayerToken(), world.getCurrentLoc()[0]*TILE_DIM + OFFSET, world.getCurrentLoc()[1]*TILE_DIM + OFFSET);
     }
     

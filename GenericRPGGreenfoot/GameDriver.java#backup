@@ -64,7 +64,8 @@ public class GameDriver extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
-    {        
+    {
+        if(Greenfoot.mouseClicked
         if(!Greenfoot.isKeyDown("w") && !Greenfoot.isKeyDown("a") && !Greenfoot.isKeyDown("s") && !Greenfoot.isKeyDown("d"))
         {
             keyPressed = false;
@@ -81,17 +82,6 @@ public class GameDriver extends Actor
                 world.displayArea(world.getArea());
             }            
             w = (GameWorld) getWorld();
-            
-            if(w.getObjects(menuButton.class).get(0).getPressed() == true)
-            {
-                m_party.menu();
-                w.getObjects(menuButton.class).get(0).resetPressed();
-            }
-            if(w.getObjects(testButton.class).get(0).getPressed() == true)
-            {
-                Test test = new Test();
-                test.runTests();
-            }
             
             w.getObjects(PlayerToken.class).get(0).updateLocation(world.getCurrentLoc()[0], world.getCurrentLoc()[1]);
             if(!keyPressed)
@@ -231,18 +221,7 @@ public class GameDriver extends Actor
             if(!inDungeon)
             {
                 w = (TownWorld) getWorld();
-                          
-                if(w.getObjects(menuButton.class).get(0).getPressed() == true)
-                {
-                    m_party.menu();
-                    w.getObjects(menuButton.class).get(0).resetPressed();
-                }
-                if(w.getObjects(testButton.class).get(0).getPressed() == true)
-                {
-                    Test test = new Test();
-                    test.runTests();
-                }
-            
+                            
                 if(area == "vv")
                 {
                     w.getObjects(PlayerToken.class).get(0).updateLocation(villagevilleTown.getCurrentLoc()[0], villagevilleTown.getCurrentLoc()[1]);
@@ -423,18 +402,7 @@ public class GameDriver extends Actor
             else
             {
                 w = (DungeonWorld) getWorld();
-                      
-                if(w.getObjects(menuButton.class).get(0).getPressed() == true)
-                {
-                    m_party.menu();
-                    w.getObjects(menuButton.class).get(0).resetPressed();
-                }
-                if(w.getObjects(testButton.class).get(0).getPressed() == true)
-                {
-                    Test test = new Test();
-                    test.runTests();
-                }
-                
+                            
                 if(area == "dungeon1")
                 {
                     w.getObjects(PlayerToken.class).get(0).updateLocation(dungeon1D.getCurrentLoc()[0], dungeon1D.getCurrentLoc()[1]);

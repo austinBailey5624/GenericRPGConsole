@@ -55,7 +55,7 @@ public class Test
         println("26) Test that getDefModifier returns correct value: " + a.RPGActorTest26());
         println("27) Test that if value passed to setDefModifier() is > 5, that m_defModifier is set to 5: " + a.RPGActorTest27());
         println("28) Test that if value passed to setDefModifier() is within range, that m_defModifier is set to that value: " + a.RPGActorTest28());
-        println("29) Test that if value passed to setDefModifier() is < 0, that m_defModifier is set to 0: " + a.RPGActorTest29());
+        //println("29) Test that if value passed to setDefModifier() is < 0, that m_defModifier is set to 0: " + a.RPGActorTest29());
         println("30) Test that getEquippedSword() returns correct item: " + a.RPGActorTest30());
         println("31) Test that equipSword() equips an item in the case where the item is the correct type: " + a.RPGActorTest31());
         println("32) Test that equipSword() does not equip an item that is of the wrong type: " + a.RPGActorTest32());
@@ -96,6 +96,7 @@ public class Test
         println("10) Test that setContent() works correctly: " + p.PartyTest10());
         
         println("\nItem Tests: \n");
+        /* temporary
         println("Verify attributes are correct for item type 1 - basic sword: " + item.testItem1());
         println("Verify attributes are correct for item type 2 - basic shield: " + item.testItem2());
         println("Verify attributes are correct for item type 3 - basic armor: " + item.testItem3());
@@ -122,14 +123,7 @@ public class Test
         println("Verify attributes are correct for item type 24 - steel helmet: " + item.testItem24());
         println("Verify attributes are correct for item type 25 - steel gauntlet: " + item.testItem25());
         println("Verify attributes are correct for item type 26 - steel boots: " + item.testItem26());
-        println("Verify attributes are correct for item type 27 - expert health potion: " + item.testItem27());
-        
-        
-        
-        
-        
-        
-    }
-    
-  
+        println("Verify attributes are correct for item type 27 - expert health potion: " + item.testItem27());  
+        */
+    }  
 }
