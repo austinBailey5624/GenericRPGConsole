@@ -34,7 +34,7 @@ public class Party extends Actor
         m_content[2]=null;
         m_content[3]=null;
         m_gold=100;
-        m_inventory = new int[Item.getNumTypesOfItem()];
+        m_inventory = new int[Item.getNumTypesOfItem()+Item.getNumTypesOfWeapon()];
         for(int i=0; i<m_inventory.length;i++)
         {
             m_inventory[i]=0;
