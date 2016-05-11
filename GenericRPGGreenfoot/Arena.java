@@ -58,15 +58,15 @@ public class Arena
      * @param character
      */
     public void menu(Party party)//TODO make this return a boolean that controls whether the actor won the battle, if lost, return false
-    {
-        StringBuilder text = new StringBuilder();
-        text.append("Welcome to the Arena\n");
+    {       
         System.out.println("Welcome to the Arena");
         boolean exit=false;
         lost = false;
         Battle myBattle = new Battle();
         while(!exit)
         {
+            StringBuilder text = new StringBuilder();
+            text.append("Welcome to the Arena\n");
             int indexRepresentedByChoice[]=new int[enemySet.length];
             int choice=1;
             text.append("Who will you fight?\n");
