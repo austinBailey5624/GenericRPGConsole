@@ -89,6 +89,7 @@ public class GameDriver extends Actor
             }
             if(w.getObjects(testButton.class).get(0).getPressed() == true)
             {
+                w.getObjects(testButton.class).get(0).resetPressed();
                 Test test = new Test();
                 test.runTests();
             }
