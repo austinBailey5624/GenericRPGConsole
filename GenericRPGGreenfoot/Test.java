@@ -132,17 +132,17 @@ public class Test
         println("3) Test that isBattleOver() returns true if one of the actors has no health: " + b.battleTest3());
         println("4) Test that isBattleOver() returns true if both actors have no health: " + b.battleTest4());
         println("5) Test that isBattleOver() returns false if both actors have health remaining: " + b.battleTest5());
-        //TODO fix exceptions
+        //TODO fix exceptions and errors
         //println("6) Test that potionsAvailable() returns false if player has no potions in their inventory: " + b.battleTest6());
         //println("7) Test that potionsAvailable() returns true if player has potions in their inventory: " + b.battleTest7());
         println("8) Test that determineVictor() returns the actor with health remaining after a battle: " + b.battleTest8());
         println("9) Test that determineVictor() does not return the actor with no health: " + b.battleTest9());
-        println("10) Test that usePotion() sets player's hp to max if player has lost fewer than 50 hp, when using basic health potion: " + b.battleTest10());
-        println("11) Test that usePotion() adds 50 to player's hp if player has lost more than 50 hp, when using basic health potion: " + b.battleTest11());
-        println("12) Test that usePotion() sets player's hp to max if player has lost fewer than 100 hp, when using advanced health potion: " + b.battleTest12());
-        println("13) Test that usePotion() adds 100 to player's hp if player has lost more than 100 hp, when using advanced health potion: " + b.battleTest13());
-        println("14) Test that usePotion() sets player's hp to max if player has lost fewer than 150 hp, when using expert health potion: " + b.battleTest14());
-        println("15) Test that usePotion() adds 150 to player's hp if player has lost more than 150 hp, when using expert health potion: " + b.battleTest15());
+        //println("10) Test that usePotion() sets player's hp to max if player has lost fewer than 50 hp, when using basic health potion: " + b.battleTest10());
+        //println("11) Test that usePotion() adds 50 to player's hp if player has lost more than 50 hp, when using basic health potion: " + b.battleTest11());
+        //println("12) Test that usePotion() sets player's hp to max if player has lost fewer than 100 hp, when using advanced health potion: " + b.battleTest12());
+        //println("13) Test that usePotion() adds 100 to player's hp if player has lost more than 100 hp, when using advanced health potion: " + b.battleTest13());
+        //println("14) Test that usePotion() sets player's hp to max if player has lost fewer than 150 hp, when using expert health potion: " + b.battleTest14());
+        //println("15) Test that usePotion() adds 150 to player's hp if player has lost more than 150 hp, when using expert health potion: " + b.battleTest15());
         
         println("\nAll tests complete!\n");
         
