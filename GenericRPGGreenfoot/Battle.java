@@ -252,14 +252,15 @@ public class Battle
                     m_skillSet[0].Execute(player, npc);
                     int temphp2=npc.getCurHp();
                     int difference=temphp1-temphp2;
-                    if()
+                    if(player.getEquippedSword() != null)
                     {
                         JOptionPane.showMessageDialog(null, player.getName()+" attacks "+npc.getName()+" with a "+player.getEquippedSword().getName()+", dealing "+difference+" damage!\n");
                     System.out.println(player.getName()+" attacks "+npc.getName()+" with a "+player.getEquippedSword().getName()+", dealing "+difference+" damage!\n");
                     }
                     else
                     {
-                        
+                        JOptionPane.showMessageDialog(null, player.getName()+" attacks "+npc.getName()+" with no sword, dealing "+difference+" damage!\n");
+                    System.out.println(player.getName()+" attacks "+npc.getName()+" with no sword, dealing "+difference+" damage!\n");
                     }
                     playerMistake=false;
                 }
@@ -330,28 +331,28 @@ public class Battle
                             
                         if (potionchoice==1)
                         {
-                            if (pinv[7]>0)
+                            if (pinv[0]>0)
                             {
                                 usePotion(1);
-                                pinv[7]--;
+                                pinv[0]--;
                                 playerMistake=false;
                             }
                         }
                         else if (potionchoice==2)
                         {
-                            if (pinv[20]>0)
+                            if (pinv[1]>0)
                             {
                                 usePotion(2);
-                                pinv[20]--;
+                                pinv[1]--;
                                 playerMistake=false;
                             }
                         }
                         else if (potionchoice==3)
                         {
-                            if (pinv[27]>0)
+                            if (pinv[2]>0)
                             {
                                 usePotion(3);
-                                pinv[27]--;
+                                pinv[2]--;
                                 playerMistake=false;
                             }
                         }
@@ -543,7 +544,7 @@ public class Battle
     private boolean potionsAvailable(Party p1)
     {
         int[] playerInventory=p1.getInventory();
-        if (playerInventory[7]>0 || playerInventory[20]>0 || playerInventory[27]>0)
+        if (playerInventory[0]>0||playerInventory[1]>0||playerInventory[2]>0)
         {
             return true;
         }
@@ -569,17 +570,17 @@ public class Battle
         
         JOptionPane.showMessageDialog(null, playerInventory.length);
         
-        if (playerInventory[7]>0)
+        if (playerInventory[0]>0)
         {
             text.append("1) Name: Basic Health Potion, Effect: Restore 50 HP, Quantity: "+playerInventory[7] + "\n");
             System.out.println("1) Name: Basic Health Potion, Effect: Restore 50 HP, Quantity: "+playerInventory[7]);
         }
-        if (playerInventory[20]>0)
+        if (playerInventory[1]>0)
         {
             text.append("2) Name: Advanced Health Potion, Effect: Restore 100 HP, Quantity: "+playerInventory[20] + "\n");
             System.out.println("2) Name: Advanced Health Potion, Effect: Restore 100 HP, Quantity: "+playerInventory[20]);
         }
-        if (playerInventory[27]>0)
+        if (playerInventory[3]>0)
         {
             text.append("3) Name: Expert Health Potion, Effect: Restore 150 HP, Quantity: "+playerInventory[27] + "\n");
             System.out.println("3) Name: Expert Health Potion, Effect: Restore 150 HP, Quantity: "+playerInventory[27]);
