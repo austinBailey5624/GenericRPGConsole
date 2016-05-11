@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=Weapon
-comment0.text=\n\ Write\ a\ description\ of\ class\ Weapon\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Weapon\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=typeOfWeapon
 comment1.target=Weapon(int)
-comment1.text=\n\ This\ function\ is\ the\ constructor\ for\ the\ different\ weapons\n\ pre\ -\ needs\ the\ parameters\ down\ below\n\ post\ -\ creates\ a\ weapon\n\ Returns\ -\ an\ weapon\ based\ off\ of\ the\ integer\ given.\n\ @param\ typeOfWeapon\ takes\ in\ an\ int\ in\ order\ to\ create\ the\ weapon\n
+comment1.text=\r\n\ This\ function\ is\ the\ constructor\ for\ the\ different\ weapons\r\n\ pre\ -\ needs\ the\ parameters\ down\ below\r\n\ post\ -\ creates\ a\ weapon\r\n\ Returns\ -\ an\ weapon\ based\ off\ of\ the\ integer\ given.\r\n\ @param\ typeOfWeapon\ takes\ in\ an\ int\ in\ order\ to\ create\ the\ weapon\r\n
 comment2.params=
 comment2.target=int\ getSkill()
-comment2.text=\nThis\ function\ returns\ the\ value\ of\ m_skill\n\ pre\ -\ none\n\ post\ -\ none\n\ @return\ m_skill\n
+comment2.text=\r\nThis\ function\ returns\ the\ value\ of\ m_skill\r\n\ pre\ -\ none\r\n\ post\ -\ none\r\n\ @return\ m_skill\r\n
 numComments=3

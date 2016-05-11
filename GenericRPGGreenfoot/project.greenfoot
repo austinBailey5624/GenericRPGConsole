@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #Greenfoot properties
 #Tue May 10 22:02:24 CDT 2016
 target16.name=Party
@@ -10,6 +11,25 @@ target23.name=Library
 dependency56.to=PlayerActor
 dependency11.type=UsesDependency
 target23.y=430
+||||||| merged common ancestors
+#Greenfoot project file
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=021aa02a7e46a8f3e7c07432393d2c60334e90bc
+=======
+#Greenfoot properties
+#Tue May 10 21:56:15 CDT 2016
+target16.name=Party
+dependency35.to=Town
+editor.swing.0.y=-9
+editor.swing.0.x=-9
+target2.name=EnemyActor
+target9.name=TownWorld
+target23.name=Library
+dependency56.to=PlayerActor
+dependency11.type=UsesDependency
+target23.y=430
+>>>>>>> bd6b10745fed993355465591cb26dde4fde16e97
 class.Arena.superclass=
 target23.x=190
 dependency18.type=UsesDependency
