@@ -145,16 +145,16 @@ public class Party extends Actor
             System.out.println("Currently have: " + selected.getEquippedHelmet().getName() + " Equipped, with Attack Bonus: " + selected.getEquippedHelmet().getBonusAtk() + " And Defense Bonus: " + selected.getEquippedHelmet().getBonusDef());
             System.out.println("Which Helmet do you want to equip?");
         }
-        else if(type==5)
-        {
-            System.out.println("Currently have: " + selected.getEquippedGauntlets().getName() + " Equipped, with Attack Bonus: " + selected.getEquippedGauntlets().getBonusAtk() + " And Defense Bonus: " + selected.getEquippedGauntlets().getBonusDef());
-            System.out.println("Which Gauntlets do you want to equip?");
-        }
-        else if(type==6)
-        {
-            System.out.println("Currently have: " + selected.getEquippedBoots().getName() + " Equipped, with Attack Bonus: " + selected.getEquippedBoots().getBonusAtk() + " And Defense Bonus: " + selected.getEquippedBoots().getBonusDef());
-            System.out.println("Which Boots do you want to equip?");
-        }
+//        else if(type==5)//note: quit using gauntlets and boots
+//        {
+//            System.out.println("Currently have: " + selected.getEquippedGauntlets().getName() + " Equipped, with Attack Bonus: " + selected.getEquippedGauntlets().getBonusAtk() + " And Defense Bonus: " + selected.getEquippedGauntlets().getBonusDef());
+//            System.out.println("Which Gauntlets do you want to equip?");
+//        }
+//        else if(type==6)
+//        {
+//            System.out.println("Currently have: " + selected.getEquippedBoots().getName() + " Equipped, with Attack Bonus: " + selected.getEquippedBoots().getBonusAtk() + " And Defense Bonus: " + selected.getEquippedBoots().getBonusDef());
+//            System.out.println("Which Boots do you want to equip?");
+//        }
 
         int[] indexRepresentedByChoice= new int[items.length];
         for(int i=0;i<items.length;i++)
@@ -259,38 +259,38 @@ public class Party extends Actor
                     m_inventory[indexRepresentedByChoice[select]]--;
                 }
             }
-            else if(type==5)
-            {
-                if(m_inventory[indexRepresentedByChoice[select]]<1)
-                {
-                    System.out.println("You dont have a " + items[indexRepresentedByChoice[select]]+ " to equip!");
-                }
-                else
-                {
-                    if(selected.getEquippedGauntlets().getId()!=12)
-                    {
-                        m_inventory[selected.getEquippedGauntlets().getId()]++;
-                    }
-                    selected.equipGauntlets(items[indexRepresentedByChoice[select]]);
-                    m_inventory[indexRepresentedByChoice[select]]--;
-                }
-            }
-            else if(type==6)
-            {
-                if(m_inventory[indexRepresentedByChoice[select]]<1)
-                {
-                    System.out.println("You dont have a " + items[indexRepresentedByChoice[select]]+ " to equip!");
-                }
-                else
-                {
-                    if(selected.getEquippedBoots().getId()!=13)
-                    {
-                        m_inventory[selected.getEquippedBoots().getId()]++;
-                    }
-                    selected.equipBoots(items[indexRepresentedByChoice[select]]);
-                    m_inventory[indexRepresentedByChoice[select]]--;
-                }
-            }
+//            else if(type==5)//Note: quit using guntlets and boots
+//            {
+//                if(m_inventory[indexRepresentedByChoice[select]]<1)
+//                {
+//                    System.out.println("You dont have a " + items[indexRepresentedByChoice[select]]+ " to equip!");
+//                }
+//                else
+//                {
+//                    if(selected.getEquippedGauntlets().getId()!=12)
+//                    {
+//                        m_inventory[selected.getEquippedGauntlets().getId()]++;
+//                    }
+//                    selected.equipGauntlets(items[indexRepresentedByChoice[select]]);
+//                    m_inventory[indexRepresentedByChoice[select]]--;
+//                }
+//            }
+//            else if(type==6)
+//            {
+//                if(m_inventory[indexRepresentedByChoice[select]]<1)
+//                {
+//                    System.out.println("You dont have a " + items[indexRepresentedByChoice[select]]+ " to equip!");
+//                }
+//                else
+//                {
+//                    if(selected.getEquippedBoots().getId()!=13)
+//                    {
+//                        m_inventory[selected.getEquippedBoots().getId()]++;
+//                    }
+//                    selected.equipBoots(items[indexRepresentedByChoice[select]]);
+//                    m_inventory[indexRepresentedByChoice[select]]--;
+//                }
+//            }
         }
         else if(select==(choices))
         {
@@ -320,13 +320,14 @@ public class Party extends Actor
         System.out.println("Equipped Shield:    " + selected.getEquippedShield().getName() + " bonus Atack: " + selected.getEquippedShield().getBonusAtk() + " bonus Defense: " + selected.getEquippedShield().getBonusDef());
         System.out.println("Equipped Armor:     " + selected.getEquippedArmor().getName() + " bonus Attack: " + selected.getEquippedArmor().getBonusAtk() + " bonus Defense: " + selected.getEquippedArmor().getBonusDef());
         System.out.println("Equipped Helmet:    " + selected.getEquippedHelmet().getName() + " bonus Attack: " + selected.getEquippedHelmet().getBonusAtk() + " bonus Defense: " +  selected.getEquippedHelmet().getBonusDef());
-        System.out.println("Equipped Gauntlets: " + selected.getEquippedGauntlets().getName() + " bonus Atack: " + selected.getEquippedGauntlets().getBonusAtk()+ " bonus Defense: " +selected.getEquippedGauntlets().getBonusDef());		
-        System.out.println("Equipped Boots:     " + selected.getEquippedBoots().getName() + " bonus Attack " + selected.getEquippedBoots().getBonusAtk() + " bonus Defense: " + selected.getEquippedBoots().getBonusDef());
+//        System.out.println("Equipped Gauntlets: " + selected.getEquippedGauntlets().getName() + " bonus Atack: " + selected.getEquippedGauntlets().getBonusAtk()+ " bonus Defense: " +selected.getEquippedGauntlets().getBonusDef());		
+//        System.out.println("Equipped Boots:     " + selected.getEquippedBoots().getName() + " bonus Attack " + selected.getEquippedBoots().getBonusAtk() + " bonus Defense: " + selected.getEquippedBoots().getBonusDef());
         System.out.println("Natural Attack:     " + selected.getAtk());
-        System.out.println("Bonus Attack:       " + (selected.getEquippedSword().getBonusAtk()+selected.getEquippedShield().getBonusAtk()+selected.getEquippedArmor().getBonusAtk()+selected.getEquippedHelmet().getBonusAtk()+selected.getEquippedGauntlets().getBonusAtk()+selected.getEquippedBoots().getBonusAtk()));
+        System.out.println("Bonus Attack:       " + (selected.getEquippedSword().getBonusAtk()+selected.getEquippedShield().getBonusAtk()+selected.getEquippedArmor().getBonusAtk()+selected.getEquippedHelmet().getBonusAtk()));//+selected.getEquippedGauntlets().getBonusAtk()+selected.getEquippedBoots().getBonusAtk()));
         System.out.println("Effective Attack:   " + selected.getAttackFighter());
         System.out.println("Natural Defese:     " + selected.getDef());
-        System.out.println("Bonus Defense:      " + (selected.getEquippedSword().getBonusDef()+selected.getEquippedShield().getBonusDef()+selected.getEquippedArmor().getBonusDef()+selected.getEquippedHelmet().getBonusDef()+selected.getEquippedGauntlets().getBonusDef()+selected.getEquippedBoots().getBonusDef()));
+//      System.out.println("Bonus Defense:      " + (selected.getEquippedSword().getBonusDef()+selected.getEquippedShield().getBonusDef()+selected.getEquippedArmor().getBonusDef()+selected.getEquippedHelmet().getBonusDef()+selected.getEquippedGauntlets().getBonusDef()+selected.getEquippedBoots().getBonusDef()));
+        System.out.println("Bonus Defense:      " + (selected.getEquippedSword().getBonusDef()+selected.getEquippedShield().getBonusDef()+selected.getEquippedArmor().getBonusDef()+selected.getEquippedHelmet().getBonusDef()));
         System.out.println("Effective Defense:  " + selected.getDefenseFighter());
     }
 
@@ -418,16 +419,16 @@ public class Party extends Actor
             System.out.println("Equipped Shield: " + selected.getEquippedShield().getName());
             System.out.println("Equipped Armor: " + selected.getEquippedArmor().getName());
             System.out.println("Equipped Helmet: " +  selected.getEquippedHelmet().getName());
-            System.out.println("Equipped Gauntlets: " + selected.getEquippedGauntlets().getName());
-            System.out.println("Equipped Boots: "+ selected.getEquippedBoots().getName());
+//          System.out.println("Equipped Gauntlets: " + selected.getEquippedGauntlets().getName());
+//          System.out.println("Equipped Boots: "+ selected.getEquippedBoots().getName());
             System.out.println("1) Equip a Sword");
             System.out.println("2) Equip a Shield");
             System.out.println("3) Equip Armor");
             System.out.println("4) Equip Helmet");
-            System.out.println("5) Equip Gauntlets");
-            System.out.println("6) Equip Boots");
-            System.out.println("7) Look at inventory");
-            System.out.println("8) Return");
+//            System.out.println("5) Equip Gauntlets");
+//            System.out.println("6) Equip Boots");
+            System.out.println("5) Look at inventory");
+            System.out.println("6) Return");
             String in=myScanner.next();
             if(verifyInt(in))
             {
@@ -438,15 +439,15 @@ public class Party extends Actor
                 //System.out.println("You gave invalid input! please try again\n");
                 select=9;
             }
-            if(select>=0&&select<7)
+            if(select>=0&&select<5)
             {
                 equipMenu(select,selected);
             }
-            else if(select==7)
+            else if(select==5)
             {
                 displayInventory();
             }
-            else if(select==8)
+            else if(select==6)
             {
                 return;
             }
@@ -567,7 +568,7 @@ public class Party extends Actor
 	* This function verifies that the string passed to it is an int
 	* @precondition:	String is passed as parameter
 	* @postcondition:	none
-	* @return:			true if int, false else
+	* @return:			true if int, false else 
 	*/
     private boolean verifyInt(String s)
     {

@@ -1,6 +1,6 @@
 package ver0;
 import java.util.Scanner;
-public class PlayerActor extends RPGActor
+public class PlayerActor extends Actor
 {
 	static Scanner myScanner = new Scanner(System.in);
 	static int select;
