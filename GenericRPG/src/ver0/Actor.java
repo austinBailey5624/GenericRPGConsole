@@ -632,33 +632,33 @@ public class Actor
 	 * @postcondition -	does not change member variables
 	 * @return -		m_matk plus bonus matk from all equipped items
 	 */
-	public int getMAttackFighter()
-	{
-		if(m_equippedSword == null)
-		{
-			return((int)((getMatk())*getMatkModifier()));
-		}
-		else
-		{
-			return((int)((getMatk()+m_equippedSword.getBonusMAtk()+m_equippedShield.getBonusMAtk()+m_equippedHelmet.getBonusMAtk())*getMatkModifier()));
-		}
-	}
-	
-	/**
-	 * Returns the mDef value to be used by battle methods that includes modifier from all relevant items
-	 * @precondition - 	Actor Object exists
-	 * @postcondition - does not change member variables
-	 * @return - 		m_def plus bonus mdef from all equipped items
-	 */
-	public int getMDefenseFighter()
-	{
-		if(m_equippedSword == null)
-		{
-			return((int)((getMdef())*getMdefModifier()));
-		}
-		else
-		{
-			return((int)((getMdef()+m_equippedSword.getBonusMDef()+m_equippedShield.getBonusDef()+m_equippedHelmet.getBonusMDef())*getMdefModifier()));
-		}
-	}
+//	public int getMAttackFighter()//not ready for implementation
+//	{
+//		if(m_equippedSword == null)
+//		{
+//			return((int)((getMatk())*getMatkModifier()));
+//		}
+//		else
+//		{
+//			return((int)((getMatk()+m_equippedSword.getBonusMAtk()+m_equippedShield.getBonusMAtk()+m_equippedHelmet.getBonusMAtk())*getMatkModifier()));
+//		}
+//	}
+//	
+//	/**
+//	 * Returns the mDef value to be used by battle methods that includes modifier from all relevant items
+//	 * @precondition - 	Actor Object exists
+//	 * @postcondition - does not change member variables
+//	 * @return - 		m_def plus bonus mdef from all equipped items
+//	 */
+//	public int getMDefenseFighter()
+//	{
+//		if(m_equippedSword == null)
+//		{
+//			return((int)((getMdef())*getMdefModifier()));
+//		}
+//		else
+//		{
+//			return((int)((getMdef()+m_equippedSword.getBonusMDef()+m_equippedShield.getBonusDef()+m_equippedHelmet.getBonusMDef())*getMdefModifier()));
+//		}
+//	}
 }

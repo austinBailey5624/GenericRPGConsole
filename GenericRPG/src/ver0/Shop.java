@@ -20,7 +20,7 @@ public class Shop
 	static Scanner myScanner = new Scanner(System.in);
 	//TODO figure out what to do if the shop is sold out
 	static int select;
-	int[] m_inventory=new int[(Item.getNumTypesOfItem()+Item.getNumTypesOfWeapon())];
+	int[] m_inventory=new int[(Item.getNumTypesOfItem())];
 	
 	/**
 	 * This constructor initializes a shop from one of the premade shops, based on its parameter int whichShop
@@ -30,7 +30,7 @@ public class Shop
 	 */
 	public Shop(int whichShop)//used in case we make more than one shop
 	{
-		for(int i=0;i<(Item.getNumTypesOfItem()+Item.getNumTypesOfWeapon());i++)
+		for(int i=0;i<(Item.getNumTypesOfItem());i++)
 		{
 			m_inventory[i]=0;
 		}

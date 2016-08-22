@@ -12,9 +12,8 @@ public class Skill
 	private double m_accuracy;
 	private int m_value;
 
-	static int m_numOfSkills=19;
+	static int m_numOfSkills=20;
 
-	//static int m_numOfSkills=9;
 
 
 	/**
@@ -228,172 +227,172 @@ public class Skill
 				return false;
 			}
 		}
-		else if(this.m_id==1)//Magic Bolt
-		{
-			if(hit<85)
-			{
-				if((User.getMAttackFighter()-(.5*Target.getMDefenseFighter())>0))
-				{
-					Target.reduceHp((int) (User.getMAttackFighter()-(.5*Target.getMDefenseFighter())));
-				}
-				else
-				{
-					Target.reduceHp(1);
-				}
-				return true;
-			}
-			else
-			{
-				System.out.println("Magic Bolt missed!");
-				return false;
-			}
-		}
-		else if(this.m_id==2)//Poison Bolt
-		{
-			if(hit<85)
-			{
-				if((User.getMAttackFighter()-(.5*Target.getMDefenseFighter())>0))
-				{
-					Target.reduceHp((int) (User.getMAttackFighter()-(.5*Target.getMDefenseFighter())));
-				}
-				else
-				{
-					Target.reduceHp(1);
-				}
-				Target.m_status[0]+=4;//applies the debuff
-				return true;
-			}
-			else
-			{
-				System.out.println("Poison Bolt missed!");
-				return false;
-			}
-		}
-		else if(this.m_id==3)//stunning bolt
-		{
-			if(hit<85)
-			{
-				if((User.getMAttackFighter()-(.5*Target.getMDefenseFighter())>0))
-				{
-					Target.reduceHp((int) (User.getMAttackFighter()-(.5*Target.getMDefenseFighter())));
-				}
-				else
-				{
-					Target.reduceHp(1);
-				}
-				Target.m_status[3]+=4;//applies the stun debuff
-				return true;
-			}
-			else
-			{
-				System.out.println("Stunning Bolt missed!");
-				return false;
-			}
-		}
-		else if(this.m_id==4)//cleanse
-		{
-			if(Target.getCurHp()+User.getMAttackFighter()>Target.getMaxHp())//if healing the target would put them over their max hp
-			{
-				Target.setCurHp(Target.getMaxHp());//set their current hp to their max hp
-			}
-			else
-			{
-				Target.setCurHp(User.getMAttackFighter()+Target.getCurHp());
-			}
-			for(int i=0;i<Target.m_status.length;i++)//decreases all statuses by 2
-			{
-				if(Target.m_status[i]>2)
-				{
-					Target.m_status[i]-=2;
-				}
-				else
-				{
-					Target.m_status[i]=0;
-				}
-			}
-		}
-		else if(this.m_id==5)//magic slash
-		{
-			if(hit<85)
-			{
-				if((User.getAttackFighter()-(.5*Target.getDefenseFighter())+(User.getMAttackFighter()-(.5*Target.getMDefenseFighter())))*.6>0)
-				{
-					Target.reduceHp((int) ((User.getAttackFighter()-(.5*Target.getDefenseFighter())+(User.getMAttackFighter()-(.5*Target.getMDefenseFighter())))*.6));
-				}
-				else
-				{
-					Target.reduceHp(1);
-				}
-				return true;
-			}
-			else
-			{
-				System.out.println("Magic Slash missed!");
-				return false;
-			}
-		}
-		else if(this.m_id==6)//Wide Burst
-		{
-			if(hit<85)
-			{
-				if(((User.getMAttackFighter()-(.5*Target.getMDefenseFighter())*.7)>0))
-				{
-					Target.reduceHp((int) ((User.getMAttackFighter()-(.5*Target.getMDefenseFighter()))*.7));
-				}
-				else
-				{
-					Target.reduceHp(1);
-				}
-				return true;
-			}
-			else
-			{
-				System.out.println("Magic Burst missed!");
-				return false;
-			}
-		}
-		else if(this.m_id==7)//poison Burst
-		{
-			if(hit<85)
-			{
-				if(((User.getMAttackFighter()-(.5*Target.getMDefenseFighter())*.7)>0))
-				{
-					Target.reduceHp((int) ((User.getMAttackFighter()-(.5*Target.getMDefenseFighter()))*.7));
-				}
-				else
-				{
-					Target.reduceHp(1);
-				}
-				Target.m_status[0]+=3;
-				return true;
-			}
-			else
-			{
-				System.out.println("Poison Burst missed!");
-				return false;
-			}
-		}
-		else if(this.m_id==8)//Electric Burst
-		{
-			if(hit<85)
-			{
-				if(((User.getMAttackFighter()-(.5*Target.getMDefenseFighter())*.7)>0))
-				{
-					Target.reduceHp((int) ((User.getMAttackFighter()-(.5*Target.getMDefenseFighter()))*.7));
-				}
-				else
-				{
-					Target.reduceHp(1);
-				}
-				Target.m_status[3]+=3;
-				return true;
-			}
-			else
-			{
-				System.out.println("Electric Burst missed!");
-				return false;
-			}
-		}
+//		else if(this.m_id==1)//Magic Bolt// not ready to be implementeds
+//		{
+//			if(hit<85)
+//			{
+//				if((User.getMAttackFighter()-(.5*Target.getMDefenseFighter())>0))
+//				{
+//					Target.reduceHp((int) (User.getMAttackFighter()-(.5*Target.getMDefenseFighter())));
+//				}
+//				else
+//				{
+//					Target.reduceHp(1);
+//				}
+//				return true;
+//			}
+//			else
+//			{
+//				System.out.println("Magic Bolt missed!");
+//				return false;
+//			}
+//		}
+//		else if(this.m_id==2)//Poison Bolt
+//		{
+//			if(hit<85)
+//			{
+//				if((User.getMAttackFighter()-(.5*Target.getMDefenseFighter())>0))
+//				{
+//					Target.reduceHp((int) (User.getMAttackFighter()-(.5*Target.getMDefenseFighter())));
+//				}
+//				else
+//				{
+//					Target.reduceHp(1);
+//				}
+//				Target.m_status[0]+=4;//applies the debuff
+//				return true;
+//			}
+//			else
+//			{
+//				System.out.println("Poison Bolt missed!");
+//				return false;
+//			}
+//		}
+//		else if(this.m_id==3)//stunning bolt
+//		{
+//			if(hit<85)
+//			{
+//				if((User.getMAttackFighter()-(.5*Target.getMDefenseFighter())>0))
+//				{
+//					Target.reduceHp((int) (User.getMAttackFighter()-(.5*Target.getMDefenseFighter())));
+//				}
+//				else
+//				{
+//					Target.reduceHp(1);
+//				}
+//				Target.m_status[3]+=4;//applies the stun debuff
+//				return true;
+//			}
+//			else
+//			{
+//				System.out.println("Stunning Bolt missed!");
+//				return false;
+//			}
+//		}
+//		else if(this.m_id==4)//cleanse
+//		{
+//			if(Target.getCurHp()+User.getMAttackFighter()>Target.getMaxHp())//if healing the target would put them over their max hp
+//			{
+//				Target.setCurHp(Target.getMaxHp());//set their current hp to their max hp
+//			}
+//			else
+//			{
+//				Target.setCurHp(User.getMAttackFighter()+Target.getCurHp());
+//			}
+//			for(int i=0;i<Target.m_status.length;i++)//decreases all statuses by 2
+//			{
+//				if(Target.m_status[i]>2)
+//				{
+//					Target.m_status[i]-=2;
+//				}
+//				else
+//				{
+//					Target.m_status[i]=0;
+//				}
+//			}
+//		}
+//		else if(this.m_id==5)//magic slash
+//		{
+//			if(hit<85)
+//			{
+//				if((User.getAttackFighter()-(.5*Target.getDefenseFighter())+(User.getMAttackFighter()-(.5*Target.getMDefenseFighter())))*.6>0)
+//				{
+//					Target.reduceHp((int) ((User.getAttackFighter()-(.5*Target.getDefenseFighter())+(User.getMAttackFighter()-(.5*Target.getMDefenseFighter())))*.6));
+//				}
+//				else
+//				{
+//					Target.reduceHp(1);
+//				}
+//				return true;
+//			}
+//			else
+//			{
+//				System.out.println("Magic Slash missed!");
+//				return false;
+//			}
+//		}
+//		else if(this.m_id==6)//Wide Burst
+//		{
+//			if(hit<85)
+//			{
+//				if(((User.getMAttackFighter()-(.5*Target.getMDefenseFighter())*.7)>0))
+//				{
+//					Target.reduceHp((int) ((User.getMAttackFighter()-(.5*Target.getMDefenseFighter()))*.7));
+//				}
+//				else
+//				{
+//					Target.reduceHp(1);
+//				}
+//				return true;
+//			}
+//			else
+//			{
+//				System.out.println("Magic Burst missed!");
+//				return false;
+//			}
+//		}
+//		else if(this.m_id==7)//poison Burst
+//		{
+//			if(hit<85)
+//			{
+//				if(((User.getMAttackFighter()-(.5*Target.getMDefenseFighter())*.7)>0))
+//				{
+//					Target.reduceHp((int) ((User.getMAttackFighter()-(.5*Target.getMDefenseFighter()))*.7));
+//				}
+//				else
+//				{
+//					Target.reduceHp(1);
+//				}
+//				Target.m_status[0]+=3;
+//				return true;
+//			}
+//			else
+//			{
+//				System.out.println("Poison Burst missed!");
+//				return false;
+//			}
+//		}
+//		else if(this.m_id==8)//Electric Burst
+//		{
+//			if(hit<85)
+//			{
+//				if(((User.getMAttackFighter()-(.5*Target.getMDefenseFighter())*.7)>0))
+//				{
+//					Target.reduceHp((int) ((User.getMAttackFighter()-(.5*Target.getMDefenseFighter()))*.7));
+//				}
+//				else
+//				{
+//					Target.reduceHp(1);
+//				}
+//				Target.m_status[3]+=3;
+//				return true;
+//			}
+//			else
+//			{
+//				System.out.println("Electric Burst missed!");
+//				return false;
+//			}
+//		}
 		else if(this.m_id==9)//Power Attack
 		{
 			if(hit<70)

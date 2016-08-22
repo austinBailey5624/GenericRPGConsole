@@ -79,6 +79,7 @@ public class EnemyActor extends Actor
 			setDef(6);
 			m_AIDiscription="Has a 70% chance to use basic attack, 30% chance to use Power attack";
 			m_skillSet[0]=true;
+//			System.out.println("The length of the skillset is: " +m_skillSet.length);
 			m_skillSet[9]=true;
 			
 			m_defeatGold=15;
