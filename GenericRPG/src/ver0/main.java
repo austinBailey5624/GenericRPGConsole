@@ -15,7 +15,7 @@ public class main
 
 		//gets all enemies and prepares them for use in main
 
-		EnemyActor[] enemySet = EnemyActor.getEnemies();
+//		EnemyActor[] enemySet = EnemyActor.getEnemies();
 
 //		boolean exit = false;
 //		while(!exit)
