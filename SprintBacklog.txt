@@ -1,6 +1,0 @@
-console based RPG game
- - World to display
- - Character movement
- - Battling AI
- - Buy Items
- - Learn Skills
