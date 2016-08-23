@@ -55,6 +55,7 @@ public class Skill
 	public Skill(int skillNum)
 	{
 		m_accuracy=.8;
+		m_value=skillNum*10;
 		if(skillNum==0)
 		{
 			m_name="Basic Attack";
@@ -125,6 +126,7 @@ public class Skill
 			m_targetsEnemy=true;
 			m_targetsMultiple=false;
 			m_accuracy=.7;
+			m_value=10;
 		}
 		else if(skillNum==10)
 		{
@@ -132,6 +134,7 @@ public class Skill
 			m_description="A very accurate attack whose attack power is reduced";
 			m_targetsEnemy=true;
 			m_targetsMultiple=false;
+			m_value=15;
 		}
 		else if(skillNum==11)
 		{
@@ -140,6 +143,7 @@ public class Skill
 			m_targetsEnemy=false;
 			m_targetsMultiple=false;
 			m_accuracy=1;
+			m_value=20;
 		}
 		else if(skillNum==12)
 		{
@@ -147,6 +151,7 @@ public class Skill
 			m_description="Heals the caster for half their attack value";
 			m_targetsEnemy=false;
 			m_targetsMultiple=false;
+			m_value=25;
 		}
 		else if(skillNum==13)
 		{
@@ -154,6 +159,7 @@ public class Skill
 			m_description="Increases the user's attack power for the duration of the battle";
 			m_targetsEnemy=false;
 			m_targetsMultiple=false;
+			m_value=50;
 		}
 		else if(skillNum==14)
 		{
@@ -161,6 +167,7 @@ public class Skill
 			m_description="Deals a reduced amount of damage but ignores a targets armor";
 			m_targetsEnemy=true;
 			m_targetsMultiple=false;
+			m_value=50;
 		}
 		else if(skillNum==15)
 		{
@@ -168,6 +175,7 @@ public class Skill
 			m_description="Attack yourself for an increase in attack damage";
 			m_targetsEnemy=false;
 			m_targetsMultiple=false;
+			m_value=100;
 		}
 		else if(skillNum==16)
 		{
@@ -175,6 +183,7 @@ public class Skill
 			m_description="When you are below half health, increase your attack power. Does nothing if above half health";
 			m_targetsEnemy=false;
 			m_targetsMultiple=false;
+			m_value=100;
 		}
 		else if(skillNum==17)
 		{
@@ -198,7 +207,7 @@ public class Skill
 			m_targetsMultiple=false;
 		}
 		m_id=skillNum;
-		m_value=m_id*10;
+
 	}
 	
 	public boolean Execute(Actor User, Actor Target)//Returns true if it hit, false if it didn't

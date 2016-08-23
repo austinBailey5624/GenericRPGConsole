@@ -340,7 +340,7 @@ public class Party extends Actor
     public void viewCharacterSkills(PlayerActor selected)
     {
         Skill[] skillSet = Skill.getSkills();
-        for(int i=0; i<Skill.getNumOfSkillsTotal(); i++)
+        for(int i=0; i<=Skill.getNumOfSkillsTotal(); i++)
         {
             //TODO: only show known skills
             System.out.print(skillSet[i].getName());
